@@ -5,22 +5,49 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-indent */
 import { Transition } from '@headlessui/react';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { useState } from 'react';
+import app from '../firebase/firebase.init';
 
 function Login() {
     const [showForm, setShowForm] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        setIsLoading(true);
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const { user } = result;
+                setName(user.displayName);
+                setIsLoading(false);
+                setShowForm(false);
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const { email } = error.customData;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsLoading(true);
-        // Simulating login request delay
-        setTimeout(() => {
-            setIsLoading(false);
-            setShowForm(false);
-        }, 2000);
+        // setIsLoading(true);
+        // // Simulating login request delay
+        // setTimeout(() => {
+        //     setIsLoading(false);
+        //     setShowForm(false);
+        // }, 2000);
+        handleGoogleSignIn();
     };
 
     return (
@@ -111,7 +138,7 @@ function Login() {
                         leaveFrom="translate-x-0"
                         leaveTo="-translate-x-full">
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold mb-4">Welcome Back, Jane!</h2>
+                            <h2 className="text-2xl font-bold mb-4">Welcome Back, {name}!</h2>
                             <p className="text-gray-700">You are now logged in to your account. Thank you for using our service!</p>
                         </div>
                     </Transition>
