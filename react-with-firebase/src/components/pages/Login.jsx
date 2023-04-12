@@ -64,9 +64,10 @@ function Login() {
                 // The signed-in user info.
                 const { user } = result;
                 // IdP data available using getAdditionalUserInfo(result)
-                console.log(user);
-                setIdLoggedIn(false);
+                setName(user.reloadUserInfo.screenName);
                 setIsLoading(false);
+                setShowForm(false);
+                setIdLoggedIn(true);
             })
 
             .catch((error) => {
