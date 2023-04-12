@@ -1,3 +1,5 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -5,8 +7,9 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-indent */
 import { Transition } from '@headlessui/react';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from 'firebase/auth';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import app from '../firebase/firebase.init';
 
 function Login() {
@@ -17,6 +20,7 @@ function Login() {
     const [name, setName] = useState('');
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
+    const [isLoggedIn, setIdLoggedIn] = useState(false);
 
     const handleGoogleSignIn = () => {
         setIsLoading(true);
@@ -26,6 +30,7 @@ function Login() {
                 setName(user.displayName);
                 setIsLoading(false);
                 setShowForm(false);
+                setIdLoggedIn(true);
             })
             .catch((error) => {
                 // Handle Errors here.
@@ -36,6 +41,20 @@ function Login() {
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
+            });
+    };
+    const navigate = useNavigate();
+
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+                navigate('/');
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                // An error happened.
+                console.log(error);
             });
     };
 
@@ -142,6 +161,11 @@ function Login() {
                             <p className="text-gray-700">You are now logged in to your account. Thank you for using our service!</p>
                         </div>
                     </Transition>
+                    {isLoggedIn && (
+                        <button className="bg-red-500 hover:bg-red-600 text-white w-full mt-5 font-bold py-2 px-4 rounded" onClick={handleSignOut}>
+                            Sign Out
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
