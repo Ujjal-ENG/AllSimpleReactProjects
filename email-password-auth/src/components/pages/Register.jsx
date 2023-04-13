@@ -18,6 +18,7 @@ import {
 } from "firebase/auth";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import app from "../firebase/firebase.init";
 
@@ -30,6 +31,7 @@ function Register() {
   const [isValid, setIsValid] = useState(false);
 
   const [isLoading, setIsloading] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const { userName, email, password } = formDetails;
 
@@ -156,7 +158,7 @@ function Register() {
               onChange={handleChange}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-6 relative">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="password"
@@ -164,14 +166,26 @@ function Register() {
               Password
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline relative"
               id="password"
-              type="password"
+              type={!isClicked ? "password" : "text"}
               placeholder="Enter your password"
               value={password}
               onChange={handleChange}
             />
+            {isClicked ? (
+              <AiFillEye
+                className="absolute top-10 text-2xl right-2 cursor-pointer"
+                onClick={() => setIsClicked(!isClicked)}
+              />
+            ) : (
+              <AiFillEyeInvisible
+                className="absolute top-10 text-2xl right-2 cursor-pointer"
+                onClick={() => setIsClicked(!isClicked)}
+              />
+            )}
           </div>
+
           <div className="flex items-center justify-center">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
