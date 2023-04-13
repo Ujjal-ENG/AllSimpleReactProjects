@@ -14,6 +14,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   sendEmailVerification,
+  updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
@@ -22,6 +23,7 @@ import app from "../firebase/firebase.init";
 
 function Register() {
   const [formDetails, setFormDetails] = useState({
+    userName: "",
     email: "",
     password: "",
   });
@@ -29,7 +31,7 @@ function Register() {
 
   const [isLoading, setIsloading] = useState(false);
 
-  const { email, password } = formDetails;
+  const { userName, email, password } = formDetails;
 
   const handleChange = (e) => {
     setFormDetails({
@@ -66,6 +68,18 @@ function Register() {
         toast.error("Please verify your email address!!");
       });
     };
+
+    const updateUserData = (user, name) => {
+      updateProfile(user, {
+        displayName: name,
+      })
+        .then(() => {
+          toast.success("Profile is Updated!!!");
+        })
+        .catch((error) => {
+          toast.error(`Error Occured${error}`);
+        });
+    };
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -74,7 +88,7 @@ function Register() {
 
         setIsloading(false);
         emailVerification(user);
-
+        updateUserData(user, userName);
         naigate("/login");
       })
       .catch((error) => {
@@ -110,6 +124,22 @@ function Register() {
           className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="userName"
+            >
+              UserName
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="userName"
+              type="text"
+              placeholder="Enter your userName"
+              value={userName}
+              onChange={handleChange}
+            />
+          </div>
           <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
