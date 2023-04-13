@@ -1,3 +1,5 @@
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable operator-linebreak */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable indent */
@@ -8,8 +10,13 @@
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable indent */
 
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendEmailVerification,
+} from "firebase/auth";
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import app from "../firebase/firebase.init";
 
@@ -51,12 +58,23 @@ function Register() {
       setIsloading(false);
       return;
     }
+
+    const emailVerification = (emails) => {
+      sendEmailVerification(emails).then(() => {
+        // Email verification sent!
+        // ...
+        toast.error("Please verify your email address!!");
+      });
+    };
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const { user } = userCredential;
-        console.log(user);
+        console.log(user.email);
+
         setIsloading(false);
+        emailVerification(user);
+
         naigate("/login");
       })
       .catch((error) => {
