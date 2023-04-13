@@ -25,6 +25,12 @@ function Navbar() {
       >
         Login
       </NavLink>
+      <NavLink
+        to="/register"
+        className={({ isActive }) => (isActive ? "active" : "default")}
+      >
+        Register
+      </NavLink>
     </nav>
   );
 }
