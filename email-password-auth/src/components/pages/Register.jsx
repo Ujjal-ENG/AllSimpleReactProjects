@@ -7,13 +7,18 @@
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable indent */
 
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import app from "../firebase/firebase.init";
 
 function Register() {
   const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
   });
+
+  const [isLoading, setIsloading] = useState(false);
 
   const { email, password } = formDetails;
 
@@ -23,18 +28,41 @@ function Register() {
       [e.target.id]: e.target.value,
     });
   };
+  const auth = getAuth(app);
+  const naigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formDetails);
+    setIsloading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const { user } = userCredential;
+        console.log(user);
+        setIsloading(false);
+        naigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+        // ..
+      });
   };
+
   return (
     <div>
       <h1 className="text-3xl text-violet-500 font-bold text-center py-10">
         Register Page
       </h1>
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+
+      {isLoading && (
+        <div className="w-1/2 mx-auto h-4 bg-gray-200 rounded-full">
+          <div className="h-full p-3 text-center bg-blue-500 rounded-full animate-pulse">
+            Loading
+          </div>
+        </div>
+      )}
+      <div className="flex flex-col items-center justify-center">
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
