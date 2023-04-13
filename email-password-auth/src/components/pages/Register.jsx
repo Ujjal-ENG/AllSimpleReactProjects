@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable indent */
 /* eslint-disable comma-dangle */
@@ -17,6 +18,7 @@ function Register() {
     email: "",
     password: "",
   });
+  const [isValid, setIsValid] = useState(false);
 
   const [isLoading, setIsloading] = useState(false);
 
@@ -27,12 +29,28 @@ function Register() {
       ...formDetails,
       [e.target.id]: e.target.value,
     });
+    if (e.target.id === "password") {
+      const newPassword = e.target.value;
+      const passwordRegex =
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+      const isPasswordValid = passwordRegex.test(newPassword);
+
+      // Update the isValid state based on the password validation result
+      setIsValid(isPasswordValid);
+    }
   };
   const auth = getAuth(app);
   const naigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsloading(true);
+
+    if (!isValid) {
+      // Show an error message and return if the password is not valid
+      setIsloading(false);
+      return;
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -53,6 +71,14 @@ function Register() {
         Register Page
       </h1>
 
+      {isValid ? (
+        <p>Password is valid!</p>
+      ) : (
+        <p className="text-center font-bold text-red-500">
+          Password must be at least 8 characters long and contain at least one
+          uppercase letter, one lowercase letter, and one number.
+        </p>
+      )}
       {isLoading && (
         <div className="w-1/2 mx-auto h-4 bg-gray-200 rounded-full">
           <div className="h-full p-3 text-center bg-blue-500 rounded-full animate-pulse">
@@ -60,6 +86,7 @@ function Register() {
           </div>
         </div>
       )}
+
       <div className="flex flex-col items-center justify-center">
         <form
           className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4"
