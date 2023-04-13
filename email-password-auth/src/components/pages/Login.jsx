@@ -8,13 +8,18 @@
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable indent */
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import {
+  getAuth,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import React, { useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import app from "../firebase/firebase.init";
 
 function Login() {
+  const emailRef = useRef();
   const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
@@ -43,8 +48,29 @@ function Login() {
         // ...
       })
       .catch((error) => {
-        toast.error(`Login SuccessFull and welcome: ${error}`);
+        toast.error(`error occured: ${error}`);
         console.log(error);
+      });
+  };
+
+  const handleResetPassword = () => {
+    const emailed = emailRef.current.value;
+    if (!emailed) {
+      toast.error(
+        "please provide your email address to change the password!!!"
+      );
+    }
+    sendPasswordResetEmail(auth, emailed)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+        toast.success(
+          "please go to your email and reset your password there!!"
+        );
+      })
+      .catch((error) => {
+        toast.error(error);
+        // ..
       });
   };
   return (
@@ -67,6 +93,7 @@ function Login() {
             type="email"
             placeholder="email"
             value={email}
+            ref={emailRef}
             onChange={handleChange}
           />
         </div>
@@ -86,13 +113,26 @@ function Login() {
             onChange={handleChange}
           />
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center flex-col">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Sign In
           </button>
+          <h3 className="text-xl font-bold text-red-500">
+            {" "}
+            <small>
+              Forget Password??
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-10 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                onClick={handleResetPassword}
+              >
+                Reset Password
+              </button>
+            </small>
+          </h3>
         </div>
       </form>
     </div>
