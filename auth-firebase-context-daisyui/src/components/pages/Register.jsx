@@ -46,7 +46,7 @@ function Register() {
                             </label>
                             <input type="password" placeholder="password" id="password" value={password} onChange={handleChange} className="input input-bordered" />
                             <label className="label flex items-center justify-between">
-                                <Link to="/login" className="label-text-alt link link-hover">
+                                <Link to="/login" className="label-text-alt btn-link font-bold link-hover">
                                     Already Have an account?
                                 </Link>
                             </label>
