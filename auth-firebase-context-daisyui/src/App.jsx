@@ -1,6 +1,14 @@
+/* eslint-disable react/jsx-indent */
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/layouts/Navbar';
+
 function App() {
-    const a_v = 'g';
-    return <></>;
+    return (
+        <>
+            <Navbar />
+            <Outlet />
+        </>
+    );
 }
 
 export default App;
