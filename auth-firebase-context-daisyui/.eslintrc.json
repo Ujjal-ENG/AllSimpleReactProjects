@@ -20,7 +20,7 @@
         "no-empty": "error",
         "default-case": "error",
         "eqeqeq": "error",
-        "react/react-in-jsx-scope": "off",
+        "react/react-in-jsx-scope": "on",
         "react-hooks/rules-of-hooks": "error",
         "no-console": "off",
         "react/state-in-constructor": "off",
