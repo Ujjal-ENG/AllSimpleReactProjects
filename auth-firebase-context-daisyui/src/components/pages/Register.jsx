@@ -1,10 +1,13 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context-provider/AuthProviders';
 
 function Register() {
+    const { createUser } = useContext(AuthContext);
+
     const [user, setUser] = useState({
         username: '',
         email: '',
@@ -18,9 +21,11 @@ function Register() {
             [e.target.id]: e.target.value
         });
     };
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(user);
+        createUser(email, password);
+        navigate('/login');
     };
     return (
         <div className=" h-screen">
