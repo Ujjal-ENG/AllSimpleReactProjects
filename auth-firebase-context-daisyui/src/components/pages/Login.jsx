@@ -1,12 +1,12 @@
-/* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
+/* eslint-disable comma-dangle */
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context-provider/AuthProviders';
 
 function Login() {
-    const { signUpUser } = useContext(AuthContext);
+    const { signUpUser, loading } = useContext(AuthContext);
 
     const [user, setUser] = useState({
         email: '',
@@ -19,6 +19,10 @@ function Login() {
             [e.target.id]: e.target.value
         });
     };
+
+    if (loading) {
+        return <progress className="progress w-56" />;
+    }
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();

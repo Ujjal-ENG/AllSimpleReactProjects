@@ -1,12 +1,12 @@
-/* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
+/* eslint-disable comma-dangle */
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context-provider/AuthProviders';
 
 function Register() {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, loading } = useContext(AuthContext);
 
     const [user, setUser] = useState({
         username: '',
@@ -27,6 +27,10 @@ function Register() {
         createUser(email, password, username);
         navigate('/login');
     };
+
+    if (loading) {
+        return <progress className="progress w-56" />;
+    }
 
     return (
         <div className=" h-screen">

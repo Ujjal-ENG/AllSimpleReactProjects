@@ -10,16 +10,16 @@ const auth = getAuth(app);
 
 function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const createUser = (email, password, username) => {
+        setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const { user } = userCredential;
-                console.log(user);
-                setUserInfo(user);
 
+                setLoading(false);
                 updateProfile(user, {
                     displayName: username
                 });
@@ -32,11 +32,12 @@ function AuthProviders({ children }) {
     };
 
     const signUpUser = (email, password) => {
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const { user } = userCredential;
-                console.log(user);
+                setLoading(false);
             })
             .catch((error) => {
                 console.log(error);
