@@ -12,15 +12,21 @@ function Register() {
                     <div className="card-body">
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">UserName</span>
+                            </label>
+                            <input type="text" placeholder="name" id="name" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
+                            <input type="email" placeholder="email" id="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="password" placeholder="password" id="password" className="input input-bordered" />
                             <label className="label flex items-center justify-between">
                                 <Link to="/login" className="label-text-alt link link-hover">
                                     Already Have an account?
