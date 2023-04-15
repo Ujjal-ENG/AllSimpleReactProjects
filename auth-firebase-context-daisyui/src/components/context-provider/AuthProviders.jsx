@@ -42,6 +42,16 @@ function AuthProviders({ children }) {
             });
     };
 
+    const signOutUser = () => {
+        auth.signOut()
+            .then(() => {
+                console.log('User signed out successfully');
+            })
+            .catch((error) => {
+                console.log('Error signing out:', error);
+            });
+    };
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUserInfo(currentUser);
@@ -52,7 +62,8 @@ function AuthProviders({ children }) {
     const authInfo = {
         userInfo,
         createUser,
-        signUpUser
+        signUpUser,
+        signOutUser
     };
 
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
