@@ -29,7 +29,7 @@ function Register() {
                         </div>
                         <div className="form-control mt-6">
                             <button type="submit" className="btn btn-primary">
-                                Login
+                                Register
                             </button>
                         </div>
                     </div>

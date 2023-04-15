@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 function ForgotPassword() {
     return (
-        <div className="flex justify-center items-center  h-screen">
+        <div className="flex justify-center items-center  h-screen flex-col">
+            <h1 className="text-4xl pb-4 font-bold text-center text-secondary">Forgot Password</h1>
             <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
                     <div className="form-control">
@@ -30,7 +31,7 @@ function ForgotPassword() {
                     </div>
                     <div className="form-control mt-6">
                         <button type="submit" className="btn btn-primary">
-                            Login
+                            ForGot Password
                         </button>
                     </div>
                 </div>
