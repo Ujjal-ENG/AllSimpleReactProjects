@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../context-provider/AuthProviders';
 
 function Login() {
@@ -19,7 +19,7 @@ function Login() {
             [e.target.id]: e.target.value
         });
     };
-    const navigate = useNavigate();
+
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         signUpUser(email, password);

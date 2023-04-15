@@ -24,7 +24,7 @@ function Register() {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        createUser(email, password);
+        createUser(email, password, username);
         navigate('/login');
     };
     return (
