@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context-provider/AuthProviders';
 
 function Register() {
-    const { createUser, loading } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const [user, setUser] = useState({
         username: '',
@@ -27,7 +27,7 @@ function Register() {
         createUser(email, password, username);
         navigate('/login');
     };
-    console.log(loading);
+
     return (
         <div className=" h-screen">
             <h1 className="text-4xl py-5 font-bold text-center text-secondary">Register your Account</h1>
