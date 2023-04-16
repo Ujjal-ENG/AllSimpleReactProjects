@@ -1,14 +1,13 @@
 /* eslint-disable react/jsx-indent */
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
 
 function PrivateRoute({ children }) {
     const { userInfo, privateLoad } = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location, privateLoad);
 
-    if (userInfo) {
-        return children;
-    }
     if (privateLoad) {
         return (
             <div className="flex h-screen items-center justify-center">
@@ -16,7 +15,11 @@ function PrivateRoute({ children }) {
             </div>
         );
     }
-    return <Navigate to="/login" />;
+
+    if (userInfo) {
+        return children;
+    }
+    return <Navigate to="/login" state={{ from: location }} replace />;
 }
 
 export default PrivateRoute;

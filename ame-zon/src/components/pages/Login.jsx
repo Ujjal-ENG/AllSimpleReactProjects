@@ -6,7 +6,7 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
 
 function Login() {
@@ -15,6 +15,9 @@ function Login() {
         email: '',
         password: ''
     });
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
     const { email, password } = newUser;
     const handleChange = (e) => {
         setNewUser({
@@ -32,6 +35,7 @@ function Login() {
 
                     toast.success('Successfully Signed In!!!');
                     // ...
+                    navigate(from, { replace: true });
                 })
                 .catch((error) => {
                     toast.error(error);

@@ -13,9 +13,16 @@ function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
 
     const [privateLoad, setPrivateLoad] = useState(true);
-    const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-    const createUserWithGoogle = () => signInWithPopup(auth, googleProvider);
+    const createUser = (email, password) => {
+        setPrivateLoad(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
+
+    const createUserWithGoogle = () => {
+        setPrivateLoad(true);
+        return signInWithPopup(auth, googleProvider);
+    };
 
     const singOutTheUser = () => {
         signOut(auth)
@@ -31,7 +38,8 @@ function AuthProviders({ children }) {
     };
 
     const signInUser = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password);
+        setPrivateLoad(true);
+        return signInWithEmailAndPassword(auth, email, password);
     };
 
     useEffect(() => {
