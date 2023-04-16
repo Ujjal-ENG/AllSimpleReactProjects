@@ -5,21 +5,21 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
-export const AuthContext = createContext({});
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
     const [loading, setIsLoading] = useState(false);
     const createUser = (email, password, name) => {
-        setIsLoading(false);
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const { user } = userCredential;
                 // ...
-                console.log(user);
-                setIsLoading(true);
+
+                setIsLoading(false);
                 updateProfile(user, {
                     displayName: name
                 })
