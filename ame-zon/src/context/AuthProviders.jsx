@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
@@ -60,6 +60,29 @@ function AuthProviders({ children }) {
             });
     };
 
+    const singOutTheUser = () => {
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+            })
+            .catch((error) => {
+                // An error happened.
+            });
+    };
+
+    const signInUser = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const { user } = userCredential;
+                console.log('user SignEd In');
+                // ...
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     useEffect(() => {
         const stateChange = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -77,7 +100,9 @@ function AuthProviders({ children }) {
         userInfo,
         createUser,
         createUserWithGoogle,
-        loading
+        loading,
+        singOutTheUser,
+        signInUser
     };
     return <AuthContext.Provider value={authProviders}>{children}</AuthContext.Provider>;
 }

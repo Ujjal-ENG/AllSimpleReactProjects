@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
 
 function RegisterUser() {
-    const { userInfo, createUser, createUserWithGoogle, loading } = useContext(AuthContext);
+    const { createUser, createUserWithGoogle, loading } = useContext(AuthContext);
 
     const [newUser, setNewUser] = useState({
         name: '',
