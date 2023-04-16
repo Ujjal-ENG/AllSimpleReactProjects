@@ -44,10 +44,7 @@ function AuthProviders({ children }) {
     const createUserWithGoogle = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                const { user } = result;
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
+            .then(() => {
                 toast.success('SingnInedIn');
                 setIsLoading(false);
             })
