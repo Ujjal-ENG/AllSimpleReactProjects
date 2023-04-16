@@ -11,12 +11,9 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
-    const [loading, setIsLoading] = useState(false);
+
     const [privateLoad, setPrivateLoad] = useState(true);
-    const createUser = (email, password) => {
-        setIsLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
-    };
+    const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
     const createUserWithGoogle = () => signInWithPopup(auth, googleProvider);
 
@@ -42,10 +39,6 @@ function AuthProviders({ children }) {
             if (user) {
                 setUserInfo(user);
                 setPrivateLoad(false);
-                setIsLoading(true);
-                // ...
-            } else {
-                // User is signed out
                 // ...
             }
         });
@@ -56,7 +49,6 @@ function AuthProviders({ children }) {
         userInfo,
         createUser,
         createUserWithGoogle,
-        loading,
         singOutTheUser,
         signInUser,
         privateLoad

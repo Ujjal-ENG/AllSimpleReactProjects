@@ -12,14 +12,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
 
 function RegisterUser() {
-    const { createUser, createUserWithGoogle, loading } = useContext(AuthContext);
+    const { createUser, createUserWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate('');
     const [newUser, setNewUser] = useState({
         name: '',
         email: '',
         password: ''
     });
-    const [isLoading, setIsLoading] = useState(loading);
+
+    const [isLoading, setIsLoading] = useState(false);
     const { name, email, password } = newUser;
     const handleChange = (e) => {
         setNewUser({
