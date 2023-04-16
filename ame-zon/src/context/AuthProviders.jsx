@@ -64,6 +64,7 @@ function AuthProviders({ children }) {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
+                setUserInfo(null);
             })
             .catch((error) => {
                 // An error happened.
