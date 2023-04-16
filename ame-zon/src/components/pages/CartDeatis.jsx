@@ -1,8 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/jsx-indent */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { deleteShoppingCart } from '../../utilities/fakedb';
 
-const CartDeatis = (props) => {
+function CartDeatis(props) {
     const cart = props.data;
     const [isClicked, setIsClicked] = useState(true);
     let tax = 0;
@@ -10,7 +13,7 @@ const CartDeatis = (props) => {
     let totalQuantity = 0;
     let totalPrice = 0;
     let shippingCost = 0;
-    for (let id of cart) {
+    for (const id of cart) {
         totalQuantity += id.quantity;
         totalPrice += id.price * id.quantity;
         shippingCost += id.shipping;
@@ -29,7 +32,10 @@ const CartDeatis = (props) => {
         <div className="bg-orange-300 space-y-3 p-5 fixed right-10 my-20 rounded-lg">
             <h3 className="text-2xl text-center underline">Order Summary</h3>
 
-            <p>Selected Items: {isClicked ? totalQuantity : 0}</p>
+            <p>
+                Selected Items:
+                {isClicked ? totalQuantity : 0}
+            </p>
             <p>Total Price: ${isClicked ? totalPrice : 0}</p>
             <p>Total Shipping Cost: ${isClicked ? shippingCost : 0}</p>
             <p>Tax: ${isClicked ? tax : 0}</p>
@@ -43,6 +49,6 @@ const CartDeatis = (props) => {
             </Link>
         </div>
     );
-};
+}
 
 export default CartDeatis;
