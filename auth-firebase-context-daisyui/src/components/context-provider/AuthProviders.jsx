@@ -60,7 +60,7 @@ function AuthProviders({ children }) {
             setLoading(false);
         });
         return () => unSubscribe();
-    }, []);
+    }, [userInfo]);
 
     const authInfo = {
         userInfo,

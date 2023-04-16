@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable comma-dangle */
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../context-provider/AuthProviders';
 
 function Login() {
@@ -24,9 +24,14 @@ function Login() {
         return <progress className="progress w-56" />;
     }
 
-    const handleLoginSubmit = (e) => {
+    const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        signUpUser(email, password);
+        try {
+            await signUpUser(email, password);
+            <Navigate to="/dashboard" />;
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
