@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import app from '../firebase/firebase.config';
@@ -13,47 +13,12 @@ function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
     const [loading, setIsLoading] = useState(false);
     const [privateLoad, setPrivateLoad] = useState(true);
-    const createUser = (email, password, name) => {
+    const createUser = (email, password) => {
         setIsLoading(true);
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const { user } = userCredential;
-                // ...
-
-                setIsLoading(false);
-                updateProfile(user, {
-                    displayName: name
-                })
-                    .then(() => {
-                        // Profile updated!
-                        // ...
-                        console.log('profile name is updated');
-                    })
-                    .catch((error) => {
-                        // An error occurred
-                        // ...
-                        console.log(error);
-                    });
-            })
-            .catch((error) => {
-                console.log(`Register User Error${error}`);
-                // ..
-            });
+        return createUserWithEmailAndPassword(auth, email, password);
     };
 
-    const createUserWithGoogle = () => {
-        setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then(() => {
-                toast.success('SingnInedIn');
-                setIsLoading(false);
-            })
-            .catch((error) => {
-                console.log(`Register User Error Google: ${error}`);
-                // ...
-            });
-    };
+    const createUserWithGoogle = () => signInWithPopup(auth, googleProvider);
 
     const singOutTheUser = () => {
         signOut(auth)
@@ -69,16 +34,7 @@ function AuthProviders({ children }) {
     };
 
     const signInUser = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
-                // Signed in
-
-                toast.success('Successfully Signed In!!!');
-                // ...
-            })
-            .catch((error) => {
-                toast.error(error);
-            });
+        signInWithEmailAndPassword(auth, email, password);
     };
 
     useEffect(() => {
@@ -86,6 +42,7 @@ function AuthProviders({ children }) {
             if (user) {
                 setUserInfo(user);
                 setPrivateLoad(false);
+                setIsLoading(true);
                 // ...
             } else {
                 // User is signed out

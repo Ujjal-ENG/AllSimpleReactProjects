@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
@@ -24,7 +25,20 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        signInUser(email, password);
+        try {
+            signInUser(email, password)
+                .then(() => {
+                    // Signed in
+
+                    toast.success('Successfully Signed In!!!');
+                    // ...
+                })
+                .catch((error) => {
+                    toast.error(error);
+                });
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handleGoogleSignIN = () => {

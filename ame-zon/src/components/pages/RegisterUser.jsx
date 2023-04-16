@@ -4,19 +4,22 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent */
+import { updateProfile } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
 
 function RegisterUser() {
     const { createUser, createUserWithGoogle, loading } = useContext(AuthContext);
-
+    const navigate = useNavigate('');
     const [newUser, setNewUser] = useState({
         name: '',
         email: '',
         password: ''
     });
+    const [isLoading, setIsLoading] = useState(loading);
     const { name, email, password } = newUser;
     const handleChange = (e) => {
         setNewUser({
@@ -25,7 +28,7 @@ function RegisterUser() {
         });
     };
 
-    if (loading) {
+    if (isLoading) {
         return (
             <div className="flex h-screen items-center justify-center">
                 <div className="rounded-full border-4 border-t-4 border-red-500 h-12 w-12 animate-spin" />
@@ -35,11 +38,45 @@ function RegisterUser() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await createUser(email, password, name);
+        setIsLoading(!isLoading);
+        try {
+            await createUser(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const { user } = userCredential;
+                    // ..
+                    updateProfile(user, {
+                        displayName: name
+                    });
+
+                    navigate('/shop');
+                    setIsLoading(!isLoading);
+                })
+                .catch((error) => {
+                    console.log(`Register User Error${error}`);
+                    // ..
+                });
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handleSignUpGoogle = async () => {
-        await createUserWithGoogle();
+        setIsLoading(!isLoading);
+        try {
+            await createUserWithGoogle()
+                .then(() => {
+                    toast.success('User Created');
+                })
+                .catch((error) => {
+                    console.log(`Register User Error Google: ${error}`);
+                    // ...
+                });
+            navigate('/shop');
+            setIsLoading(!isLoading);
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <div>
