@@ -92,7 +92,7 @@ function RegisterUser() {
                             <div className="flex items-center justify-center gap-3">
                                 <p>Already Have an Account?</p>
                                 <div className="text-sm">
-                                    <Link to="/register-user" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                    <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
                                         Login?
                                     </Link>
                                 </div>
