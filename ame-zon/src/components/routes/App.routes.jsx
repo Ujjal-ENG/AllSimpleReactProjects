@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/prefer-default-export */
 import { createBrowserRouter } from 'react-router-dom';
@@ -11,6 +12,7 @@ import OrderReview from '../pages/OrderReview';
 import { ProceedCheckout } from '../pages/ProceedCheckout';
 import RegisterUser from '../pages/RegisterUser';
 import Shop from '../pages/Shop';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -45,7 +47,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/proceed-checkout',
-                element: <ProceedCheckout />
+                element: (
+                    <PrivateRoute>
+                        <ProceedCheckout />
+                    </PrivateRoute>
+                )
             }
         ]
     }
