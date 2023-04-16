@@ -3,11 +3,13 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProviders';
 
 function RegisterUser() {
+    const { createUser, createUserWithGoogle } = useContext(AuthContext);
     const [newUser, setNewUser] = useState({
         name: '',
         email: '',
@@ -23,11 +25,12 @@ function RegisterUser() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        await createUser(email, password, name);
         console.log(newUser);
     };
 
     const handleSignUpGoogle = async () => {
-        console.log('google');
+        await createUserWithGoogle();
     };
     return (
         <div>
