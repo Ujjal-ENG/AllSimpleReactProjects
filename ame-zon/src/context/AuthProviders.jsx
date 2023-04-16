@@ -12,6 +12,7 @@ const googleProvider = new GoogleAuthProvider();
 function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
     const [loading, setIsLoading] = useState(false);
+    const [privateLoad, setPrivateLoad] = useState(true);
     const createUser = (email, password, name) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
@@ -84,6 +85,7 @@ function AuthProviders({ children }) {
         const stateChange = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUserInfo(user);
+                setPrivateLoad(false);
                 // ...
             } else {
                 // User is signed out
@@ -99,7 +101,8 @@ function AuthProviders({ children }) {
         createUserWithGoogle,
         loading,
         singOutTheUser,
-        signInUser
+        signInUser,
+        privateLoad
     };
     return <AuthContext.Provider value={authProviders}>{children}</AuthContext.Provider>;
 }
