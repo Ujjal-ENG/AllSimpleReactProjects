@@ -8,6 +8,9 @@ function PrivateRoute({ children }) {
     const location = useLocation();
     console.log(location, privateLoad);
 
+    if (userInfo) {
+        return children;
+    }
     if (privateLoad) {
         return (
             <div className="flex h-screen items-center justify-center">
@@ -16,9 +19,6 @@ function PrivateRoute({ children }) {
         );
     }
 
-    if (userInfo) {
-        return children;
-    }
     return <Navigate to="/login" state={{ from: location }} replace />;
 }
 

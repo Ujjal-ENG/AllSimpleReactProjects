@@ -47,6 +47,7 @@ function Login() {
 
     const handleGoogleSignIN = () => {
         createUserWithGoogle();
+        navigate(from, { replace: true });
     };
 
     return (

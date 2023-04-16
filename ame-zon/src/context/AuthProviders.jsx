@@ -29,7 +29,8 @@ function AuthProviders({ children }) {
             .then(() => {
                 // Sign-out successful.
                 setUserInfo(null);
-                toast.success('SignOut Successfully!!');
+                toast.success('Successfully SignOut!!');
+                setPrivateLoad(false);
             })
             .catch((error) => {
                 // An error happened.
@@ -44,14 +45,11 @@ function AuthProviders({ children }) {
 
     useEffect(() => {
         const stateChange = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUserInfo(user);
-                setPrivateLoad(false);
-                // ...
-            }
+            setUserInfo(user);
+            setPrivateLoad(false);
         });
         return () => stateChange();
-    }, [userInfo]);
+    }, []);
 
     const authProviders = {
         userInfo,
