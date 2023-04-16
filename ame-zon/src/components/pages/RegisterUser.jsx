@@ -1,6 +1,12 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-indent */
 import React from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
 
-const RegisterUser = () => {
+function RegisterUser() {
     return (
         <div>
             <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -82,6 +88,15 @@ const RegisterUser = () => {
                                     Register
                                 </button>
                             </div>
+
+                            <div className="flex items-center justify-center gap-3">
+                                <p>Already Have an Account?</p>
+                                <div className="text-sm">
+                                    <Link to="/register-user" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                        Login?
+                                    </Link>
+                                </div>
+                            </div>
                             <div className="mt-6">
                                 <div className="relative">
                                     <div className="absolute inset-0 flex items-center">
@@ -92,17 +107,12 @@ const RegisterUser = () => {
                                     </div>
                                 </div>
 
-                                <div className="mt-6 grid grid-cols-2 gap-3">
+                                <div className="mt-6 ">
                                     <button
                                         type="submit"
-                                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 items-center gap-2">
+                                        <FcGoogle className="text-3xl" />
                                         Register with Google
-                                    </button>
-
-                                    <button
-                                        type="submit"
-                                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                                        Register with Github
                                     </button>
                                 </div>
                             </div>
@@ -112,6 +122,6 @@ const RegisterUser = () => {
             </div>
         </div>
     );
-};
+}
 
 export default RegisterUser;
