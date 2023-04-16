@@ -3,6 +3,7 @@
 /* eslint-disable comma-dangle */
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
@@ -44,14 +45,10 @@ function AuthProviders({ children }) {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
                 const { user } = result;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                console.log(`newUser in Google: ${user}`);
+                toast.success('SingnInedIn');
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -65,22 +62,24 @@ function AuthProviders({ children }) {
             .then(() => {
                 // Sign-out successful.
                 setUserInfo(null);
+                toast.success('SignOut Successfully!!');
             })
             .catch((error) => {
                 // An error happened.
+                toast.error(error);
             });
     };
 
     const signInUser = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(() => {
                 // Signed in
-                const { user } = userCredential;
-                console.log('user SignEd In');
+
+                toast.success('Successfully Signed In!!!');
                 // ...
             })
             .catch((error) => {
-                console.log(error);
+                toast.error(error);
             });
     };
 
