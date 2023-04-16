@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
@@ -9,7 +10,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProviders';
 
 function RegisterUser() {
-    const { createUser, createUserWithGoogle } = useContext(AuthContext);
+    const { createUser, createUserWithGoogle, loading } = useContext(AuthContext);
+
     const [newUser, setNewUser] = useState({
         name: '',
         email: '',
@@ -23,10 +25,17 @@ function RegisterUser() {
         });
     };
 
+    if (loading) {
+        return (
+            <div className="flex h-screen items-center justify-center">
+                <div className="rounded-full border-4 border-t-4 border-red-500 h-12 w-12 animate-spin" />
+            </div>
+        );
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await createUser(email, password, name);
-        console.log(newUser);
     };
 
     const handleSignUpGoogle = async () => {

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
-import React, { createContext, useState } from 'react';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from 'firebase/auth';
+import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext({});
@@ -10,13 +10,16 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
+    const [loading, setIsLoading] = useState(false);
     const createUser = (email, password, name) => {
+        setIsLoading(false);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const { user } = userCredential;
                 // ...
                 console.log(user);
+                setIsLoading(true);
                 updateProfile(user, {
                     displayName: name
                 })
@@ -38,6 +41,7 @@ function AuthProviders({ children }) {
     };
 
     const createUserWithGoogle = () => {
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -48,6 +52,7 @@ function AuthProviders({ children }) {
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
                 console.log(`newUser in Google: ${user}`);
+                setIsLoading(false);
             })
             .catch((error) => {
                 console.log(`Register User Error Google: ${error}`);
@@ -55,10 +60,24 @@ function AuthProviders({ children }) {
             });
     };
 
+    useEffect(() => {
+        const stateChange = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUserInfo(user);
+                // ...
+            } else {
+                // User is signed out
+                // ...
+            }
+        });
+        return () => stateChange();
+    }, [userInfo]);
+
     const authProviders = {
         userInfo,
         createUser,
-        createUserWithGoogle
+        createUserWithGoogle,
+        loading
     };
     return <AuthContext.Provider value={authProviders}>{children}</AuthContext.Provider>;
 }
