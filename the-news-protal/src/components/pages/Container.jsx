@@ -9,8 +9,8 @@ function Container() {
             <div className="col-span-3 bg-gray-100 p-4">
                 <LeftNav />
             </div>
-            <div className="col-span-6 bg-gray-200 p-4">main conttent comming soon</div>
-            <div className="col-span-3 bg-gray-300 p-4">
+            <div className="col-span-6  p-4">main conttent comming soon</div>
+            <div className="col-span-3  p-4">
                 <RightNav />
             </div>
         </div>
