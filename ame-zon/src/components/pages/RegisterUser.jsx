@@ -45,7 +45,7 @@ function RegisterUser() {
                 .then((userCredential) => {
                     // Signed in
                     const { user } = userCredential;
-                    // ..
+
                     updateProfile(user, {
                         displayName: name // your provided name
                     });

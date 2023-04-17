@@ -14,7 +14,7 @@ import { AuthContext } from '../../context/AuthProviders';
 
 function Header() {
     const { userInfo, singOutTheUser } = useContext(AuthContext);
-    console.log(userInfo);
+
     return (
         <header className="bg-violet-600 p-3 text-white fixed top-0 right-0 left-0 z-40">
             <nav className="flex justify-between items-center mx-20 ">
