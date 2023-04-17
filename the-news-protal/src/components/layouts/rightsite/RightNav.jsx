@@ -14,6 +14,7 @@ import Qzone3 from '../../../assets/qZone3.png';
 function RightNav() {
     return (
         <div>
+            <h3 className="text-2xl font-bold pb-4">Login With</h3>
             <div className="space-y-3">
                 <button type="button" className="btn-outlined">
                     <FcGoogle />
