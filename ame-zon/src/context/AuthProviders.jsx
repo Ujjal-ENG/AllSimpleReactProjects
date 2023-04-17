@@ -12,7 +12,7 @@ const googleProvider = new GoogleAuthProvider();
 function AuthProviders({ children }) {
     const [userInfo, setUserInfo] = useState(null);
     const [privateLoad, setPrivateLoad] = useState(true);
-
+    const [displayName, setDisplayName] = useState('');
     const createUser = (email, password) => {
         setPrivateLoad(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -56,7 +56,9 @@ function AuthProviders({ children }) {
         createUserWithGoogle,
         singOutTheUser,
         signInUser,
-        privateLoad
+        privateLoad,
+        displayName,
+        setDisplayName
     };
     return <AuthContext.Provider value={authProviders}>{children}</AuthContext.Provider>;
 }

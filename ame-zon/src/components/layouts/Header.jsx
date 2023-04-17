@@ -13,9 +13,8 @@ import Logo from '../../assets/images/Logo.svg';
 import { AuthContext } from '../../context/AuthProviders';
 
 function Header() {
-    const { userInfo, singOutTheUser } = useContext(AuthContext);
-    // const { displayName } = userInfo || {};
-    // console.log(displayName);
+    const { userInfo, singOutTheUser, displayName } = useContext(AuthContext);
+
     return (
         <header className="bg-violet-600 p-3 text-white fixed top-0 right-0 left-0 z-40">
             <nav className="flex justify-between items-center mx-20 ">
@@ -34,7 +33,7 @@ function Header() {
                             SingOut
                         </button>
                     )}
-                    <p className="text-red-600"> {userInfo && userInfo.displayName}</p>
+                    <p className="text-red-600"> {(userInfo && userInfo.displayName) || displayName}</p>
                 </ul>
             </nav>
         </header>
