@@ -3,6 +3,7 @@
 import cors from 'cors';
 import express from 'express';
 import categoriesData from './data/categories.json' assert { type: "json" };
+import newsData from './data/news.json' assert { type: "json" };
 const app = express();
 app.use(cors())
 app.get('/', (req, res) => {
@@ -17,6 +18,13 @@ app.get('/categories', (req, res) => {
     });
 });
 
+app.get("/all-news", (req, res) => {
+  res.json({
+    message: 'success',
+    results: newsData.length,
+    data: newsData,
+});
+})
 app.listen(3000, () => {
     console.log('Server is running on port:3000');
 });
