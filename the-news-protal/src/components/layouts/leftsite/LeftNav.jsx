@@ -1,7 +1,13 @@
+/* eslint-disable react/jsx-indent */
 import React from 'react';
+import LeftNavCategories from './LeftNavCategories';
 
 function LeftNav() {
-    return <div>LeftNav</div>;
+    return (
+        <div>
+            <LeftNavCategories />
+        </div>
+    );
 }
 
 export default LeftNav;
