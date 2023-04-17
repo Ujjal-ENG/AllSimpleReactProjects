@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-indent */
 import { Outlet } from 'react-router-dom';
 import Footer from './components/layouts/shared/Footer';
-import Navbar from './components/layouts/shared/Navbar';
+import Header from './components/pages/Header';
 
 function App() {
     return (
         <>
-            <Navbar />
+            <Header />
             <div className="min-h-[calc(100vh-136px)]">
                 <Outlet />
             </div>
