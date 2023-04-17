@@ -48,7 +48,7 @@ function AuthProviders({ children }) {
             setPrivateLoad(false);
         });
         return () => stateChange();
-    }, []);
+    }, [userInfo]);
 
     const authProviders = {
         userInfo,

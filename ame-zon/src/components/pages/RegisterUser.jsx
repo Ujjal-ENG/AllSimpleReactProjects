@@ -4,7 +4,6 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent */
-import { updateProfile } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
@@ -37,19 +36,12 @@ function RegisterUser() {
         );
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(!isLoading);
         try {
             createUser(email, password)
                 .then((userCredential) => {
-                    // Signed in
-                    const { user } = userCredential;
-
-                    updateProfile(user, {
-                        displayName: name // your provided name
-                    });
-
                     navigate('/shop');
 
                     setIsLoading(!isLoading);
