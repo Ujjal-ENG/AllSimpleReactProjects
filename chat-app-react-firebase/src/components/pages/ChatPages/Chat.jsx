@@ -16,7 +16,7 @@ function Chat() {
                     <BsThreeDots />
                 </div>
             </div>
-            <div className="min-h-[calc(100vh-258px)] max-h-[calc(100vh-258px)] overflow-y-auto scroll-behavior-smooth">
+            <div className="max-h-[calc(100vh-258px)] overflow-y-auto scroll-behavior-smooth">
                 <Messages />
             </div>
             <Input />
