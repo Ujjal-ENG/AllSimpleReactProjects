@@ -3,14 +3,27 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-indent-props */
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context-providers/AuthProviders';
 
 function Register() {
+    const { loading, createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const displayName = e.target[0].value;
+        const email = e.target[1].value;
+        const password = e.target[2].value;
+        createUser(email, password, displayName);
+        navigate('/login');
+    };
+    console.log(loading);
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content ">
-                <div className="card   shadow-2xl bg-base-100">
+                <form onSubmit={handleSubmit} className="card   shadow-2xl bg-base-100">
                     <div className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -43,11 +56,11 @@ function Register() {
                             </Link>
                         </label>
 
-                        <div className="form-control mt-6">
+                        <div type="submit" className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

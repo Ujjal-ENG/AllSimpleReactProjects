@@ -9,13 +9,13 @@ export const AuthContext = createContext({});
 const auth = getAuth(app);
 function AuthProviders({ children }) {
     const [loading, setLoading] = useState(false);
-    const [user, setUser] = useState(null);
+    const [userInfo, setUser] = useState(null);
     const [privateLoad, setPriveLoad] = useState(true);
 
-    const createUser = (email, password, name) => {
+    const createUser = async (email, password, name) => {
         setLoading(true);
         setPriveLoad(false);
-        createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const { user } = userCredential;
@@ -23,25 +23,29 @@ function AuthProviders({ children }) {
                     displayName: name
                 });
                 setLoading(false);
-
+                console.log(user);
                 // ...
             })
             .catch((error) => {
                 // ..
+                console.log(error);
             });
     };
 
-    const signINUser = (email, password) => {
+    const signINUser = async (email, password) => {
         setLoading(true);
         setPriveLoad(false);
-        signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const { user } = userCredential;
                 // ...
                 setLoading(false);
+                console.log(user);
             })
-            .catch((error) => {});
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     useEffect(() => {
@@ -50,14 +54,16 @@ function AuthProviders({ children }) {
             setUser(currentUser);
         });
         return () => subscriber();
-    }, [user]);
-
+    }, [userInfo]);
+    if (loading) {
+        return <progress className="progress w-56" />;
+    }
     const auths = {
         loading,
         privateLoad,
         createUser,
         signINUser,
-        user
+        userInfo
     };
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
 }
