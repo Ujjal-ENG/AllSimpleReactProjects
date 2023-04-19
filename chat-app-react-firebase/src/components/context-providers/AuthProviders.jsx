@@ -2,7 +2,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { createContext, useEffect, useState } from 'react';
@@ -72,6 +72,10 @@ function AuthProviders({ children }) {
             });
     };
 
+    const signOutUser = async () => {
+        await signOut(auth);
+    };
+
     useEffect(() => {
         const subscriber = onAuthStateChanged(auth, (currentUser) => {
             setPriveLoad(false);
@@ -87,7 +91,8 @@ function AuthProviders({ children }) {
         privateLoad,
         createUser,
         signINUser,
-        userInfo
+        userInfo,
+        signOutUser
     };
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
 }

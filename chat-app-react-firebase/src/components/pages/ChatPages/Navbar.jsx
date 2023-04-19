@@ -1,7 +1,10 @@
 /* eslint-disable react/jsx-indent */
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context-providers/AuthProviders';
 
 function Navbar() {
+    const { signOutUser, userInfo } = useContext(AuthContext);
+    console.log(userInfo);
     return (
         <div className="flex justify-between items-center py-2 bg-black text-white rounded-t-sm">
             <h1 className="text-xl font-bold pl-2 ">Roy Chat</h1>
@@ -12,7 +15,7 @@ function Navbar() {
                     </div>
                 </div>
                 <h3 className="font-bold text-justify ">Ujjal Roy</h3>
-                <button type="button" className="btn btn-xs">
+                <button onClick={() => signOutUser()} type="button" className="btn btn-xs">
                     Logout
                 </button>
             </div>
