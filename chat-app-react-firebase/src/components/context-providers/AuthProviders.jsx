@@ -59,17 +59,13 @@ function AuthProviders({ children }) {
     const signINUser = async (email, password) => {
         setLoading(true);
         setPriveLoad(false);
-        return signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const { user } = userCredential;
-                // ...
-                setLoading(false);
-                console.log(user);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        try {
+            const user = await signInWithEmailAndPassword(auth, email, password);
+            console.log(email, password);
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const signOutUser = async () => {
