@@ -11,10 +11,10 @@ function Navbar() {
             <div className="flex items-center gap-2 pr-2">
                 <div className="avatar online">
                     <div className="w-12 rounded-full">
-                        <img src="https://images.pexels.com/photos/3790492/pexels-photo-3790492.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" />
+                        <img src={`${userInfo && userInfo.photoURL}`} alt="avatar" />
                     </div>
                 </div>
-                <h3 className="font-bold text-justify ">Ujjal Roy</h3>
+                <h3 className="font-bold text-justify ">{userInfo && userInfo.displayName}</h3>
                 <button onClick={() => signOutUser()} type="button" className="btn btn-xs">
                     Logout
                 </button>
