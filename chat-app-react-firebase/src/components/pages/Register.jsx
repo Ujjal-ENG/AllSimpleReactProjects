@@ -15,7 +15,8 @@ function Register() {
         const displayName = e.target[0].value;
         const email = e.target[1].value;
         const password = e.target[2].value;
-        createUser(email, password, displayName);
+        const url = e.target[3].value;
+        createUser(email, password, displayName, url);
         navigate('/login');
     };
     console.log(loading);
