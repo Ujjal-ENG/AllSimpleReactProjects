@@ -47,6 +47,9 @@ function AuthProviders({ children }) {
                 email,
                 url
             });
+
+            await setDoc(doc(db, 'userChats', res.user.uid), {});
+
             setLoading(false);
         } catch (error) {
             console.log(error);
