@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable comma-dangle */
