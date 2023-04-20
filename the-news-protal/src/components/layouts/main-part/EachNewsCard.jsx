@@ -9,7 +9,8 @@
 /* eslint-disable react/jsx-indent */
 import moment from 'moment';
 import React from 'react';
-import { BsBookmark, BsFillEyeFill, BsFillStarFill, BsShare } from 'react-icons/bs';
+import { BsBookmark, BsFillEyeFill, BsShare, BsStar, BsStarFill } from 'react-icons/bs';
+import Rating from 'react-rating';
 import { Link, useLocation } from 'react-router-dom';
 
 function EachNewsCard({ data }) {
@@ -76,7 +77,14 @@ function EachNewsCard({ data }) {
 
                             <div className="p-4 flex justify-between items-center">
                                 <div className="flex items-center gap-2">
-                                    <BsFillStarFill className="text-yellow-500" />
+                                    <Rating
+                                        placeholderRating={el.rating.number}
+                                        emptySymbol={<BsStar />}
+                                        placeholderSymbol={<BsStarFill className="text-yellow-500" />}
+                                        fullSymbol={<BsStarFill className="text-yellow-500" />}
+                                        readonly
+                                    />
+
                                     <p>{el.rating.number}</p>
                                 </div>
                                 <div className="flex items-center gap-2">
