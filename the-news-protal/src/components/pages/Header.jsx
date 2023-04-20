@@ -18,7 +18,7 @@ function Header() {
 
             <div className="alert shadow-lg max-w-7xl mx-auto my-5">
                 <div className="flex-none">
-                    <button className="btn btn-sm btn-ghost bg-red-500">Latest News</button>
+                    <button className="btn btn-md btn-ghost text-white font-bold hover:text-gray-700 bg-red-500">Latest News</button>
                 </div>
                 <Marquee speed={50} className="text-2xl tracking-wide text-violet-600 font-bold">
                     I can be a React component, multiple React components, or just some text.
