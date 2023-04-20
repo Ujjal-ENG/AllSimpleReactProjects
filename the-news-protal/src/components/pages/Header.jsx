@@ -4,10 +4,13 @@
 import moment from 'moment';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
+import { useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import Navbar from '../layouts/shared/Navbar';
 
 function Header() {
+    const location = useLocation();
+
     return (
         <div className="">
             <img src={Logo} alt="logo" className="mx-auto object-cover pt-8 pb-4" />
@@ -26,7 +29,7 @@ function Header() {
             </div>
 
             {/* Navbar */}
-            <Navbar />
+            {!location.pathname.includes('news') && <Navbar />}
         </div>
     );
 }

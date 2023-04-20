@@ -2,6 +2,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
 import LeftNavCategoriresData from '../layouts/leftsite/LeftNavCategoriresData';
+import LoginPage from '../pages/Login&Register/LoginPage';
+import RegisterPage from '../pages/Login&Register/RegisterPage';
 import News from '../pages/NewsContainer/News';
 import NewsContainer from '../pages/NewsContainer/NewsContainer';
 
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
                 loader: async ({ params }) => fetch(`http://localhost:3000/news/${params.id}`)
             }
         ]
+    },
+    {
+        path: '/login',
+        element: <LoginPage />
+    },
+    {
+        path: '/register-page',
+        element: <RegisterPage />
     }
 ]);
 
