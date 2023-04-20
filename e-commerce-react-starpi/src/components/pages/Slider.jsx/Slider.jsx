@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-indent */
 import React, { useState } from 'react';
 import { BsArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
+import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
 
 function Slider() {
     const data = [
@@ -28,6 +29,8 @@ function Slider() {
                 <BsFillArrowLeftCircleFill className="text-3xl absolute top-1/2 cursor-pointer" onClick={decreaseIndex} />
                 <BsArrowRightCircleFill className="text-3xl absolute right-0 top-1/2 cursor-pointer" onClick={increaseIndex} />
             </div>
+
+            <FeaturedProducts />
         </div>
     );
 }
