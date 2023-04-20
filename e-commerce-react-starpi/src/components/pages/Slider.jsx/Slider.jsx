@@ -23,10 +23,6 @@ function Slider() {
         <div className="relative">
             <div className="container w-full ">
                 <img src={data[index]} alt="img1" className="h-[864px] w-full" />
-                {/* <img src={data[1]} alt="img2" />
-                <img src={data[2]} alt="img3" />
-                <img src={data[3]} alt="img4" />
-                <img src={data[4]} alt="img5" /> */}
             </div>
             <div className="">
                 <BsFillArrowLeftCircleFill className="text-3xl absolute top-1/2 cursor-pointer" onClick={decreaseIndex} />
