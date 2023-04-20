@@ -41,7 +41,7 @@ function EachNewsCard({ data }) {
                     </div>
                 </div>
             )}
-            <div className="h-screen overflow-y-scroll scrollbar-hidden">
+            <div className="h-[1550px] overflow-y-scroll scrollbar-hidden">
                 {news &&
                     news.map((el) => (
                         <div className="border-2 rounded-xl my-4" key={el._id}>
