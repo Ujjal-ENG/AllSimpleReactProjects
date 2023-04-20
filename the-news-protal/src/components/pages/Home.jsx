@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-indent */
 import React from 'react';
-import Container from './Container';
 
 function Home() {
-    return <Container />;
+    return <>This is home page</>;
 }
 
 export default Home;

@@ -19,12 +19,24 @@ app.get('/categories', (req, res) => {
 });
 
 app.get("/all-news", (req, res) => {
-  res.json({
-    message: 'success',
-    results: newsData.length,
-    data: newsData,
+    res.json({
+        message: 'success',
+        results: newsData.length,
+        data: newsData,
+    });
 });
+
+app.get("/category/:id", async (req, res) => {
+    const getId = ( req.params.id)
+    const filteredData =  newsData.filter((el) => el.category_id === getId)
+    res.json({
+        message: 'filtered data',
+        results: filteredData.length,
+        data: filteredData,
+    });
 })
+
+
 app.listen(3000, () => {
     console.log('Server is running on port:3000');
 });

@@ -1,11 +1,18 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
+import EachNewsCard from '../main-part/EachNewsCard';
 
 function LeftNavCategoriresData() {
-    const { id } = useParams();
-    console.log(id);
-    return <div>LeftNavCategoriresDataL and the id is: {id}</div>;
+    const loader = useLoaderData();
+    const newData = loader.data;
+    return (
+        <div>
+            <h3 className="text-2xl font-bold pb-4">Dragon News Home</h3>
+            <EachNewsCard data={newData} />
+        </div>
+    );
 }
 
 export default LeftNavCategoriresData;
