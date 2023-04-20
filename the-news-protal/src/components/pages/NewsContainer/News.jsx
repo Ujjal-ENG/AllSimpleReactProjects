@@ -10,7 +10,6 @@ import Editors from './Editors';
 function News() {
     const getLocation = useLocation();
     const { data } = useLoaderData();
-    console.log(data);
     return (
         <>
             <h1 className="text-2xl font-bold tracking-wider pb-10 ">Dragon News</h1>
