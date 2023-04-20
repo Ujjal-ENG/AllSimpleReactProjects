@@ -9,8 +9,10 @@
 import moment from 'moment';
 import React from 'react';
 import { BsBookmark, BsFillEyeFill, BsFillStarFill, BsShare } from 'react-icons/bs';
+import { Link, useLocation } from 'react-router-dom';
 
 function EachNewsCard({ data }) {
+    const location = useLocation();
     const news = data;
     return (
         <div className="h-screen overflow-y-scroll scrollbar-hidden">
@@ -39,10 +41,10 @@ function EachNewsCard({ data }) {
 
                         <img src={el.image_url} alt="" className="mx-auto object-cover p-4" />
 
-                        <p className="text-gray-400 tracking-widest px-4">{!el.isExpand ? `${el.details.slice(0, 200)}...` : `${el.details}`}</p>
-                        <button type="button" className="btn btn-ghost text-yellow-400 font-bold mx-2">
+                        <p className="text-gray-400 tracking-widest px-4">{`${el.details.slice(0, 200)}...`}</p>
+                        <Link to={`/news/${el._id}`} state={location} type="button" className="btn btn-ghost text-yellow-400 font-bold mx-2">
                             Read More
-                        </button>
+                        </Link>
 
                         <div className="pt-4 border-t-2 mx-5" />
 

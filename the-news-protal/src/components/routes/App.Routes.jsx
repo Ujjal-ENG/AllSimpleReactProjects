@@ -3,6 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
 import LeftNavCategoriresData from '../layouts/leftsite/LeftNavCategoriresData';
 import Home from '../pages/Home';
+import News from '../pages/NewsContainer/News';
+import NewsContainer from '../pages/NewsContainer/NewsContainer';
 
 const router = createBrowserRouter([
     {
@@ -19,17 +21,17 @@ const router = createBrowserRouter([
                 loader: async ({ params }) => fetch(`http://localhost:3000/category/${params.id}`)
             }
         ]
+    },
+    {
+        path: '/',
+        element: <NewsContainer />,
+        children: [
+            {
+                path: 'news/:id',
+                element: <News />
+            }
+        ]
     }
-    // {
-    //     path: '/',
-    //     element: <NewsContainer />,
-    //     children: [
-    //         {
-    //             path: '/category/:id',
-    //             element: <LeftNavCategoriresData />
-    //         }
-    //     ]
-    // }
 ]);
 
 export default router;
