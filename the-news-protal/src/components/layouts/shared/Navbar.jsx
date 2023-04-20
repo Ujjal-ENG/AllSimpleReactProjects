@@ -26,10 +26,10 @@ function Navbar() {
                 <div className="flex justify-between items-center gap-3">
                     <div className="avatar">
                         <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src="https://images.pexels.com/photos/2253415/pexels-photo-2253415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />
                         </div>
                     </div>
-                    <button className="btn btn-sm btn-ghost bg-gray-700">Login</button>
+                    <button className="btn btn-md text-white font-bold btn-ghost bg-gray-700 hover:text-gray-700">Login</button>
                 </div>
             </div>
         </nav>
