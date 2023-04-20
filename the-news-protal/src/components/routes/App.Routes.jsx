@@ -2,7 +2,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
 import LeftNavCategoriresData from '../layouts/leftsite/LeftNavCategoriresData';
-import Home from '../pages/Home';
 import News from '../pages/NewsContainer/News';
 import NewsContainer from '../pages/NewsContainer/NewsContainer';
 
@@ -13,7 +12,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <LeftNavCategoriresData />,
+                loader: async () => fetch('http://localhost:3000/all-news')
             },
             {
                 path: '/category/:id',

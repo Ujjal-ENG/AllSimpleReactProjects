@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent-props */
@@ -15,10 +16,13 @@ import { Link, useLocation } from 'react-router-dom';
 
 function EachNewsCard({ data }) {
     const location = useLocation();
+    console.log(location.pathname);
     const news = data;
     return (
         <>
-            {news.length === 0 ? (
+            {location.pathname === '/' ? (
+                ''
+            ) : news.length === 0 ? (
                 <div className="alert alert-warning shadow-lg">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
