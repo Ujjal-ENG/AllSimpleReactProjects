@@ -35,6 +35,15 @@ app.get("/category/:id", async (req, res) => {
         data: filteredData,
     });
 })
+app.get("/news/:id", async (req, res) => {
+    const getId = ( req.params.id)
+    const filteredData =  newsData.find((el) => el._id === getId)
+    res.json({
+        message: 'find data',
+        results: filteredData.length,
+        data: filteredData,
+    });
+})
 
 
 app.listen(3000, () => {
