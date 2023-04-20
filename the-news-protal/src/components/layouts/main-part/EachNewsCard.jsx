@@ -17,9 +17,10 @@ import { Link, useLocation } from 'react-router-dom';
 function EachNewsCard({ data }) {
     const location = useLocation();
     const news = data;
+    console.log(location);
     return (
         <>
-            {location.pathname === '/' ? (
+            {location.pathname === '/category' ? (
                 ''
             ) : news.length === 0 ? (
                 <div className="alert alert-warning shadow-lg">

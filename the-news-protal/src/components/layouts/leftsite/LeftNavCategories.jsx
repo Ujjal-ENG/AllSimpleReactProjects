@@ -20,7 +20,7 @@ function LeftNavCategories() {
         <div className="space-y-3">
             {category &&
                 category.map((el) => (
-                    <NavLink to={`category/${el.id}`} key={el.id} type="button" className="btn btn-wide  btn-ghost  font-semibold">
+                    <NavLink to={`${el.id}`} key={el.id} type="button" className="btn btn-wide  btn-ghost  font-semibold">
                         {el.name}
                     </NavLink>
                 ))}
