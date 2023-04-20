@@ -27,7 +27,15 @@ app.get("/all-news", (req, res) => {
 });
 
 app.get("/category/:id", async (req, res) => {
-    const getId = ( req.params.id)
+    const getId = (req.params.id)
+    if (getId ==="8") {
+      return  res.json({
+            message: 'filtered data',
+            results: newsData.length,
+            data: newsData,
+        });
+    }
+    
     const filteredData =  newsData.filter((el) => el.category_id === getId)
     res.json({
         message: 'filtered data',
