@@ -21,7 +21,7 @@ function Header() {
                     <button className="btn btn-md btn-ghost text-white font-bold hover:text-gray-700 bg-red-500">Latest News</button>
                 </div>
                 <Marquee speed={50} className="text-2xl tracking-wide text-violet-600 font-bold">
-                    Today in Bangladesh, some issues in fire. Because this issues now over warming because of many firing happened before the Eid, which is the festibal of Bangladeshi Muslims peoples.
+                    Today in Bangladesh, some issues in fire. Because this issues now over warming because of many firing happened before the Eid, which is the festival of Bangladeshi Muslims peoples.
                 </Marquee>
             </div>
 
