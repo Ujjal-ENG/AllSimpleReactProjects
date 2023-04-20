@@ -16,7 +16,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 function EachNewsCard({ data }) {
     const location = useLocation();
-    console.log(location.pathname);
     const news = data;
     return (
         <>
