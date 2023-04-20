@@ -1,15 +1,13 @@
 /* eslint-disable react/jsx-indent */
-import { Outlet } from 'react-router-dom';
-import Footer from './components/layouts/shared/Footer';
+import Container from './components/pages/Container';
 import Header from './components/pages/Header';
+import Footer from './components/layouts/shared/Footer';
 
 function App() {
     return (
         <>
             <Header />
-            <div className="min-h-[calc(100vh-136px)]">
-                <Outlet />
-            </div>
+            <Container />
             <Footer />
         </>
     );
