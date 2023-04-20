@@ -1,11 +1,12 @@
+/* eslint-disable react/jsx-indent */
 import React from 'react';
 import Slider from '../Slider.jsx/Slider';
 
 function Home() {
     return (
-        <h1>
+        <div>
             <Slider />
-        </h1>
+        </div>
     );
 }
 
