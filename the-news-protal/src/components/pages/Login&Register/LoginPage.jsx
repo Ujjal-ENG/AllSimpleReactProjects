@@ -6,11 +6,10 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvide';
 
 function LoginPage() {
-    const location = useLocation();
     const { signInUser } = useContext(AuthContext);
     const [user, setUser] = useState({
         email: '',

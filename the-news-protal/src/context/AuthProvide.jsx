@@ -37,6 +37,7 @@ function AuthProvide({ children }) {
         try {
             const user = await signInWithEmailAndPassword(auth, email, password);
             setLoading(false);
+            console.log(user);
         } catch (error) {
             console.log(error);
         }
@@ -62,7 +63,6 @@ function AuthProvide({ children }) {
         );
     }
 
-    console.log(userInfo);
     const auths = {
         privateLoad,
         createUser,
