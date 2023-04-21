@@ -8,6 +8,7 @@ function Navbar() {
     const handleSignout = () => {
         singOutUser();
     };
+    console.log(userInfo);
     return (
         <nav className="px-4 py-3 shadow-lg my-5 max-w-7xl mx-auto flex flex-wrap md:justify-between md:items-center">
             <div className="flex items-center text-white mb-4 md:mb-0">
@@ -29,7 +30,7 @@ function Navbar() {
             <div className="flex justify-between items-center gap-3">
                 <div className="avatar">
                     <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={userInfo ? userInfo.photoURL : 'https://images.pexels.com/photos/2253415/pexels-photo-2253415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'} alt="avatar" />
+                        <img src={userInfo ? userInfo.photoURL : 'https://lh3.googleusercontent.com/a/AGNmyxbvrWS8T1BSBtYAj-NBOD-nbuNeWC12oNuzFwpaJRk=s96-c'} alt="avatar" />
                     </div>
                 </div>
                 <h3 className="text-2xl font-bold">{userInfo && userInfo.displayName}</h3>
