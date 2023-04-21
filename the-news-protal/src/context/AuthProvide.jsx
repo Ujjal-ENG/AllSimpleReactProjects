@@ -41,6 +41,9 @@ function AuthProvide({ children }) {
             console.log(error);
         }
     };
+    const singOutUser = async () => {
+        await signOut(auth);
+    };
 
     useEffect(() => {
         const unsubscirber = onAuthStateChanged(auth, (user) => {
@@ -64,7 +67,8 @@ function AuthProvide({ children }) {
         privateLoad,
         createUser,
         signInUser,
-        userInfo
+        userInfo,
+        singOutUser
     };
 
     return <AuthContext.Provider value={auths}> {children}</AuthContext.Provider>;

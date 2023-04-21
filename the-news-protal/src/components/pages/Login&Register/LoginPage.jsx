@@ -12,7 +12,6 @@ import { AuthContext } from '../../../context/AuthProvide';
 function LoginPage() {
     const location = useLocation();
     const { signInUser } = useContext(AuthContext);
-    const [loggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({
         email: '',
         password: ''
