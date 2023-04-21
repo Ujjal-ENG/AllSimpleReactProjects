@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
@@ -17,26 +17,26 @@ function AuthProvide({ children }) {
 
     const createUser = async (email, password, name, url) => {
         setLoading(true);
-        setLoading(true);
+        setPrivateLoad(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
-            await updateProfile(user, {
+            const currentUser = user.user;
+            await updateProfile(currentUser, {
                 displayName: name,
                 photoURL: url
             });
             setLoading(false);
-            console.log(user);
+            await signOut(auth);
         } catch (error) {
             console.log(error);
         }
     };
     const signInUser = async (email, password) => {
         setLoading(true);
-        setLoading(true);
+        setPrivateLoad(true);
         try {
             const user = await signInWithEmailAndPassword(auth, email, password);
             setLoading(false);
-            console.log(user);
         } catch (error) {
             console.log(error);
         }
@@ -59,6 +59,7 @@ function AuthProvide({ children }) {
         );
     }
 
+    console.log(userInfo);
     const auths = {
         privateLoad,
         createUser,

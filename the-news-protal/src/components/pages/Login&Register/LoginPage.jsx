@@ -1,39 +1,64 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvide';
 
 function LoginPage() {
     const location = useLocation();
-    console.log(location);
+    const { signInUser } = useContext(AuthContext);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [user, setUser] = useState({
+        email: '',
+        password: ''
+    });
+
+    const { email, password } = user;
+
+    const handleChange = (e) => {
+        setUser({
+            ...user,
+            [e.target.id]: e.target.value
+        });
+    };
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        signInUser(email, password);
+        navigate('/');
+    };
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="bg-gray-100 max-w-md w-full space-y-8 py-12 px-4 sm:px-6 lg:px-8 rounded-md shadow-sm">
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
                 </div>
-                <form className="mt-8 space-y-6" action="#" method="POST">
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <input type="hidden" name="remember" defaultValue="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
                         <div>
-                            <label htmlFor="email-address" className="sr-only">
+                            <label htmlFor="email" className="sr-only">
                                 Email address
                             </label>
                             <input
-                                id="email-address"
+                                id="email"
                                 name="email"
                                 type="email"
                                 autoComplete="email"
+                                value={email}
+                                onChange={handleChange}
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Email address"
                             />
                         </div>
-                        <div>
+                        <div className="pb-10">
                             <label htmlFor="password" className="sr-only">
                                 Password
                             </label>
@@ -42,11 +67,16 @@ function LoginPage() {
                                 name="password"
                                 type="password"
                                 autoComplete="current-password"
+                                value={password}
+                                onChange={handleChange}
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Password"
                             />
                         </div>
+                        <button type="submit" className="btn w-full btn-primary">
+                            Login
+                        </button>
                     </div>
 
                     <div className="flex items-center justify-between">

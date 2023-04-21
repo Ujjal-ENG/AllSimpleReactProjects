@@ -7,9 +7,12 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvide';
 
 function RegisterPage() {
+    const { createUser } = useContext(AuthContext);
     const [error, setErrors] = useState([]);
     const [user, setUser] = useState({
         name: '',
@@ -52,9 +55,11 @@ function RegisterPage() {
 
         setErrors(errors);
     };
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
+        createUser(email, password, name, photo);
+        navigate('/login');
     };
 
     const showSuccessMessage = error.length === 0 && password.length > 0;
