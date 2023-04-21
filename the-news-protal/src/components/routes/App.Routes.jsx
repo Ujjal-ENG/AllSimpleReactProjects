@@ -4,6 +4,7 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
 import LeftNavCategoriresData from '../layouts/leftsite/LeftNavCategoriresData';
+import ErrorPage from '../pages/ErrorPage';
 import LoginPage from '../pages/Login&Register/LoginPage';
 import RegisterPage from '../pages/Login&Register/RegisterPage';
 import LoginContainer from '../pages/LoginContainer';
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <LoginContainer />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
