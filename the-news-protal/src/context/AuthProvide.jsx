@@ -15,13 +15,14 @@ function AuthProvide({ children }) {
     const [privateLoad, setPrivateLoad] = useState(true);
     const [userInfo, setUserInfo] = useState(null);
 
-    const createUser = async (email, password, name) => {
+    const createUser = async (email, password, name, url) => {
         setLoading(true);
         setLoading(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(user, {
-                displayName: name
+                displayName: name,
+                photoURL: url
             });
             setLoading(false);
             console.log(user);

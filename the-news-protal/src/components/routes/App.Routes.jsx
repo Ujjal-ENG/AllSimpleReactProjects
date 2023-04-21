@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable comma-dangle */
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
@@ -7,6 +9,7 @@ import RegisterPage from '../pages/Login&Register/RegisterPage';
 import LoginContainer from '../pages/LoginContainer';
 import News from '../pages/NewsContainer/News';
 import NewsContainer from '../pages/NewsContainer/NewsContainer';
+import PrivateRoutes from './PrivateRoutes';
 
 const router = createBrowserRouter([
     {
@@ -49,7 +52,12 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'news/:id',
-                element: <News />,
+                element: (
+                    <PrivateRoutes>
+                        {' '}
+                        <News />,
+                    </PrivateRoutes>
+                ),
                 loader: async ({ params }) => fetch(`http://localhost:3000/news/${params.id}`)
             }
         ]

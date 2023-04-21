@@ -5,9 +5,11 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function LoginPage() {
+    const location = useLocation();
+    console.log(location);
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="bg-gray-100 max-w-md w-full space-y-8 py-12 px-4 sm:px-6 lg:px-8 rounded-md shadow-sm">

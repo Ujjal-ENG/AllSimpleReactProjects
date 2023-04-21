@@ -1,18 +1,70 @@
+/* eslint-disable no-shadow */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable object-curly-newline */
+/* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 
 function RegisterPage() {
+    const [error, setErrors] = useState([]);
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        photo: '',
+        password: ''
+    });
+    const { name, email, photo, password } = user;
+    const handleChange = (e) => {
+        setUser({
+            ...user,
+            [e.target.id]: e.target.value
+        });
+
+        const errors = [];
+
+        if (e.target.id === 'password') {
+            const { value } = e.target;
+
+            if (value.length < 8) {
+                errors.push('Password must be at least 8 characters long.');
+            }
+
+            if (!/\d/.test(value)) {
+                errors.push('Password must contain at least one number.');
+            }
+
+            if (!/[a-z]/.test(value)) {
+                errors.push('Password must contain at least one lowercase letter.');
+            }
+
+            if (!/[A-Z]/.test(value)) {
+                errors.push('Password must contain at least one uppercase letter.');
+            }
+
+            if (!/[^a-zA-Z0-9]/.test(value)) {
+                errors.push('Password must contain at least one special character.');
+            }
+        }
+
+        setErrors(errors);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    const showSuccessMessage = error.length === 0 && password.length > 0;
     return (
         <div className="bg-gray-100 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register for an account</h2>
                 </div>
-                <form className="mt-8 space-y-6" action="#" method="POST">
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <input type="hidden" name="remember" defaultValue="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
                         <div>
@@ -24,6 +76,8 @@ function RegisterPage() {
                                 name="name"
                                 type="text"
                                 autoComplete="name"
+                                value={name}
+                                onChange={handleChange}
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Name"
@@ -38,20 +92,24 @@ function RegisterPage() {
                                 name="photo"
                                 type="url"
                                 autoComplete="photo"
+                                value={photo}
+                                onChange={handleChange}
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Photo URL"
                             />
                         </div>
                         <div>
-                            <label htmlFor="email-address" className="sr-only">
+                            <label htmlFor="email" className="sr-only">
                                 Email address
                             </label>
                             <input
-                                id="email-address"
+                                id="email"
                                 name="email"
                                 type="email"
                                 autoComplete="email"
+                                value={email}
+                                onChange={handleChange}
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Email address"
@@ -66,10 +124,20 @@ function RegisterPage() {
                                 name="password"
                                 type="password"
                                 autoComplete="current-password"
+                                value={password}
+                                onChange={handleChange}
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Password"
                             />
+                            {error.length > 0 && (
+                                <div className="error text-red-500">
+                                    {error.map((error, index) => (
+                                        <div key={index}>{error}</div>
+                                    ))}
+                                </div>
+                            )}
+                            {showSuccessMessage && <p className="text-green-500">Your password is very secure now!!</p>}
                         </div>
                         <div className="flex items-center">
                             <input id="terms" name="terms" type="checkbox" required className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
