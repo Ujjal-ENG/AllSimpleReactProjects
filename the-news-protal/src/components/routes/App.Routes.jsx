@@ -39,12 +39,12 @@ const router = createBrowserRouter([
             {
                 path: '/category',
                 element: <LeftNavCategoriresData />,
-                loader: async () => fetch('http://localhost:3000/all-news')
+                loader: async () => fetch('https://the-news-protal.onrender.com/all-news')
             },
             {
                 path: ':id',
                 element: <LeftNavCategoriresData />,
-                loader: async ({ params }) => fetch(`http://localhost:3000/category/${params.id}`)
+                loader: async ({ params }) => fetch(`https://the-news-protal.onrender.com/category/${params.id}`)
             }
         ]
     },
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
                         <News />,
                     </PrivateRoutes>
                 ),
-                loader: async ({ params }) => fetch(`http://localhost:3000/news/${params.id}`)
+                loader: async ({ params }) => fetch(`https://the-news-protal.onrender.com/news/${params.id}`)
             }
         ]
     }
