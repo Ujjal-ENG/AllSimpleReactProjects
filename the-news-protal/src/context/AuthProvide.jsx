@@ -3,12 +3,12 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
-
+const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app);
 function AuthProvide({ children }) {
     const [loading, setLoading] = useState(false);
@@ -45,6 +45,16 @@ function AuthProvide({ children }) {
     const singOutUser = async () => {
         await signOut(auth);
     };
+    const createInGoogle = async () => {
+        setLoading(true);
+        setPrivateLoad(true);
+        try {
+            await signInWithPopup(auth, googleProvider);
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         const unsubscirber = onAuthStateChanged(auth, (user) => {
@@ -68,7 +78,8 @@ function AuthProvide({ children }) {
         createUser,
         signInUser,
         userInfo,
-        singOutUser
+        singOutUser,
+        createInGoogle
     };
 
     return <AuthContext.Provider value={auths}> {children}</AuthContext.Provider>;

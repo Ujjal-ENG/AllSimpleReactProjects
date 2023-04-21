@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-indent */
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { VscGithub } from 'react-icons/vsc';
@@ -10,13 +10,16 @@ import bg from '../../../assets/bg1.png';
 import Qzone1 from '../../../assets/qZone1.png';
 import Qzone2 from '../../../assets/qZone2.png';
 import Qzone3 from '../../../assets/qZone3.png';
+import { AuthContext } from '../../../context/AuthProvide';
 
 function RightNav() {
+    const { createInGoogle } = useContext(AuthContext);
+
     return (
         <div>
             <h3 className="text-2xl font-bold pb-4">Login With</h3>
             <div className="space-y-3">
-                <button type="button" className="btn-outlined">
+                <button type="button" className="btn-outlined" onClick={() => createInGoogle()}>
                     <FcGoogle />
                     Login with Google
                 </button>
