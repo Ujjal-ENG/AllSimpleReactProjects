@@ -7,7 +7,7 @@ function LeftNavCategories() {
     const [category, setCategory] = useState([]);
 
     const fetchData = async () => {
-        const fetChURL = await fetch('https://the-news-protal.onrender.com/categories');
+        const fetChURL = await fetch('https://server-ujjal-eng.vercel.app/categories');
         const data = await fetChURL.json();
         setCategory(data.data);
     };
