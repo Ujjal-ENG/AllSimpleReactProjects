@@ -6,16 +6,19 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvide';
 
 function LoginPage() {
+    const location = useLocation();
     const { signInUser } = useContext(AuthContext);
     const [user, setUser] = useState({
         email: '',
         password: ''
     });
 
+    const from = location.state?.from?.pathname || '/category';
+    console.log(from);
     const { email, password } = user;
 
     const handleChange = (e) => {
@@ -28,7 +31,7 @@ function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         signInUser(email, password);
-        navigate('/');
+        navigate(from, { replace: true });
     };
 
     return (

@@ -9,6 +9,7 @@ import Editors from './Editors';
 
 function News() {
     const getLocation = useLocation();
+    console.log(getLocation);
     const { data } = useLoaderData();
     return (
         <>
@@ -18,7 +19,7 @@ function News() {
                 <h1 className="text-2xl font-bold tracking-wider">{data && data.title}</h1>
                 <p className="text-gray-500 tracking-widest">{data && data.details}</p>
                 <div>
-                    <Link to={getLocation.state.pathname} className="btn text-white btn-md btn-ghost bg-red-500">
+                    <Link to="/category" className="btn text-white btn-md btn-ghost bg-red-500">
                         <AiOutlineArrowLeft className="text-3xl mr-2" />
                         All News In this Category
                     </Link>
