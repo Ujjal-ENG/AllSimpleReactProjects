@@ -13,6 +13,7 @@
         "axios": "^1.4.0",
         "daisyui": "^2.51.6",
         "firebase": "^9.21.0",
+        "google-map-react": "^2.2.0",
         "leaflet": "^1.9.3",
         "localforage": "^1.10.0",
         "match-sorter": "^6.3.1",

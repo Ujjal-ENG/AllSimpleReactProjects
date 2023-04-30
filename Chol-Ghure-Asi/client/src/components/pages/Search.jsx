@@ -14,7 +14,11 @@ import Map from './Map';
 function Search() {
     const loader = useLoaderData();
 
-    console.log(loader.roomData);
+    const center = {
+        lat: 40.7128,
+        lng: -74.006
+    };
+    const zoom = 12;
     return (
         <div>
             <div className="bg-black">
@@ -56,7 +60,7 @@ function Search() {
                 </div>
 
                 <div className="col-span-4">
-                    <Map />
+                    <Map center={[51.505, -0.09]} zoom={13} />
                 </div>
             </div>
         </div>
