@@ -8,9 +8,11 @@ import Slider from './Slider';
 
 function Home() {
     const [travelData, setTravelData] = useState([]);
-    const [backgroudImage, setBackgrondImage] = useState({});
+    const [backgroudImage, setBackgrondImage] = useState(null);
     const [isImageBg, setIsImgBg] = useState(false);
+
     // get travel data
+
     const getTravelData = async () => {
         const { data } = await axios.get('http://localhost:8080/all-travel-data');
         if (data.success) {
