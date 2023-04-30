@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable comma-dangle */
@@ -20,7 +21,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/single-booking/:id',
-                element: <SingleBooking />,
+                element: (
+                    <PrivateRoutes>
+                        <SingleBooking />,
+                    </PrivateRoutes>
+                ),
                 loader: async ({ params }) => fetch(`http://localhost:8080/single-booking/${params.id}`)
             },
             {
