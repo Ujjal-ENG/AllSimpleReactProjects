@@ -42,7 +42,8 @@ export const router = createBrowserRouter([
                     <PrivateRoutes>
                         <Search />
                     </PrivateRoutes>
-                )
+                ),
+                loader: async () => fetch('http://localhost:8080/search-room/')
             }
         ]
     }
