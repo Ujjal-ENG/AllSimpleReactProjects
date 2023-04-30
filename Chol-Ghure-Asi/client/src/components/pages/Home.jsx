@@ -25,7 +25,7 @@ function Home() {
     useEffect(() => {
         getTravelData();
     }, []);
-    console.log(backgroudImage.image);
+
     return (
         <div>
             {isImageBg ? (
