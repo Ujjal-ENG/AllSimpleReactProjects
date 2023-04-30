@@ -12,7 +12,7 @@ import { Link, NavLink } from 'react-router-dom';
 function Navbar() {
     return (
         <nav className="px-10 py-3 text-white flex justify-between items-center gap-14">
-            <Link className=" flex">
+            <Link to="/" className=" flex">
                 <MdLuggage className="text-7xl" />
                 <div className="flex justify-center items-start flex-col">
                     <h3 className="text-2xl font-bold">Chol Ghure</h3>

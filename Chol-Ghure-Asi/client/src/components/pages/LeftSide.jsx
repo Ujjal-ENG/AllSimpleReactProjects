@@ -5,7 +5,6 @@ import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 function LeftSide({ data, id }) {
-    console.log(id, data);
     if (data === null || id === 0) {
         return (
             <div className="px-4">
