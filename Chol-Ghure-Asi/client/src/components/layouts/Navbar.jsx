@@ -12,7 +12,6 @@ import { AuthContext } from '../../context/AuthProvider';
 
 function Navbar() {
     const { userInfo, logOutUser } = useContext(AuthContext);
-    console.log(userInfo);
     return (
         <nav className="px-10 py-3 text-white flex justify-between items-center gap-14">
             <Link to="/" className=" flex">
