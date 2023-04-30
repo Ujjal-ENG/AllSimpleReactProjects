@@ -26,10 +26,11 @@ function Search() {
                     <h4 className="text-2xl font-bold pb-4">Stay in Cox's Bazar</h4>
                     {loader &&
                         loader.roomData.map((el) => (
-                            <div className="flex justify-between items-start gap-5">
-                                <div className="h-56 w-1/2 ">
+                            <div key={el.id} className="flex justify-between items-start gap-5">
+                                <div className="h-56 w-1/2">
                                     <img src={el.images} alt={el.name} className="h-full w-full object-cover rounded-md" />
                                 </div>
+
                                 <div className=" space-y-3 ">
                                     <h2 className="card-title">{el.name}</h2>
                                     <p className="text-gray-500 tracking-wider">4 guest {el.bed} beds 4 person 2 bath</p>

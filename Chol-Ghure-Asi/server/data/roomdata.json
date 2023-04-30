@@ -33,7 +33,7 @@
             "name": "Luxury Suite",
             "description": "A luxurious suite with a king-size bed, separate living area, and ensuite bathroom with a spa bath.",
             "price": 250,
-            "images": "https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "images": "https://images.pexels.com/photos/2351289/pexels-photo-2351289.jpeg?auto=compress&cs=tinysrgb&w=600",
             "bed": "King",
             "star": 5,
             "capacity": 2,
