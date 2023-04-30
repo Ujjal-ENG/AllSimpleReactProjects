@@ -14,7 +14,7 @@ function Home() {
     // get travel data
 
     const getTravelData = async () => {
-        const { data } = await axios.get('http://localhost:8080/all-travel-data');
+        const { data } = await axios.get('https://chol-ghure-asi.vercel.app/all-travel-data');
         if (data.success) {
             setTravelData(data.data.data);
         }

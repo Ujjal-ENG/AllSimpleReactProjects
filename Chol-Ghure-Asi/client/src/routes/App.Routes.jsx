@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
                         <SingleBooking />,
                     </PrivateRoutes>
                 ),
-                loader: async ({ params }) => fetch(`http://localhost:8080/single-booking/${params.id}`)
+                loader: async ({ params }) => fetch(`https://chol-ghure-asi.vercel.app/single-booking/${params.id}`)
             },
             {
                 path: '/login',
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
                         <Search />
                     </PrivateRoutes>
                 ),
-                loader: async () => fetch('http://localhost:8080/search-room/')
+                loader: async () => fetch('https://chol-ghure-asi.vercel.app/search-room/')
             }
         ]
     }
