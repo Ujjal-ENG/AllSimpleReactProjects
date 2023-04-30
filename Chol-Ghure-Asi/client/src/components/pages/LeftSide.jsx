@@ -17,9 +17,11 @@ function LeftSide({ data, id }) {
     }
     return (
         <div className="w-full space-y-4">
-            <h1 className="hover-stoke uppercase tracking-widest text-5xl font-bold text-white">{data.title}</h1>
+            <h1 className="hover-stoke uppercase tracking-widest text-5xl font-bold text-white" data-text={data.title}>
+                {data.title}
+            </h1>
             <p className="text-gray-200 tracking-wider ">{`${data.description.slice(0, 100)}...`}</p>
-            <Link className="btn btn-warning btn-wide flex items-center gap-3 text-xl">
+            <Link to={`/single-booking/${data.id}`} className="btn btn-warning btn-wide flex items-center gap-3 text-xl">
                 Booking
                 <FiArrowRight className="text-2xl" />
             </Link>
