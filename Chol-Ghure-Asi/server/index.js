@@ -18,6 +18,17 @@ app.get('/all-travel-data', (req, res) => {
     });
 });
 
+app.get('/single-booking/:id', (req, res) => {
+    const { id } = req.params;
+    const findData = data.data.find((el) => el.id === Number(id));
+    res.status(200).json({
+        success: true,
+        message: 'Succesffully get the Data',
+        results: data.length,
+        findData,
+    });
+});
+
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
 });
