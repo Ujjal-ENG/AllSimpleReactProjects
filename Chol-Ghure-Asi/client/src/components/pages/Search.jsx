@@ -9,6 +9,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Navbar from '../layouts/Navbar';
+import Map from './Map';
 
 function Search() {
     const loader = useLoaderData();
@@ -55,7 +56,7 @@ function Search() {
                 </div>
 
                 <div className="col-span-4">
-                    <h1>map here</h1>
+                    <Map />
                 </div>
             </div>
         </div>
