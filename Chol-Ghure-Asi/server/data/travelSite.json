@@ -1,0 +1,46 @@
+{
+  "data": [
+      {
+          "image": "https://images.pexels.com/photos/1078983/pexels-photo-1078983.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "title": "Cox's Bazar",
+          "location": "Chittagong, Bangladesh",
+          "description": "Cox's Bazar is the longest natural sea beach in the world, and a popular tourist destination in Bangladesh. It is known for its sandy beaches, clear water, and stunning sunsets."
+      },
+      {
+          "image": "https://images.pexels.com/photos/2668607/pexels-photo-2668607.jpeg?auto=compress&cs=tinysrgb&w=1600&h=750&dpr=1",
+          "title": "Sundarbans",
+          "location": "Khulna, Bangladesh",
+          "description": "Sundarbans is the largest mangrove forest in the world, and a UNESCO World Heritage Site. It is home to the Bengal tiger, saltwater crocodile, and a variety of bird and marine life."
+      },
+      {
+          "image": "https://images.pexels.com/photos/12041978/pexels-photo-12041978.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "title": "Rangamati",
+          "location": "Chittagong Hill Tracts, Bangladesh",
+          "description": "Rangamati is a district in the Chittagong Hill Tracts region of Bangladesh, known for its lush green hills, scenic waterfalls, and tranquil lakes. It is home to several indigenous communities and a popular destination for eco-tourism."
+      },
+      {
+          "image": "https://images.pexels.com/photos/5718323/pexels-photo-5718323.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "title": "Srimangal",
+          "location": "Sylhet, Bangladesh",
+          "description": "Srimangal is a small town in the Sylhet region of Bangladesh, known for its tea plantations, forests, and natural beauty. It is home to the Lawachara National Park, which is a popular destination for birdwatching and wildlife spotting."
+      },
+      {
+          "image": "https://images.pexels.com/photos/165505/pexels-photo-165505.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "title": "Kuakata",
+          "location": "Patuakhali, Bangladesh",
+          "description": "Kuakata is a seaside town in the Patuakhali district of Bangladesh. It is known for its panoramic sea views, pristine beaches, and colorful sunsets. It is also a popular destination for water sports such as surfing and snorkeling."
+      },
+      {
+          "image": "hhttps://images.pexels.com/photos/705075/pexels-photo-705075.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "title": "Bandarban",
+          "location": "Chittagong Hill Tracts, Bangladesh",
+          "description": "Bandarban is a district in the Chittagong Hill Tracts region of Bangladesh, known for its scenic beauty and diverse indigenous cultures. It is home to several trekking trails, waterfalls, and natural hot springs."
+      },
+      {
+          "image": "https://images.pexels.com/photos/2097616/pexels-photo-2097616.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "title": "Dhaka",
+          "location": "Dhaka Division, Bangladesh",
+          "description": "Dhaka is the capital city of Bangladesh and one of the largest cities in South Asia. It is a vibrant and bustling metropolis, with a rich history and culture. It is home to several historic landmarks, museums, and parks, as well as a thriving food and shopping scene."
+      }
+  ]
+}
