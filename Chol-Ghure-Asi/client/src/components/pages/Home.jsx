@@ -8,7 +8,8 @@ import Slider from './Slider';
 
 function Home() {
     const [travelData, setTravelData] = useState([]);
-
+    const [backgroudImage, setBackgrondImage] = useState({});
+    const [isImageBg, setIsImgBg] = useState(false);
     // get travel data
     const getTravelData = async () => {
         const { data } = await axios.get('http://localhost:8080/all-travel-data');
@@ -16,16 +17,24 @@ function Home() {
             setTravelData(data.data.data);
         }
     };
-
+    const getData = (id) => {
+        const findData = travelData.find((el) => el.id === id);
+        setBackgrondImage(findData);
+        setIsImgBg(true);
+    };
     useEffect(() => {
         getTravelData();
     }, []);
-
+    console.log(backgroudImage.image);
     return (
         <div>
-            <video autoPlay muted loop className="fixed top-0 left-0 w-full h-full object-cover z-0">
-                <source src={BackgroundVideo} type="video/mp4" />
-            </video>
+            {isImageBg ? (
+                <div className=" fixed top-0 left-0 w-full h-full bg-cover bg-center z-0 duration-200 transition-all ease-in" style={{ backgroundImage: `url(${backgroudImage.image})` }} />
+            ) : (
+                <video autoPlay muted loop className="fixed top-0 left-0 w-full h-full object-cover z-0">
+                    <source src={BackgroundVideo} type="video/mp4" />
+                </video>
+            )}
             <div className="absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-30" />
             <div className="relative z-10">
                 <Navbar />
@@ -35,7 +44,7 @@ function Home() {
                         <LeftSide />
                     </div>
                     <div className="col-span-9 ml-24">
-                        <Slider data={travelData} />
+                        <Slider data={travelData} getData={getData} />
                     </div>
                 </div>
             </div>
