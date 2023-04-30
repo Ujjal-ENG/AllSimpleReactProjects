@@ -5,12 +5,12 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyCUjOr6dZABKf9dJI8eKAoNnhNpbzpGx8s',
-  authDomain: 'chol-ghure-asi.firebaseapp.com',
-  projectId: 'chol-ghure-asi',
-  storageBucket: 'chol-ghure-asi.appspot.com',
-  messagingSenderId: '912444847687',
-  appId: '1:912444847687:web:99a6d3f4c8647e957d2362',
+  apiKey: 'AIzaSyDOdW7EKNXhLLNvMNk_rPdJ7ijgFn0wmcI',
+  authDomain: 'chol-ghure-asa-jak.firebaseapp.com',
+  projectId: 'chol-ghure-asa-jak',
+  storageBucket: 'chol-ghure-asa-jak.appspot.com',
+  messagingSenderId: '333644533926',
+  appId: '1:333644533926:web:a4bdc4de7e26a56cc7e467',
 };
 
 // Initialize Firebase
