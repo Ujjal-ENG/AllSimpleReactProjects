@@ -1,15 +1,18 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-indent */
 import React from 'react';
+import { BsSearch } from 'react-icons/bs';
 import { MdLuggage } from 'react-icons/md';
 import { TbArrowLoopLeft } from 'react-icons/tb';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <nav className="px-10 py-3 text-white">
-            <Link className="flex">
+        <nav className="px-10 py-3 text-white flex justify-between items-center gap-14">
+            <Link className=" flex">
                 <MdLuggage className="text-7xl" />
                 <div className="flex justify-center items-start flex-col">
                     <h3 className="text-2xl font-bold">Chol Ghure</h3>
@@ -18,14 +21,41 @@ function Navbar() {
                 <TbArrowLoopLeft className="text-4xl" />
             </Link>
 
-            <div className="form-control">
-                <div className="input-group">
-                    <input type="text" placeholder="Search…" className="input input-bordered" />
-                    <button className="btn btn-square">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </button>
+            <div className="flex-1 flex justify-between gap-20">
+                <div className="form-control flex-shrink-0">
+                    <div className="relative">
+                        <input
+                            type="text"
+                            placeholder="Search Your Destination"
+                            className="
+        input
+        border-2 border-white
+        bg-gray-800
+        opacity-80
+        text-white
+        placeholder-white
+        px-4 py-2
+        rounded-md
+        focus:outline-none
+        focus:shadow-outline-blue
+        focus:border-blue-500
+       text-center
+        sm:w-auto
+        sm:pr-16
+        placeholder:px-4 w-full
+      "
+                        />
+
+                        <BsSearch className="text-2xl absolute top-2.5 left-1" />
+                    </div>
+                </div>
+
+                <div className="text-2xl flex-1 flex justify-evenly items-center">
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>News</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Destination</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Contact</NavLink>
+                    <Link className="btn btn-warning btn-md">Login</Link>
                 </div>
             </div>
         </nav>
