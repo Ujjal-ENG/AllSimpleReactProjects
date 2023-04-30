@@ -5,12 +5,13 @@
 /* eslint-disable react/jsx-indent */
 import React, { useContext, useState } from 'react';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import Navbar from '../layouts/Navbar';
 
 function Login() {
     const { signInUser } = useContext(AuthContext);
+    const location = useLocation();
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -22,11 +23,12 @@ function Login() {
             [e.target.id]: e.target.value
         }));
     };
+    const from = location?.state?.form?.pathname;
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         signInUser(formData.email, formData.password);
-        navigate('/');
+        navigate(from || '/', { replace: true });
     };
     return (
         <div>
