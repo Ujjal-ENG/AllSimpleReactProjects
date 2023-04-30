@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable comma-dangle */
 import { createBrowserRouter } from 'react-router-dom';
@@ -5,7 +6,9 @@ import App from '../App';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login';
 import RegisterPage from '../components/pages/RegisterPage';
+import Search from '../components/pages/Search';
 import SingleBooking from '../components/pages/SingleBooking';
+import PrivateRoutes from './PrivateRoutes';
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +30,14 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <RegisterPage />
+            },
+            {
+                path: '/serach',
+                element: (
+                    <PrivateRoutes>
+                        <Search />
+                    </PrivateRoutes>
+                )
             }
         ]
     }
