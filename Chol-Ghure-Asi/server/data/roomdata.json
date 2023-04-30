@@ -1,0 +1,43 @@
+{
+    "room": [
+        {
+            "id": "1",
+            "name": "Cozy Single Room",
+            "description": "A comfortable single room with a single bed and ensuite bathroom.",
+            "price": 75,
+            "images": "https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "bed": "Single",
+            "capacity": 1,
+            "size": {
+                "width": 200,
+                "length": 250
+            }
+        },
+        {
+            "id": "2",
+            "name": "Spacious Double Room",
+            "description": "A spacious double room with a queen-size bed and ensuite bathroom.",
+            "price": 125,
+            "images": "https://images.pexels.com/photos/1838554/pexels-photo-1838554.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "bed": "Queen",
+            "capacity": 2,
+            "size": {
+                "width": 300,
+                "length": 300
+            }
+        },
+        {
+            "id": "3",
+            "name": "Luxury Suite",
+            "description": "A luxurious suite with a king-size bed, separate living area, and ensuite bathroom with a spa bath.",
+            "price": 250,
+            "images": "https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "bed": "King",
+            "capacity": 2,
+            "size": {
+                "width": 400,
+                "length": 500
+            }
+        }
+    ]
+}
