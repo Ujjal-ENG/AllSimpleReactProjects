@@ -15,7 +15,7 @@ function Home() {
             <div className="relative z-10">
                 <Navbar />
 
-                <div className="grid grid-cols-12 justify-items-center">
+                <div className="grid grid-cols-12 justify-items-center px-6 items-center h-full">
                     <div className="col-span-3">
                         <LeftSide />
                     </div>

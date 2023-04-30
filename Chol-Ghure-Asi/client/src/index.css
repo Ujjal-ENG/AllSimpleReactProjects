@@ -17,15 +17,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    text-stroke: 4px white;
-    -webkit-text-stroke: 1px white;
-    color: transparent;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
     transition: all 0.3s ease-in-out;
 }
 
 .hover-stroke:hover::after {
-    color: white;
-    -webkit-text-stroke-color: black;
+    color: transparent;
+    -webkit-text-stroke-color: white;
+    text-stroke-color: white;
 }
 
 @layer components {
