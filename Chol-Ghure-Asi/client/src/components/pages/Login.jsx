@@ -10,7 +10,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import Navbar from '../layouts/Navbar';
 
 function Login() {
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser, singInGoogle } = useContext(AuthContext);
     const location = useLocation();
     const [formData, setFormData] = useState({
         email: '',
@@ -30,6 +30,7 @@ function Login() {
         signInUser(formData.email, formData.password);
         navigate(from || '/', { replace: true });
     };
+
     return (
         <div>
             <div className="bg-black">
@@ -107,6 +108,7 @@ function Login() {
                                     Sign in with Facebook
                                 </button>
                                 <button
+                                    onClick={() => singInGoogle()}
                                     type="button"
                                     className="flex items-center justify-center ml-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                     <FaGoogle className="w-5 h-5 mr-2" />

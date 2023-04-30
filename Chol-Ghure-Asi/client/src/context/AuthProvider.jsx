@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-indent */
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ import app from '../config/firebse';
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
-
+const provider = new GoogleAuthProvider();
 function AuthProvider({ children }) {
     const [loading, setIsLoading] = useState(false);
     const [privateLoad, setPrivateLoad] = useState(true);
@@ -53,6 +53,20 @@ function AuthProvider({ children }) {
     const logOutUser = async () => {
         await signOut(auth);
     };
+
+    const singInGoogle = async () => {
+        setIsLoading(true);
+        try {
+            await signInWithPopup(auth, provider);
+            toast.success('Successfully Logged In');
+            setIsLoading(false);
+            navigate('/');
+        } catch (error) {
+            setIsLoading(false);
+            console.log(error);
+            toast.error('Error occured while user try to SignIn with Google!!');
+        }
+    };
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, (user) => {
             setUserInfo(user);
@@ -74,7 +88,8 @@ function AuthProvider({ children }) {
         userInfo,
         crearteUser,
         signInUser,
-        logOutUser
+        logOutUser,
+        singInGoogle
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
