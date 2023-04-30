@@ -14,11 +14,6 @@ import Map from './Map';
 function Search() {
     const loader = useLoaderData();
 
-    const center = {
-        lat: 40.7128,
-        lng: -74.006
-    };
-    const zoom = 12;
     return (
         <div>
             <div className="bg-black">
