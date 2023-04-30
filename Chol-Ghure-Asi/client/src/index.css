@@ -19,7 +19,7 @@
 }
 
 .active {
-    @apply font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-400;
+    @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-blue-800;
 }
 
 .default {
