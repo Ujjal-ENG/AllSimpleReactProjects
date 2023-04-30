@@ -25,11 +25,13 @@ function AuthProvider({ children }) {
             await updateProfile(user.currentUser, {
                 displayName: name
             });
+            toast.success('User is Created Successfully!!!');
             signOut(auth);
             setIsLoading(false);
             navigate('/login');
         } catch (error) {
             console.log(error);
+            setIsLoading(false);
             toast.error('There was an error while creating user!!');
         }
     };
@@ -39,9 +41,11 @@ function AuthProvider({ children }) {
         setPrivateLoad(true);
         try {
             const user = await signInWithEmailAndPassword(auth, email, password);
+            toast.success('User is Logged in Successfully!!!');
             setIsLoading(false);
         } catch (error) {
             console.log(error);
+            setIsLoading(false);
             toast.error('There was an error while signIn user!!');
         }
     };

@@ -4,13 +4,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-indent */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 import Navbar from '../layouts/Navbar';
 
 function RegisterPage() {
+    const { crearteUser } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -29,7 +31,7 @@ function RegisterPage() {
         if (formData.password !== formData.confirmPassword) {
             return toast.error('Please Provide the correct password!!!');
         }
-        console.log(formData);
+        crearteUser(formData.username, formData.email, formData.confirmPassword);
     };
     return (
         <>
