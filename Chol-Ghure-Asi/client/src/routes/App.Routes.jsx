@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
                 element: <RegisterPage />
             },
             {
-                path: '/serach',
+                path: '/search',
                 element: (
                     <PrivateRoutes>
                         <Search />

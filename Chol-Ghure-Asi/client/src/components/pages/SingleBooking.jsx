@@ -86,7 +86,7 @@ function SingleBooking() {
                                     </div>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <Link type="button" className="btn btn-warning w-full">
+                                    <Link to="/search" type="button" className="btn btn-warning w-full">
                                         Start Booking
                                     </Link>
                                 </div>
