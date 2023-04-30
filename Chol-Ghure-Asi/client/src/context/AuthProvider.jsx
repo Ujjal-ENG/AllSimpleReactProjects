@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
         setPrivateLoad(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
-            await updateProfile(user.currentUser, {
+            await updateProfile(user.user, {
                 displayName: name
             });
             toast.success('User is Created Successfully!!!');
