@@ -2,6 +2,8 @@
 import React from 'react';
 import BackgroundVideo from '../../assets/video/video.mp4';
 import Navbar from '../layouts/Navbar';
+import LeftSide from './LeftSide';
+import Slider from './Slider';
 
 function Home() {
     return (
@@ -12,6 +14,15 @@ function Home() {
             <div className="absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-30" />
             <div className="relative z-10">
                 <Navbar />
+
+                <div className="grid grid-cols-12 justify-items-center">
+                    <div className="col-span-3">
+                        <LeftSide />
+                    </div>
+                    <div className="col-span-9">
+                        <Slider />
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -7,6 +7,26 @@
 .my-container {
     @apply px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20;
 }
+.hover-stroke {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-stroke::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-stroke: 4px white;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-stroke:hover::after {
+    color: white;
+    -webkit-text-stroke-color: black;
+}
 
 @layer components {
     .btn-component {
