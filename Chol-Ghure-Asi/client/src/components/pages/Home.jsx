@@ -10,7 +10,7 @@ function Home() {
     const [travelData, setTravelData] = useState([]);
     const [backgroudImage, setBackgrondImage] = useState(null);
     const [isImageBg, setIsImgBg] = useState(false);
-
+    const [ids, setId] = useState(0);
     // get travel data
 
     const getTravelData = async () => {
@@ -23,14 +23,14 @@ function Home() {
         const findData = travelData.find((el) => el.id === id);
         setBackgrondImage(findData);
         setIsImgBg(true);
+        setId(id);
     };
     useEffect(() => {
         getTravelData();
     }, []);
-
     return (
         <div>
-            {isImageBg ? (
+            {isImageBg && ids !== 0 ? (
                 <div className=" fixed top-0 left-0 w-full h-full bg-cover bg-center z-0 duration-200 transition-all ease-in" style={{ backgroundImage: `url(${backgroudImage.image})` }} />
             ) : (
                 <video autoPlay muted loop className="fixed top-0 left-0 w-full h-full object-cover z-0">
@@ -43,7 +43,7 @@ function Home() {
 
                 <div className="grid grid-cols-12 justify-items-center px-12 items-center h-full mt-12">
                     <div className="col-span-3">
-                        <LeftSide data={backgroudImage} />
+                        <LeftSide data={backgroudImage} id={ids} />
                     </div>
                     <div className="col-span-9 ml-24">
                         <Slider data={travelData} getData={getData} />

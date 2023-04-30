@@ -2,9 +2,9 @@
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
-function LeftSide({ data }) {
-    console.log(data);
-    if (data === null) {
+function LeftSide({ data, id }) {
+    console.log(id, data);
+    if (data === null || id === 0) {
         return (
             <div className="px-4">
                 <span className="hover-stroke text-6xl w-full font-bold" data-text="The world is a book and those who do not travel read only one page">
