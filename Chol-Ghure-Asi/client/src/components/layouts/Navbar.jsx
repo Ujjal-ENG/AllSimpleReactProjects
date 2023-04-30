@@ -55,7 +55,9 @@ function Navbar() {
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Destination</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Contact</NavLink>
-                    <Link className="btn btn-warning btn-md">Login</Link>
+                    <Link to="/login" className="btn btn-warning btn-md">
+                        Login
+                    </Link>
                 </div>
             </div>
         </nav>
