@@ -1,6 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const data = require('./data/travelSite.json');
+const roomData = require('./data/roomdata.json');
 
 const app = express();
 
@@ -26,6 +27,15 @@ app.get('/single-booking/:id', (req, res) => {
         message: 'Succesffully get the Data',
         results: data.length,
         findData,
+    });
+});
+
+app.get('/search-room', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Succesffully get the Data',
+        results: roomData.room.length,
+        roomData: roomData.room,
     });
 });
 
