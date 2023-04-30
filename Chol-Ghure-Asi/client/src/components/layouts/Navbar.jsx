@@ -3,13 +3,16 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-indent */
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { MdLuggage } from 'react-icons/md';
 import { TbArrowLoopLeft } from 'react-icons/tb';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 function Navbar() {
+    const { userInfo, logOutUser } = useContext(AuthContext);
+    console.log(userInfo);
     return (
         <nav className="px-10 py-3 text-white flex justify-between items-center gap-14">
             <Link to="/" className=" flex">
@@ -55,9 +58,17 @@ function Navbar() {
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Destination</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Contact</NavLink>
-                    <Link to="/login" className="btn btn-warning btn-md">
-                        Login
-                    </Link>
+                    {!userInfo && (
+                        <Link to="/login" className="btn btn-warning btn-md">
+                            Login
+                        </Link>
+                    )}
+                    {userInfo && (
+                        <Link to="/" className="btn btn-warning btn-md" onClick={() => logOutUser()}>
+                            Logout
+                        </Link>
+                    )}
+                    <h4 className="hover-stroke text-3xl font-bold text-white uppercase">{userInfo && userInfo.displayName}</h4>
                 </div>
             </div>
         </nav>
