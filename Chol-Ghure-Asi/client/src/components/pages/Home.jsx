@@ -15,11 +15,11 @@ function Home() {
             <div className="relative z-10">
                 <Navbar />
 
-                <div className="grid grid-cols-12 justify-items-center px-6 items-center h-full">
+                <div className="grid grid-cols-12 justify-items-center px-12 items-center h-full mt-12">
                     <div className="col-span-3">
                         <LeftSide />
                     </div>
-                    <div className="col-span-9">
+                    <div className="col-span-9 ml-24">
                         <Slider />
                     </div>
                 </div>
