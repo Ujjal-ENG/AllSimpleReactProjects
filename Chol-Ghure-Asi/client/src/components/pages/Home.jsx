@@ -1,11 +1,26 @@
 /* eslint-disable react/jsx-indent */
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import BackgroundVideo from '../../assets/video/video.mp4';
 import Navbar from '../layouts/Navbar';
 import LeftSide from './LeftSide';
 import Slider from './Slider';
 
 function Home() {
+    const [travelData, setTravelData] = useState([]);
+
+    // get travel data
+    const getTravelData = async () => {
+        const { data } = await axios.get('http://localhost:8080/all-travel-data');
+        if (data.success) {
+            setTravelData(data.data.data);
+        }
+    };
+
+    useEffect(() => {
+        getTravelData();
+    }, []);
+
     return (
         <div>
             <video autoPlay muted loop className="fixed top-0 left-0 w-full h-full object-cover z-0">
@@ -20,7 +35,7 @@ function Home() {
                         <LeftSide />
                     </div>
                     <div className="col-span-9 ml-24">
-                        <Slider />
+                        <Slider data={travelData} />
                     </div>
                 </div>
             </div>

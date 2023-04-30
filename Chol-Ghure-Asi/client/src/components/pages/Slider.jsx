@@ -10,63 +10,41 @@ import { EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
-function Slider() {
-    const [indexes, setIndex] = useState(-1);
-    function handleSlideChange(index) {
-        console.log('Current slide index:', index.activeIndex);
-        setIndex(index.activeIndex);
+function Slider({ data }) {
+    const [indexes, setIndex] = useState(0);
+
+    function handleSlideChange(swiper) {
+        console.log('Current slide index:', swiper.realIndex);
+        setIndex(swiper.realIndex);
     }
+
     return (
         <Swiper
+            className="max-w-5xl"
             onSlideChange={handleSlideChange}
             modules={[EffectCoverflow]}
             effect="coverflow"
             grabCursor
             centeredSlides
-            slidesPerView={3}
+            slidesPerView={6}
             coverflowEffect={{
-                rotate: 30,
-                stretch: 10,
-                depth: 60,
-                modifier: 2,
+                rotate: 0,
+                stretch: 20,
+                depth: 90,
+                modifier: 1,
                 slideShadows: true
             }}>
-            <SwiperSlide>
-                <div className={`w-80 rounded-lg h-96  shadow-xl image-full relative ${indexes === 0 ? 'border-2 border-yellow-400' : 'border-0'}`}>
-                    <img
-                        src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        className="w-full h-full rounded-lg object-cover"
-                        alt="Shoes"
-                    />
-                    <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text="Cox's Bazar">
-                        Cox's Bazar
-                    </h1>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className={`w-80 rounded-lg h-96  shadow-xl image-full relative ${indexes === 1 ? 'border-2 border-yellow-400' : 'border-0'}`}>
-                    <img
-                        src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        className="w-full h-full rounded-lg object-cover"
-                        alt="Shoes"
-                    />
-                    <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text="Cox's Bazar">
-                        Cox's Bazar
-                    </h1>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className={`w-80 rounded-lg h-96  shadow-xl image-full relative ${indexes === 2 ? 'border-2 border-yellow-400' : 'border-0'}`}>
-                    <img
-                        src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        className="w-full h-full rounded-lg object-cover"
-                        alt="Shoes"
-                    />
-                    <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text="Cox's Bazar">
-                        Cox's Bazar
-                    </h1>
-                </div>
-            </SwiperSlide>
+            <SwiperSlide />
+            {data.map((el) => (
+                <SwiperSlide key={el.id}>
+                    <div className={`w-80 rounded-lg h-96  shadow-xl image-full relative ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
+                        <img src={el.image} className="w-full h-full rounded-lg object-cover" alt="Shoes" />
+                        <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text={el.title}>
+                            {el.title}
+                        </h1>
+                    </div>
+                </SwiperSlide>
+            ))}
         </Swiper>
     );
 }
