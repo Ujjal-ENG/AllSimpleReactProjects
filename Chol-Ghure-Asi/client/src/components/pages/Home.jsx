@@ -41,7 +41,7 @@ function Home() {
 
                 <div className="grid grid-cols-12 justify-items-center px-12 items-center h-full mt-12">
                     <div className="col-span-3">
-                        <LeftSide />
+                        <LeftSide data={backgroudImage} />
                     </div>
                     <div className="col-span-9 ml-24">
                         <Slider data={travelData} getData={getData} />
