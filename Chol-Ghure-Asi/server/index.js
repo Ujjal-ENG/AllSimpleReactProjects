@@ -50,7 +50,7 @@ app.get('/travel-destination', (req, res) => {
         success: true,
         message: 'Succesffully get the Destination Data!!',
         results: destinationData.destination.length,
-        roomData: destinationData.destination,
+        destination: destinationData.destination,
     });
 });
 

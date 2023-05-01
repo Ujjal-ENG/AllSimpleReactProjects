@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-indent */
 import React from 'react';
@@ -6,8 +7,8 @@ import Navbar from '../layouts/Navbar';
 import DestinationCard from './DestinationCard';
 
 function Destination() {
-    const loader = useLoaderData();
-    console.log(loader.roomData);
+    const { destination } = useLoaderData();
+
     return (
         <div>
             <div className="bg-black">
@@ -16,8 +17,7 @@ function Destination() {
             <h1 className="hover-stroke text-6xl w-full font-bold" data-text="Top Destination">
                 Top Destination
             </h1>
-            <DestinationCard />
-            <DestinationCard />
+            {destination && destination.map((el, idx) => <DestinationCard key={idx} data={el} />)}
         </div>
     );
 }

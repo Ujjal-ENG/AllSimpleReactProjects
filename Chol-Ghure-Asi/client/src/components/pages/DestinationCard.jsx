@@ -4,7 +4,7 @@ import React from 'react';
 
 function DestinationCard() {
     return (
-        <div className="shadow-2xl px-5 my-4">
+        <div className="shadow-xl px-5 my-4 duration-200 transition-all ease-in-out hover:shadow-2xl">
             <div className="flex justify-between rounded-md overflow-hidden shadow-lg px-3">
                 <img
                     className="w-full max-w-xs rounded-xl h-64 object-cover my-auto"
