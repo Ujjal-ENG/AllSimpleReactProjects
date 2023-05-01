@@ -1,0 +1,110 @@
+{
+    "destination": [
+        {
+            "destination": {
+                "name": "Sundarbans",
+                "description": "The world's largest mangrove forest and home to the Royal Bengal Tiger",
+                "region": "Khulna",
+                "top_attractions": ["Tiger Hill", "Karamjal Wildlife Center", "Dublar Char Island"],
+                "image_url": "https://images.pexels.com/photos/2666806/pexels-photo-2666806.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "activities": ["Jungle Trekking", "Boat Safari", "Bird Watching"],
+                "weather": {
+                    "temperature": {
+                        "average_high": "30°C",
+                        "average_low": "22°C"
+                    },
+                    "rainfall": {
+                        "average": "200-300 mm",
+                        "rainy_season": "June-September"
+                    }
+                },
+                "best_time_to_visit": "November - March"
+            }
+        },
+        {
+            "destination": {
+                "name": "Cox's Bazar",
+                "description": "The longest natural sea beach in the world",
+                "region": "Chittagong",
+                "top_attractions": ["Himchori Waterfall", "Inani Beach", "St. Martin's Island"],
+                "image_url": "https://images.pexels.com/photos/981784/pexels-photo-981784.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "activities": ["Beach Activities", "Water Sports", "Sunset Viewing"],
+                "weather": {
+                    "temperature": {
+                        "average_high": "30°C",
+                        "average_low": "24°C"
+                    },
+                    "rainfall": {
+                        "average": "150-200 mm",
+                        "rainy_season": "June-September"
+                    }
+                },
+                "best_time_to_visit": "October - March"
+            }
+        },
+
+        {
+            "destination": {
+                "name": "Srimangal",
+                "description": "The tea capital of Bangladesh, known for its lush tea gardens and rainforest reserves",
+                "region": "Sylhet",
+                "top_attractions": ["Lawachara National Park", "Madhabpur Lake", "Baikka Beel Wetlands"],
+                "image_url": "https://images.pexels.com/photos/392100/pexels-photo-392100.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "activities": ["Tea Garden Tour", "Hiking", "Bird Watching"],
+                "weather": {
+                    "temperature": {
+                        "average_high": "28°C",
+                        "average_low": "18°C"
+                    },
+                    "rainfall": {
+                        "average": "300-400 mm",
+                        "rainy_season": "May-September"
+                    }
+                },
+                "best_time_to_visit": "October - March"
+            }
+        },
+        {
+            "destination": {
+                "name": "Dhaka",
+                "description": "The capital and largest city of Bangladesh, known for its bustling markets and historical landmarks",
+                "region": "Dhaka Division",
+                "top_attractions": ["Ahsan Manzil", "Dhakeshwari Temple", "Lalbagh Fort"],
+                "image_url": "https://images.pexels.com/photos/13108628/pexels-photo-13108628.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "activities": ["Shopping", "City Tours", "Dining"],
+                "weather": {
+                    "temperature": {
+                        "average_high": "31°C",
+                        "average_low": "22°C"
+                    },
+                    "rainfall": {
+                        "average": "200-300 mm",
+                        "rainy_season": "June-September"
+                    }
+                },
+                "best_time_to_visit": "October - March"
+            }
+        },
+        {
+            "destination": {
+                "name": "Chittagong",
+                "description": "The second-largest city in Bangladesh, known for its bustling port and historical sites",
+                "region": "Chittagong Division",
+                "top_attractions": ["Foy's Lake", "Shrine of Bayazid Bostami", "Chittagong Ethnological Museum"],
+                "image_url": "https://media.istockphoto.com/id/1346172785/photo/patenga-sea-beach-chittagong-bangladesh-drone-view.jpg?b=1&s=612x612&w=0&k=20&c=fUW3xEfamgWREBpGgUvHCNZM6K791Bwj864K9duTSyM=",
+                "activities": ["City Tours", "Boat Rides", "Hiking"],
+                "weather": {
+                    "temperature": {
+                        "average_high": "31°C",
+                        "average_low": "22°C"
+                    },
+                    "rainfall": {
+                        "average": "300-400 mm",
+                        "rainy_season": "May-September"
+                    }
+                },
+                "best_time_to_visit": "October - March"
+            }
+        }
+    ]
+}
