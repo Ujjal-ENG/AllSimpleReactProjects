@@ -54,7 +54,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/travel-destination',
-                element: <Destination />
+                element: <Destination />,
+                loader: async () => fetch('http://localhost:8080/travel-destination')
             },
             {
                 path: '/contact-us',
