@@ -51,12 +51,12 @@ export const router = createBrowserRouter([
             {
                 path: '/travel-blog',
                 element: <Blog />,
-                loader: async () => fetch('http://localhost:8080/all-blogs')
+                loader: async () => fetch('https://chol-ghure-asi-ujjal-eng.vercel.app/all-blogs')
             },
             {
                 path: '/travel-destination',
                 element: <Destination />,
-                loader: async () => fetch('http://localhost:8080/travel-destination')
+                loader: async () => fetch('https://chol-ghure-asi-ujjal-eng.vercel.app/travel-destination')
             },
             {
                 path: '/contact-us',
