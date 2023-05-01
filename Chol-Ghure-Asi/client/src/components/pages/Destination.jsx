@@ -11,6 +11,9 @@ function Destination() {
             <div className="bg-black">
                 <Navbar />
             </div>
+            <h1 className="hover-stroke text-6xl w-full font-bold" data-text="Top Destination">
+                Top Destination
+            </h1>
         </div>
     );
 }
