@@ -54,8 +54,12 @@ function Navbar() {
 
                 <div className="text-2xl flex-1 flex justify-evenly items-center">
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>News</NavLink>
-                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Destination</NavLink>
-                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
+                    <NavLink to="/travel-destination" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                        Destination
+                    </NavLink>
+                    <NavLink to="/travel-blog" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                        Blog
+                    </NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'active' : 'default')}>Contact</NavLink>
                     {!userInfo && (
                         <Link to="/login" className="btn btn-warning btn-md">

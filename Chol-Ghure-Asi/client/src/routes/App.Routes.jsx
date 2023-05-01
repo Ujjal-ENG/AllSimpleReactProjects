@@ -4,6 +4,8 @@
 /* eslint-disable comma-dangle */
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
+import Blog from '../components/pages/Blog';
+import Destination from '../components/pages/Destination';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login';
 import RegisterPage from '../components/pages/RegisterPage';
@@ -44,6 +46,14 @@ export const router = createBrowserRouter([
                     </PrivateRoutes>
                 ),
                 loader: async () => fetch('https://chol-ghure-asi.vercel.app/search-room/')
+            },
+            {
+                path: '/travel-blog',
+                element: <Blog />
+            },
+            {
+                path: '/travel-destination',
+                element: <Destination />
             }
         ]
     }
