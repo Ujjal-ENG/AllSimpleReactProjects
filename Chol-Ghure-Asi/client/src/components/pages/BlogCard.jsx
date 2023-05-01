@@ -7,9 +7,9 @@ function BlogCard({ data }) {
     const { image, title, description, author, date } = data;
     return (
         <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-            <div className="md:flex">
+            <div className="flex flex-col">
                 <div className="md:flex-shrink-0">
-                    <img className="h-48 w-full object-cover md:w-48" src={image} alt="" />
+                    <img className="h-full w-full max-h-72 object-cover " src={image} alt={title} />
                 </div>
                 <div className="p-8">
                     <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{date}</div>

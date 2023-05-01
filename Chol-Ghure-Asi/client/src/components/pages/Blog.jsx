@@ -6,7 +6,7 @@ import BlogCard from './BlogCard';
 
 function Blog() {
     const { blogs } = useLoaderData();
-    console.log(blogs);
+
     return (
         <div>
             <div className="bg-black">
