@@ -50,7 +50,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/travel-blog',
-                element: <Blog />
+                element: <Blog />,
+                loader: async () => fetch('http://localhost:8080/all-blogs')
             },
             {
                 path: '/travel-destination',
