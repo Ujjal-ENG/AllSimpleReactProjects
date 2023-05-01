@@ -3,6 +3,7 @@ const express = require('express');
 const data = require('./data/travelSite.json');
 const roomData = require('./data/roomdata.json');
 const destinationData = require('./data/destination.json');
+const blogsData = require('./data/blogdata.json');
 
 const app = express();
 
@@ -51,6 +52,15 @@ app.get('/travel-destination', (req, res) => {
         message: 'Succesffully get the Destination Data!!',
         results: destinationData.destination.length,
         destination: destinationData.destination,
+    });
+});
+
+app.get('/all-blogs', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Succesffully get the Destination Data!!',
+        results: blogsData.blogs.length,
+        blogs: blogsData.blogs,
     });
 });
 
