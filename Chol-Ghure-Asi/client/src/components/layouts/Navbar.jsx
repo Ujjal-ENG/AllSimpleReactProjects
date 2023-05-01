@@ -7,11 +7,19 @@ import React, { useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { MdLuggage } from 'react-icons/md';
 import { TbArrowLoopLeft } from 'react-icons/tb';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 function Navbar() {
     const { userInfo, logOutUser } = useContext(AuthContext);
+    const navigation = useNavigation();
+    if (navigation.state === 'loading') {
+        return (
+            <div className="h-screen flex justify-center items-center">
+                <progress className="progress w-56" />
+            </div>
+        );
+    }
     return (
         <nav className="px-10 py-3 text-white flex justify-between items-center gap-14">
             <Link to="/" className=" flex">
