@@ -105,6 +105,27 @@
                 },
                 "best_time_to_visit": "October - March"
             }
+        },
+        {
+            "destination": {
+                "name": "Paharpur",
+                "description": "An archaeological site in northern Bangladesh that was once a center of Buddhist learning",
+                "region": "Rajshahi Division",
+                "top_attractions": ["Paharpur Museum", "Somapura Mahavihara", "The ruins of the ancient city"],
+                "image_url": "https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "activities": ["Archaeological Tours", "Historical Exploration"],
+                "weather": {
+                    "temperature": {
+                        "average_high": "29°C",
+                        "average_low": "17°C"
+                    },
+                    "rainfall": {
+                        "average": "1200-1400 mm",
+                        "rainy_season": "June-September"
+                    }
+                },
+                "best_time_to_visit": "November - February"
+            }
         }
     ]
 }
