@@ -2,6 +2,7 @@
 import React from 'react';
 import { AiFillDelete, AiFillEye } from 'react-icons/ai';
 import { FaCoffee, FaEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Cup from '../../assets/cup.png';
 import SHop from '../../assets/shop.png';
 
@@ -14,10 +15,10 @@ const OurPopularProducts = () => {
             <h4 className="text-2xl text-center py-2"> --- Sip & Savor ---</h4>
             <h1 className="text-5xl tracking-wider text-center pt-2 font-semibold">Our Popular Products</h1>
             <div className="w-full flex items-center justify-center pt-5 ">
-                <button type="button" className="btn text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
+                <Link to="/add-coffee" className="btn text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
                     Add Coffee
                     <FaCoffee className="text-3xl font-bold text-black" />
-                </button>
+                </Link>
             </div>
 
             {/* coffee cars */}
