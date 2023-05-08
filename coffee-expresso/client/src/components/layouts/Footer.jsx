@@ -6,14 +6,14 @@ import Img from '../../assets/footer.png';
 
 function Footer() {
     return (
-        <>
-            <img src={Img} alt="footer" className="object-cover w-full" />
-            <footer className="bg-gray-800 py-12">
+        <div className="bg-gray-800">
+            <img src={Img} alt="footer" className="object-cover w-full " />
+            <footer className=" py-12 w-screen mx-auto max-w-7xl">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center">
                         <h3 className="text-3xl text-white font-bold">Coffee Express</h3>
                     </div>
-                    <div className="flex items-center px-2 space-x-4">
+                    <div className="flex items-center space-x-4">
                         <a href="#" className="text-gray-300 hover:text-gray-100">
                             <FaFacebookF size={20} />
                         </a>
@@ -26,9 +26,9 @@ function Footer() {
                     </div>
                 </div>
 
-                <div className="container mx-auto mt-6 flex flex-col md:flow-row justify-center md:justify-between items-center">
-                    <form className="w-full max-w-md md:max-w-lg">
-                        <div className="flex flex-wrap -mx-0 md:-mx-3 mb-2">
+                <div className="container mx-auto mt-6 flex flex-col md:flex-row justify-between items-center">
+                    <form className="w-full max-w-lg">
+                        <div className="flex flex-wrap  mb-2">
                             <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
                                 <input
                                     type="text"
@@ -44,7 +44,7 @@ function Footer() {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-wrap -mx-0 md:-mx-3 mb-2">
+                        <div className="flex flex-wrap  mb-2">
                             <div className="w-full px-3">
                                 <textarea
                                     placeholder="Message"
@@ -52,7 +52,7 @@ function Footer() {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-wrap -mx-3 mt-4">
+                        <div className="flex flex-wrap  mt-4">
                             <div className="w-full px-3">
                                 <button type="submit" className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     Send Message
@@ -77,7 +77,7 @@ function Footer() {
                     </div>
                 </div>
             </footer>
-        </>
+        </div>
     );
 }
 export default Footer;
