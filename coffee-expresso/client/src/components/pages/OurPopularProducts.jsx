@@ -41,12 +41,12 @@ const OurPopularProducts = () => {
                         </div>
                         <div className="card-actions flex justify-end items-end border-2 relative">
                             <div className="btn-group btn-group-vertical space-y-1 absolute -right-28 -bottom-20">
-                                <button type="button" className="bg-[#E3B577] p-2 rounded-md ">
+                                <Link to="/view-coffee" type="button" className="bg-[#E3B577] p-2 rounded-md ">
                                     <AiFillEye className="text-4xl  text-white cursor-pointer mx-auto" />
-                                </button>
-                                <button type="button" className="bg-black p-2 rounded-md">
+                                </Link>
+                                <Link to="/update-coffee" type="button" className="bg-black p-2 rounded-md">
                                     <FaEdit className="text-4xl  text-white cursor-pointer mx-auto" />
-                                </button>
+                                </Link>
                                 <button type="button" className="bg-red-400 p-2 rounded-md">
                                     <AiFillDelete className="text-4xl  text-white cursor-pointer mx-auto" />
                                 </button>

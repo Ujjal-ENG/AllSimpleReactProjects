@@ -53,7 +53,7 @@ const AddToCoffe = () => {
                     <input type="text" id="photo" value={formData.photo} onChange={handleChange} placeholder="Enter the Photo URL" className="input input-bordered input-primary w-full max-w-7xl" />
                 </div>
                 <Link to="/add-coffee" className="btn my-5 text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
-                    Add Coffee
+                    Add New Coffee
                     <FaCoffee className="text-3xl font-bold text-black" />
                 </Link>
             </form>
