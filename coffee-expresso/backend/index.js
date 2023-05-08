@@ -99,6 +99,18 @@ async function run() {
                 updateData,
             });
         });
+
+        // get id based delete the coffee data
+        app.delete('/delete-coffees/:id', async (req, res) => {
+            const { id } = req.params;
+
+            const result = await coffeeShop.deleteOne({ _id: new ObjectId(id) });
+            res.status(200).json({
+                success: true,
+                message: 'Your Successfully get the  Coffee details!!',
+                result,
+            });
+        });
     } catch (error) {
         console.log(error);
     }

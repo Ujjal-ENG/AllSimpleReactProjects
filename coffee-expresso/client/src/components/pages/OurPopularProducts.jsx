@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -5,6 +7,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaCoffee } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Cup from '../../assets/cup.png';
 import SHop from '../../assets/shop.png';
 import PopularProduct from './PopularProduct';
@@ -27,8 +30,26 @@ const OurPopularProducts = () => {
         getAllCoffeeData();
     }, []);
 
-    const handleDelete = (id) => {
-        console.log(id);
+    const handleDelete = async (id) => {
+        try {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const { data } = axios.delete(`http://localhost:8080/delete-coffees/${id}`);
+                    Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+                    getAllCoffeeData();
+                }
+            });
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <div className="relative">
