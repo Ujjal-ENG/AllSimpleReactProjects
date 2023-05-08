@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -29,7 +30,7 @@ const CoffeeDeatils = () => {
                                 Supplier: <span className="font-normal text-md">{supplier}</span>
                             </h2>
                             <h2 className="card-title">
-                                Taste: <span className="font-normal text-md">Sweet and Cold</span>
+                                Taste: <span className="font-normal text-md">{taste}</span>
                             </h2>
                             <h2 className="card-title">
                                 Category: <span className="font-normal text-md">{category}</span>
