@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
 import axios from 'axios';
@@ -25,6 +26,10 @@ const OurPopularProducts = () => {
     useEffect(() => {
         getAllCoffeeData();
     }, []);
+
+    const handleDelete = (id) => {
+        console.log(id);
+    };
     return (
         <div className="relative">
             <img src={Cup} alt="cup" className="absolute z-20 top-20" />
@@ -41,7 +46,9 @@ const OurPopularProducts = () => {
 
             {/* coffee cars */}
 
-            <div className="grid grid-cols-2 gap-6 justify-items-center mt-16 my-container">{coffees && coffees.map((coffee) => <PopularProduct key={coffee._id} data={coffee} />)}</div>
+            <div className="grid grid-cols-2 gap-6 justify-items-center mt-16 my-container">
+                {coffees && coffees.map((coffee) => <PopularProduct key={coffee._id} data={coffee} handleDelete={handleDelete} />)}
+            </div>
         </div>
     );
 };

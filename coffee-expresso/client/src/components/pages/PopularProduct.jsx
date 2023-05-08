@@ -5,7 +5,7 @@ import { AiFillDelete, AiFillEye } from 'react-icons/ai';
 import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const PopularProduct = ({ data }) => {
+const PopularProduct = ({ data, handleDelete }) => {
     const { _id, name, chef, photo } = data;
     return (
         <div className="card card-side bg-gray-200 max-w-3xl w-full duration-200 transition-all ease-in-out shadow-xl hover:shadow-2xl hover:translate-y-2">
@@ -32,7 +32,7 @@ const PopularProduct = ({ data }) => {
                         <Link state={data} to={`/update-coffee/${_id}`} type="button" className="bg-black p-2 rounded-md">
                             <FaEdit className="text-4xl  text-white cursor-pointer mx-auto" />
                         </Link>
-                        <button type="button" className="bg-red-400 p-2 rounded-md">
+                        <button onClick={() => handleDelete(_id)} type="button" className="bg-red-400 p-2 rounded-md">
                             <AiFillDelete className="text-4xl  text-white cursor-pointer mx-auto" />
                         </button>
                     </div>
