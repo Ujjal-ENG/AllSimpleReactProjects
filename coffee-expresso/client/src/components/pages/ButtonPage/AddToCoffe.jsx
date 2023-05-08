@@ -6,7 +6,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { FaCoffee } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Input from '../../layouts/shared/Input';
 
@@ -27,7 +27,7 @@ const AddToCoffe = () => {
             [e.target.id]: e.target.value
         }));
     };
-
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -50,6 +50,7 @@ const AddToCoffe = () => {
                     details: '',
                     photo: ''
                 });
+                navigate('/');
             }
         } catch (error) {
             console.log(error);

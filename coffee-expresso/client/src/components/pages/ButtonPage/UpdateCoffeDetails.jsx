@@ -33,7 +33,6 @@ const UpdateCoffeDetails = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log(formData);
             const { data } = await axios.patch(`http://localhost:8080/update-coffees/${state._id}`, { formData });
             if (data.success) {
                 Swal.fire({
