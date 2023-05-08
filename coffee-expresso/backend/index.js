@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 // mongodb
 
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 
 // config the dotenv
 dotenv.config();
@@ -51,6 +51,18 @@ async function run() {
         app.post('/create-coffee', async (req, res) => {
             const data = req.body.formData;
             const coffee = await coffeeShop.insertOne(data);
+            res.status(200).json({
+                success: true,
+                message: 'Your Successfully Created the new Coffee!!',
+                coffee,
+            });
+        });
+
+        // get id based  the coffee data
+        app.get('/get-coffees/:id', async (req, res) => {
+            const { id } = req.params;
+            // console.log(id);
+            const coffee = await coffeeShop.findOne({ _id: new ObjectId(id) });
             res.status(200).json({
                 success: true,
                 message: 'Your Successfully Created the new Coffee!!',

@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { AiFillDelete, AiFillEye } from 'react-icons/ai';
@@ -5,7 +6,7 @@ import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const PopularProduct = ({ data }) => {
-    const { name, chef, photo } = data;
+    const { _id, name, chef, photo } = data;
     return (
         <div className="card card-side bg-gray-200 max-w-3xl w-full duration-200 transition-all ease-in-out shadow-xl hover:shadow-2xl hover:translate-y-2">
             <figure>
@@ -25,7 +26,7 @@ const PopularProduct = ({ data }) => {
                 </div>
                 <div className="card-actions flex justify-end items-end border-2 relative">
                     <div className="btn-group btn-group-vertical space-y-1 absolute -right-28 -bottom-20">
-                        <Link to="/view-coffee" type="button" className="bg-[#E3B577] p-2 rounded-md ">
+                        <Link to={`/view-coffee/${_id}`} type="button" className="bg-[#E3B577] p-2 rounded-md ">
                             <AiFillEye className="text-4xl  text-white cursor-pointer mx-auto" />
                         </Link>
                         <Link to="/update-coffee" type="button" className="bg-black p-2 rounded-md">
