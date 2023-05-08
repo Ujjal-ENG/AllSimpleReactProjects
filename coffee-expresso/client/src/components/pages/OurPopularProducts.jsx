@@ -12,8 +12,8 @@ const OurPopularProducts = () => {
             <img src={SHop} alt="shop" className="absolute  top-20 right-0" />
 
             <h4 className="text-2xl text-center py-2"> --- Sip & Savor ---</h4>
-            <h1 className="text-5xl tracking-wider text-center py-2 font-semibold">Our Popular Products</h1>
-            <div className="w-full flex items-center justify-center py-5 ">
+            <h1 className="text-5xl tracking-wider text-center pt-2 font-semibold">Our Popular Products</h1>
+            <div className="w-full flex items-center justify-center pt-5 ">
                 <button type="button" className="btn text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
                     Add Coffee
                     <FaCoffee className="text-3xl font-bold text-black" />
@@ -22,9 +22,9 @@ const OurPopularProducts = () => {
 
             {/* coffee cars */}
             <div className="grid grid-cols-2 justify-items-center mt-16 my-container">
-                <div className="card card-side bg-base-100 max-w-3xl w-full duration-200 transition-all ease-in-out shadow-xl hover:shadow-2xl hover:translate-y-2">
+                <div className="card card-side bg-gray-200 max-w-3xl w-full duration-200 transition-all ease-in-out shadow-xl hover:shadow-2xl hover:translate-y-2">
                     <figure>
-                        <img src="https://images.pexels.com/photos/2648988/pexels-photo-2648988.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Movie" className="w-56 h-48 object-cover" />
+                        <img src="https://images.pexels.com/photos/2648988/pexels-photo-2648988.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Movie" className="w-60 h-52 object-cover p-8" />
                     </figure>
                     <div className="flex justify-between items-center">
                         <div className=" mx-2 space-y-2">
