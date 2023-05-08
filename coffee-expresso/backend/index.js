@@ -16,7 +16,9 @@ const app = express();
 // initialize the middleware
 app.use(express.json());
 app.use(cors());
-
+app.get('/', (req, res) => {
+    res.json({ message: 'Hello from Backend!!!' });
+});
 const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@cluster0.zzrczzq.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
