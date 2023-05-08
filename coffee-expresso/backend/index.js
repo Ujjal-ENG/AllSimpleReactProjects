@@ -37,15 +37,28 @@ const coffeeShop = database.collection('coffee');
 
 async function run() {
     try {
-        const doc = {
-            title: 'Record of a Shriveled Datum',
-            content: 'No bytes, no problem. Just insert a document, in MongoDB',
-        };
+        // get all the coffees here
+        app.get('/all-coffees', async (req, res) => {
+            const allCoffee = await coffeeShop.find().toArray();
+            res.status(200).json({
+                success: true,
+                message: 'Your Successfully get the Data',
+                allCoffee,
+            });
+        });
 
-        await coffeeShop.insertOne(doc);
-    } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
+        // create the coffee here
+        app.post('/create-coffee', async (req, res) => {
+            const data = req.body.formData;
+            const coffee = await coffeeShop.insertOne(data);
+            res.status(200).json({
+                success: true,
+                message: 'Your Successfully Created the new Coffee!!',
+                coffee,
+            });
+        });
+    } catch (error) {
+        console.log(error);
     }
 }
 run().catch(console.dir);

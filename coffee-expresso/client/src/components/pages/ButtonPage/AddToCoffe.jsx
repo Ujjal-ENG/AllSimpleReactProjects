@@ -2,10 +2,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable comma-dangle */
+import axios from 'axios';
 import React, { useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { FaCoffee } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Input from '../../layouts/shared/Input';
 
 const AddToCoffe = () => {
@@ -25,6 +27,39 @@ const AddToCoffe = () => {
             [e.target.id]: e.target.value
         }));
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const { data } = await axios.post('http://localhost:8080/create-coffee', { formData });
+            if (data.success) {
+                console.log(data);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                setFormData({
+                    name: '',
+                    chef: '',
+                    supplier: '',
+                    taste: '',
+                    category: '',
+                    details: '',
+                    photo: ''
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            });
+        }
+    };
     return (
         <div className="my-container">
             <Link to="/" className="flex justify-start text-2xl font-bold items-center gap-2">
@@ -32,7 +67,7 @@ const AddToCoffe = () => {
                 Back to Home
             </Link>
 
-            <form action="" className="bg-slate-200 p-10 my-14 rounded-md">
+            <form onSubmit={handleSubmit} className="bg-slate-200 p-10 my-14 rounded-md">
                 <h1 className="text-5xl tracking-wider text-center pt-2 font-semibold">Add New Coffee</h1>
                 <p className="text-gray-500 tracking-wider py-6 max-w-3xl text-center mx-auto">
                     It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
@@ -52,10 +87,10 @@ const AddToCoffe = () => {
                     </label>
                     <input type="text" id="photo" value={formData.photo} onChange={handleChange} placeholder="Enter the Photo URL" className="input input-bordered input-primary w-full max-w-7xl" />
                 </div>
-                <Link to="/add-coffee" className="btn my-5 text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
+                <button type="submit" className="btn my-5 text-2xl w-full font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
                     Add New Coffee
                     <FaCoffee className="text-3xl font-bold text-black" />
-                </Link>
+                </button>
             </form>
         </div>
     );
