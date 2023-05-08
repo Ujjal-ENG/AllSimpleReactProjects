@@ -24,7 +24,7 @@ const OurPopularProducts = () => {
 
     useEffect(() => {
         getAllCoffeeData();
-    }, [coffees]);
+    }, []);
     return (
         <div className="relative">
             <img src={Cup} alt="cup" className="absolute z-20 top-20" />

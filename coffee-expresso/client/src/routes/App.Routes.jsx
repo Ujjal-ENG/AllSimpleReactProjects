@@ -22,8 +22,9 @@ export const router = createBrowserRouter([
                 element: <AddToCoffe />
             },
             {
-                path: 'update-coffee',
-                element: <UpdateCoffeDetails />
+                path: 'update-coffee/:id',
+                element: <UpdateCoffeDetails />,
+                loader: async ({ params }) => fetch(`http://localhost:8080/get-coffees/${params.id}`)
             },
             {
                 path: 'view-coffee/:id',

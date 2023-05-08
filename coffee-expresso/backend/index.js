@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-tabs */
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -61,12 +62,41 @@ async function run() {
         // get id based  the coffee data
         app.get('/get-coffees/:id', async (req, res) => {
             const { id } = req.params;
-            // console.log(id);
+
             const coffee = await coffeeShop.findOne({ _id: new ObjectId(id) });
             res.status(200).json({
                 success: true,
-                message: 'Your Successfully Created the new Coffee!!',
+                message: 'Your Successfully get the  Coffee details!!',
                 coffee,
+            });
+        });
+
+        // get id based update  the coffee data
+        app.patch('/update-coffees/:id', async (req, res) => {
+            const { id } = req.params;
+
+            const options = { upsert: true };
+
+            const updateDoc = {
+                $set: {
+                    name: req.body.formData.name,
+                    chef: req.body.formData.chef,
+                    supplier: req.body.formData.supplier,
+                    taste: req.body.formData.taste,
+                    category: req.body.formData.category,
+                    details: req.body.formData.details,
+                    photo: req.body.formData.photo,
+                },
+            };
+            const updateData = await coffeeShop.updateOne(
+                { _id: new ObjectId(id) },
+                updateDoc,
+                options
+            );
+            res.status(200).json({
+                success: true,
+                message: 'Your Successfully Updated the Coffee Data!!',
+                updateData,
             });
         });
     } catch (error) {

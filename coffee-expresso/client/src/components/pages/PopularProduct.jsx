@@ -29,7 +29,7 @@ const PopularProduct = ({ data }) => {
                         <Link to={`/view-coffee/${_id}`} type="button" className="bg-[#E3B577] p-2 rounded-md ">
                             <AiFillEye className="text-4xl  text-white cursor-pointer mx-auto" />
                         </Link>
-                        <Link to="/update-coffee" type="button" className="bg-black p-2 rounded-md">
+                        <Link state={data} to={`/update-coffee/${_id}`} type="button" className="bg-black p-2 rounded-md">
                             <FaEdit className="text-4xl  text-white cursor-pointer mx-auto" />
                         </Link>
                         <button type="button" className="bg-red-400 p-2 rounded-md">
