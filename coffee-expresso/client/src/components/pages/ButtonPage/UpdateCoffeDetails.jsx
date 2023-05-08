@@ -70,7 +70,7 @@ const UpdateCoffeDetails = () => {
                     It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
                     more-or-less normal distribution of letters, as opposed to using Content here.
                 </p>
-                <div className="grid grid-cols-2 gap-10">
+                <div className="grid grid-cols-1  md:grid-cols-2 gap-3 md:gap-10">
                     <Input label="Name" id="name" type="text" placeholder="Enter Coffee Name" value={formData.name} change={handleChange} />
                     <Input label="Chef" id="chef" type="text" placeholder="Enter Coffee Chef Name" value={formData.chef} change={handleChange} />
                     <Input label="Supplier" id="supplier" type="text" placeholder="Enter Coffee Supplier Name" value={formData.supplier} change={handleChange} />
@@ -84,9 +84,9 @@ const UpdateCoffeDetails = () => {
                     </label>
                     <input type="text" id="photo" value={formData.photo} onChange={handleChange} placeholder="Enter the Photo URL" className="input input-bordered input-primary w-full max-w-7xl" />
                 </div>
-                <button type="submit" className="btn w-full my-5 text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
+                <button type="submit" className="btn w-full my-5 text-xs md:text-2xl font-bold flex items-center gap-3 btn-primary bg-[#E3B577]">
                     Update Existing Coffee Details
-                    <FaCoffee className="text-3xl font-bold text-black" />
+                    <FaCoffee className="md:text-3xl text-xl font-bold text-black" />
                 </button>
             </form>
         </div>

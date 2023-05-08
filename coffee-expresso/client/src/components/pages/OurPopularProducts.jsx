@@ -53,8 +53,8 @@ const OurPopularProducts = () => {
     };
     return (
         <div className="relative">
-            <img src={Cup} alt="cup" className="absolute z-20 top-20" />
-            <img src={SHop} alt="shop" className="absolute  top-20 right-0" />
+            <img src={Cup} alt="cup" className="absolute hidden md:block  z-20 top-20" />
+            <img src={SHop} alt="shop" className="absolute hidden md:block top-20 right-0" />
 
             <h4 className="text-2xl text-center py-2"> --- Sip & Savor ---</h4>
             <h1 className="text-5xl tracking-wider text-center pt-2 font-semibold">Our Popular Products</h1>
@@ -67,7 +67,7 @@ const OurPopularProducts = () => {
 
             {/* coffee cars */}
 
-            <div className="grid grid-cols-2 gap-6 justify-items-center mt-16 my-container">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mt-16 my-container">
                 {coffees && coffees.map((coffee) => <PopularProduct key={coffee._id} data={coffee} handleDelete={handleDelete} />)}
             </div>
         </div>

@@ -13,7 +13,7 @@ function Footer() {
                     <div className="flex items-center">
                         <h3 className="text-3xl text-white font-bold">Coffee Express</h3>
                     </div>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center px-2 space-x-4">
                         <a href="#" className="text-gray-300 hover:text-gray-100">
                             <FaFacebookF size={20} />
                         </a>
@@ -26,9 +26,9 @@ function Footer() {
                     </div>
                 </div>
 
-                <div className="container mx-auto mt-6 flex justify-between items-center">
-                    <form className="w-full max-w-lg">
-                        <div className="flex flex-wrap -mx-3 mb-2">
+                <div className="container mx-auto mt-6 flex flex-col md:flow-row justify-center md:justify-between items-center">
+                    <form className="w-full max-w-md md:max-w-lg">
+                        <div className="flex flex-wrap -mx-0 md:-mx-3 mb-2">
                             <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
                                 <input
                                     type="text"
@@ -44,7 +44,7 @@ function Footer() {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-wrap -mx-3 mb-2">
+                        <div className="flex flex-wrap -mx-0 md:-mx-3 mb-2">
                             <div className="w-full px-3">
                                 <textarea
                                     placeholder="Message"
