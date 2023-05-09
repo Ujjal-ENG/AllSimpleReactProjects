@@ -12,8 +12,8 @@ const Banner = () => {
         <div>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full h-[600px]">
-                    <img src={BannerImg1} className="w-full rounded-lg " />
-                    <div className="absolute  max-w-2xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
+                    <img src={BannerImg1} className="w-full rounded-xl " />
+                    <div className="absolute  max-w-2xl rounded-xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
                         <div className="ml-24 space-y-7 h-full flex justify-center items-start flex-col">
                             <h1 className="text-white font-bold text-6xl tracking-wider w-[460px]">Affordable Price For Car Servicing</h1>
                             <p className="text-white  text-xl tracking-widest">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
@@ -38,8 +38,8 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full h-[600px]">
-                    <img src={BannerImg2} className="w-full rounded-lg" />
-                    <div className="absolute  max-w-2xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
+                    <img src={BannerImg2} className="w-full rounded-xl" />
+                    <div className="absolute  max-w-2xl rounded-xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
                         <div className="ml-24 space-y-7 h-full flex justify-center items-start flex-col">
                             <h1 className="text-white font-bold text-6xl tracking-wider w-[460px]">Affordable Price For Car Servicing</h1>
                             <p className="text-white  text-xl tracking-widest">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
@@ -64,8 +64,8 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full h-[600px]">
-                    <img src={BannerImg3} className="w-full rounded-lg" />
-                    <div className="absolute  max-w-2xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
+                    <img src={BannerImg3} className="w-full rounded-xl" />
+                    <div className="absolute  max-w-2xl rounded-xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
                         <div className="ml-24 space-y-7 h-full flex justify-center items-start flex-col">
                             <h1 className="text-white font-bold text-6xl tracking-wider w-[460px]">Affordable Price For Car Servicing</h1>
                             <p className="text-white  text-xl tracking-widest">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
@@ -90,8 +90,8 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full h-[600px]">
-                    <img src={BannerImg4} className="w-full rounded-lg" />
-                    <div className="absolute  max-w-2xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
+                    <img src={BannerImg4} className="w-full rounded-xl" />
+                    <div className="absolute  max-w-2xl rounded-xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
                         <div className="ml-24 space-y-7 h-full flex justify-center items-start flex-col">
                             <h1 className="text-white font-bold text-6xl tracking-wider w-[460px]">Affordable Price For Car Servicing</h1>
                             <p className="text-white  text-xl tracking-widest">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
@@ -116,8 +116,8 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide5" className="carousel-item relative w-full h-[600px]">
-                    <img src={BannerImg5} className="w-full rounded-lg" />
-                    <div className="absolute  max-w-2xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
+                    <img src={BannerImg5} className="w-full rounded-xl" />
+                    <div className="absolute  max-w-2xl rounded-xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
                         <div className="ml-24 space-y-7 h-full flex justify-center items-start flex-col">
                             <h1 className="text-white font-bold text-6xl tracking-wider w-[460px]">Affordable Price For Car Servicing</h1>
                             <p className="text-white  text-xl tracking-widest">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
@@ -142,8 +142,8 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide6" className="carousel-item relative w-full h-[600px]">
-                    <img src={BannerImg6} className="w-full rounded-lg" />
-                    <div className="absolute  max-w-2xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
+                    <img src={BannerImg6} className="w-full rounded-xl" />
+                    <div className="absolute  max-w-2xl rounded-xl justify-start gap-10 top-0 left-0 transform bottom-0  bg-gradient-to-r from-gray-900 to-transparent ">
                         <div className="ml-24 space-y-7 h-full flex justify-center items-start flex-col">
                             <h1 className="text-white font-bold text-6xl tracking-wider w-[460px]">Affordable Price For Car Servicing</h1>
                             <p className="text-white  text-xl tracking-widest">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
