@@ -31,7 +31,7 @@ const AddToCoffe = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:8080/create-coffee', { formData });
+            const { data } = await axios.post('https://backend-blond-phi.vercel.app/create-coffee', { formData });
             if (data.success) {
                 console.log(data);
                 Swal.fire({

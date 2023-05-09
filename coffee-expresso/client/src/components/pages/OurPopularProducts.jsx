@@ -42,7 +42,7 @@ const OurPopularProducts = () => {
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const { data } = axios.delete(`http://localhost:8080/delete-coffees/${id}`);
+                    const { data } = axios.delete(`https://backend-blond-phi.vercel.app/delete-coffees/${id}`);
                     Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
                     getAllCoffeeData();
                 }

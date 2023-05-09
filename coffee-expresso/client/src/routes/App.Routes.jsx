@@ -24,12 +24,12 @@ export const router = createBrowserRouter([
             {
                 path: 'update-coffee/:id',
                 element: <UpdateCoffeDetails />,
-                loader: async ({ params }) => fetch(`http://localhost:8080/get-coffees/${params.id}`)
+                loader: async ({ params }) => fetch(`https://backend-blond-phi.vercel.app/get-coffees/${params.id}`)
             },
             {
                 path: 'view-coffee/:id',
                 element: <CoffeeDeatils />,
-                loader: async ({ params }) => fetch(`http://localhost:8080/get-coffees/${params.id}`)
+                loader: async ({ params }) => fetch(`https://backend-blond-phi.vercel.app/get-coffees/${params.id}`)
             }
         ]
     }

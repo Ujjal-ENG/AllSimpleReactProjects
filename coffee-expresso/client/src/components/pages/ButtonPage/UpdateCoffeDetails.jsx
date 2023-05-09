@@ -33,7 +33,7 @@ const UpdateCoffeDetails = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.patch(`http://localhost:8080/update-coffees/${state._id}`, { formData });
+            const { data } = await axios.patch(`https://backend-blond-phi.vercel.app/update-coffees/${state._id}`, { formData });
             if (data.success) {
                 Swal.fire({
                     position: 'top-end',
