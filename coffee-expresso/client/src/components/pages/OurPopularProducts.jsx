@@ -17,7 +17,7 @@ const OurPopularProducts = () => {
     // get all coffee data
     const getAllCoffeeData = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8080/all-coffees');
+            const { data } = await axios.get('https://backend-blond-phi.vercel.app/all-coffees');
             if (data.success) {
                 setCoffees(data.allCoffee);
             }
