@@ -1,16 +1,9 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Footer from './components/layouts/shared/Footer';
-import Navbar from './components/layouts/shared/Navbar';
+import React from 'react'
 
 const App = () => {
-    return (
-        <>
-            <Navbar />
-            <Outlet />
-            <Footer />
-        </>
-    );
-};
+  return (
+    <div>App</div>
+  )
+}
 
-export default App;
+export default App
