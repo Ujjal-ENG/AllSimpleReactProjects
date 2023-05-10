@@ -47,7 +47,7 @@ const ServiceArea = () => {
             </div>
 
             <div className="flex justify-center items-center w-full">
-                <button type="button" className="btn btn-outline text-orange-500 border-orange-600">
+                <button type="button" className="btn btn-outline text-xl btn-wide font-bold text-orange-500 border-orange-600">
                     More Services
                 </button>
             </div>
