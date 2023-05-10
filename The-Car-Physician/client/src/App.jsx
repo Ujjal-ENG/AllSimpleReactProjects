@@ -7,8 +7,10 @@ import AuthProvider from './context/AuthProvider';
 const App = () => {
     return (
         <AuthProvider>
-            <Navbar />
-            <Outlet />
+            <div className="max-w-7xl mx-auto">
+                <Navbar />
+                <Outlet />
+            </div>
             <Footer />
         </AuthProvider>
     );
