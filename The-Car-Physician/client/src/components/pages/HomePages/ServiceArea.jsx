@@ -38,7 +38,7 @@ const ServiceArea = () => {
 
                                 <div className=" flex justify-between items-center w-full">
                                     <h2 className="card-title text-orange-600">Price: ${service.price}</h2>
-                                    <Link to={`service-details/${service._id}`} type="button" className="btn btn-circle border-none btn-outline">
+                                    <Link to={`service-details/${service._id}`} state={service} type="button" className="btn btn-circle border-none btn-outline">
                                         <BsArrowRight className="text-3xl text-orange-600 hover:text-white" />
                                     </Link>
                                 </div>
