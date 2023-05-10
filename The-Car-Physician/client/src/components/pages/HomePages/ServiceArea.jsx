@@ -6,6 +6,7 @@
 /* eslint-disable no-trailing-spaces */
 import React, { useEffect, useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const ServiceArea = () => {
     const [services, setServices] = useState([]);
@@ -37,9 +38,9 @@ const ServiceArea = () => {
 
                                 <div className=" flex justify-between items-center w-full">
                                     <h2 className="card-title text-orange-600">Price: ${service.price}</h2>
-                                    <button type="button" className="btn btn-circle border-none btn-outline">
+                                    <Link to={`service-details/${service._id}`} type="button" className="btn btn-circle border-none btn-outline">
                                         <BsArrowRight className="text-3xl text-orange-600 hover:text-white" />
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

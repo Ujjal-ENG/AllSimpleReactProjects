@@ -6,6 +6,7 @@ import ErrorPage from '../ErrorPage';
 import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
+import ServiceDetails from '../components/pages/serviceDetails/ServiceDetails';
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
+            },
+            {
+                path: 'service-details/:id',
+                element: <ServiceDetails />
             }
         ]
     },
