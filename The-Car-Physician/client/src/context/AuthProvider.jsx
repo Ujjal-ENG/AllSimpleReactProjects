@@ -1,6 +1,7 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -9,6 +10,8 @@ import app from '../config/firebase';
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [privateLoad, setPrivateLoad] = useState(true);
@@ -35,6 +38,7 @@ const AuthProvider = ({ children }) => {
             });
             navigate('/login');
         } catch (error) {
+            setLoading(false);
             console.log(error);
             Swal.fire({
                 icon: 'error',
@@ -51,8 +55,67 @@ const AuthProvider = ({ children }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             setLoading(false);
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            });
+        }
     };
+
+    // google signIn
+    const googleSignIn = async () => {
+        setLoading(true);
+        setPrivateLoad(true);
+        try {
+            signInWithPopup(auth, googleProvider);
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'You are Successfully Logged in with Gmail!!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            });
+        }
+    };
+
+    // LoggedOutUser
+    const logOut = async () => {
+        setLoading(true);
+        setPrivateLoad(true);
+        try {
+            signOut(auth);
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'You are Successfully Logged Out!!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            });
+        }
+    };
+
     useEffect(() => {
         try {
             onAuthStateChanged(auth, (currentUser) => {
@@ -69,10 +132,21 @@ const AuthProvider = ({ children }) => {
         }
     }, []);
 
+    if (loading) {
+        return (
+            <div className="h-screen flex justify-center items-center">
+                <progress className="progress w-56" />
+            </div>
+        );
+    }
+
     const auths = {
         privateLoad,
         userInfo,
-        createUser
+        createUser,
+        signInUser,
+        googleSignIn,
+        logOut
     };
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
 };
