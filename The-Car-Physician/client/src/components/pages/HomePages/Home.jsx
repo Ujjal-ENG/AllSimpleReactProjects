@@ -2,6 +2,7 @@ import React from 'react';
 import AboutUs from './AboutUs';
 import Banner from './Banner';
 import Contact from './Contact';
+import Features from './Features';
 import PopularProducts from './PopularProducts';
 import ServiceArea from './ServiceArea';
 
@@ -13,6 +14,7 @@ const Home = () => {
             <ServiceArea />
             <Contact />
             <PopularProducts />
+            <Features />
         </div>
     );
 };
