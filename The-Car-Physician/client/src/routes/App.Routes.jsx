@@ -8,6 +8,7 @@ import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
 import ServiceDetails from '../components/pages/serviceDetails/ServiceDetails';
+import AuthProvider from '../context/AuthProvider';
 
 export const router = createBrowserRouter([
     {
@@ -31,10 +32,19 @@ export const router = createBrowserRouter([
     },
     {
         path: '/login',
-        element: <Login />
+        element: (
+            <AuthProvider>
+                <Login />
+            </AuthProvider>
+        )
     },
     {
         path: '/register',
-        element: <Register />
+        element: (
+            <AuthProvider>
+                {' '}
+                <Register />
+            </AuthProvider>
+        )
     }
 ]);

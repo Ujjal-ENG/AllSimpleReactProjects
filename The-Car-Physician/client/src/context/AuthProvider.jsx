@@ -118,20 +118,11 @@ const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        try {
-            const unSubscriber = onAuthStateChanged(auth, (currentUser) => {
-                setPrivateLoad(false);
-                setUserInfo(currentUser);
-            });
-            return () => unSubscriber();
-        } catch (error) {
-            console.log(error);
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!'
-            });
-        }
+        const unSubscriber = onAuthStateChanged(auth, (currentUser) => {
+            setPrivateLoad(false);
+            setUserInfo(currentUser);
+        });
+        return () => unSubscriber();
     }, []);
 
     if (loading) {
