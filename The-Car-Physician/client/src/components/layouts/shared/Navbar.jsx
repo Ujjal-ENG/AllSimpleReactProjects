@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React from 'react';
+import { BiSearch } from 'react-icons/bi';
+import { BsHandbag } from 'react-icons/bs';
 import { Link, NavLink, useNavigation } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
 
 const Navbar = () => {
     const navItems = (
-        <div className="flex flex-col md:flex-row md:justify-evenly  items-center gap-16 text-xl font-bold">
+        <div className="flex flex-col md:flex-row md:justify-evenly  items-center gap-10 text-xl font-bold">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/services">Services</NavLink>
@@ -41,9 +43,11 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">{navItems}</ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to="/" className="btn btn-outline text-orange-600">
-                        Get started
+                <div className="navbar-end space-x-5">
+                    <BsHandbag className="text-2xl cursor-pointer" />
+                    <BiSearch className="text-2xl cursor-pointer" />
+                    <Link to="/login" className="btn btn-outline text-xl font-bold text-orange-500">
+                        Appointment
                     </Link>
                 </div>
             </div>
