@@ -3,6 +3,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import ErrorPage from '../ErrorPage';
+import CheckOut from '../components/pages/Chekout/CheckOut';
 import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: 'service-details/:id',
                 element: <ServiceDetails />
+            },
+            {
+                path: 'checkout/:id',
+                element: <CheckOut />
             }
         ]
     },

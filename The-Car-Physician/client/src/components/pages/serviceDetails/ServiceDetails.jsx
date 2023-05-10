@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-array-index-key */
@@ -140,7 +141,7 @@ const ServiceDetails = () => {
                     </div>
 
                     <h3 className="text-4xl font-bold">Price: ${state.price}</h3>
-                    <Link to="/checkout" className="btn btn-block bg-orange-600 font-bold text-xl border-none">
+                    <Link to={`/checkout/${state._id}`} className="btn btn-block bg-orange-600 font-bold text-xl border-none">
                         Proceed to Checkout
                     </Link>
                 </div>

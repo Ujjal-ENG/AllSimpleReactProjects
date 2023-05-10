@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React from 'react';
+import React, { useContext } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsHandbag } from 'react-icons/bs';
 import { Link, NavLink, useNavigation } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
+    const { userInfo, logOut } = useContext(AuthContext);
+
     const navItems = (
         <div className="flex flex-col md:flex-row md:justify-evenly  items-center gap-10 text-xl font-bold">
             <NavLink to="/">Home</NavLink>
@@ -14,6 +17,13 @@ const Navbar = () => {
             <NavLink to="/services">Services</NavLink>
             <NavLink to="/blog">Blog</NavLink>
             <NavLink to="/contact">Contact</NavLink>
+            {userInfo ? (
+                <button type="button" onClick={() => logOut()}>
+                    Logout
+                </button>
+            ) : (
+                <NavLink to="/login">Login</NavLink>
+            )}
         </div>
     );
     const { state } = useNavigation();
