@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
@@ -118,10 +119,11 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         try {
-            onAuthStateChanged(auth, (currentUser) => {
+            const unSubscriber = onAuthStateChanged(auth, (currentUser) => {
                 setPrivateLoad(false);
                 setUserInfo(currentUser);
             });
+            return () => unSubscriber();
         } catch (error) {
             console.log(error);
             Swal.fire({
