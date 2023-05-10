@@ -46,7 +46,7 @@ async function run() {
                 console.log(error);
                 res.status(404).json({
                     success: false,
-                    message: 'Error Occured in Get Services Data',
+                    message: 'Error Occur in Get Services Data',
                     error,
                 });
             }
