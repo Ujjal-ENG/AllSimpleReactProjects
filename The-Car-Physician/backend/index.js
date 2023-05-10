@@ -5,7 +5,7 @@ import express from 'express';
 // config env files
 dotenv.config();
 
-// app intialization
+// app initialization
 const app = express();
 
 // middleware

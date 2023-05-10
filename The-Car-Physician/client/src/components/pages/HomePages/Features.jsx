@@ -10,7 +10,7 @@ import Person from '../../../assets/icons/person.svg';
 
 const Features = () => {
     return (
-        <div>
+        <div className="pt-32">
             <h3 className="text-orange-600 text-xl font-bold text-center">Core Features</h3>
             <h1 className="text-5xl font-bold tracking-wider text-center py-5">Why Choose Us</h1>
             <p className="text-gray-500 tracking-widest text-center mx-auto max-w-3xl">
