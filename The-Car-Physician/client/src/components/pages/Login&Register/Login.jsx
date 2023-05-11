@@ -13,11 +13,11 @@ const Login = () => {
     const { state } = useLocation();
     const from = state?.from?.pathname || '/';
     console.log(from);
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signInUser(email, password);
+        await signInUser(email, password);
         navigate(from);
     };
     return (
