@@ -3,6 +3,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import ErrorPage from '../ErrorPage';
+import CheckBookingDetails from '../components/pages/CheckBookingDetails/CheckBookingDetails';
 import CheckOut from '../components/pages/Chekout/CheckOut';
 import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
@@ -33,6 +34,14 @@ export const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: async ({ params }) => fetch(`http://localhost:8080/single-services/${params.id}`)
+            },
+            {
+                path: 'check-booking-details',
+                element: (
+                    <PrivateRoute>
+                        <CheckBookingDetails />
+                    </PrivateRoute>
+                )
             }
         ]
     },
