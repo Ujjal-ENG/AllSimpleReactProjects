@@ -9,7 +9,6 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
     const { userInfo, logOut } = useContext(AuthContext);
-    console.log(userInfo);
     const navItems = (
         <div className="flex flex-col md:flex-row md:justify-evenly  items-center gap-10 text-xl font-bold">
             <NavLink to="/">Home</NavLink>
