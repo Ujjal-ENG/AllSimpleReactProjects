@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const CheckOut = () => {
     const { id } = useParams();
-
+    const { userInfo } = useContext(AuthContext);
+    console.log(userInfo);
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -31,7 +33,7 @@ const CheckOut = () => {
                             <label htmlFor="Name" className="label ">
                                 <span className="label-text text-xl font-bold ">Name</span>
                             </label>
-                            <input type="text" required id="name" placeholder="Name" className="input input-bordered input-error w-full " />
+                            <input type="text" defaultValue={userInfo.displayName} required id="name" placeholder="Name" className="input input-bordered input-error w-full " />
                         </div>
                         <div>
                             <label htmlFor="Date" className="label">
@@ -43,7 +45,7 @@ const CheckOut = () => {
                             <label htmlFor="email" className="label">
                                 <span className="label-text text-xl font-bold ">Email</span>
                             </label>
-                            <input type="email" id="email" required placeholder="jon@gmail.com" className="input input-bordered input-error w-full " />
+                            <input type="email" defaultValue={userInfo.email} id="email" required placeholder="jon@gmail.com" className="input input-bordered input-error w-full " />
                         </div>
                         <div>
                             <label htmlFor="amount" className="label">
