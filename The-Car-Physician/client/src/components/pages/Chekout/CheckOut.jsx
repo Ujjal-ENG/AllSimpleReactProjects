@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from 'axios';
 import React, { useContext } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -10,6 +11,7 @@ const CheckOut = () => {
     const { id } = useParams();
     const { singleService } = useLoaderData();
     const { userInfo } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -28,7 +30,16 @@ const CheckOut = () => {
 
         try {
             const { data } = await axios.post('http://localhost:8080/bookings', { serviceInfo });
-            console.log(data);
+            if (data.success) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate('/');
+            }
         } catch (error) {
             console.log(error);
         }
