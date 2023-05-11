@@ -1,19 +1,32 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useContext } from 'react';
 import { SiFacebook, SiGoogle, SiLinkedin } from 'react-icons/si';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../../assets/images/login/login.svg';
+import { AuthContext } from '../../../context/AuthProvider';
 import Navbar from '../../layouts/shared/Navbar';
 
 const Login = () => {
+    const { signInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    const from = state?.from?.pathname || '/';
+    console.log(from);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInUser(email, password);
+        navigate(from);
+    };
     return (
         <div className="max-w-7xl mx-auto">
             <Navbar />
             <div className="hero min-h-[70vh]">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
-                        <div className="card-body">
+                        <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-bold text-xl">Email</span>
@@ -57,7 +70,7 @@ const Login = () => {
                                     </span>
                                 </p>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div className="text-center lg:text-left">
                         <img src={Logo} alt="logo" className="max-w-2xl" />

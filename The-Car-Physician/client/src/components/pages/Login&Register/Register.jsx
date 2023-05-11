@@ -5,16 +5,19 @@ import { SiFacebook, SiGoogle, SiLinkedin } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/images/login/login.svg';
 import { AuthContext } from '../../../context/AuthProvider';
-import Navbar from '../../layouts/shared/Navbar';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const handleSubmit = (e) => {
         e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const photo = e.target.photo.value;
+        createUser(name, photo, email, password);
     };
     return (
         <div className="max-w-7xl mx-auto">
-            <Navbar />
             <div className="hero min-h-[70vh]">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">

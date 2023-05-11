@@ -25,18 +25,21 @@ const AuthProvider = ({ children }) => {
         setPrivateLoad(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
-            updateProfile(user.currentUser, {
+
+            await updateProfile(user.user, {
                 displayName: name,
                 photoURL: photo
             });
-            signOut(auth);
+            await signOut(auth);
+
             Swal.fire({
-                position: 'top-center',
+                position: 'top-end',
                 icon: 'success',
                 title: 'You are Successfully Registered!!',
                 showConfirmButton: false,
                 timer: 1500
             });
+            setLoading(false);
             navigate('/login');
         } catch (error) {
             setLoading(false);
@@ -98,8 +101,9 @@ const AuthProvider = ({ children }) => {
         setPrivateLoad(true);
         try {
             signOut(auth);
+            navigate('/login');
             Swal.fire({
-                position: 'top-center',
+                position: 'top-end',
                 icon: 'success',
                 title: 'You are Successfully Logged Out!!',
                 showConfirmButton: false,

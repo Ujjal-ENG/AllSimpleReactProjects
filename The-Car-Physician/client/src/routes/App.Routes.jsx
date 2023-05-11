@@ -27,14 +27,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'checkout/:id',
-                element: <PrivateRoute>
-                    <CheckOut />
-                         </PrivateRoute>
+                element: (
+                    <PrivateRoute>
+                        <CheckOut />
+                    </PrivateRoute>
+                )
             }
         ]
     },
     {
-        path: '/login',
+        path: 'login',
         element: (
             <AuthProvider>
                 <Login />
