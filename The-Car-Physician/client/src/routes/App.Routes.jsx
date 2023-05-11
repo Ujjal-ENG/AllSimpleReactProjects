@@ -31,7 +31,8 @@ export const router = createBrowserRouter([
                     <PrivateRoute>
                         <CheckOut />
                     </PrivateRoute>
-                )
+                ),
+                loader: async ({ params }) => fetch(`http://localhost:8080/single-services/${params.id}`)
             }
         ]
     },

@@ -141,7 +141,7 @@ const ServiceDetails = () => {
                     </div>
 
                     <h3 className="text-4xl font-bold">Price: ${state.price}</h3>
-                    <Link to={`/checkout/${state._id}`} className="btn btn-block bg-orange-600 font-bold text-xl border-none">
+                    <Link to={`/checkout/${state._id}`} state={state} className="btn btn-block bg-orange-600 font-bold text-xl border-none">
                         Proceed to Checkout
                     </Link>
                 </div>

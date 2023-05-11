@@ -1,19 +1,30 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const CheckOut = () => {
     const { id } = useParams();
+    const { singleService } = useLoaderData();
     const { userInfo } = useContext(AuthContext);
-    console.log(userInfo);
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const date = e.target.date.value;
         const email = e.target.email.value;
         const amount = `$ ${e.target.amount.value}`;
+        const serviceInfo = {
+            name,
+            date,
+            email,
+            amount,
+            serviceID: id,
+            serviceImg: singleService.img,
+            serviceName: singleService.title
+        };
+        console.log(serviceInfo);
     };
     return (
         <div>

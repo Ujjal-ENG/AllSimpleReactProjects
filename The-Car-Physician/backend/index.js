@@ -1,7 +1,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 // config env files
 dotenv.config();
 
@@ -47,6 +47,27 @@ async function run() {
                 res.status(404).json({
                     success: false,
                     message: 'Error Occur in Get Services Data',
+                    error,
+                });
+            }
+        });
+
+        // get singleServices
+        app.get('/single-services/:id', async (req, res) => {
+            try {
+                const { id } = req.params;
+                const singleService = await serviceCollection.findOne({ _id: new ObjectId(id) });
+
+                res.status(200).json({
+                    success: true,
+                    message: 'Successfully Get the Single Service!!',
+                    singleService,
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(404).json({
+                    success: false,
+                    message: 'Error Occur in Get Single Service Data',
                     error,
                 });
             }
