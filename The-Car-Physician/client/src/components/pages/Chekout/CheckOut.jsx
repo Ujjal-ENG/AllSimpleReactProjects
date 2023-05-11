@@ -1,5 +1,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import axios from 'axios';
 import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
@@ -9,22 +10,28 @@ const CheckOut = () => {
     const { id } = useParams();
     const { singleService } = useLoaderData();
     const { userInfo } = useContext(AuthContext);
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const date = e.target.date.value;
         const email = e.target.email.value;
         const amount = `$ ${e.target.amount.value}`;
         const serviceInfo = {
-            name,
-            date,
-            email,
+            CustomerName: name,
+            BookingDate: date,
+            CustomerEmail: email,
             amount,
             serviceID: id,
             serviceImg: singleService.img,
             serviceName: singleService.title
         };
-        console.log(serviceInfo);
+
+        try {
+            const { data } = await axios.post('http://localhost:8080/bookings', { serviceInfo });
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <div>

@@ -32,6 +32,7 @@ async function run() {
         // Connect the client to the server(optional starting in v4.7)
         await client.connect();
         const serviceCollection = client.db('theCarPhysician').collection('Services');
+        const bookingsCollection = client.db('theCarPhysician').collection('Bookings');
 
         // get all services
         app.get('/get-services', async (req, res) => {
@@ -68,6 +69,26 @@ async function run() {
                 res.status(404).json({
                     success: false,
                     message: 'Error Occur in Get Single Service Data',
+                    error,
+                });
+            }
+        });
+
+        // booking services
+        app.post('/bookings', async (req, res) => {
+            try {
+                const { serviceInfo } = req.body;
+                const booking = await bookingsCollection.insertOne(serviceInfo);
+                res.status(200).json({
+                    success: true,
+                    message: 'Successfully Booking the Service!!',
+                    booking,
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(404).json({
+                    success: false,
+                    message: 'Error Occur in Booking Services Data',
                     error,
                 });
             }
