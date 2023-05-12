@@ -13,7 +13,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 const CheckBookingDetails = () => {
     const { userInfo } = useContext(AuthContext);
     const [booking, setBooking] = useState([]);
-    let count = 1;
+    const count = 1;
     const getData = async () => {
         try {
             const { data } = await axios.get(`http://localhost:8080/booking?email=${userInfo.email}`);
@@ -62,7 +62,14 @@ const CheckBookingDetails = () => {
                             {/* row 1 */}
                             {booking.map((el) => (
                                 <tr key={el._id}>
-                                    <th>{count++}</th>
+                                    <th>
+                                        {' '}
+                                        <button onClick={() => handleDeleteService(el._id)} type="button" className="btn btn-circle btn-outline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </th>
                                     <td>
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
@@ -84,10 +91,8 @@ const CheckBookingDetails = () => {
                                     </td>
                                     <td className="text-xl font-bold">{el.serviceName}</td>
                                     <th>
-                                        <button onClick={() => handleDeleteService(el._id)} type="button" className="btn btn-circle btn-outline">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
+                                        <button type="submit" className="btn bg-orange-600 border-none text-xl btn-md">
+                                            Pending
                                         </button>
                                     </th>
                                 </tr>
