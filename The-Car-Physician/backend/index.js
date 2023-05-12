@@ -39,7 +39,7 @@ const verifyJWT = (req, res, next) => {
     const token = authorization.split(' ')[1];
     try {
         const verifyToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        req.verifyToken = verifyToken;
+        req.user = verifyToken;
         next();
     } catch (error) {
         console.log(error);
@@ -125,6 +125,9 @@ async function run() {
         app.get('/booking', verifyJWT, async (req, res) => {
             try {
                 let query = {};
+                if (req.query?.email !== req.user.email) {
+                    return res.status(401).json({ message: 'Authorization Failed!!!' });
+                }
                 if (req.query?.email) {
                     query = { CustomerEmail: req.query.email };
                 }
