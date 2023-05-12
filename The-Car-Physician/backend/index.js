@@ -97,8 +97,10 @@ async function run() {
         // specific user bookings
         app.get('/booking', async (req, res) => {
             try {
-                const { email } = req.query;
-                console.log(email);
+                res.status(200).json({
+                    success: true,
+                    message: 'Successfully get Booking!!',
+                });
             } catch (error) {
                 console.log(error);
                 res.status(404).json({
