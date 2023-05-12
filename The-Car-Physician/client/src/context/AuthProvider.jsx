@@ -58,10 +58,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
-            const user = await signInWithEmailAndPassword(auth, email, password);
-            console.log(user.email);
+            const { user } = await signInWithEmailAndPassword(auth, email, password);
+
             const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
-            console.log(data);
             setLoading(false);
         } catch (error) {
             console.log(error);
