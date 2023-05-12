@@ -61,6 +61,7 @@ const AuthProvider = ({ children }) => {
             const { user } = await signInWithEmailAndPassword(auth, email, password);
 
             const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
+            localStorage.setItem('token', data.token);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -112,6 +113,7 @@ const AuthProvider = ({ children }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            localStorage.removeItem('token');
             setLoading(false);
         } catch (error) {
             setLoading(false);
