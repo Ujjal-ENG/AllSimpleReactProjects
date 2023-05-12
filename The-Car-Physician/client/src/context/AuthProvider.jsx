@@ -111,7 +111,7 @@ const AuthProvider = ({ children }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
-            localStorage.removeItem('token');
+
             setLoading(false);
         } catch (error) {
             setLoading(false);
@@ -129,6 +129,8 @@ const AuthProvider = ({ children }) => {
             if (currentUser && currentUser.email) {
                 const { data } = await axios.post('http://localhost:8080/jwt', { email: currentUser.email });
                 localStorage.setItem('token', data.token);
+            } else {
+                localStorage.removeItem('token');
             }
             setPrivateLoad(false);
             setUserInfo(currentUser);
