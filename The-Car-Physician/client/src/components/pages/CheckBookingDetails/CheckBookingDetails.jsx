@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-plusplus */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -7,13 +8,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const CheckBookingDetails = () => {
     const { userInfo } = useContext(AuthContext);
     const [booking, setBooking] = useState([]);
-    const count = 1;
+    const [isChange, setIsChange] = useState(false);
+
     const getData = async () => {
         try {
             const { data } = await axios.get(`http://localhost:8080/booking?email=${userInfo.email}`);
@@ -25,12 +28,31 @@ const CheckBookingDetails = () => {
         }
     };
 
-    const handleDeleteService = (id) => {};
+    const handleDeleteService = async (id) => {
+        try {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+                    axios.delete(`http://localhost:8080/delete-booking/${id}`);
+                    setIsChange(false);
+                }
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         getData();
-    }, []);
-
+    }, [isChange]);
     return (
         <div>
             <div className="hero h-[300px] rounded-xl mb-36" style={{ backgroundImage: `url(${BannerImg})` }}>
