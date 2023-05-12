@@ -117,6 +117,26 @@ async function run() {
             }
         });
 
+        // booking service delete
+        app.delete('/delete-booking/:id', async (req, res) => {
+            try {
+                const { id } = req.params;
+                const data = await bookingsCollection.deleteOne({ _id: new ObjectId(id) });
+                res.status(200).json({
+                    success: true,
+                    message: 'Successfully Deleted the Booking!!',
+                    data,
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(404).json({
+                    success: false,
+                    message: 'Error Occur in Delete Specific Booking Data',
+                    error,
+                });
+            }
+        });
+
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');
