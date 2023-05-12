@@ -133,7 +133,7 @@ const CheckBookingDetails = () => {
                                     <td className="text-xl font-bold">{el.serviceName}</td>
                                     <th>
                                         {el.status ? (
-                                            <h5 className="text-orange-600 font-bold text-xl">{el.status}</h5>
+                                            <h5 className="text-green-600 font-bold text-xl">{el.status}</h5>
                                         ) : (
                                             <button onClick={() => handleEdit(el._id)} type="submit" className="btn bg-orange-600 border-none text-xl btn-md">
                                                 Please Confirmed!!
