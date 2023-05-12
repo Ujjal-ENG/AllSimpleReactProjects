@@ -30,7 +30,7 @@ const CheckBookingDetails = () => {
 
     const handleDeleteService = async (id) => {
         try {
-            Swal.fire({
+            const result = await Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
                 icon: 'warning',
@@ -38,13 +38,13 @@ const CheckBookingDetails = () => {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
-                    axios.delete(`http://localhost:8080/delete-booking/${id}`);
-                    setIsChange(false);
-                }
             });
+
+            if (result.isConfirmed) {
+                await axios.delete(`http://localhost:8080/delete-booking/${id}`);
+                setIsChange(() => !isChange);
+                Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+            }
         } catch (error) {
             console.log(error);
         }
