@@ -2,7 +2,6 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import jwt from 'jsonwebtoken';
 import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 // config env files
 dotenv.config();
@@ -37,9 +36,7 @@ async function run() {
         const bookingsCollection = client.db('theCarPhysician').collection('Bookings');
 
         // jwt
-        app.post("/jwt", (req, res) => {
-            
-        })
+        app.post('/jwt', (req, res) => {});
 
         // get all services
         app.get('/get-services', async (req, res) => {
