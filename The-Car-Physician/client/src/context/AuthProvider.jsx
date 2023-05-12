@@ -2,6 +2,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
+import axios from 'axios';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -57,7 +58,10 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            const user = await signInWithEmailAndPassword(auth, email, password);
+            console.log(user.email);
+            const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
+            console.log(data);
             setLoading(false);
         } catch (error) {
             console.log(error);

@@ -12,7 +12,6 @@ const Login = () => {
     const navigate = useNavigate();
     const { state } = useLocation();
     const from = state?.from?.pathname || '/';
-    console.log(from);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
