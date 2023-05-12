@@ -50,6 +50,23 @@ const CheckBookingDetails = () => {
         }
     };
 
+    const handleEdit = async (id) => {
+        try {
+            const { data } = await axios.patch(`http://localhost:8080/update-booking/${id}`, { status: 'confirmed' });
+            if (data.success) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Successfully Updated the Status!!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
         getData();
     }, [isChange]);
@@ -113,7 +130,7 @@ const CheckBookingDetails = () => {
                                     </td>
                                     <td className="text-xl font-bold">{el.serviceName}</td>
                                     <th>
-                                        <button type="submit" className="btn bg-orange-600 border-none text-xl btn-md">
+                                        <button onClick={() => handleEdit(el._id)} type="submit" className="btn bg-orange-600 border-none text-xl btn-md">
                                             Pending
                                         </button>
                                     </th>

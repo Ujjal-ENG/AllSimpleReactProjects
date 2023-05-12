@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -122,6 +123,35 @@ async function run() {
             try {
                 const { id } = req.params;
                 const data = await bookingsCollection.deleteOne({ _id: new ObjectId(id) });
+                res.status(200).json({
+                    success: true,
+                    message: 'Successfully Deleted the Booking!!',
+                    data,
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(404).json({
+                    success: false,
+                    message: 'Error Occur in Delete Specific Booking Data',
+                    error,
+                });
+            }
+        });
+
+        // booing services update
+        app.patch('/update-booking/:id', async (req, res) => {
+            try {
+                const { id } = req.params;
+
+                const updateDoc = {
+                    $set: {
+                        status: req.body.status,
+                    },
+                };
+                const data = await bookingsCollection.updateOne(
+                    { _id: new ObjectId(id) },
+                    updateDoc
+                );
                 res.status(200).json({
                     success: true,
                     message: 'Successfully Deleted the Booking!!',
