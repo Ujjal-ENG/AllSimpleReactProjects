@@ -29,6 +29,24 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     },
 });
+
+// verify jwt
+const verifyJWT = (req, res, next) => {
+    const { authorization } = req.headers;
+    if (!authorization) {
+        return res.status(201).json({ message: 'Unautorized Access!!!' });
+    }
+    const token = authorization.split(' ')[1];
+    try {
+        const verifyToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        req.verifyToken = verifyToken;
+        next();
+    } catch (error) {
+        console.log(error);
+        res.status(201).json({ message: 'Unautorized Access!!!' });
+    }
+};
+
 async function run() {
     try {
         // Connect the client to the server(optional starting in v4.7)
@@ -104,7 +122,7 @@ async function run() {
         });
 
         // specific user bookings
-        app.get('/booking', async (req, res) => {
+        app.get('/booking', verifyJWT, async (req, res) => {
             try {
                 let query = {};
                 if (req.query?.email) {
@@ -127,7 +145,7 @@ async function run() {
         });
 
         // booking service delete
-        app.delete('/delete-booking/:id', async (req, res) => {
+        app.delete('/delete-booking/:id', verifyJWT, async (req, res) => {
             try {
                 const { id } = req.params;
                 const data = await bookingsCollection.deleteOne({ _id: new ObjectId(id) });
@@ -147,7 +165,7 @@ async function run() {
         });
 
         // booing services update
-        app.patch('/update-booking/:id', async (req, res) => {
+        app.patch('/update-booking/:id', verifyJWT, async (req, res) => {
             try {
                 const { id } = req.params;
 

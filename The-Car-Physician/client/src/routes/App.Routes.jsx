@@ -1,5 +1,8 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-return-await */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable comma-dangle */
+import axios from 'axios';
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import ErrorPage from '../ErrorPage';
@@ -33,7 +36,12 @@ export const router = createBrowserRouter([
                         <CheckOut />
                     </PrivateRoute>
                 ),
-                loader: async ({ params }) => fetch(`http://localhost:8080/single-services/${params.id}`)
+                loader: async ({ params }) =>
+                    await axios.get(`http://localhost:8080/single-services/${params.id}`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                        }
+                    })
             },
             {
                 path: 'check-booking-details',

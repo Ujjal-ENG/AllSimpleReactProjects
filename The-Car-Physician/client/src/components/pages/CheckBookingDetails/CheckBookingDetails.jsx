@@ -19,7 +19,11 @@ const CheckBookingDetails = () => {
 
     const getData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8080/booking?email=${userInfo.email}`);
+            const { data } = await axios.get(`http://localhost:8080/booking?email=${userInfo.email}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
             if (data.success) {
                 setBooking(data.bookings);
             }
