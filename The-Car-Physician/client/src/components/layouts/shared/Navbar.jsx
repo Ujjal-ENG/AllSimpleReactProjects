@@ -12,14 +12,17 @@ const Navbar = () => {
     const navItems = (
         <div className="flex flex-col md:flex-row md:justify-evenly  items-center gap-10 text-xl font-bold">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
             <NavLink to="/services">Services</NavLink>
+
             <NavLink to="/blog">Blog</NavLink>
             <NavLink to="/contact">Contact</NavLink>
             {userInfo ? (
-                <button type="button" onClick={() => logOut()}>
-                    Logout
-                </button>
+                <>
+                    <NavLink to="/check-booking-details">My Bookings</NavLink>
+                    <button type="button" onClick={() => logOut()}>
+                        Logout
+                    </button>
+                </>
             ) : (
                 <NavLink to="/login">Login</NavLink>
             )}

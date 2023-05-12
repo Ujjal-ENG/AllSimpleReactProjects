@@ -94,6 +94,21 @@ async function run() {
             }
         });
 
+        // specific user bookings
+        app.get('/booking', async (req, res) => {
+            try {
+                const { email } = req.query;
+                console.log(email);
+            } catch (error) {
+                console.log(error);
+                res.status(404).json({
+                    success: false,
+                    message: 'Error Occur in Get Specific Booking Data',
+                    error,
+                });
+            }
+        });
+
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');

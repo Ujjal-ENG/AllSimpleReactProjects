@@ -1,7 +1,12 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 
 const CheckBookingDetails = () => {
+    useEffect(() => {
+        const { data } = axios.get('http://localhost:8080/booking');
+        console.log(data);
+    }, []);
     return (
         <div>
             <div className="hero h-[300px] rounded-xl mb-36" style={{ backgroundImage: `url(${BannerImg})` }}>
