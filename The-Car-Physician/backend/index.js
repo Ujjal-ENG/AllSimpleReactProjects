@@ -36,6 +36,11 @@ async function run() {
         const serviceCollection = client.db('theCarPhysician').collection('Services');
         const bookingsCollection = client.db('theCarPhysician').collection('Bookings');
 
+        // jwt
+        app.post("/jwt", (req, res) => {
+            
+        })
+
         // get all services
         app.get('/get-services', async (req, res) => {
             try {
