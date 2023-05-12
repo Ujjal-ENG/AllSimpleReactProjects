@@ -79,7 +79,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
-            signInWithPopup(auth, googleProvider);
+            const { user } = await signInWithPopup(auth, googleProvider);
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',
@@ -87,6 +87,8 @@ const AuthProvider = ({ children }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
+            localStorage.setItem('token', data.token);
             setLoading(false);
         } catch (error) {
             setLoading(false);

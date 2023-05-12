@@ -8,7 +8,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 import Navbar from '../../layouts/shared/Navbar';
 
 const Login = () => {
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const { state } = useLocation();
     const from = state?.from?.pathname || '/';
@@ -56,7 +56,7 @@ const Login = () => {
                                     <button type="button" className="btn btn-circle bg-transparent">
                                         <SiLinkedin className="text-orange-600 text-3xl" />
                                     </button>
-                                    <button type="button" className="btn btn-circle bg-transparent">
+                                    <button onClick={() => googleSignIn()} type="button" className="btn btn-circle bg-transparent">
                                         <SiGoogle className="text-orange-600 text-3xl" />
                                     </button>
                                 </div>
