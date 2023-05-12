@@ -97,9 +97,15 @@ async function run() {
         // specific user bookings
         app.get('/booking', async (req, res) => {
             try {
+                let query = {};
+                if (req.query?.email) {
+                    query = { CustomerEmail: req.query.email };
+                }
+                const bookings = await bookingsCollection.find(query).toArray();
                 res.status(200).json({
                     success: true,
                     message: 'Successfully get Booking!!',
+                    bookings,
                 });
             } catch (error) {
                 console.log(error);

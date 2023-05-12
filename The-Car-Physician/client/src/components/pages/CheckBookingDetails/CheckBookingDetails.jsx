@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const CheckBookingDetails = () => {
-    // get data
+    const { userInfo } = useContext(AuthContext);
+    const [booking, setBooking] = useState([]);
     (async () => {
-        const { data } = await axios.get('http://localhost:8080/booking');
+        const { data } = await axios.get(`http://localhost:8080/booking?email=${userInfo.email}`);
         console.log(data);
     })();
     return (
