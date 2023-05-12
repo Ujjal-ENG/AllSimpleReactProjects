@@ -33,8 +33,9 @@ const client = new MongoClient(uri, {
 // verify jwt
 const verifyJWT = (req, res, next) => {
     const { authorization } = req.headers;
+
     if (!authorization) {
-        return res.status(201).json({ message: 'Unautorized Access!!!' });
+        return res.status(201).json({ message: 'Unauthorized Access!!!' });
     }
     const token = authorization.split(' ')[1];
     try {
@@ -43,7 +44,7 @@ const verifyJWT = (req, res, next) => {
         next();
     } catch (error) {
         console.log(error);
-        res.status(201).json({ message: 'Unautorized Access!!!' });
+        res.status(201).json({ message: 'Unauthorized Access!!!' });
     }
 };
 
@@ -148,7 +149,7 @@ async function run() {
         });
 
         // booking service delete
-        app.delete('/delete-booking/:id', verifyJWT, async (req, res) => {
+        app.delete('/delete-booking/:id', async (req, res) => {
             try {
                 const { id } = req.params;
                 const data = await bookingsCollection.deleteOne({ _id: new ObjectId(id) });
@@ -168,7 +169,7 @@ async function run() {
         });
 
         // booing services update
-        app.patch('/update-booking/:id', verifyJWT, async (req, res) => {
+        app.patch('/update-booking/:id', async (req, res) => {
             try {
                 const { id } = req.params;
 
