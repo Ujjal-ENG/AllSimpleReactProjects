@@ -19,6 +19,11 @@ const Login = () => {
         await signInUser(email, password);
         navigate(from);
     };
+
+    const handleGoogleSignIn = async () => {
+        await googleSignIn();
+        navigate(from);
+    };
     return (
         <div className="max-w-7xl mx-auto">
             <Navbar />
@@ -56,7 +61,7 @@ const Login = () => {
                                     <button type="button" className="btn btn-circle bg-transparent">
                                         <SiLinkedin className="text-orange-600 text-3xl" />
                                     </button>
-                                    <button onClick={() => googleSignIn()} type="button" className="btn btn-circle bg-transparent">
+                                    <button onClick={handleGoogleSignIn} type="button" className="btn btn-circle bg-transparent">
                                         <SiGoogle className="text-orange-600 text-3xl" />
                                     </button>
                                 </div>

@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
         try {
             const { user } = await signInWithPopup(auth, googleProvider);
             Swal.fire({
-                position: 'top-center',
+                position: 'top-end',
                 icon: 'success',
                 title: 'You are Successfully Logged in with Gmail!!',
                 showConfirmButton: false,
