@@ -29,7 +29,7 @@ const CheckOut = () => {
         };
 
         try {
-            const { data } = await axios.post('http://localhost:8080/bookings', { serviceInfo });
+            const { data } = await axios.post('https://the-car-physician-server.vercel.app/bookings', { serviceInfo });
             if (data.success) {
                 Swal.fire({
                     position: 'top-end',

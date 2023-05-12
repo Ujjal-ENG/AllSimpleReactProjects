@@ -12,7 +12,7 @@ const ServiceArea = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/get-services')
+        fetch('https://the-car-physician-server.vercel.app/get-services')
             .then((res) => res.json())
             .then((data) => setServices(data.services));
     }, []);

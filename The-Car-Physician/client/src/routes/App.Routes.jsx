@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
                         <CheckOut />
                     </PrivateRoute>
                 ),
-                loader: async ({ params }) => fetch(`http://localhost:8080/single-services/${params.id}`)
+                loader: async ({ params }) => fetch(`https://the-car-physician-server.vercel.app/single-services/${params.id}`)
             },
             {
                 path: 'check-booking-details',

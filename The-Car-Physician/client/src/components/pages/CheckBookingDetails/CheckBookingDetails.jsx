@@ -19,7 +19,7 @@ const CheckBookingDetails = () => {
 
     const getData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8080/booking?email=${userInfo.email}`, {
+            const { data } = await axios.get(`https://the-car-physician-server.vercel.app/booking?email=${userInfo.email}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -45,7 +45,7 @@ const CheckBookingDetails = () => {
             });
 
             if (result.isConfirmed) {
-                await axios.delete(`http://localhost:8080/delete-booking/${id}`);
+                await axios.delete(`https://the-car-physician-server.vercel.app/delete-booking/${id}`);
                 setIsChange(() => !isChange);
                 Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
             }
@@ -56,7 +56,7 @@ const CheckBookingDetails = () => {
 
     const handleEdit = async (id) => {
         try {
-            const { data } = await axios.patch(`http://localhost:8080/update-booking/${id}`, { status: 'confirmed' });
+            const { data } = await axios.patch(`https://the-car-physician-server.vercel.app/update-booking/${id}`, { status: 'confirmed' });
 
             if (data.success) {
                 setIsChange(true);
