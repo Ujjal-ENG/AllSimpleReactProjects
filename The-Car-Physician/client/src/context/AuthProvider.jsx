@@ -58,10 +58,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
-            const { user } = await signInWithEmailAndPassword(auth, email, password);
-
-            const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
-            localStorage.setItem('token', data.token);
+            await signInWithEmailAndPassword(auth, email, password);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -79,7 +76,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
-            const { user } = await signInWithPopup(auth, googleProvider);
+            await signInWithPopup(auth, googleProvider);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -87,8 +84,7 @@ const AuthProvider = ({ children }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
-            const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
-            localStorage.setItem('token', data.token);
+
             setLoading(false);
         } catch (error) {
             setLoading(false);
@@ -129,7 +125,11 @@ const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const unSubscriber = onAuthStateChanged(auth, (currentUser) => {
+        const unSubscriber = onAuthStateChanged(auth, async (currentUser) => {
+            if (currentUser && currentUser.email) {
+                const { data } = await axios.post('http://localhost:8080/jwt', { email: currentUser.email });
+                localStorage.setItem('token', data.token);
+            }
             setPrivateLoad(false);
             setUserInfo(currentUser);
         });
