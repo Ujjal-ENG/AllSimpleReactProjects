@@ -53,7 +53,9 @@ const CheckBookingDetails = () => {
     const handleEdit = async (id) => {
         try {
             const { data } = await axios.patch(`http://localhost:8080/update-booking/${id}`, { status: 'confirmed' });
+
             if (data.success) {
+                setIsChange(true);
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -131,7 +133,7 @@ const CheckBookingDetails = () => {
                                     <td className="text-xl font-bold">{el.serviceName}</td>
                                     <th>
                                         <button onClick={() => handleEdit(el._id)} type="submit" className="btn bg-orange-600 border-none text-xl btn-md">
-                                            Pending
+                                            {el.status ? `${el.status}` : 'Please Confirmed!!'}
                                         </button>
                                     </th>
                                 </tr>
