@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import Footer from './components/layouts/shared/Footer';
 import Navbar from './components/layouts/shared/Navbar';
 import AuthProvider from './context/AuthProvider';
@@ -10,6 +10,7 @@ const App = () => {
             <div className="max-w-7xl mx-auto">
                 <Navbar />
                 <Outlet />
+                <ScrollRestoration />
             </div>
             <Footer />
         </AuthProvider>
