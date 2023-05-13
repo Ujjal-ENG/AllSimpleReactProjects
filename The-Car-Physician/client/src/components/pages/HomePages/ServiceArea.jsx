@@ -6,6 +6,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -13,10 +14,19 @@ import { Link } from 'react-router-dom';
 const ServiceArea = () => {
     const [services, setServices] = useState([]);
 
+    const get = async () => {
+        try {
+            const { data } = await axios.get('https://the-car-physician-server.vercel.app/get-services');
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     useEffect(() => {
         fetch('https://the-car-physician-server.vercel.app/get-services')
             .then((res) => res.json())
             .then((data) => setServices(data.services));
+        get();
     }, []);
 
     return (
