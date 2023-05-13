@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable max-len */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
@@ -7,11 +9,29 @@ import Person from '../../../assets/images/about_us/person.jpg';
 const AboutUs = () => {
     return (
         <div className="flex justify-between items-start py-32 gap-36">
-            <div className="relative">
+            <div
+                data-aos="fade-right"
+                data-aos-offset="100"
+                data-aos-delay="30"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+                data-aos-anchor-placement="top-center"
+                className="relative">
                 <img src={Person} alt="person" className=" w-[460px] h-[473px] rounded-xl" />
                 <img src={Parts} alt="parts" className="absolute -bottom-20 -right-14 w-[327px] h-[333px] rounded-xl border-[10px] border-white" />
             </div>
-            <div className="flex-1 space-y-9">
+            <div
+                data-aos="fade-left"
+                data-aos-offset="100"
+                data-aos-delay="30"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+                data-aos-anchor-placement="top-center"
+                className="flex-1 space-y-9">
                 <h3 className="text-orange-600 text-xl font-bold text-start">About Us</h3>
                 <h1 className="text-5xl font-bold tracking-wider max-w-md">We are qualified & of experience in this field</h1>
                 <p className="text-gray-500 tracking-widest max-w-lg">
