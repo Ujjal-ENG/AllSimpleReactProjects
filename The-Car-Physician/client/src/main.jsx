@@ -6,9 +6,6 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import './index.css';
 import { router } from './routes/App.Routes';
-// import Swiper JS
-// import Swiper styles
-import 'swiper/css';
 
 AOS.init();
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />);
