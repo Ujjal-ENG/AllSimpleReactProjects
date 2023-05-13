@@ -11,8 +11,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const CheckBookingDetails = () => {
+    useTitle('Booking Details');
     const { userInfo } = useContext(AuthContext);
     const [booking, setBooking] = useState([]);
     const [isChange, setIsChange] = useState(false);

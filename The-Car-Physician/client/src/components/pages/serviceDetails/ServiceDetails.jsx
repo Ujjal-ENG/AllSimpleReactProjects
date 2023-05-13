@@ -8,8 +8,10 @@ import { BiArrowFromLeft, BiArrowToRight } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import Logo from '../../../assets/logo.png';
+import useTitle from '../../../hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle('Service Details');
     const { state } = useLocation();
 
     return (

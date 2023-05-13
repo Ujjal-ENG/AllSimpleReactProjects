@@ -5,8 +5,10 @@ import { SiFacebook, SiGoogle, SiLinkedin } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/images/login/login.svg';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register');
     const { createUser } = useContext(AuthContext);
     const handleSubmit = (e) => {
         e.preventDefault();

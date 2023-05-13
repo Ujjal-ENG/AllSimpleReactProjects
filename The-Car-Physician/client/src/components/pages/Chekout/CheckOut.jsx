@@ -6,8 +6,10 @@ import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const CheckOut = () => {
+    useTitle('CheckOut');
     const { id } = useParams();
     const { singleService } = useLoaderData();
     const { userInfo } = useContext(AuthContext);

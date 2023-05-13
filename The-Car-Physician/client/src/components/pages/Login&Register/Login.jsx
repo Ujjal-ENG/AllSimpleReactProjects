@@ -5,9 +5,11 @@ import { SiFacebook, SiGoogle, SiLinkedin } from 'react-icons/si';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../../assets/images/login/login.svg';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import Navbar from '../../layouts/shared/Navbar';
 
 const Login = () => {
+    useTitle('Login');
     const { signInUser, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const { state } = useLocation();
