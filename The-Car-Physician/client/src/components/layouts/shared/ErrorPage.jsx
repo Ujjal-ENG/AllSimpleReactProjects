@@ -6,9 +6,9 @@ import Navbar from './Navbar';
 const ErrorPage = () => {
     useTitle('Error Occurs!');
     return (
-        <div>
+        <div className="max-w-7xl mx-auto py-10">
             <Navbar />
-            <img src={Img} alt="error-page" />
+            <img src={Img} alt="error-page" className="max-w-3xl mx-auto" />
         </div>
     );
 };

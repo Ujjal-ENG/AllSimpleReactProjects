@@ -17,7 +17,11 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
-        errorElement: <ErrorPage />,
+        errorElement: (
+            <AuthProvider>
+                <ErrorPage />
+            </AuthProvider>
+        ),
         children: [
             {
                 path: '/',
