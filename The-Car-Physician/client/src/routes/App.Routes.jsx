@@ -2,7 +2,8 @@
 /* eslint-disable comma-dangle */
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import ErrorPage from '../ErrorPage';
+
+import ErrorPage from '../components/layouts/shared/ErrorPage';
 import CheckBookingDetails from '../components/pages/CheckBookingDetails/CheckBookingDetails';
 import CheckOut from '../components/pages/Chekout/CheckOut';
 import Home from '../components/pages/HomePages/Home';
