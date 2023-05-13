@@ -22,7 +22,6 @@ const PopularProducts = () => {
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-center">
-            {' '}
             <h3 className="text-orange-600 text-xl font-bold text-center">Popular Products</h3>
             <h1 className="text-5xl font-bold tracking-wider text-center py-5">Browse Our Products</h1>
             <p className="text-gray-500 tracking-widest text-center mx-auto max-w-3xl">
