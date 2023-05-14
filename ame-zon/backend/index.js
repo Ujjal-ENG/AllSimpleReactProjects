@@ -1,7 +1,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from "express";
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 
 // config dotenv file
 dotenv.config()
@@ -82,6 +82,29 @@ async function run() {
       }
     })
 
+
+    // specific data by using id
+    app.post("/productsByIds", async (req, res) => {
+      try {
+        const { ids } = req.body;
+
+        const query = { _id: { $in: ids.map(id => new ObjectId(id)) } }
+        
+        const products = await productsCollection.find(query).toArray()
+
+        res.status(200).json({
+          success: true,
+          message: "Got Data",
+          products
+        })
+      } catch (error) {
+        console.log(error);
+        res.status(404).json({
+          success: false,
+          message: "Error Occurs while the Product By Ids Load!!"
+        })
+      }
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
