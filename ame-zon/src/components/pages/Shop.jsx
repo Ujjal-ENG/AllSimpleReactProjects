@@ -15,8 +15,8 @@ function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const { totalProducts } = useLoaderData();
-    const itemsPerPage = 10;
     const totalPages = Math.ceil(totalProducts / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
     const fetchData = async () => {
@@ -68,17 +68,32 @@ function Shop() {
         fetchData();
     }, []);
 
+    // page option selection
+    const options = [5, 10, 15, 20];
+
+    const handleOptionChange = (e) => {
+        setItemsPerPage(e.target.value);
+        setCurrentPage(0);
+    };
     return (
         <div className="grid grid-cols-5 w-full h-screen mt-12">
             <div className="col-span-4 grid grid-cols-3 justify-items-center gap-6 p-10">
                 {products && products.map((el) => <ProductCard key={el._id} data={el} handleAddtoCart={handleAddtoCart} />)}
 
-                <div className="mt-auto flex gap-9">
+                <div className=" flex gap-9 mt-auto ml-11">
                     {pageNumbers.map((el) => (
                         <button type="button" className="btn " key={el} onClick={() => setCurrentPage(el)}>
                             {el}
                         </button>
                     ))}
+
+                    <select className="w-8 h-8 p-5" value={itemsPerPage} onChange={handleOptionChange}>
+                        {options.map((option) => (
+                            <option key={option} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </div>
             <CartDeatis data={cart} />
