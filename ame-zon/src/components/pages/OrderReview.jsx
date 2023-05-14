@@ -14,7 +14,7 @@ function OrderReview() {
     const [newData, setNewData] = useState(data);
 
     const handleDelete = (id) => {
-        const filterData = newData.filter((el) => el.id !== id);
+        const filterData = newData.filter((el) => el._id !== id);
 
         setNewData(filterData);
         removeFromDb(id);
@@ -51,7 +51,7 @@ function OrderReview() {
                                           <RiDeleteBin6Fill
                                               className="text-6xl text-red-500 rounded-full p-2 bg-red-300 cursor-pointer active:bg-red-600 transition-all"
                                               type="button"
-                                              onClick={() => handleDelete(el.id)}
+                                              onClick={() => handleDelete(el._id)}
                                           />
                                       </div>
                                   </div>
