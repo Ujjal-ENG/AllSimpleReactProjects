@@ -30,7 +30,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/shop',
-                element: <Shop />
+                element: <Shop />,
+                loader: async () => fetch('http://localhost:8080/pagination-products')
             },
             {
                 path: '/order-review',

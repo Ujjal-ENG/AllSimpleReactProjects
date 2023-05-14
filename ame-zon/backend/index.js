@@ -57,6 +57,23 @@ async function run() {
     })
 
 
+    // paginition products
+    app.get("/pagination-products", async (req, res) => {
+      try {
+        const totalProducts = await productsCollection.estimatedDocumentCount()
+        res.status(200).json({
+          success: true,
+          totalProducts
+        })
+      } catch (error) {
+        console.log(error);
+        res.status(404).json({
+          success: false,
+          message: "Error Occurs while the Pagination Products Load!!"
+        })
+      }
+    })
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

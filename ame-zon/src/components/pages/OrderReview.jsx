@@ -29,7 +29,7 @@ function OrderReview() {
                     ? newData.map((el) => {
                           const { name, price, img, shipping, quantity } = el;
                           return (
-                              <div key={el.id} className="flex w-full  items-center  border-2 border-gray-400 m-5 p-3 rounded-md">
+                              <div key={el._id} className="flex w-full  items-center  border-2 border-gray-400 m-5 p-3 rounded-md">
                                   <img src={img || 'https://picsum.photos/200/300?random'} alt={name} className="flex-none w-[90px] h-[90px] my-10" />
 
                                   <div

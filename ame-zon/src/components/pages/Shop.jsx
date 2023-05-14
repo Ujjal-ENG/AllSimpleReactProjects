@@ -6,6 +6,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 import CartDeatis from './CartDeatis';
 import ProductCard from './ProductCard';
@@ -13,27 +14,8 @@ import ProductCard from './ProductCard';
 function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-        const storedCart = getShoppingCart();
-
-        const savedCart = [];
-        // step 1 : get id of the storedCart
-
-        for (const id in storedCart) {
-            // get product from the products state by using id
-            const addedProducts = products.find((el) => el.id === id);
-
-            // get quantity from the addedProducts
-            if (addedProducts) {
-                const quantity = storedCart[id];
-                addedProducts.quantity = quantity;
-                savedCart.push(addedProducts);
-            }
-        }
-        setCart(savedCart);
-    }, [products]);
-
+    const loader = useLoaderData();
+    console.log(loader);
     const fetchData = async () => {
         const fetchUrl = await fetch('http://localhost:8080/all-products');
         const data = await fetchUrl.json();
@@ -58,6 +40,26 @@ function Shop() {
         setCart(newCart);
         addToDb(details._id);
     };
+
+    useEffect(() => {
+        const storedCart = getShoppingCart();
+
+        const savedCart = [];
+        // step 1 : get id of the storedCart
+
+        for (const id in storedCart) {
+            // get product from the products state by using id
+            const addedProducts = products.find((el) => el.id === id);
+
+            // get quantity from the addedProducts
+            if (addedProducts) {
+                const quantity = storedCart[id];
+                addedProducts.quantity = quantity;
+                savedCart.push(addedProducts);
+            }
+        }
+        setCart(savedCart);
+    }, [products]);
 
     useEffect(() => {
         fetchData();
