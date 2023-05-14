@@ -88,10 +88,10 @@ function Shop() {
     };
     return (
         <div className="grid grid-cols-5 w-full h-screen mt-12">
-            <div className="col-span-4 grid grid-cols-3 justify-items-center gap-6 p-10">
-                {products && products.map((el) => <ProductCard key={el._id} data={el} handleAddtoCart={handleAddtoCart} />)}
+            <div className="col-span-4 grid-flow-col">
+                <div className="grid grid-cols-3 justify-items-center gap-6 p-10">{products && products.map((el) => <ProductCard key={el._id} data={el} handleAddtoCart={handleAddtoCart} />)}</div>
 
-                <div className=" flex gap-9 w-full items-center mt-8">
+                <div className="flex gap-9 w-full  items-center px-10 py-5">
                     {pageNumbers.map((el) => (
                         <button type="button" className={currentPage === el ? 'btn bg-red-500' : 'btn'} key={el} onClick={() => setCurrentPage(el)}>
                             {el + 1}
