@@ -42,7 +42,7 @@ async function run() {
     app.get("/all-products", async (req, res) => {
       try {
       
-        const page = parseInt(req.query.page) || 1; // default to page 1 if not specified
+        const page = parseInt(req.query.page) || 0; // default to page 1 if not specified
 
         const pageSize = parseInt(req.query.limit) ||10; // default to 9 items per page if not specified
         
