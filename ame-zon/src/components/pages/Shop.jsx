@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
@@ -14,13 +15,13 @@ import ProductCard from './ProductCard';
 function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    const [currentPage, setCurrentPage] = useState(0);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(9);
     const { totalProducts } = useLoaderData();
     const totalPages = Math.ceil(totalProducts / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
     const fetchData = async () => {
-        const fetchUrl = await fetch('http://localhost:8080/all-products');
+        const fetchUrl = await fetch(`http://localhost:8080/all-products?page=${currentPage}&limit=${itemsPerPage}`);
         const data = await fetchUrl.json();
         setProducts(data.products);
     };
@@ -66,21 +67,21 @@ function Shop() {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [currentPage, itemsPerPage]);
 
     // page option selection
     const options = [5, 10, 15, 20];
 
     const handleOptionChange = (e) => {
         setItemsPerPage(e.target.value);
-        setCurrentPage(0);
+        setCurrentPage(1);
     };
     return (
         <div className="grid grid-cols-5 w-full h-screen mt-12">
             <div className="col-span-4 grid grid-cols-3 justify-items-center gap-6 p-10">
                 {products && products.map((el) => <ProductCard key={el._id} data={el} handleAddtoCart={handleAddtoCart} />)}
 
-                <div className=" flex gap-9 mt-auto ml-11">
+                <div className=" flex gap-9 w-full items-center mt-8">
                     {pageNumbers.map((el) => (
                         <button type="button" className={currentPage === el ? 'btn bg-red-500' : 'btn'} key={el} onClick={() => setCurrentPage(el)}>
                             {el}
