@@ -6,6 +6,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { addToDb, getShoppingCart } from '../../utilities/fakedb';
@@ -47,22 +48,31 @@ function Shop() {
 
     useEffect(() => {
         const storedCart = getShoppingCart();
+        const ids = Object.keys(storedCart);
 
-        const savedCart = [];
-        // step 1 : get id of the storedCart
+        const fetchData2 = async () => {
+            try {
+                const { data } = await axios.post('http://localhost:8080/productsByIds', { ids });
+                const savedCart = [];
+                // step 1 : get id of the storedCart
 
-        for (const id in storedCart) {
-            // get product from the products state by using id
-            const addedProducts = products.find((el) => el.id === id);
+                for (const id in storedCart) {
+                    // get product from the products state by using id
+                    const addedProducts = data.products.find((el) => el._id === id);
 
-            // get quantity from the addedProducts
-            if (addedProducts) {
-                const quantity = storedCart[id];
-                addedProducts.quantity = quantity;
-                savedCart.push(addedProducts);
+                    // get quantity from the addedProducts
+                    if (addedProducts) {
+                        const quantity = storedCart[id];
+                        addedProducts.quantity = quantity;
+                        savedCart.push(addedProducts);
+                    }
+                }
+                setCart(savedCart);
+            } catch (error) {
+                console.log(error);
             }
-        }
-        setCart(savedCart);
+        };
+        fetchData2();
     }, [products]);
 
     useEffect(() => {
