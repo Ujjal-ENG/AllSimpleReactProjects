@@ -127,7 +127,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser && currentUser.email) {
-                const { data } = await axios.post('https://the-car-physician-server.vercel.app/jwt', { email: currentUser.email });
+                const { data } = await axios.post('http://localhost:8080/jwt', { email: currentUser.email });
 
                 localStorage.setItem('token', data.token);
             } else {
