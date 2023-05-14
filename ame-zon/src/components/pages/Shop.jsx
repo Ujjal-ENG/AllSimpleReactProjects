@@ -14,8 +14,11 @@ import ProductCard from './ProductCard';
 function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    const loader = useLoaderData();
-    console.log(loader);
+    const [currentPage, setCurrentPage] = useState(0);
+    const { totalProducts } = useLoaderData();
+    const itemsPerPage = 10;
+    const totalPages = Math.ceil(totalProducts / itemsPerPage);
+    const pageNumbers = [...Array(totalPages).keys()];
     const fetchData = async () => {
         const fetchUrl = await fetch('http://localhost:8080/all-products');
         const data = await fetchUrl.json();
@@ -69,8 +72,15 @@ function Shop() {
         <div className="grid grid-cols-5 w-full h-screen mt-12">
             <div className="col-span-4 grid grid-cols-3 justify-items-center gap-6 p-10">
                 {products && products.map((el) => <ProductCard key={el._id} data={el} handleAddtoCart={handleAddtoCart} />)}
-            </div>
 
+                <div className="mt-auto flex gap-9">
+                    {pageNumbers.map((el) => (
+                        <button type="button" className="btn " key={el} onClick={() => setCurrentPage(el)}>
+                            {el}
+                        </button>
+                    ))}
+                </div>
+            </div>
             <CartDeatis data={cart} />
         </div>
     );

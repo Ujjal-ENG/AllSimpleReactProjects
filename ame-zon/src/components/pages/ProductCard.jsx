@@ -15,7 +15,7 @@ function ProductCard(props) {
     return (
         <>
             {/* making the each card */}
-            <div className="w-[300px] h-[510px] rounded-md border-2 border-black relative">
+            <div className="w-[300px] h-[510px] rounded-md border-2 border-black relative ">
                 <img src={img && img} alt={name} className="w-[286px] h-[286px]  mx-auto p-2 rounded-md transition-all hover:scale-110" />
 
                 <h3 className="font-semibold text-2xl whitespace-nowrap overflow-hidden text-ellipsis p-2 w-full hover:overflow-visible hover:whitespace-normal hover:text-clip hover:text-sm transition-all">
