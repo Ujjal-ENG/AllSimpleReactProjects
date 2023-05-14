@@ -43,7 +43,7 @@ async function run() {
       try {
         const page = parseInt(req.query.page) || 1; // default to page 1 if not specified
 
-        const pageSize = parseInt(req.query.pageSize) ||9; // default to 10 items per page if not specified
+        const pageSize = parseInt(req.query.pageSize) ||9; // default to 9 items per page if not specified
         
         const skip = (page - 1) * pageSize;
 
