@@ -21,7 +21,7 @@ const CheckBookingDetails = () => {
 
     const getData = async () => {
         try {
-            const { data } = await axios.get(`https://the-car-physician-server.vercel.app/booking?email=${userInfo.email}`, {
+            const { data } = await axios.get(`https://the-car-physician-server.vercel.app/booking?email=${userInfo?.email}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
