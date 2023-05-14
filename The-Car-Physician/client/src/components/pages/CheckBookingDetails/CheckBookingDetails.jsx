@@ -8,6 +8,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
+import { redirect } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import BannerImg from '../../../assets/images/checkout/checkout.png';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -27,6 +28,8 @@ const CheckBookingDetails = () => {
             });
             if (data.success) {
                 setBooking(data.bookings);
+            } else {
+                redirect('/');
             }
         } catch (error) {
             console.log(error);
