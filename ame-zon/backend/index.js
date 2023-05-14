@@ -38,8 +38,23 @@ async function run() {
     // server name
     const productsCollection = client.db("ame-zon").collection("Products")
 
-
-
+    // get all products
+    app.get("/all-products", async (req, res) => {
+      try {
+        const getProduct = await productsCollection.find().toArray()
+        res.status(200).json({
+          success: true,
+          message: "Successfully get the all Products!!",
+          products: getProduct
+        })
+      } catch (error) {
+        console.log(error);
+        res.status(404).json({
+          success: false,
+          message: "Error Occurs from all Products"
+        })
+      }
+    })
 
 
 
