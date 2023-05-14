@@ -14,6 +14,7 @@
     "author": "Ujjal Kumar Roy",
     "license": "ISC",
     "dependencies": {
+        "concurrently": "^8.0.1",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
         "eslint-config-airbnb": "^19.0.4",

@@ -18,7 +18,6 @@ const CheckBookingDetails = () => {
     const { userInfo } = useContext(AuthContext);
     const [booking, setBooking] = useState([]);
     const [isChange, setIsChange] = useState(false);
-
     const getData = async () => {
         try {
             const { data } = await axios.get(`https://the-car-physician-server.vercel.app/booking?email=${userInfo?.email}`, {
