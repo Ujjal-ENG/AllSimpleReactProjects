@@ -1,7 +1,10 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import { getShoppingCart } from '../utilities/fakedb';
 
 export const cartProductsLoader = async () => {
-    const loadedProducts = await fetch('https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json');
+    const loadedProducts = await fetch('http://localhost:8080/all-products');
     const products = await loadedProducts.json();
 
     const storedCart = getShoppingCart();

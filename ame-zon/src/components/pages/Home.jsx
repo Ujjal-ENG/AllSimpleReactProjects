@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-indent */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import kops from '../../assets/images/kops.jpg';
-const Home = () => {
+
+function Home() {
     return (
         <div className="flex justify-between items-center mx-20 my-24">
             {/* left side */}
@@ -19,6 +21,6 @@ const Home = () => {
             <img src={kops} alt="" />
         </div>
     );
-};
+}
 
 export default Home;

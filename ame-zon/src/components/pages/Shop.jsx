@@ -1,14 +1,18 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-param-reassign */
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import React, { useEffect, useState } from 'react';
 import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 import CartDeatis from './CartDeatis';
 import ProductCard from './ProductCard';
-const Shop = () => {
+
+function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
 
     useEffect(() => {
         const storedCart = getShoppingCart();
@@ -31,9 +35,9 @@ const Shop = () => {
     }, [products]);
 
     const fetchData = async () => {
-        const fetchUrl = await fetch('https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json');
+        const fetchUrl = await fetch('http://localhost:8080/all-products');
         const data = await fetchUrl.json();
-        setProducts(data);
+        setProducts(data.products);
     };
 
     const handleAddtoCart = (details) => {
@@ -46,7 +50,7 @@ const Shop = () => {
             details.quantity = 1;
             newCart = [...cart, details];
         } else {
-            exists.quantity = exists.quantity + 1;
+            exists.quantity += 1;
             const remaining = cart.filter((pd) => pd.id !== details.id);
             newCart = [...remaining, exists];
         }
@@ -55,18 +59,19 @@ const Shop = () => {
         addToDb(details.id);
     };
 
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div className="grid grid-cols-5 w-full h-screen mt-12">
             <div className="col-span-4 grid grid-cols-3 justify-items-center gap-6 p-10">
-                {products &&
-                    products.map((el) => {
-                        return <ProductCard key={el.id} data={el} handleAddtoCart={handleAddtoCart} />;
-                    })}
+                {products && products.map((el) => <ProductCard key={el._id} data={el} handleAddtoCart={handleAddtoCart} />)}
             </div>
 
             <CartDeatis data={cart} />
         </div>
     );
-};
+}
 
 export default Shop;
