@@ -5,10 +5,11 @@
 import { getShoppingCart } from '../utilities/fakedb';
 
 export const cartProductsLoader = async () => {
+    const storedCart = getShoppingCart();
     const loadedProducts = await fetch('http://localhost:8080/all-products');
     const { products } = await loadedProducts.json();
-
-    const storedCart = getShoppingCart();
+    const ids = Object.keys(storedCart);
+    console.log(ids);
     const savedCart = [];
     for (const id in storedCart) {
         const addedProduct = products.find((pd) => pd._id === id);
