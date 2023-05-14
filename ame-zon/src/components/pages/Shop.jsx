@@ -15,8 +15,8 @@ import ProductCard from './ProductCard';
 function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(9);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const { totalProducts } = useLoaderData();
     const totalPages = Math.ceil(totalProducts / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
@@ -74,7 +74,7 @@ function Shop() {
 
     const handleOptionChange = (e) => {
         setItemsPerPage(e.target.value);
-        setCurrentPage(1);
+        setCurrentPage(0);
     };
     return (
         <div className="grid grid-cols-5 w-full h-screen mt-12">

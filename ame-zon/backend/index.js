@@ -41,11 +41,12 @@ async function run() {
     // get all products
     app.get("/all-products", async (req, res) => {
       try {
+      
         const page = parseInt(req.query.page) || 1; // default to page 1 if not specified
 
-        const pageSize = parseInt(req.query.pageSize) ||9; // default to 9 items per page if not specified
+        const pageSize = parseInt(req.query.limit) ||10; // default to 9 items per page if not specified
         
-        const skip = (page - 1) * pageSize;
+        const skip = (page  * pageSize);
 
         
         const getProduct = await productsCollection.find().skip(skip).limit(pageSize).toArray()
