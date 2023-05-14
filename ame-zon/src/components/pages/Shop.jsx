@@ -44,19 +44,19 @@ function Shop() {
         // const newCart = [...cart, details];
         let newCart = [];
 
-        const exists = cart.find((pd) => pd.id === details.id);
+        const exists = cart.find((pd) => pd._id === details._id);
 
         if (!exists) {
             details.quantity = 1;
             newCart = [...cart, details];
         } else {
             exists.quantity += 1;
-            const remaining = cart.filter((pd) => pd.id !== details.id);
+            const remaining = cart.filter((pd) => pd._id !== details._id);
             newCart = [...remaining, exists];
         }
 
         setCart(newCart);
-        addToDb(details.id);
+        addToDb(details._id);
     };
 
     useEffect(() => {
