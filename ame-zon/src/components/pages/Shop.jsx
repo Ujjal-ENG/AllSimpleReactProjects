@@ -82,7 +82,7 @@ function Shop() {
 
                 <div className=" flex gap-9 mt-auto ml-11">
                     {pageNumbers.map((el) => (
-                        <button type="button" className="btn " key={el} onClick={() => setCurrentPage(el)}>
+                        <button type="button" className={currentPage === el ? 'btn bg-red-500' : 'btn'} key={el} onClick={() => setCurrentPage(el)}>
                             {el}
                         </button>
                     ))}
