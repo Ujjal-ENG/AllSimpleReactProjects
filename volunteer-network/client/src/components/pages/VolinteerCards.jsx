@@ -20,7 +20,7 @@ const VolinteerCards = ({ results }) => {
     useEffect(() => {
         fetchData();
     }, [currentPage, itemsPerPage]);
-    console.log(events);
+
     // page option selection
     const options = [8, 16, 24, 30];
     const handleOptionChange = (e) => {
@@ -37,7 +37,7 @@ const VolinteerCards = ({ results }) => {
             <div className="flex justify-center items-center gap-2">
                 <div className="btn-group my-5 ">
                     {pageNumbers.map((number) => (
-                        <button key={number} type="button" className="btn" onClick={() => setCurrentPage(number)}>
+                        <button key={number} type="button" className={`btn ${number === currentPage ? 'btn-active' : ''}`} onClick={() => setCurrentPage(number)}>
                             {number + 1}
                         </button>
                     ))}
