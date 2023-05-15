@@ -74,6 +74,20 @@ async function run() {
                 });
             }
         });
+
+        // update
+        app.patch('/update-events', async (req, res) => {
+            try {
+                const { id } = req.query;
+                console.log(id);
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({
+                    success: false,
+                    message: 'Error occurs while Updating the Events',
+                });
+            }
+        });
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');
