@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="flex text-2xl font-bold justify-center items-center gap-6">
+    <nav className="flex text-2xl font-bold justify-center items-center gap-6 z-30 relative w-full ">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? "active" : "default")}
