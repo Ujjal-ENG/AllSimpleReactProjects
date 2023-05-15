@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
             {
                 path: '/shop',
                 element: <Shop />,
-                loader: async () => fetch('http://localhost:8080/pagination-products')
+                loader: async () => fetch('https://ame-zon-server.vercel.app/pagination-products')
             },
             {
                 path: '/order-review',

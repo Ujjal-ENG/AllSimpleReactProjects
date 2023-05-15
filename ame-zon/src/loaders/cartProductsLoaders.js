@@ -9,7 +9,7 @@ export const cartProductsLoader = async () => {
     const storedCart = getShoppingCart();
     const ids = Object.keys(storedCart);
 
-        const { data } = await axios.post('http://localhost:8080/productsByIds', { ids });
+        const { data } = await axios.post('https://ame-zon-server.vercel.app/productsByIds', { ids });
 
     const savedCart = [];
     for (const id in storedCart) {

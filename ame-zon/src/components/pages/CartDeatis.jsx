@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */

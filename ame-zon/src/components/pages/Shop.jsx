@@ -22,7 +22,7 @@ function Shop() {
     const totalPages = Math.ceil(totalProducts / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
     const fetchData = async () => {
-        const fetchUrl = await fetch(`http://localhost:8080/all-products?page=${currentPage}&limit=${itemsPerPage}`);
+        const fetchUrl = await fetch(`https://ame-zon-server.vercel.app/all-products?page=${currentPage}&limit=${itemsPerPage}`);
         const data = await fetchUrl.json();
         setProducts(data.products);
     };
@@ -52,7 +52,7 @@ function Shop() {
 
         const fetchData2 = async () => {
             try {
-                const { data } = await axios.post('http://localhost:8080/productsByIds', { ids });
+                const { data } = await axios.post('https://ame-zon-server.vercel.app/productsByIds', { ids });
                 const savedCart = [];
                 // step 1 : get id of the storedCart
 
