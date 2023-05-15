@@ -4,10 +4,12 @@ import Navbar from './components/layouts/shared/Navbar';
 
 const App = () => {
     return (
-        <div className="max-w-[1500px] mx-auto">
+        <>
             <Navbar />
-            <Outlet />
-        </div>
+            <div className="max-w-[1500px] mx-auto">
+                <Outlet />
+            </div>
+        </>
     );
 };
 
