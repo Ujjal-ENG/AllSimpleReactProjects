@@ -53,9 +53,8 @@ async function run() {
         // events
         app.get('/events', async (req, res) => {
             try {
-                const page = Number(req.query.page) || 1;
-                const perPage = Number(req.query.limit) || 8;
-
+                const page = Number(req.query.page) || 0;
+                const perPage = Number(req.query.limit) || 7;
                 const volunteers = await eventCollections
                     .find()
                     .skip(page * perPage)
