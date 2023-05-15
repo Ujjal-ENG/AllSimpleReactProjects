@@ -31,6 +31,23 @@ async function run() {
         await client.connect();
 
         const eventCollections = client.db('Volunteer-Network').collection('Events');
+
+        app.get('/total-events', async (req, res) => {
+            try {
+                const results = await eventCollections.estimatedDocumentCount();
+                res.status(200).json({
+                    success: true,
+                    message: 'Total Count worked!!',
+                    results,
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({
+                    success: false,
+                    message: 'Error occurs while fetching Total Events',
+                });
+            }
+        });
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');
