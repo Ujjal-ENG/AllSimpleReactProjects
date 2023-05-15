@@ -8,13 +8,22 @@
 
 import React, { useContext } from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigation } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
 import { AuthContext } from '../../context/AuthProviders';
 
 function Header() {
     const { userInfo, singOutTheUser, displayName } = useContext(AuthContext);
-
+    const { state } = useNavigation();
+    if (state === 'loading') {
+        return (
+            <div className="flex h-screen w-full justify-center items-center">
+                <h1 className="text-7xl font-bold space-x-6 tracking-wider">
+                    L <span className="animate-bounce uppercase text-red-500">o</span> ading...
+                </h1>
+            </div>
+        );
+    }
     return (
         <header className="bg-violet-600 p-3 text-white fixed top-0 right-0 left-0 z-40">
             <nav className="flex justify-between items-center mx-20 ">
