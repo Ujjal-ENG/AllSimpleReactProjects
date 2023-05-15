@@ -3,6 +3,7 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent-props */
 import { useState } from 'react';
+import logo from '../../../assets/logos/Group 1329.png';
 
 function Register() {
     const [fullName, setFullName] = useState('');
@@ -29,8 +30,9 @@ function Register() {
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center">
             <div className="max-w-2xl w-full mx-auto px-6">
-                <h1 className="text-5xl font-bold text-center py-5 tracking-wider shadow-m shadow-inner">Register as a Volunteer</h1>
+                <img src={logo} alt="logo" className="mx-auto" />
                 <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 py-8 pt-8">
+                    <h3 className="text-2xl font-bold text-center tracking-wider py-6 shadow-inner">Register as a Volunteer</h3>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="full-name">
                             Full Name
