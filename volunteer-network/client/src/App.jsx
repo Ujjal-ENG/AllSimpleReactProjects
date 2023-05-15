@@ -6,9 +6,8 @@ const App = () => {
     return (
         <>
             <Navbar />
-            <div className="max-w-[1500px] mx-auto">
-                <Outlet />
-            </div>
+
+            <Outlet />
         </>
     );
 };
