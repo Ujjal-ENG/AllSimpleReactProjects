@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
                 element: <UpdateFrom />
             },
             {
-                path: 'book-event/:id',
+                path: 'book-events/:id',
                 element: <BookEvents />
             }
         ]

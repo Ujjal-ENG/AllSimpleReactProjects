@@ -1,7 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../assets/logos/Group 1329.png';
 
 function Login() {
@@ -10,7 +12,7 @@ function Login() {
             <img src={logo} alt="logo" className="mx-auto" />
             <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
                 <h1 className="text-2xl font-bold mb-4">Login</h1>
-                <form className="flex flex-col space-y-4">
+                <form className="flex flex-col space-y-4 mb-6">
                     <div>
                         <label className="block font-medium mb-2" htmlFor="email">
                             Email
@@ -39,6 +41,9 @@ function Login() {
                         Login
                     </button>
                 </form>
+                <Link to="/register" className="py-6 mt-4 font-bold text-warning">
+                    Don't have any Account? Please Register..
+                </Link>
                 <div className="mt-4 flex items-center justify-center">
                     <hr className="w-full border-gray-400" />
                     <span className="mx-2 font-medium text-gray-500">or</span>
