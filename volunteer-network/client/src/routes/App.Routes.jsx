@@ -2,6 +2,7 @@
 /* eslint-disable comma-dangle */
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
+import BookEvents from '../components/pages/BookEvents';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: 'update-volunteer/:id',
                 element: <UpdateFrom />
+            },
+            {
+                path: 'book-event/:id',
+                element: <BookEvents />
             }
         ]
     },
