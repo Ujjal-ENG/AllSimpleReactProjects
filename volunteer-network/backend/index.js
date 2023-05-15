@@ -32,6 +32,7 @@ async function run() {
 
         const eventCollections = client.db('Volunteer-Network').collection('Events');
 
+        // total events
         app.get('/total-events', async (req, res) => {
             try {
                 const results = await eventCollections.estimatedDocumentCount();
@@ -45,6 +46,32 @@ async function run() {
                 res.status(400).json({
                     success: false,
                     message: 'Error occurs while fetching Total Events',
+                });
+            }
+        });
+
+        // events
+        app.get('/events', async (req, res) => {
+            try {
+                const page = Number(req.query.page) || 1;
+                const perPage = Number(req.query.limit) || 8;
+
+                const volunteers = await eventCollections
+                    .find()
+                    .skip(page * perPage)
+                    .limit(perPage)
+                    .toArray();
+
+                res.status(200).json({
+                    success: false,
+                    message: 'Pagination Product shown',
+                    volunteers,
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({
+                    success: false,
+                    message: 'Error occurs while fetching Events',
                 });
             }
         });
