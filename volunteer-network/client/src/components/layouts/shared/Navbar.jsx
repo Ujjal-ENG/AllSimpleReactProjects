@@ -2,14 +2,15 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from '../../../assets/logos/Group 1329.png';
 
 const Navbar = () => {
     const navItems = (
-        <div className="flex justify-evenly items-center text-2xl font-bold">
-            <NavLink>Home</NavLink>
-            <NavLink>Donation</NavLink>
-            <NavLink>Events</NavLink>
-            <NavLink>Blog</NavLink>
+        <div className="flex justify-evenly items-center gap-8 text-2xl font-bold">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/donations">Donation</NavLink>
+            <NavLink to="/events">Events</NavLink>
+            <NavLink to="/blogs">Blog</NavLink>
         </div>
     );
     return (
@@ -26,16 +27,16 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <button type="button" className="btn btn-ghost normal-case text-xl">
-                    daisyUI
+                    <img src={Logo} alt="logo" className="w-32 h-12  object-center" />
                 </button>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{navItems}</ul>
             </div>
             <div className="navbar-end">
-                <button type="button" className="btn btn-info">
-                    Register
-                </button>
+                <NavLink to="/login" type="button" className="btn btn-info">
+                    Login/Register
+                </NavLink>
             </div>
         </div>
     );
