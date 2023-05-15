@@ -1,9 +1,10 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-tabs */
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
 
@@ -76,10 +77,25 @@ async function run() {
         });
 
         // update
-        app.patch('/update-events', async (req, res) => {
+        app.patch('/update-events/:id', async (req, res) => {
             try {
-                const { id } = req.query;
-                console.log(id);
+                const { id } = req.params;
+
+                const updateDoc = {
+                    $set: {
+                        ...req.body.datas,
+                    },
+                };
+                const result = await eventCollections.updateOne(
+                    { _id: new ObjectId(id) },
+                    updateDoc
+                );
+
+                res.status(201).json({
+                    success: true,
+                    message: 'Events Updated!!',
+                    result,
+                });
             } catch (error) {
                 console.log(error);
                 res.status(400).json({

@@ -5,6 +5,7 @@ import App from '../App';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
+import UpdateFrom from '../components/pages/UpdateForm';
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home />,
                 loader: () => fetch('http://localhost:8080/total-events')
+            },
+            {
+                path: 'update-volunteer/:id',
+                element: <UpdateFrom />
             }
         ]
     },
