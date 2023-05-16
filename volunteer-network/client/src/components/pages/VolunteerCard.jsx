@@ -7,6 +7,17 @@ import React from 'react';
 // to={`/book-events/${data._id}`} state={data}
 
 const VolunteerCard = ({ data, onClick }) => {
+    const generateRandomColor = () => {
+        // Generate random RGB values
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        // Construct CSS color string
+        const color = `rgb(${red}, ${green}, ${blue})`;
+        return color;
+    };
+    // call random color generator
+    const randomColor = generateRandomColor();
     return (
         <div className="p-4 w-full">
             <div className="h-full relative flex flex-col items-center text-center">
@@ -16,7 +27,9 @@ const VolunteerCard = ({ data, onClick }) => {
                     📝
                 </label>
 
-                <h1 className="text-xl font-bold bg-red-400 w-full py-4 -mt-4 rounded-b-lg">{data.title}</h1>
+                <h1 className="text-xl font-bold text-white  w-full py-4 -mt-4 rounded-b-lg" style={{ backgroundColor: randomColor }}>
+                    {data.title}
+                </h1>
             </div>
         </div>
     );
