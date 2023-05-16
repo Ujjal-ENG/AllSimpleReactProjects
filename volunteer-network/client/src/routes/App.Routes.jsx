@@ -6,7 +6,6 @@ import BookEvents from '../components/pages/BookEvents';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
-import UpdateFrom from '../components/pages/UpdateForm';
 
 export const router = createBrowserRouter([
     {
@@ -18,10 +17,7 @@ export const router = createBrowserRouter([
                 element: <Home />,
                 loader: () => fetch('http://localhost:8080/total-events')
             },
-            {
-                path: 'update-volunteer/:id',
-                element: <UpdateFrom />
-            },
+
             {
                 path: 'book-events/:id',
                 element: <BookEvents />
