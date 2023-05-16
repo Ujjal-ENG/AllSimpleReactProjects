@@ -2,17 +2,30 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Select from 'react-select';
 
 const BookEvents = () => {
+    const [selectValue, setSelectValue] = useState('');
     const {
         register,
         handleSubmit,
+
         formState: { errors }
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => console.log(data, selectValue);
     console.log(errors);
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+    ];
+
+    const handleChange = (selectValue) => {
+        setSelectValue(selectValue);
+    };
+
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg mx-auto mt-4">
@@ -61,7 +74,9 @@ const BookEvents = () => {
                         <option value="Dr">Dr</option>
                     </select>
                 </div>
-
+                <div className="flex flex-col mb-4">
+                    <Select options={options} isMulti value={selectValue} onChange={handleChange} />
+                </div>
                 <div className="flex flex-col mb-4">
                     <label className="text-xl font-semibold mb-2">Are you a developer?</label>
                     <div className="flex justify-between">
