@@ -19,7 +19,7 @@ const Header = () => {
                                     <input
                                         type="text"
                                         placeholder="Search"
-                                        className="bg-gray-100 border-2 border-gray-200 rounded-lg py-2.5 pr-8 pl-2 md:max-w-2xl  focus:outline-none md:w-96 mb-10 md:mb-0 focus:bg-white"
+                                        className="bg-gray-100 border-2 border-gray-200 rounded-lg py-2.5 pr-8 pl-2 md:max-w-2xl  focus:outline-none md:w-96 mb-10 md:mb focus:bg-white"
                                     />
                                     <button type="button" className="btn btn-primary absolute right-0 top-0 ">
                                         Search
