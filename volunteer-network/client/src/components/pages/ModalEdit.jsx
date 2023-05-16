@@ -10,10 +10,9 @@ const ModalEdit = ({ data }) => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = async (formData) => {
-        console.log(formData);
         try {
-            const data2 = await axios.patch(`http://localhost:8080/update-events/${data._id}`, { formData });
-            console.log(data2.data);
+            const response = await axios.patch(`http://localhost:8080/update-events/${data._id}`, { formData });
+            console.log(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -36,7 +35,7 @@ const ModalEdit = ({ data }) => {
                                 name="title"
                                 type="text"
                                 placeholder="Enter title"
-                                {...register('title')}
+                                {...register('title', { required: true })}
                                 defaultValue={data?.title}
                             />
                         </div>
@@ -51,7 +50,7 @@ const ModalEdit = ({ data }) => {
                                 name="image"
                                 type="text"
                                 placeholder="Enter image URL"
-                                {...register('image')}
+                                {...register('image', { required: true })}
                                 defaultValue={data?.image}
                             />
                         </div>
