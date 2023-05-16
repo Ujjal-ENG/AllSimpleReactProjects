@@ -83,7 +83,7 @@ async function run() {
 
                 const updateDoc = {
                     $set: {
-                        ...req.body.datas,
+                        ...req.body.formData,
                     },
                 };
                 const result = await eventCollections.updateOne(

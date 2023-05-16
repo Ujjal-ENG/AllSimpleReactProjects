@@ -8,27 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const UpdateFrom = () => {
     const { state } = useLocation();
 
-    const [datas, setData] = useState({ title: state.title, image: state.image });
-
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setData({ ...datas, [name]: value });
-    };
     const navigate = useNavigate();
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            const { data } = await axios.patch(`http://localhost:8080/update-events/${state._id}`, { datas });
-            if (data.success) {
-                navigate('/');
-            }
-        } catch (error) {
-            console.log(error);
-        }
-        setData({ title: '', image: '' });
-        // navigate('/');
-    };
 
     return (
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
