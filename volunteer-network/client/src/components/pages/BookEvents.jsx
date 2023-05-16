@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -8,14 +10,19 @@ import Select from 'react-select';
 
 const BookEvents = () => {
     const [selectValue, setSelectValue] = useState('');
+    const [formData, setFormData] = useState(null);
     const {
         register,
         handleSubmit,
 
         formState: { errors }
     } = useForm();
-    const onSubmit = (data) => console.log(data, selectValue);
+    const onSubmit = (data) => {
+        data.skills = selectValue.map((el) => el.value);
+        setFormData(data);
+    };
     console.log(errors);
+    console.log(formData);
     const options = [
         { value: 'chocolate', label: 'Chocolate' },
         { value: 'strawberry', label: 'Strawberry' },
