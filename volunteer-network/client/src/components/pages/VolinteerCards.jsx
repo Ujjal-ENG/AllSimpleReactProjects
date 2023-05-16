@@ -1,7 +1,9 @@
+/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import ModalEdit from './ModalEdit';
 import VolunteerCard from './VolunteerCard';
 
 const VolinteerCards = ({ results }) => {
@@ -27,11 +29,17 @@ const VolinteerCards = ({ results }) => {
         setItemsPerPage(e.target.value);
         setCurrentPage(0);
     };
+    const [selectedCard, setSelectedCard] = useState(null);
+
+    const handleCardClick = (cardData) => {
+        setSelectedCard(cardData);
+    };
+    console.log(selectedCard);
     return (
         <div>
             <div className=" -mt-60 grid grid-cols-4 max-w-7xl mx-auto">
                 {events.map((event) => (
-                    <VolunteerCard data={event} key={event._id} />
+                    <VolunteerCard key={event._id} data={event} isSelected={selectedCard === event} onClick={handleCardClick} />
                 ))}
             </div>
             <div className="flex justify-center items-center gap-2">
@@ -48,6 +56,7 @@ const VolinteerCards = ({ results }) => {
                     ))}
                 </select>
             </div>
+            <ModalEdit data={selectedCard} />
         </div>
     );
 };
