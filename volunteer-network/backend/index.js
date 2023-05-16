@@ -50,19 +50,21 @@ async function run() {
                 });
             }
         });
-
+        const indexKeys = { title: 1 };
+        const indexOptions = { name: 'title' };
+        await eventCollections.createIndex(indexKeys, indexOptions);
         // events
         app.get('/events', async (req, res) => {
             try {
                 const page = Number(req.query.page) || 0;
                 const perPage = Number(req.query.limit) || 7;
-
+                const searchQuery = req.query.search;
+                // create index on filed
                 const volunteers = await eventCollections
-                    .find()
+                    .find({ title: { $regex: searchQuery, $options: 'i' } })
                     .skip(page * perPage)
                     .limit(perPage)
                     .toArray();
-
                 res.status(200).json({
                     success: false,
                     message: 'Pagination Product shown',

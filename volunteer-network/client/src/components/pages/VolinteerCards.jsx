@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -14,9 +15,9 @@ const VolinteerCards = ({ results }) => {
     const pageNumbers = [...Array(totalPages).keys()];
     const [isChange, setIsChange] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
-
+    const [search, setSearch] = useState('');
     const fetchData = async () => {
-        const { data } = await axios.get(`http://localhost:8080/events?page=${currentPage}&limit=${itemsPerPage}`);
+        const { data } = await axios.get(`http://localhost:8080/events?page=${currentPage}&limit=${itemsPerPage}&search=${search}`);
 
         setEvents(data.volunteers);
     };
@@ -38,9 +39,24 @@ const VolinteerCards = ({ results }) => {
     const handleChange = (value) => {
         setIsChange((ps) => ({ ...ps, ...value }));
     };
+    const handleSearch = () => {
+        fetchData();
+    };
     return (
-        <div>
-            <div className=" -mt-60 grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto">
+        <div className="-mt-60 ">
+            <div className="relative mr-4 z-20">
+                <input
+                    type="text"
+                    placeholder="Search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="bg-gray-100 border-2 border-gray-200 rounded-lg py-2.5 pr-8 pl-2 md:max-w-2xl  focus:outline-none md:w-96 mb-10 md:mb focus:bg-white"
+                />
+                <button type="button" className="btn btn-primary absolute right-0 top-0 " onClick={handleSearch}>
+                    Search
+                </button>
+            </div>
+            <div className=" grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto">
                 {events.map((event) => (
                     <VolunteerCard key={event._id} data={event} onClick={handleCardClick} />
                 ))}
