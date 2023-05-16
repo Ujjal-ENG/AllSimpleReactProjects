@@ -19,7 +19,7 @@ const VolunteerCard = ({ data, onClick }) => {
     // call random color generator
     const randomColor = generateRandomColor();
     return (
-        <div className="p-4 w-full">
+        <div className="p-4 w-full z-10">
             <div className="h-full relative flex flex-col items-center text-center">
                 <img alt={data.title} className="flex-shrink-0 rounded-t-lg w-full h-56 object-cover object-center mb-4" src={data.image} />
 
