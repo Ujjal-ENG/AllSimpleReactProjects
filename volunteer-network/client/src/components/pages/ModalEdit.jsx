@@ -1,20 +1,26 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const ModalEdit = ({ data }) => {
+const ModalEdit = ({ data, onClick }) => {
     const { register, handleSubmit } = useForm();
-
+    const [loading, setLoading] = useState(false);
     const onSubmit = async (formData) => {
+        setLoading(true);
         try {
             const response = await axios.patch(`http://localhost:8080/update-events/${data._id}`, { formData });
-            console.log(response.data);
+            if (response.data.success) {
+                onClick(true);
+                setLoading(false);
+            }
         } catch (error) {
             console.log(error);
+            setLoading(false);
         }
     };
 
@@ -54,8 +60,11 @@ const ModalEdit = ({ data }) => {
                                 defaultValue={data?.image}
                             />
                         </div>
-                        <button value="Save" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                            Submit
+                        <button
+                            value="Save"
+                            className={loading ? 'btn loading' : 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'}
+                            type="submit">
+                            {loading ? 'Loading' : 'Update Here!'}
                         </button>
 
                         <label htmlFor="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">

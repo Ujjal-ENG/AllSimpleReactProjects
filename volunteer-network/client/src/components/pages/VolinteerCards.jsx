@@ -12,7 +12,8 @@ const VolinteerCards = ({ results }) => {
     const [itemsPerPage, setItemsPerPage] = useState(8);
     const totalPages = Math.ceil(results / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
-
+    const [isChange, setIsChange] = useState(false);
+    const [selectedCard, setSelectedCard] = useState(null);
     const fetchData = async () => {
         const { data } = await axios.get(`http://localhost:8080/events?page=${currentPage}&limit=${itemsPerPage}`);
 
@@ -21,7 +22,7 @@ const VolinteerCards = ({ results }) => {
 
     useEffect(() => {
         fetchData();
-    }, [currentPage, itemsPerPage]);
+    }, [currentPage, itemsPerPage, isChange]);
 
     // page option selection
     const options = [8, 16, 24, 30];
@@ -29,12 +30,13 @@ const VolinteerCards = ({ results }) => {
         setItemsPerPage(e.target.value);
         setCurrentPage(0);
     };
-    const [selectedCard, setSelectedCard] = useState(null);
 
     const handleCardClick = (cardData) => {
         setSelectedCard(cardData);
     };
-
+    const handleChange = (value) => {
+        setIsChange((ps) => ({ ...ps, ...value }));
+    };
     return (
         <div>
             <div className=" -mt-60 grid grid-cols-4 max-w-7xl mx-auto">
@@ -56,7 +58,7 @@ const VolinteerCards = ({ results }) => {
                     ))}
                 </select>
             </div>
-            <ModalEdit data={selectedCard} />
+            <ModalEdit data={selectedCard} onClick={handleChange} />
         </div>
     );
 };
