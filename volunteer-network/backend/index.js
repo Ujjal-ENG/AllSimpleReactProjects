@@ -56,8 +56,7 @@ async function run() {
             try {
                 const page = Number(req.query.page) || 0;
                 const perPage = Number(req.query.limit) || 7;
-                const searchQuery = req.query.search;
-                console.log(searchQuery);
+
                 const volunteers = await eventCollections
                     .find()
                     .skip(page * perPage)

@@ -1,14 +1,7 @@
 /* eslint-disable react/jsx-indent-props */
-import React, { useState } from 'react';
+import React from 'react';
 
 const Header = () => {
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const handleInputChange = (event) => {
-        const { value } = event.target;
-        setSearchQuery(value);
-        window.history.pushState(null, '', `/${encodeURIComponent(value)}`);
-    };
     return (
         <div className="text-center -mt-16 text-black ">
             <div className=" w-full mx-auto">
@@ -26,8 +19,6 @@ const Header = () => {
                                     <input
                                         type="text"
                                         placeholder="Search"
-                                        value={searchQuery}
-                                        onChange={handleInputChange}
                                         className="bg-gray-100 border-2 border-gray-200 rounded-lg py-2.5 pr-8 pl-2 max-w-2xl w-96 focus:outline-none focus:bg-white"
                                     />
                                     <button type="button" className="btn btn-primary absolute right-0 top-0 ">

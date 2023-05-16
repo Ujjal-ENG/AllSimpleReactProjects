@@ -3,7 +3,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import ModalEdit from './ModalEdit';
 import VolunteerCard from './VolunteerCard';
 
@@ -16,9 +15,6 @@ const VolinteerCards = ({ results }) => {
     const [isChange, setIsChange] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
 
-    const location = useLocation();
-    const myParam = new URLSearchParams(location.search).get('myParam');
-    console.log(myParam);
     const fetchData = async () => {
         const { data } = await axios.get(`http://localhost:8080/events?page=${currentPage}&limit=${itemsPerPage}`);
 
