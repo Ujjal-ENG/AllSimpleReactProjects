@@ -12,7 +12,7 @@ const VolunteerCard = ({ data, onClick }) => {
             <div className="h-full relative flex flex-col items-center text-center">
                 <img alt={data.title} className="flex-shrink-0 rounded-t-lg w-full h-56 object-cover object-center mb-4" src={data.image} />
 
-                <label htmlFor="my-modal-6" className="absolute -right-5 top-0 btn cursor-pointer" onClick={() => onClick(data)}>
+                <label htmlFor="my-modal-6" className="absolute -right-0 md:-right-5 top-0 btn cursor-pointer" onClick={() => onClick(data)}>
                     📝
                 </label>
 

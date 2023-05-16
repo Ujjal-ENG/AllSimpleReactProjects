@@ -40,7 +40,7 @@ const VolinteerCards = ({ results }) => {
     };
     return (
         <div>
-            <div className=" -mt-60 grid grid-cols-4 max-w-7xl mx-auto">
+            <div className=" -mt-60 grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto">
                 {events.map((event) => (
                     <VolunteerCard key={event._id} data={event} onClick={handleCardClick} />
                 ))}

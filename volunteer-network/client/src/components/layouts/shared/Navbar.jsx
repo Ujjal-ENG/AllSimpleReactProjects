@@ -9,7 +9,7 @@ import Logo from '../../../assets/logos/Group 1329.png';
 
 const Navbar = () => {
     const navItems = (
-        <div className="flex justify-evenly items-center gap-8 text-2xl font-bold">
+        <div className="flex flex-col md:flex-row justify-evenly items-center gap-8 text-2xl font-bold">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/donations">Donation</NavLink>
             <NavLink to="/book-events/id">Events</NavLink>
@@ -31,14 +31,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <button type="button" className="btn btn-ghost normal-case text-xl">
-                    <img src={Logo} alt="logo" className="w-32 h-12  object-center" />
+                    <img src={Logo} alt="logo" className="w-14 md:w-32 h-12  object-center" />
                 </button>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{navItems}</ul>
             </div>
             <div className="navbar-end">
-                <NavLink to="/login" type="button" className="btn btn-info">
+                <NavLink to="/login" type="button" className="btn btn-sm md:btn-md btn-info">
                     Login/Register
                 </NavLink>
             </div>
