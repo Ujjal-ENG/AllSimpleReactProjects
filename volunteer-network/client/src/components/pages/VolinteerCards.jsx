@@ -34,12 +34,12 @@ const VolinteerCards = ({ results }) => {
     const handleCardClick = (cardData) => {
         setSelectedCard(cardData);
     };
-    console.log(selectedCard);
+
     return (
         <div>
             <div className=" -mt-60 grid grid-cols-4 max-w-7xl mx-auto">
                 {events.map((event) => (
-                    <VolunteerCard key={event._id} data={event} isSelected={selectedCard === event} onClick={handleCardClick} />
+                    <VolunteerCard key={event._id} data={event} onClick={handleCardClick} />
                 ))}
             </div>
             <div className="flex justify-center items-center gap-2">
