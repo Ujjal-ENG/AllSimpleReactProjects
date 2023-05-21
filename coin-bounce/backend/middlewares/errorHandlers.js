@@ -1,7 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-unused-vars */
+import pkg from 'joi';
 
-import { ValidationError } from 'joi';
+const { ValidationError } = pkg;
 
 export const errorHandler = (error, req, res, next) => {
     // default error
