@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
 import connectDB from './database/connectDB.js';
+import { errorHandler } from './middlewares/errorHandlers.js';
 import authRoutes from './routes/authRoutes.js';
 
 // globally config
@@ -36,6 +37,9 @@ app.get('/health', (req, res) => {
 
 // created routes
 app.use('/api/v1/auth', authRoutes);
+
+// our middleware
+app.use(errorHandler);
 
 // app listen here
 app.listen(PORT, () => {
