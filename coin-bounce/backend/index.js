@@ -23,6 +23,16 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
+// default routes
+app.get('/', (req, res) => {
+    res.json({ message: 'Hello From server' });
+});
+
+// health route
+app.get('/health', (req, res) => {
+    res.json({ message: 'This is the health route!!' });
+});
+
 // app listen here
 app.listen(PORT, () => {
     console.log(`App is running on the PORT ${PORT}`);
