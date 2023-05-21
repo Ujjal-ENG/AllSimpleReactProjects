@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import express from 'express';
-import { loginController } from '../controllers/authControllers.js';
+import { loginController, registerController } from '../controllers/authControllers.js';
 
 const router = express.Router();
 
@@ -11,6 +11,9 @@ router.get('/test', (req, res) => {
 
 // login
 router.post('/login', loginController);
+
+// register
+router.post('/register', registerController);
 
 // register
 export default router;
