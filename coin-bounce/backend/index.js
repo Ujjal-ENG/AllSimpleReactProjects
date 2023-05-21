@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
 import connectDB from './database/connectDB.js';
+import authRoutes from './routes/authRoutes.js';
 
 // globally config
 dotenv.config();
@@ -32,6 +33,9 @@ app.get('/', (req, res) => {
 app.get('/health', (req, res) => {
     res.json({ message: 'This is the health route!!' });
 });
+
+// created routes
+app.use('/api/v1/auth', authRoutes);
 
 // app listen here
 app.listen(PORT, () => {
