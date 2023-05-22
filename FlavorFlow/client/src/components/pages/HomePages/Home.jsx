@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
+import Menu from './Menu/Menu';
 import MessageResturant from './MessageResturant';
 import OderOnlineSlider from './OderSlider/OderOnlineSlider';
 
@@ -9,6 +10,7 @@ const Home = () => {
             <Banner />
             <OderOnlineSlider />
             <MessageResturant />
+            <Menu />
         </div>
     );
 };
