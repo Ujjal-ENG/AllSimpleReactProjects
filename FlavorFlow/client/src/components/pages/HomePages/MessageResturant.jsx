@@ -3,17 +3,14 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent-props */
 import React from 'react';
+import img from '../../../assets/home/chef-service.jpg';
 
 const MessageResturant = () => {
     return (
         <div className="mt-14 mb-20">
             <section className="relative py-10 overflow-hidden bg-black sm:py-16 lg:py-24 xl:py-32 rounded-xl">
                 <div className="absolute inset-0 rounded-xl">
-                    <img
-                        className="object-cover w-full h-full md:object-left md:scale-150 rounded-xl md:origin-top-left"
-                        src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/5/girl-working-on-laptop.jpg"
-                        alt="img"
-                    />
+                    <img className="object-cover w-full h-full" src={img} alt="message-from-chef" />
                 </div>
 
                 <div className="absolute inset-0 hidden bg-gradient-to-r md:block from-black to-transparent" />
