@@ -5,7 +5,7 @@ import Navbar from './components/layouts/shared/Navbar';
 
 const App = () => {
     return (
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
             <Navbar />
             <Outlet />
             <Footer />
