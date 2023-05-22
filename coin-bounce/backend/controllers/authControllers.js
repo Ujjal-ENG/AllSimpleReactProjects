@@ -3,6 +3,7 @@
 /* eslint-disable prefer-regex-literals */
 import bcrypt from 'bcrypt';
 import Joi from 'joi';
+import UserDTO from '../DTO/user.js';
 import { usersModel } from '../models/user.js';
 
 /* eslint-disable import/prefer-default-export */
@@ -46,7 +47,10 @@ export const loginController = async (req, res, next) => {
             return next(message);
         }
 
-        return res.status(200).json({ success: true, message: 'Login Successfully', user });
+        // create the userDTO
+        const userDto = new UserDTO(user);
+
+        return res.status(200).json({ success: true, message: 'Login Successfully', userDto });
     } catch (error) {
         return next(error);
     }
@@ -97,11 +101,13 @@ export const registerController = async (req, res, next) => {
 
         const user = await userToRegister.save();
 
+        // create the userDTO
+        const userDto = new UserDTO(user);
         // 6.  response send
         return res.status(201).json({
             success: true,
             message: 'User Created',
-            user,
+            userDto,
         });
     } catch (error) {
         console.log(error);
