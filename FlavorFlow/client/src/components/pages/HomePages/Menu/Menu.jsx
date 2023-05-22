@@ -13,7 +13,7 @@ const Menu = () => {
                 return setMenuData(popurlarItem);
             });
     }, []);
-    console.log(menuData);
+
     return (
         <div className="my-16">
             <SharedTitle message="Check it Out" title="FROM OUR MENU" />
