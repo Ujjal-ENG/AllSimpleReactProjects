@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { NavLink } from 'react-router-dom';
 import animationData from '../../../assets/json/logo.json';
@@ -29,9 +31,25 @@ const Navbar = () => {
         autoplay: true,
         animationData
     };
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset;
+            if (scrollTop > 88 && !isScrolled) {
+                setIsScrolled(true);
+            } else if (scrollTop === 0 && isScrolled) {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isScrolled]);
+
     return (
         <div>
-            <div className="navbar max-w-screen-2xl fixed  z-10 bg-opacity-30 mx-auto  bg-base-100 ">
+            <div className={`z-10 navbar max-w-screen-2xl duration-200 transition-all ${isScrolled ? 'ease-out fixed bg-opacity-100 mx-auto bg-black' : 'fixed  bg-white py-3 ease-in bg-opacity-30'}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,7 +62,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                        <h1 className="text-2xl font-bold">Flavor|Flow</h1>
+                        <h1 className="text-white text-2xl font-bold">Flavor|Flow</h1>
                         <div className="md:w-32 h-full">
                             <Lottie options={defaultOptions} />
                         </div>
