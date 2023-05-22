@@ -8,7 +8,7 @@ import img4 from '../../../assets/home/04.jpg';
 import img5 from '../../../assets/home/05.png';
 import img6 from '../../../assets/home/06.png';
 
-const Slider = () => {
+const Banner = () => {
     return (
         <Carousel autoPlay showThumbs={false}>
             <div>
@@ -33,4 +33,4 @@ const Slider = () => {
     );
 };
 
-export default Slider;
+export default Banner;
