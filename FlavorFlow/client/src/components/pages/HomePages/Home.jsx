@@ -5,6 +5,7 @@ import Featured from './Featured/Featured';
 import Menu from './Menu/Menu';
 import MessageResturant from './MessageResturant';
 import OderOnlineSlider from './OderSlider/OderOnlineSlider';
+import TestMonials from './TestMonials/TestMonials';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Menu />
             <CallUs />
             <Featured />
+            <TestMonials />
         </div>
     );
 };
