@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Banner from './Banner';
 import CallUs from './CallUs';
 import Featured from './Featured/Featured';
@@ -10,6 +11,9 @@ import TestMonials from './TestMonials/TestMonials';
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Flavor|Flow-Home</title>
+            </Helmet>
             <Banner />
             <OderOnlineSlider />
             <MessageResturant />
