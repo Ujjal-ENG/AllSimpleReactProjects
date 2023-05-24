@@ -24,11 +24,11 @@ export const router = createBrowserRouter([
             {
                 path: 'order-food/:category',
                 element: <OrderFood />
+            },
+            {
+                path: '/login',
+                element: <Login />
             }
         ]
-    },
-    {
-        path: '/login',
-        element: <Login />
     }
 ]);
