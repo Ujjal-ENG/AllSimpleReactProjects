@@ -43,6 +43,7 @@ const Register = () => {
                                         </div>
 
                                         <input
+                                            required
                                             type="text"
                                             name="name"
                                             id="name"
@@ -69,6 +70,7 @@ const Register = () => {
                                         </div>
 
                                         <input
+                                            required
                                             type="email"
                                             name="email"
                                             id="email"
@@ -95,6 +97,7 @@ const Register = () => {
                                         </div>
 
                                         <input
+                                            required
                                             type="password"
                                             name="password"
                                             id="password"
