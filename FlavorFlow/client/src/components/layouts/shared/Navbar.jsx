@@ -20,8 +20,8 @@ const Navbar = () => {
             <NavLink to="/order-food/salad" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                 Oder Food
             </NavLink>
-            <NavLink to="/our-shop" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                Our Shop
+            <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                Login
             </NavLink>
         </div>
     );
