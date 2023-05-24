@@ -128,7 +128,7 @@ const Login = () => {
                                     </div>
                                     {error && isClicked && <h1 className="py-3 text-red-500 font-bold">{error}</h1>}
                                     {error && !isClicked && <h1 className="py-3 text-green-500 font-bold">{error}</h1>}
-                                    <button type="button" onClick={handleCaptcha} className="btn btn-block btn-xs">
+                                    <button type="button" onClick={handleCaptcha} className={`btn btn-block btn-xs font-bold tracking-widest ${error && !isClicked && 'btn-success text-white'}`}>
                                         Validate Captcha
                                     </button>
                                 </div>
