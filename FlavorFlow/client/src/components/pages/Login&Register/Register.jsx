@@ -1,38 +1,48 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-indent-props */
-/* eslint-disable react/jsx-closing-bracket-location */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const captcha = e.target.captcha.value;
-        const formData = { email, password, captcha };
-        console.log(formData);
-    };
+const Register = () => {
     return (
         <section className="bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
                     <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
-                        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign in to Celebration</h2>
+                        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign up to Celebration</h2>
                         <p className="mt-2 text-base text-gray-600">
-                            Don't have an account?
-                            <Link to="/register" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
-                                Sign Up
+                            Already have an account?
+                            <Link to="/login" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
+                                Login
                             </Link>
                         </p>
 
-                        <form onSubmit={handleSubmit} className="mt-8">
+                        <form action="#" method="POST" className="mt-8">
                             <div className="space-y-5">
                                 <div>
                                     <label htmlFor="" className="text-base font-medium text-gray-900">
-                                        Email address
+                                        {' '}
+                                        Fast & Last name{' '}
+                                    </label>
+                                    <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </div>
+
+                                        <input
+                                            type="text"
+                                            name=""
+                                            id=""
+                                            placeholder="Enter your full name"
+                                            className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="" className="text-base font-medium text-gray-900">
+                                        {' '}
+                                        Email address{' '}
                                     </label>
                                     <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -48,8 +58,8 @@ const Login = () => {
 
                                         <input
                                             type="email"
-                                            name="email"
-                                            id="email"
+                                            name=""
+                                            id=""
                                             placeholder="Enter email to get started"
                                             className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                         />
@@ -58,7 +68,8 @@ const Login = () => {
 
                                 <div>
                                     <label htmlFor="" className="text-base font-medium text-gray-900">
-                                        Password
+                                        {' '}
+                                        Password{' '}
                                     </label>
                                     <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -74,37 +85,14 @@ const Login = () => {
 
                                         <input
                                             type="password"
-                                            name="password"
-                                            id="password"
+                                            name=""
+                                            id=""
                                             placeholder="Enter your password"
                                             className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                         />
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="" className="text-base font-medium text-gray-900">
-                                        Captcha
-                                    </label>
-                                    <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
-                                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                            <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                            </svg>
-                                        </div>
-
-                                        <input
-                                            type="text"
-                                            name="captcha"
-                                            id="captcha"
-                                            placeholder="Enter your Captcha"
-                                            className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                                        />
-                                    </div>
-                                    <button type="button" className="btn btn-xs">
-                                        Reload Captcha
-                                    </button>
-                                </div>
                                 <div>
                                     <button
                                         type="submit"
@@ -140,10 +128,10 @@ const Login = () => {
                         </div>
 
                         <p className="mt-5 text-sm text-gray-600">
-                            This site is protected by reCAPTCHA and the Google
+                            This site is protected by reCAPTCHA and the Google{' '}
                             <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:underline hover:text-blue-700">
                                 Privacy Policy
-                            </a>
+                            </a>{' '}
                             &
                             <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:underline hover:text-blue-700">
                                 Terms of Service
@@ -156,4 +144,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
