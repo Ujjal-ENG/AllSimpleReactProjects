@@ -12,9 +12,10 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
+        const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        createUser(name, email, password);
+        createUser(name, photo, email, password);
     };
     return (
         <section className="bg-white">
@@ -48,6 +49,27 @@ const Register = () => {
                                             name="name"
                                             id="name"
                                             placeholder="Enter your full name"
+                                            className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label htmlFor="photo" className="text-base font-medium text-gray-900">
+                                        Photo URL
+                                    </label>
+                                    <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </div>
+
+                                        <input
+                                            required
+                                            type="text"
+                                            name="photo"
+                                            id="photo"
+                                            placeholder="Enter your Photo URL"
                                             className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                         />
                                     </div>

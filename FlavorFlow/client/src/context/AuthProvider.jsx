@@ -17,13 +17,14 @@ const AuthProvider = ({ children }) => {
     const [userInfo, setUserInfo] = useState(null);
     const navigate = useNavigate();
     // create user
-    const createUser = async (name, email, password) => {
+    const createUser = async (name, photo, email, password) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(user.user, {
-                displayName: name
+                displayName: name,
+                photoURL: photo
             });
             toast.success('User is Created Successfully!!!');
             await signOut(auth);

@@ -11,6 +11,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
     const { userInfo, logOutUser } = useContext(AuthContext);
+    console.log(userInfo);
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
@@ -22,6 +23,13 @@ const Navbar = () => {
             <NavLink to="/order-food/salad" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                 Oder Food
             </NavLink>
+            {userInfo && (
+                <div className="avatar">
+                    <div className="w-14 rounded-full">
+                        <img alt={userInfo?.displayName} src={userInfo?.photoURL} />
+                    </div>
+                </div>
+            )}
             {userInfo ? (
                 <button type="button" className="btn btn-outline btn-md" onClick={() => logOutUser()}>
                     Logout
