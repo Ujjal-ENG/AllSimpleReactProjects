@@ -3,6 +3,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import dessretImg from '../../../../assets/menu/dessert-bg.jpeg';
 import pizzaImg from '../../../../assets/menu/pizza-bg.jpg';
 import saladImg from '../../../../assets/menu/salad-bg.jpg';
@@ -26,6 +27,11 @@ const Menu = () => {
                 <>
                     <SharedTitle message="Don't Miss" title="TODAY'S OFFER" />
                     <div className="grid grid-cols-1 justify-items-center md:grid-cols-2">{offered && offered.map((items) => <MenuItem key={items._id} data={items} />)}</div>
+                    <div className="w-full flex justify-center items-center py-10">
+                        <button type="button" className="border-b-4 border-0 btn-outline btn">
+                            Order Your Favorite Food
+                        </button>
+                    </div>
                 </>
             )}
 
@@ -37,6 +43,11 @@ const Menu = () => {
                         title="DESSERTS"
                     />
                     <div className="grid grid-cols-1 justify-items-center md:grid-cols-2">{dessert && dessert.map((items) => <MenuItem key={items._id} data={items} />)}</div>
+                    <div className="w-full flex justify-center items-center py-10">
+                        <Link to="/order-food/dessert" type="button" className="border-b-4 border-0 btn-outline btn">
+                            Order Your Favorite Dessert
+                        </Link>
+                    </div>
                 </>
             )}
             {pizza && (
@@ -47,6 +58,11 @@ const Menu = () => {
                         title="PIZZA"
                     />
                     <div className="grid grid-cols-1 justify-items-center md:grid-cols-2">{pizza && pizza.map((items) => <MenuItem key={items._id} data={items} />)}</div>
+                    <div className="w-full flex justify-center items-center py-10">
+                        <Link to="/order-food/pizza" type="button" className="border-b-4 border-0 btn-outline btn">
+                            Order Your Favorite Pizzas
+                        </Link>
+                    </div>
                 </>
             )}
             {salad && (
@@ -57,6 +73,11 @@ const Menu = () => {
                         title="SALAD"
                     />
                     <div className="grid grid-cols-1 justify-items-center md:grid-cols-2">{salad && salad.map((items) => <MenuItem key={items._id} data={items} />)}</div>
+                    <div className="w-full flex justify-center items-center py-10">
+                        <Link to="/order-food/salad" type="button" className="border-b-4 border-0 btn-outline btn">
+                            Order Your Favorite SALAD
+                        </Link>
+                    </div>
                 </>
             )}
             {soup && (
@@ -67,13 +88,13 @@ const Menu = () => {
                         title="SOUP"
                     />
                     <div className="grid grid-cols-1 justify-items-center md:grid-cols-2">{soup && soup.map((items) => <MenuItem key={items._id} data={items} />)}</div>
+                    <div className="w-full flex justify-center items-center py-10">
+                        <Link to="/order-food/soup" type="button" className="border-b-4 border-0 btn-outline btn">
+                            Order Your Favorite SOUP
+                        </Link>
+                    </div>
                 </>
             )}
-            <div className="w-full flex justify-center items-center py-10">
-                <button type="button" className="border-b-4 border-0 btn-outline btn">
-                    Order Your Favorite Food
-                </button>
-            </div>
         </div>
     );
 };

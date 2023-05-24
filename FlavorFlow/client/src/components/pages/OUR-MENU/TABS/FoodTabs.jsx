@@ -1,22 +1,28 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useMenuHooks from '../../../../hooks/useMenuHooks';
 import SharedCard from '../../../layouts/shared/SharedCard';
 
 const FoodTabs = () => {
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drink'];
+    const { category } = useParams();
+    const initalIndex = categories.indexOf(category);
     const [menuData] = useMenuHooks();
+    const [tabIndex, setTabIndex] = useState(initalIndex);
     const drinks = menuData.filter((el) => el.category === 'drinks');
     const dessert = menuData.filter((el) => el.category === 'dessert');
     const pizza = menuData.filter((el) => el.category === 'pizza');
     const salad = menuData.filter((el) => el.category === 'salad');
     const soup = menuData.filter((el) => el.category === 'soup');
+
     return (
         <div className="py-4">
-            <Tabs>
+            <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList className="flex max-w-5xl items-center justify-center mx-auto">
                     <Tab className="w-1/2 px-4 py-2 text-center border border-gray-300 bg-gray-100 cursor-pointer hover:bg-gray-200">SALAd</Tab>
                     <Tab className="w-1/2 px-4 py-2 text-center border border-gray-300 bg-gray-100 cursor-pointer hover:bg-gray-200">PIZZA</Tab>
