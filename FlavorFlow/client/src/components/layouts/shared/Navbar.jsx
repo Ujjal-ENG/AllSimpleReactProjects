@@ -3,12 +3,14 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { NavLink } from 'react-router-dom';
 import animationData from '../../../assets/json/logo.json';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
+    const { userInfo, logOutUser } = useContext(AuthContext);
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
@@ -20,9 +22,15 @@ const Navbar = () => {
             <NavLink to="/order-food/salad" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                 Oder Food
             </NavLink>
-            <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                Login
-            </NavLink>
+            {userInfo ? (
+                <button type="button" className="btn btn-outline btn-md" onClick={() => logOutUser()}>
+                    Logout
+                </button>
+            ) : (
+                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                    Login
+                </NavLink>
+            )}
         </div>
     );
 

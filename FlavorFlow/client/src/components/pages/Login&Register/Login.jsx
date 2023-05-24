@@ -1,10 +1,11 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -13,6 +14,9 @@ const Login = () => {
     const [error, setError] = useState('');
     const captchRef = useRef(null);
     const [isClicked, setIsClicked] = useState(true);
+    const location = useLocation();
+    const from = location?.pathname?.from || '/';
+    const navigate = useNavigate();
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, []);
@@ -21,6 +25,7 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         signInUser(email, password);
+        navigate(from);
     };
     const handleCaptcha = () => {
         const captcha = captchRef.current.value;
