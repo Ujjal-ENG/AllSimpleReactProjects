@@ -41,6 +41,7 @@ async function run() {
         await client.connect();
 
         const MenuCollection = client.db('FlavorFlow').collection('Menus');
+        const ReviewsCollection = client.db('FlavorFlow').collection('Reviews');
 
         // get menu
         app.get('/menu', async (req, res) => {
@@ -55,6 +56,23 @@ async function run() {
                 res.status(500).json({
                     success: false,
                     message: 'Error occurred when fetching the Menu data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+        // get reviews
+        app.get('/reviews', async (req, res) => {
+            try {
+                const categoryData = await ReviewsCollection.find().toArray();
+                res.status(200).json({
+                    success: true,
+                    message: 'Data found!!',
+                    data: categoryData,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when fetching the Review data!!',
                     error: error.message, // Include the error message in the response
                 });
             }

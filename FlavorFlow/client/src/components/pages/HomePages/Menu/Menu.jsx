@@ -16,9 +16,7 @@ const Menu = () => {
             <SharedTitle message="Check it Out" title="FROM OUR MENU" />
             <div className="grid grid-cols-1 justify-items-center md:grid-cols-2">{popular && popular.map((items) => <MenuItem key={items._id} data={items} />)}</div>
             <div className="w-full flex justify-center items-center py-10">
-                <button
-                    type="button"
-                    className="border-b-4 rounded-xl border-black px-6 py-2 text-xl font-bold duration-100 transition-all ease-out hover:border-0 active:px-4 active:py-0 active:border-2 active:border-orange-500">
+                <button type="button" className="border-b-4 btn btn-outline btn-wide border-b-orange-500 border-0">
                     View Full Menu
                 </button>
             </div>

@@ -7,9 +7,9 @@ const TestMonials = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('reviews.json')
+        fetch('http://localhost:8080/reviews')
             .then((res) => res.json())
-            .then((data) => setReviews(data));
+            .then((data) => setReviews(data.data));
     }, []);
 
     return (
