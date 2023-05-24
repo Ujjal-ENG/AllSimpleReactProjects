@@ -43,10 +43,9 @@ async function run() {
         const MenuCollection = client.db('FlavorFlow').collection('Menus');
 
         // get menu
-        app.get('/menu/:category', async (req, res) => {
+        app.get('/menu', async (req, res) => {
             try {
-                const { category } = req.params;
-                const categoryData = await MenuCollection.find({ category }).toArray();
+                const categoryData = await MenuCollection.find().toArray();
                 res.status(200).json({
                     success: true,
                     message: 'Data found!!',
