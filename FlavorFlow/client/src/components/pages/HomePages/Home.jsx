@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Banner from './Banner';
 import CallUs from './CallUs';
+import Reconmends from './ChefRecomends/Reconmends';
 import Featured from './Featured/Featured';
 import Menu from './Menu/Menu';
 import MessageResturant from './MessageResturant';
@@ -19,6 +20,7 @@ const Home = () => {
             <MessageResturant />
             <Menu />
             <CallUs />
+            <Reconmends />
             <Featured />
             <TestMonials />
         </div>
