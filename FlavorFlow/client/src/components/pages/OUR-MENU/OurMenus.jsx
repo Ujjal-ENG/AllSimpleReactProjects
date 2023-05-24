@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from './HeaderMenu/Header';
-import Menu from './SharedMenu/Menu';
+import Menu from './TodayMenu/Menu';
 
 const OurMenus = () => {
     return (
