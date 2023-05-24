@@ -14,10 +14,10 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [privateLoad, setPrivateLoad] = useState(true);
     const [loading, setLoading] = useState(false);
-    const [userInfo, setUserInfo] = useState('');
+    const [userInfo, setUserInfo] = useState(null);
     const navigate = useNavigate();
     // create user
-    const crearteUser = async (name, email, password) => {
+    const createUser = async (name, email, password) => {
         setLoading(true);
         setPrivateLoad(true);
         try {
@@ -86,7 +86,7 @@ const AuthProvider = ({ children }) => {
     const auths = {
         privateLoad,
         userInfo,
-        crearteUser,
+        createUser,
         signInUser,
         logOutUser,
         singInGoogle

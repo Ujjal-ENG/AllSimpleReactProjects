@@ -3,11 +3,13 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Login = () => {
+    const { signInUser } = useContext(AuthContext);
     const [error, setError] = useState('');
     const captchRef = useRef(null);
     const [isClicked, setIsClicked] = useState(true);
@@ -18,8 +20,7 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const formData = { email, password };
-        console.log(formData);
+        signInUser(email, password);
     };
     const handleCaptcha = () => {
         const captcha = captchRef.current.value;
