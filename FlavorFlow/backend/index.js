@@ -40,6 +40,27 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
+        const MenuCollection = client.db('FlavorFlow').collection('Menus');
+
+        // get menu
+        app.get('/menu/:category', async (req, res) => {
+            try {
+                const { category } = req.params;
+                const categoryData = await MenuCollection.find({ category }).toArray();
+                res.status(200).json({
+                    success: true,
+                    message: 'Data found!!',
+                    data: categoryData,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when fetching the Menu data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');
