@@ -3,17 +3,34 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => {
+    const [error, setError] = useState('');
+    const captchRef = useRef(null);
+    const [isClicked, setIsClicked] = useState(true);
+    useEffect(() => {
+        loadCaptchaEnginge(6);
+    }, []);
     const handleSubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const captcha = e.target.captcha.value;
-        const formData = { email, password, captcha };
+        const formData = { email, password };
         console.log(formData);
+    };
+    const handleCaptcha = () => {
+        const captcha = captchRef.current.value;
+        if (validateCaptcha(captcha)) {
+            setError('Captcha Matched');
+            setIsClicked(false);
+        } else {
+            setError('Captcha Does Not Match');
+            setIsClicked(true);
+            captchRef.current.value = '';
+        }
     };
     return (
         <section className="bg-white">
@@ -47,6 +64,7 @@ const Login = () => {
                                         </div>
 
                                         <input
+                                            required
                                             type="email"
                                             name="email"
                                             id="email"
@@ -73,6 +91,7 @@ const Login = () => {
                                         </div>
 
                                         <input
+                                            required
                                             type="password"
                                             name="password"
                                             id="password"
@@ -86,6 +105,10 @@ const Login = () => {
                                     <label htmlFor="" className="text-base font-medium text-gray-900">
                                         Captcha
                                     </label>
+
+                                    <div className="justify-end flex">
+                                        <LoadCanvasTemplate />
+                                    </div>
                                     <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                                         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                             <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,21 +117,26 @@ const Login = () => {
                                         </div>
 
                                         <input
+                                            required
+                                            ref={captchRef}
                                             type="text"
                                             name="captcha"
                                             id="captcha"
-                                            placeholder="Enter your Captcha"
+                                            placeholder="Enter your Captcha from above!!"
                                             className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                         />
                                     </div>
-                                    <button type="button" className="btn btn-xs">
-                                        Reload Captcha
+                                    {error && isClicked && <h1 className="py-3 text-red-500 font-bold">{error}</h1>}
+                                    {error && !isClicked && <h1 className="py-3 text-green-500 font-bold">{error}</h1>}
+                                    <button type="button" onClick={handleCaptcha} className="btn btn-block btn-xs">
+                                        Validate Captcha
                                     </button>
                                 </div>
                                 <div>
                                     <button
                                         type="submit"
-                                        className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 border border-transparent rounded-md bg-gradient-to-r from-fuchsia-600 to-blue-600 focus:outline-none hover:opacity-80 focus:opacity-80">
+                                        className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 border border-transparent rounded-md bg-gradient-to-r from-fuchsia-600 to-blue-600 focus:outline-none hover:opacity-80 focus:opacity-80"
+                                        disabled={isClicked}>
                                         Sign up
                                     </button>
                                 </div>
