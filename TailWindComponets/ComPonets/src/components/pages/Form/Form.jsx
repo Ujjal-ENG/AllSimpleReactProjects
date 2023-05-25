@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -30,7 +31,7 @@ const Form = () => {
 
     return (
         <form className="flex flex-col space-y-4 max-w-7xl mx-auto my-12" onSubmit={handleSubmit(onSubmit)}>
-            <input className="border border-gray-300 px-4 py-2 rounded-md" {...register('firstName', { required: true, maxLength: 20 })} placeholder="First Name" />
+            <input className="border border-gray-300 px-4 py-2 rounded-md" {...register('firstName', { required: 'firsrName  is required', maxLength: 20 })} placeholder="First Name" />
             <input className="border border-gray-300 px-4 py-2 rounded-md" {...register('lastName', { pattern: /^[A-Za-z]+$/i })} placeholder="Last Name" />
             <input className="border border-gray-300 px-4 py-2 rounded-md" type="number" {...register('age', { min: 18, max: 99 })} placeholder="Age" />
             {errors.age && <p className="text-red-500">Age is between 18 to 99</p>}
