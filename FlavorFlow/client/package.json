@@ -10,6 +10,7 @@
         "lint": "yarn add -D prettier && yarn add -D babel-eslint && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
     },
     "dependencies": {
+        "aos": "^3.0.0-beta.6",
         "daisyui": "^2.51.6",
         "firebase": "^9.22.0",
         "localforage": "^1.10.0",
