@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './Form/Form';
 import Header1 from './Headers/Header1';
 import Header3 from './Headers/Header3';
 import Header4 from './Headers/Header4';
@@ -11,6 +12,8 @@ const Home = () => {
             <Headers2 />
             <Header3 />
             <Header4 />
+            {/* form validation part */}
+            <Form />
         </div>
     );
 };
