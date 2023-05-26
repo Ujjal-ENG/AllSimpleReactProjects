@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect } from 'react';
