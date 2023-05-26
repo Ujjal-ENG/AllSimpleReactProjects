@@ -59,7 +59,7 @@ const Home = () => {
                                 default: 'bounce'
                             },
                             random: false,
-                            speed: 6,
+                            speed: 3,
                             straight: false
                         },
                         number: {
@@ -70,7 +70,7 @@ const Home = () => {
                             value: 80
                         },
                         opacity: {
-                            value: 0.5
+                            value: 0.2
                         },
                         shape: {
                             type: 'circle'
@@ -86,7 +86,7 @@ const Home = () => {
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-[1500px]">
                     <div className="grid items-center grid-cols-1 md:grid-cols-2 ">
                         <motion.div
-                            initial={{ y: -10000, opacity: 0, scale: 0.5 }}
+                            initial={{ y: -10000, opacity: 0, scale: 0.7 }}
                             animate={{ y: 0, opacity: 1, scale: 1 }}
                             transition={{
                                 duration: 0.8,
