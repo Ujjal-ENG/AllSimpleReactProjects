@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
@@ -82,7 +83,44 @@ const About = () => {
                         </div>
                     </TabPanel>
                     <TabPanel className="mt-4">
-                        <h2>Any content 2</h2>
+                        <div className="bg-gray-100 p-6 rounded-md shadow-md max-w-6xl">
+                            <div className="overflow-x-auto">
+                                <table className="table w-full">
+                                    {/* head */}
+                                    <thead>
+                                        <tr>
+                                            <th />
+                                            <th>Degree/Grade</th>
+                                            <th>Institution</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {/* row 1 */}
+                                        <tr className="active">
+                                            <th>1</th>
+                                            <td>B.Sc. in CSE </td>
+                                            <td>Green University of Bangladesh</td>
+                                            <td>3.85/4.00 </td>
+                                        </tr>
+                                        {/* row 2 */}
+                                        <tr>
+                                            <th>2</th>
+                                            <td>Higher Secondary School certificate</td>
+                                            <td>Bauphal Govt College, Bauphal</td>
+                                            <td>4.17/5.00</td>
+                                        </tr>
+                                        {/* row 3 */}
+                                        <tr>
+                                            <th>3</th>
+                                            <td>Secondary School Certificate</td>
+                                            <td>A.R.S. High School, Bauphal</td>
+                                            <td>4.61/5.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </TabPanel>
                 </Tabs>
             </div>
