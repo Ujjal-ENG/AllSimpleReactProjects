@@ -134,7 +134,25 @@ const Home = () => {
                         </motion.div>
 
                         <div className="relative">
-                            <img className="absolute inset-x-0 bottom-0 -mb-36 -translate-x-1/2 left-1/2" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg" alt="" />
+                            <motion.div
+                                initial={{ x: 20000, opacity: 0, scale: 0.2 }}
+                                animate={{ x: 0, opacity: 1, scale: 1 }}
+                                transition={{
+                                    duration: 1,
+                                    ease: [0, 0.71, 0.2, 1.01],
+                                    scale: {
+                                        type: 'spring',
+                                        damping: 25,
+                                        stiffness: 200,
+                                        restDelta: 0.001
+                                    }
+                                }}>
+                                <img
+                                    className="absolute inset-x-0 bottom-0 -mb-36 -translate-x-1/2 left-1/2"
+                                    src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"
+                                    alt=""
+                                />
+                            </motion.div>
 
                             <motion.div
                                 initial={{ x: -10000, opacity: 0, scale: 0.5 }}
