@@ -7,14 +7,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const [activePage, setActivePage] = useState('');
-
-    useEffect(() => {
-        // Logic to determine the active page on component mount
-        setActivePage(window.location.hash);
-    }, [activePage]);
-
-    console.log(activePage);
     const navItems = (
         <div className="uppercase text-inherit text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
             <NavLink to="/" className={(isActive) => (isActive ? 'active' : 'default')}>

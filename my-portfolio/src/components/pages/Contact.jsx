@@ -25,13 +25,14 @@ const Contact = () => {
         e.target.reset();
     };
     return (
-        <div className="h-screen absolute w-full" id="contact">
-            <section className="py-10  h-screen bg-gradient-to-r w-full from-fuchsia-600 to-blue-600 sm:py-16 lg:py-24">
+        <div className="h-screen  w-full" id="contact">
+            <section className="py-10  bg-gradient-to-r w-full from-fuchsia-600 to-blue-600 sm:py-16 lg:py-24">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div className="max-w-2xl mx-auto text-center">
                         <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">Contact Me</h2>
-                        <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-white">
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.
+                        <p className="max-w-2xl mx-auto mt-4 text-xl leading-relaxed text-white">
+                            Thank you for taking the time to review my profile. If you have any inquiries or would like to discuss potential opportunities, please feel free to reach out to me. I am
+                            always open to new collaborations and exciting projects.
                         </p>
                     </div>
 
