@@ -8,7 +8,10 @@ import React, { useEffect, useState } from 'react';
 const Navbar = () => {
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
-            <a href="#home"> Home</a>
+            <a href="#home" className={(isActive) => (isActive ? 'active' : 'default')}>
+                {' '}
+                Home
+            </a>
             <a href="#about"> About</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
@@ -33,7 +36,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className={`z-10 navbar max-w-screen-2xl duration-200 transition-all ${isScrolled ? 'ease-out fixed bg-opacity-100 mx-auto bg-black' : 'fixed  bg-white py-3 ease-in bg-opacity-30'}`}>
+            <div className={`z-10 navbar  duration-200 transition-all ${isScrolled ? 'ease-out fixed bg-opacity-100 mx-auto bg-black' : 'fixed  bg-white py-3 ease-in bg-opacity-30'}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,8 +49,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                        <h1 className="text-white text-2xl font-bold">Flavor|Flow</h1>
-                        <div className="md:w-32 h-full">h1ll</div>
+                        <h1 className="text-white text-2xl font-bold">My|PortFolio</h1>
                     </div>
                 </div>
                 <div className="navbar-end hidden lg:flex">

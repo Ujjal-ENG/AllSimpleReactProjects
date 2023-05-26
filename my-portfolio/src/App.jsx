@@ -8,7 +8,7 @@ import Projects from './components/pages/Projects';
 const App = () => {
     return (
         <>
-            <div className="font-titleFont h-screen">
+            <div className="font-titleFont ">
                 <Navbar />
             </div>
             <Home />
