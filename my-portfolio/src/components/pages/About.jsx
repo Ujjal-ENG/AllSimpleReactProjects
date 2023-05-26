@@ -16,7 +16,7 @@ const About = () => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
 
     return (
-        <div className=" flex justify-center items-start  pt-20" id="about">
+        <div className="h-[150vh] flex justify-center items-start  pt-20" id="about">
             <div className="absolute space-y-6">
                 <h1 className="text-4xl font-bold text-center py-4 ">About Me</h1>
                 <div className="max-w-[70px] p-1 bg-violet-600 w-full mx-auto" />
@@ -195,11 +195,11 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                     </TabPanel>
                     <TabPanel className="mt-4">
                         <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl">
-                            <h2 className="text-2xl font-bold mb-4">Technical Skills and Expertise Area</h2>
+                            <h2 className="text-3xl font-bold mb-4">Technical Skills and Expertise Area</h2>
 
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 <div className="border border-gray-300 rounded p-4">
-                                    <h3 className="text-lg font-semibold mb-2">Front-end Development</h3>
+                                    <h3 className="text-2xl font-semibold mb-2">Front-end Development</h3>
                                     <ul className="list-disc pl-6">
                                         <li className="text-gray-800 mb-1">HTML5 (Proficient)</li>
                                         <li className="text-gray-800 mb-1">CSS3 (Proficient)</li>
@@ -211,7 +211,7 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                                 </div>
 
                                 <div className="border border-gray-300 rounded p-4">
-                                    <h3 className="text-lg font-semibold mb-2">Back-end Development</h3>
+                                    <h3 className="text-2xl font-semibold mb-2">Back-end Development</h3>
                                     <ul className="list-disc pl-6">
                                         <li className="text-gray-800 mb-1">Express JS (Intermediate)</li>
                                         <li className="text-gray-800 mb-1">Node JS (Primary)</li>
@@ -221,7 +221,7 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                                 </div>
 
                                 <div className="border border-gray-300 rounded p-4">
-                                    <h3 className="text-lg font-semibold mb-2">Other Skills</h3>
+                                    <h3 className="text-2xl font-semibold mb-2">Other Skills</h3>
                                     <ul className="list-disc pl-6">
                                         <li className="text-gray-800 mb-1">Algorithm (Primary)</li>
                                         <li className="text-gray-800 mb-1">Data Structure (Proficient)</li>
@@ -231,7 +231,7 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                                 </div>
 
                                 <div className="border border-gray-300 rounded p-4">
-                                    <h3 className="text-lg font-semibold mb-2">Tools and Languages</h3>
+                                    <h3 className="text-2xl font-semibold mb-2">Tools and Languages</h3>
                                     <ul className="list-disc pl-6">
                                         <li className="text-gray-800 mb-1">Git (Comfortable)</li>
                                         <li className="text-gray-800 mb-1">Postman (Comfortable)</li>
@@ -247,26 +247,28 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                             </div>
                         </div>
 
-                        <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
-                            <h2 className="text-2xl font-bold mb-4">Interpersonal Skills</h2>
-                            <ul className="list-disc pl-6">
-                                <li className="text-gray-800 mb-1">Self-Learner</li>
-                                <li className="text-gray-800 mb-1">Teamwork</li>
-                                <li className="text-gray-800 mb-1">Team Leader</li>
-                                <li className="text-gray-800 mb-1">Time Management</li>
-                                <li className="text-gray-800 mb-1">Detail Oriented</li>
-                                <li className="text-gray-800 mb-1">Hardworking</li>
-                                <li className="text-gray-800 mb-1">Problem Solver</li>
-                            </ul>
-                        </div>
+                        <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-10">
+                            <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
+                                <h2 className="text-2xl font-bold mb-4">Interpersonal Skills</h2>
+                                <ul className="list-disc pl-6">
+                                    <li className="text-gray-800 mb-1">Self-Learner</li>
+                                    <li className="text-gray-800 mb-1">Teamwork</li>
+                                    <li className="text-gray-800 mb-1">Team Leader</li>
+                                    <li className="text-gray-800 mb-1">Time Management</li>
+                                    <li className="text-gray-800 mb-1">Detail Oriented</li>
+                                    <li className="text-gray-800 mb-1">Hardworking</li>
+                                    <li className="text-gray-800 mb-1">Problem Solver</li>
+                                </ul>
+                            </div>
 
-                        <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
-                            <h2 className="text-2xl font-bold mb-4">Languages</h2>
-                            <ul className="list-disc pl-6">
-                                <li className="text-gray-800 mb-1">Bangla (Native)</li>
-                                <li className="text-gray-800 mb-1">English (Fluent)</li>
-                                <li className="text-gray-800 mb-1">Hindi (Just know but don’t speak)</li>
-                            </ul>
+                            <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
+                                <h2 className="text-2xl font-bold mb-4">Languages</h2>
+                                <ul className="list-disc pl-6">
+                                    <li className="text-gray-800 mb-1">Bangla (Native)</li>
+                                    <li className="text-gray-800 mb-1">English (Fluent)</li>
+                                    <li className="text-gray-800 mb-1">Hindi (Just know but don’t speak)</li>
+                                </ul>
+                            </div>
                         </div>
                     </TabPanel>
                 </Tabs>
