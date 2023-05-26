@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [activePage, setActivePage] = useState('');
@@ -16,18 +17,18 @@ const Navbar = () => {
     console.log(activePage);
     const navItems = (
         <div className="uppercase text-inherit text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
-            <a href="#home" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
+            <NavLink to="/" className={(isActive) => (isActive ? 'active' : 'default')}>
                 Home
-            </a>
-            <a href="#about" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
+            </NavLink>
+            <NavLink to="/about" className={(isActive) => (isActive ? 'active' : 'default')}>
                 About
-            </a>
-            <a href="#projects" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
+            </NavLink>
+            <NavLink to="/project" className={(isActive) => (isActive ? 'active' : 'default')}>
                 Projects
-            </a>
-            <a href="#contact" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
+            </NavLink>
+            <NavLink to="/contact" className={(isActive) => (isActive ? 'active' : 'default')}>
                 Contact
-            </a>
+            </NavLink>
         </div>
     );
 

@@ -3,11 +3,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect } from 'react';
 
+import { Outlet } from 'react-router-dom';
+import Footer from './components/layouts/shared/Footer';
 import Navbar from './components/layouts/shared/Navbar';
-import About from './components/pages/About';
-import Contact from './components/pages/Contact';
-import Home from './components/pages/Home';
-import Projects from './components/pages/Projects';
 
 const App = () => {
     useEffect(() => {
@@ -40,10 +38,8 @@ const App = () => {
                 <Navbar />
             </div>
 
-            <Home />
-            <About />
-            <Projects />
-            <Contact />
+            <Outlet />
+            <Footer />
         </>
     );
 };
