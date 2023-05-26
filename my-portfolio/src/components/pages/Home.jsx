@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent-props */
@@ -20,7 +19,7 @@ const Home = () => {
                                     <Typed strings={['Hey, I am Ujjal Kumar Roy']} typeSpeed={60} className="p-10" />
                                     <br />
                                     <Typed strings={['I am Software Engineer']} typeSpeed={40} backSpeed={50} attr="placeholder" loop className="m-10">
-                                        <input type="text" className=" bg-white ml-3" disabled />
+                                        <input type="text" className=" bg-white ml-3 " disabled />
                                     </Typed>
                                 </div>
                             </h2>
@@ -30,7 +29,7 @@ const Home = () => {
                                     'I am dedicated to creating a cutting-edge software solution that meet the needs of clients and users. My expertise in programming, algorithms and problem solving enables to make critical decisions that lead to successful project outcomes. I am confident in my ability into software development role.'
                                 ]}
                                 typeSpeed={20}
-                                className="max-w-lg mt-3 text-xl tracking-wider leading-relaxed text-gray-600 md:mt-8"
+                                className="max-w-lg mt-5 text-xl font-semibold tracking-wider leading-relaxed text-gray-600 md:mt-8"
                             />
 
                             <p className="mt-4 text-xl text-gray-600 md:mt-8">
