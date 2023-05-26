@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent-props */
