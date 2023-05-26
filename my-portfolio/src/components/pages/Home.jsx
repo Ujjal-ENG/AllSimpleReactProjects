@@ -10,9 +10,9 @@ const Home = () => {
     return (
         <div className="h-screen pt-20" id="home">
             <section className="pt-10 h-screen overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
-                <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-[1500px]">
                     <div className="grid items-center grid-cols-1 md:grid-cols-2">
-                        <div>
+                        <div data-aos="fade-right">
                             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
                                 <div>
                                     <Typed strings={['Hey, I am Ujjal Kumar Roy']} typeSpeed={60} className="p-10" />
@@ -44,7 +44,7 @@ const Home = () => {
                             </p>
                         </div>
 
-                        <div className="relative">
+                        <div data-aos="fade-left" className="relative">
                             <img className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg" alt="" />
 
                             <img

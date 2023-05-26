@@ -6,13 +6,24 @@
 import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
+    const [activePage, setActivePage] = useState('');
+
+    useEffect(() => {
+        // Logic to determine the active page on component mount
+        setActivePage(window.location.hash);
+    }, [activePage]);
+
+    console.log(activePage);
     const navItems = (
         <div className="uppercase text-inherit text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
-            <a href="#home" className={(isActive) => (isActive ? 'active' : 'default')}>
+            <a href="#home" className="focus:text-violet-500 ">
                 {' '}
                 Home
             </a>
-            <a href="#about"> About</a>
+            <a href="#about" className="active:text-violet-500 ">
+                {' '}
+                About
+            </a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
