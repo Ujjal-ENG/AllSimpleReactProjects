@@ -10,9 +10,11 @@
         "lint": "yarn add -D prettier && yarn add -D babel-eslint && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
     },
     "dependencies": {
+        "@emailjs/browser": "^3.11.0",
         "aos": "^2.3.4",
         "daisyui": "^2.51.6",
         "framer-motion": "^10.12.16",
+        "install": "^0.13.0",
         "localforage": "^1.10.0",
         "match-sorter": "^6.3.1",
         "react": "^18.2.0",
@@ -22,6 +24,7 @@
         "react-tsparticles": "^2.9.3",
         "react-typed": "^1.2.0",
         "sort-by": "^1.2.0",
+        "sweetalert2": "^11.7.5",
         "tsparticles": "^2.9.3",
         "tsparticles-slim": "^2.9.3"
     },

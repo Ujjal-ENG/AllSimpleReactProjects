@@ -1,11 +1,29 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent-props */
-import React from 'react';
+import emailjs from '@emailjs/browser';
+import React, { useRef } from 'react';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(`${import.meta.env.VITE_SERVICE_ID}`, `${import.meta.env.VITE_TEMPLATEID}`, form.current, `${import.meta.env.VITE_PUBLIC_KEY}`);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Thank you for reaching out to me via email!!',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        e.target.reset();
+    };
     return (
         <div data-aos="fade-up" className="h-screen" id="contact">
             <section className="py-10 absolute bg-gradient-to-r w-full from-fuchsia-600 to-blue-600 sm:py-16 lg:py-24">
@@ -23,7 +41,7 @@ const Contact = () => {
                                 <div className="p-6 sm:p-10">
                                     <h3 className="text-2xl font-semibold text-black">Send me a message</h3>
 
-                                    <form action="#" method="POST" className="mt-8">
+                                    <form ref={form} onSubmit={sendEmail} className="mt-8">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                                             <div>
                                                 <label htmlFor="" className="text-base font-medium text-gray-900">
@@ -32,9 +50,9 @@ const Contact = () => {
                                                 <div className="mt-2.5 relative">
                                                     <input
                                                         type="text"
-                                                        name=""
-                                                        id=""
-                                                        placeholder=""
+                                                        name="name"
+                                                        placeholder="Enter Your Full Name"
+                                                        required
                                                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                                     />
                                                 </div>
@@ -47,9 +65,9 @@ const Contact = () => {
                                                 <div className="mt-2.5 relative">
                                                     <input
                                                         type="email"
-                                                        name=""
-                                                        id=""
-                                                        placeholder=""
+                                                        name="email"
+                                                        placeholder="Enter Your Valid Email"
+                                                        required
                                                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                                     />
                                                 </div>
@@ -91,9 +109,8 @@ const Contact = () => {
                                                 </label>
                                                 <div className="mt-2.5 relative">
                                                     <textarea
-                                                        name=""
-                                                        id=""
-                                                        placeholder=""
+                                                        name="message"
+                                                        placeholder="PLease Write Your Details Message to me"
                                                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md resize-y bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                                         rows="4"
                                                     />
