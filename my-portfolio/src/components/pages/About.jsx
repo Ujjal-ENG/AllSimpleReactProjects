@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/no-unescaped-entities */
@@ -36,7 +37,7 @@ const About = () => {
                     </TabList>
 
                     <TabPanel className="mt-4">
-                        <div className="bg-gray-100 p-6 rounded-md shadow-md max-w-6xl">
+                        <div className="bg-white p-6 rounded-md shadow-lg max-w-6xl">
                             <h2 className="text-2xl font-bold mb-4">About Me</h2>
                             <Typed
                                 strings={[
@@ -83,7 +84,7 @@ const About = () => {
                         </div>
                     </TabPanel>
                     <TabPanel className="mt-4">
-                        <div className="bg-gray-100 p-6 rounded-md shadow-md max-w-6xl">
+                        <div className="bg-white p-6 rounded-md shadow-lg max-w-6xl">
                             <div className="overflow-x-auto">
                                 <table className="table w-full">
                                     {/* head */}
@@ -120,6 +121,76 @@ const About = () => {
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </TabPanel>
+                    <TabPanel className="mt-4">
+                        <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl">
+                            <h2 className="text-2xl font-bold mb-4">Achievements</h2>
+                            <ul className="list-disc pl-6">
+                                <li className="text-lg text-gray-800 mb-2">
+                                    Interactivity with JavaScript -
+                                    <a
+                                        href="
+                                        https://www.coursera.org/account/accomplishments/certificate/QN4LSPGZTBWS"
+                                        className="text-blue-500 hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        Certificate Here!!
+                                    </a>
+                                </li>
+                                <li className="text-lg text-gray-800 mb-2">
+                                    Master Git and Github - Beginner to Expert -
+                                    <a
+                                        href="https://www.udemy.com/certificate/UC-2d6f3b9c-3102-47d8-8e94-dd106a5cca74/"
+                                        className="text-blue-500 hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        Certificate Here!!
+                                    </a>
+                                </li>
+                                <li className="text-lg text-gray-800 mb-2">
+                                    Master HTML and CSS by Building Real World Projects -
+                                    <a
+                                        href="https://udemy-certificate.s3.amazonaws.com/image/UC-4e1b30c7-39d5-47c5-9922-0abbcffb6367.jpg"
+                                        className="text-blue-500 hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        Certificate Here!!
+                                    </a>
+                                </li>
+
+                                <li className="text-lg text-gray-800 mb-2">
+                                    JavaScript,Bootstrarp and PHP -
+                                    <a
+                                        className="text-blue-500 hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://www.udemy.com/certificate/UC-d6b84478-d939-4a23-a914-e80719ecadd7/">
+                                        Certificate Here!!
+                                    </a>
+                                </li>
+                                <li className="text-lg text-gray-800 mb-2">
+                                    Python Programming -
+                                    <a
+                                        className="text-blue-500 hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://www.coursera.org/account/accomplishments/certificate/HDNW8GVUQSLT">
+                                        Certificate Here!!
+                                    </a>
+                                </li>
+                                <li className="text-lg text-gray-800 mb-2">
+                                    Introduction to HTML5 -
+                                    <a
+                                        className="text-blue-500 hover:underline"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="
+https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
+                                        Certificate Here!!
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </TabPanel>
                 </Tabs>
