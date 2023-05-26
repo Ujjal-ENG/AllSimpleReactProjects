@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Tailwind CSS custom Style and Using this style whatever i want */
 
 .my-container {
