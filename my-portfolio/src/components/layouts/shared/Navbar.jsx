@@ -16,16 +16,18 @@ const Navbar = () => {
     console.log(activePage);
     const navItems = (
         <div className="uppercase text-inherit text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
-            <a href="#home" className="focus:text-violet-500 ">
-                {' '}
+            <a href="#home" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
                 Home
             </a>
-            <a href="#about" className="active:text-violet-500 ">
-                {' '}
+            <a href="#about" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
                 About
             </a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#projects" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
+                Projects
+            </a>
+            <a href="#contact" className="transition-all duration-200 ease-in-out hover:text-violet-500 hover:font-bold">
+                Contact
+            </a>
         </div>
     );
 
@@ -48,7 +50,7 @@ const Navbar = () => {
     return (
         <div>
             <div
-                className={`z-10 navbar  duration-200 transition-all ${
+                className={`z-10 navbar  duration-200 transition-all px-20 ${
                     isScrolled ? 'ease-out fixed bg-opacity-100 mx-auto text-white bg-black' : 'fixed  bg-white text-black py-3 ease-in bg-opacity-30'
                 }`}>
                 <div className="navbar-start">
