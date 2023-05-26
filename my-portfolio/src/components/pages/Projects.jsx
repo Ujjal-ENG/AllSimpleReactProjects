@@ -6,9 +6,8 @@ import React from 'react';
 
 const Projects = () => {
     return (
-        <div className="h-[200vh] absolute pt-20" id="projects">
-            <section className="bg-black h-[90vh] 2xl:py-24 " />
-            <section className="bg-black ml-20  2xl:py-24 2xl:bg-gray-50">
+        <div className="h-screen  pt-20" id="projects">
+            <section className="ml-20  2xl:py-24 ">
                 <div className="px-4 mx-auto bg-black max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">
                     <div className="py-10 sm:py-16 lg:py-24 2xl:pl-24">
                         <div className="grid items-center grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-8 2xl:gap-x-20">
