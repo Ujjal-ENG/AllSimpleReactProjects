@@ -59,7 +59,7 @@ const Home = () => {
                                 default: 'bounce'
                             },
                             random: false,
-                            speed: 3,
+                            speed: 2,
                             straight: false
                         },
                         number: {
@@ -89,11 +89,11 @@ const Home = () => {
                             initial={{ y: -10000, opacity: 0, scale: 0.7 }}
                             animate={{ y: 0, opacity: 1, scale: 1 }}
                             transition={{
-                                duration: 0.8,
+                                duration: 1.8,
                                 ease: [0, 0.71, 0.2, 1.01],
                                 scale: {
                                     type: 'spring',
-                                    damping: 5,
+                                    damping: 15,
                                     stiffness: 100,
                                     restDelta: 0.001
                                 }
@@ -140,11 +140,11 @@ const Home = () => {
                                 initial={{ x: -10000, opacity: 0, scale: 0.5 }}
                                 animate={{ x: 0, opacity: 1, scale: 1 }}
                                 transition={{
-                                    duration: 0.8,
+                                    duration: 2,
                                     ease: [0, 0.71, 0.2, 1.01],
                                     scale: {
                                         type: 'spring',
-                                        damping: 5,
+                                        damping: 25,
                                         stiffness: 100,
                                         restDelta: 0.001
                                     }
