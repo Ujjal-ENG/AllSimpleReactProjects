@@ -9,6 +9,12 @@ html {
 }
 
 /* Tailwind CSS custom Style and Using this style whatever i want */
+.box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: red;
+}
 
 .my-container {
     @apply px-4 py-16 mx-auto sm:max-w-xl md:max-w-7xl  lg:py-10;

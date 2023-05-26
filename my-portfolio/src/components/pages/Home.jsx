@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { motion } from 'framer-motion';
 import React from 'react';
 import Typed from 'react-typed';
 import img from '../../assets/my-photo.png';
@@ -51,11 +52,25 @@ const Home = () => {
                         <div data-aos="fade-left" className="relative">
                             <img className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg" alt="" />
 
-                            <img
-                                className="rounded-2xl rotate-6 duration-350 transition-all ease-linear hover:rotate-0 w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
-                                src={img}
-                                alt="Ujjal-Kumar-Roy"
-                            />
+                            <motion.div
+                                initial={{ x: -10000, opacity: 0, scale: 0.5 }}
+                                animate={{ x: 0, opacity: 1, scale: 1 }}
+                                transition={{
+                                    duration: 0.8,
+                                    ease: [0, 0.71, 0.2, 1.01],
+                                    scale: {
+                                        type: 'spring',
+                                        damping: 5,
+                                        stiffness: 100,
+                                        restDelta: 0.001
+                                    }
+                                }}>
+                                <img
+                                    className=" rounded-2xl rotate-6 duration-350 transition-all ease-linear hover:rotate-0 w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+                                    src={img}
+                                    alt="Ujjal-Kumar-Roy"
+                                />
+                            </motion.div>
                         </div>
                     </div>
                 </div>
