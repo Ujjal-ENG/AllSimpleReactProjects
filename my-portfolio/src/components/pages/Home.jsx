@@ -38,7 +38,11 @@ const Home = () => {
                                 </span>
                                 <br className="block sm:hidde" />
                                 Ask me on
-                                <a href="#https://www.linkedin.com/in/ujjal-kumar-roy/" target="_blank" className="transition-all duration-200 text-sky-500 hover:text-sky-600 hover:underline ml-4">
+                                <a
+                                    href="https://www.linkedin.com/in/ujjal-kumar-roy/"
+                                    target="_blank"
+                                    className="transition-all duration-200 text-sky-500 hover:text-sky-600 hover:underline ml-4"
+                                    rel="noreferrer">
                                     LinkedIn
                                 </a>
                             </p>
