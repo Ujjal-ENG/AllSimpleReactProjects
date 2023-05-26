@@ -4,17 +4,88 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useCallback } from 'react';
 import Typed from 'react-typed';
+
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 import img from '../../assets/my-photo.png';
 
 const Home = () => {
+    const particlesInit = useCallback(async (engine) => {
+        console.log(engine);
+        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async (container) => {
+        await console.log(container);
+    }, []);
+
     return (
         <div className="h-screen pt-20" id="home">
-            <section className="pt-10 h-screen overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
+            <Particles
+                id="tsparticles"
+                init={particlesInit}
+                loaded={particlesLoaded}
+                options={{
+                    background: {
+                        color: {
+                            value: '#fff'
+                        }
+                    },
+                    fpsLimit: 120,
+
+                    particles: {
+                        color: {
+                            value: '#000'
+                        },
+                        links: {
+                            color: '#000',
+                            distance: 150,
+                            enable: true,
+                            opacity: 0.5,
+                            width: 1
+                        },
+                        collisions: {
+                            enable: true
+                        },
+                        move: {
+                            direction: 'none',
+                            enable: true,
+                            outModes: {
+                                default: 'bounce'
+                            },
+                            random: false,
+                            speed: 6,
+                            straight: false
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                                area: 800
+                            },
+                            value: 80
+                        },
+                        opacity: {
+                            value: 0.5
+                        },
+                        shape: {
+                            type: 'circle'
+                        },
+                        size: {
+                            value: { min: 1, max: 5 }
+                        }
+                    },
+                    detectRetina: true
+                }}
+            />
+            <section className="pt-10 absolute  left-36  h-screen overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-[1500px]">
-                    <div className="grid items-center grid-cols-1 md:grid-cols-2">
-                        <div data-aos="fade-right">
+                    <div className="grid items-center grid-cols-1 md:grid-cols-2 ">
+                        <div>
                             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
                                 <div>
                                     <Typed strings={['Hey, I am Ujjal Kumar Roy']} typeSpeed={60} className="p-10" />
@@ -50,7 +121,7 @@ const Home = () => {
                             </p>
                         </div>
 
-                        <div data-aos="fade-left" className="relative">
+                        <div className="relative">
                             <img className="absolute inset-x-0 bottom-0 -mb-36 -translate-x-1/2 left-1/2" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg" alt="" />
 
                             <motion.div
