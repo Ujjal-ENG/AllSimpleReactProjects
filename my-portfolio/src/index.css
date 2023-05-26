@@ -37,3 +37,35 @@ html {
     width: 100%;
     position: relative;
 }
+
+.tabs-button {
+    background-color: lightgray;
+    border: none;
+    color: #888888;
+    cursor: pointer;
+    padding: 0px 55px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease-out;
+    border-radius: 10px;
+}
+
+.tabs-button:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.tabs-button.active {
+    background: linear-gradient(245.39deg, #fc65ed -35.14%, #0500ff 143.06%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0px 55px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    border-radius: 10px;
+}
