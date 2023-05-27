@@ -20,7 +20,6 @@ const FoodTabs = () => {
     const pizza = menuData.filter((el) => el.category === 'pizza');
     const salad = menuData.filter((el) => el.category === 'salad');
     const soup = menuData.filter((el) => el.category === 'soup');
-    console.log(menuData);
 
     return (
         <div className="py-4">
