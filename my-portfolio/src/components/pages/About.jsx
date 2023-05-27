@@ -29,7 +29,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className="h-screen flex justify-center items-start  pt-20" id="about">
+        <div className="h-screen  flex justify-center items-start  pt-20" id="about">
             <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -401,6 +401,7 @@ const About = () => {
                     }
                 }}
             />
+
             <div className="absolute space-y-6">
                 <h1 className="text-4xl font-bold text-center py-4 text-black">About Me</h1>
                 <div className="max-w-[70px] p-1 bg-violet-600 w-full mx-auto" />

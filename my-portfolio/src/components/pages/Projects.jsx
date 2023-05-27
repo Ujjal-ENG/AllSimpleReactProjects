@@ -10,7 +10,20 @@ import img1 from '../../assets/toytroppers.png';
 
 const Projects = () => {
     return (
-        <div className="h-screen  pt-20" id="projects">
+        <div className="h-screen  relative pt-20" id="projects">
+            <div className="hidden md:block top-1/2 fixed transform -translate-y-1/2">
+                <div className="flex flex-col gap-5 ml-5">
+                    <a href="https://www.facebook.com/ujjal.roy.7862" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                        <i className="fa-brands fa-facebook fa-spin fa-2xl text-[#1f66e0]" />
+                    </a>
+                    <a href="https://github.com/Ujjal-ENG" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                        <i className="fa-brands fa-github fa-spin fa-2xl" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/ujjal-kumar-roy/" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin fa-2xl fa-spin text-[#144eb3]" />
+                    </a>
+                </div>
+            </div>
             <h1 className="text-6xl font-bold tracking-widest text-center pt-4">Case Study</h1>
             <section className="md:ml-20 ml-0 mt-10 md:mt-0  2xl:py-24 ">
                 <div className="px-4 mx-auto bg-black max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">

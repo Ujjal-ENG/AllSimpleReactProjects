@@ -25,7 +25,20 @@ const Contact = () => {
         e.target.reset();
     };
     return (
-        <div data-aos="fade-up" className="h-screen absolute w-full" id="contact">
+        <div data-aos="fade-up" className="h-screen relative w-full" id="contact">
+            <div className="hidden md:block top-1/2 fixed transform -translate-y-1/2">
+                <div className="flex flex-col gap-5 ml-5">
+                    <a href="https://www.facebook.com/ujjal.roy.7862" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                        <i className="fa-brands fa-facebook fa-spin fa-2xl text-[#1f66e0]" />
+                    </a>
+                    <a href="https://github.com/Ujjal-ENG" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                        <i className="fa-brands fa-github fa-spin fa-2xl" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/ujjal-kumar-roy/" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin fa-2xl fa-spin text-[#144eb3]" />
+                    </a>
+                </div>
+            </div>
             <section className="mb:py-10 pt-20  bg-gradient-to-r w-full from-fuchsia-600 to-blue-600 sm:py-16 lg:py-24">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div className="max-w-2xl mx-auto text-center">
