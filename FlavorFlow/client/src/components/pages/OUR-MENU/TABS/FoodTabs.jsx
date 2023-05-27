@@ -33,37 +33,29 @@ const FoodTabs = () => {
 
                 <TabPanel>
                     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">
-                            {salad && salad.map((el) => <SharedCard id={el._id} key={el._id} img={el.image} price={el.price} name={el.name} recipe={el.recipe} />)}
-                        </div>
+                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">{salad && salad.map((el) => <SharedCard items={el} key={el._id} />)}</div>
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">{pizza && pizza.map((el) => <SharedCard items={el} key={el._id} />)}</div>
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">{soup && soup.map((el) => <SharedCard items={el} key={el._id} />)}</div>
                     </div>
                 </TabPanel>
                 <TabPanel>
                     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                         <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">
-                            {pizza && pizza.map((el) => <SharedCard id={el._id} key={el._id} img={el.image} price={el.price} name={el.name} recipe={el.recipe} />)}
+                            {dessert && dessert.map((el) => <SharedCard items={el} key={el._id} />)}
                         </div>
                     </div>
                 </TabPanel>
                 <TabPanel>
                     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">
-                            {soup && soup.map((el) => <SharedCard id={el._id} key={el._id} img={el.image} price={el.price} name={el.name} recipe={el.recipe} />)}
-                        </div>
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">
-                            {dessert && dessert.map((el) => <SharedCard id={el._id} key={el._id} img={el.image} price={el.price} name={el.name} recipe={el.recipe} />)}
-                        </div>
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">
-                            {drinks && drinks.map((el) => <SharedCard id={el._id} key={el._id} img={el.image} price={el.price} name={el.name} recipe={el.recipe} />)}
-                        </div>
+                        <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">{drinks && drinks.map((el) => <SharedCard items={el} key={el._id} />)}</div>
                     </div>
                 </TabPanel>
             </Tabs>

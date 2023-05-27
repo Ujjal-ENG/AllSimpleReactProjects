@@ -40,13 +40,14 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
-        const MenuCollection = client.db('FlavorFlow').collection('Menus');
-        const ReviewsCollection = client.db('FlavorFlow').collection('Reviews');
+        const menuCollection = client.db('FlavorFlow').collection('Menus');
+        const reviewCollection = client.db('FlavorFlow').collection('Reviews');
+        const cartCollection = client.db('FlavorFlow').collection('Carts');
 
         // get menu
         app.get('/menu', async (req, res) => {
             try {
-                const categoryData = await MenuCollection.find().toArray();
+                const categoryData = await menuCollection.find().toArray();
                 res.status(200).json({
                     success: true,
                     message: 'Data found!!',
@@ -63,7 +64,7 @@ async function run() {
         // get reviews
         app.get('/reviews', async (req, res) => {
             try {
-                const categoryData = await ReviewsCollection.find().toArray();
+                const categoryData = await reviewCollection.find().toArray();
                 res.status(200).json({
                     success: true,
                     message: 'Data found!!',
@@ -73,6 +74,19 @@ async function run() {
                 res.status(500).json({
                     success: false,
                     message: 'Error occurred when fetching the Review data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
+        // cart collection
+        app.post('/carts', async (req, res) => {
+            try {
+                
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Posting the Cart data!!',
                     error: error.message, // Include the error message in the response
                 });
             }
