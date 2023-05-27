@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -10,8 +11,10 @@ import { MdContactPhone, MdOutlineRateReview } from 'react-icons/md';
 import { RiSecurePaymentFill } from 'react-icons/ri';
 import { TbBrandBooking } from 'react-icons/tb';
 import { NavLink, Outlet } from 'react-router-dom';
+import useCart from '../../../hooks/useCart';
 
 const Dashboard = () => {
+    const [cart] = useCart();
     return (
         <div className="grid grid-cols-3">
             <div className="drawer col-span-1  drawer-mobile">
@@ -49,6 +52,7 @@ const Dashboard = () => {
                             <NavLink to="/dashboard/carts" className="text-xl font-semibold uppercase hover:text-white">
                                 <BsFillCartFill />
                                 My Cart
+                                <div className="badge badge-secondary">+{cart?.length || 0}</div>
                             </NavLink>
                         </li>
                         <li>

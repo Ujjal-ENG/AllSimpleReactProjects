@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-underscore-dangle */
@@ -66,7 +67,7 @@ const UserCarts = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                            {cart &&
+                            {cart.length > 0 ? (
                                 cart.map((el, idx) => (
                                     <tr key={el._id}>
                                         <th>{(idx += 1)}</th>
@@ -85,7 +86,10 @@ const UserCarts = () => {
                                             </button>
                                         </td>
                                     </tr>
-                                ))}
+                                ))
+                            ) : (
+                                <h1 className="text-4xl font-semibold tracking-wider">You Don't have added any Items or You deleted all the items!!</h1>
+                            )}
                         </tbody>
                     </table>
                 </div>
