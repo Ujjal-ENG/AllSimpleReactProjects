@@ -203,7 +203,7 @@ const About = () => {
                 }}
             />
             <div className="absolute space-y-6">
-                <h1 className="text-4xl font-bold text-center py-4 ">About Me</h1>
+                <h1 className="text-4xl font-bold text-center py-4 text-white">About Me</h1>
                 <div className="max-w-[70px] p-1 bg-violet-600 w-full mx-auto" />
                 <Tabs>
                     <TabList className="flex gap-2">
