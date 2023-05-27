@@ -5,7 +5,10 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 import React from 'react';
 
-const SharedCard = ({ img, name, price, recipe }) => {
+const SharedCard = ({ id, img, name, price, recipe }) => {
+    const handleAddToCart = (item) => {
+        console.log(item);
+    };
     return (
         <div className="overflow-hidden bg-white rounded shadow">
             <div className="p-5">
@@ -22,7 +25,7 @@ const SharedCard = ({ img, name, price, recipe }) => {
                 <h3 className="mt-5 text-2xl font-bold text-center">{name}</h3>
                 <p className="mt-4 text-base text-gray-600">{recipe}</p>
                 <div className="flex justify-center items-center py-4">
-                    <button type="button" className="btn btn-wide btn-outline border-0 border-b-4 border-b-yellow-600 text-yellow-500">
+                    <button onClick={() => handleAddToCart(id)} type="button" className="btn btn-wide btn-outline border-0 border-b-4 border-b-yellow-600 text-yellow-500">
                         Add to Cart
                     </button>
                 </div>
