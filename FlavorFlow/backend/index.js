@@ -83,10 +83,11 @@ async function run() {
         app.post('/carts', async (req, res) => {
             try {
                 const { item } = req.body;
+                const result = await cartCollection.insertOne(item);
                 res.status(201).json({
                     success: true,
                     message: 'Cart Item is Created!!',
-                    data: item,
+                    data: result,
                 });
             } catch (error) {
                 res.status(500).json({

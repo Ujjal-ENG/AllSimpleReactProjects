@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable object-curly-newline */
@@ -7,6 +9,7 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 import axios from 'axios';
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -17,9 +20,13 @@ const SharedCard = ({ items }) => {
     const navigate = useNavigate();
     const handleAddToCart = async (item) => {
         if (userInfo) {
+            item.menuItemId = item._id;
+            item.user = userInfo.email;
             try {
                 const { data } = await axios.post('http://localhost:8080/carts', { item });
-                console.log(data);
+                if (data.success) {
+                    toast.success('Cart Items Added!!');
+                }
             } catch (error) {
                 console.log(error);
             }
