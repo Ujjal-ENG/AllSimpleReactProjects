@@ -582,7 +582,7 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                         <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl">
                             <h2 className="text-3xl font-bold mb-4">Technical Skills and Expertise Area</h2>
 
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 <div className="border border-gray-300 rounded p-4">
                                     <h3 className="text-2xl font-semibold mb-2">Front-end Development</h3>
                                     <ul className="list-disc pl-6">
