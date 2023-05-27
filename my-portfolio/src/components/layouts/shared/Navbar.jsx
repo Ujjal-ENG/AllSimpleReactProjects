@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
@@ -21,6 +22,14 @@ const Navbar = () => {
             <NavLink to="/contact" className={(isActive) => (isActive ? 'active' : 'default')}>
                 Contact
             </NavLink>
+            <a
+                href="https://drive.google.com/file/d/1clX2CEZ2Lr13DTOWmIqOVSLNLw9AflHl/view?usp=share_link"
+                target="_blank"
+                type="button"
+                className="btn btn-outline btn-xs text-inherit font-bold sm:btn-sm md:btn-md lg:btn-lg"
+                rel="noreferrer">
+                Download my Resume
+            </a>
         </div>
     );
 

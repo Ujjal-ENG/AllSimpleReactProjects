@@ -4,7 +4,6 @@ import 'aos/dist/aos.css';
 import React, { useEffect } from 'react';
 
 import { Outlet } from 'react-router-dom';
-import Footer from './components/layouts/shared/Footer';
 import Navbar from './components/layouts/shared/Navbar';
 
 const App = () => {
@@ -39,7 +38,6 @@ const App = () => {
             </div>
 
             <Outlet />
-            <Footer />
         </>
     );
 };

@@ -152,10 +152,11 @@ const Projects = () => {
                                     </a>
 
                                     <a
-                                        href="#"
-                                        title=""
+                                        href="https://github.com/Ujjal-ENG"
+                                        target="_blank"
                                         className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
-                                        role="button">
+                                        role="button"
+                                        rel="noreferrer">
                                         Explore the Code
                                     </a>
                                 </div>
@@ -305,10 +306,11 @@ const Projects = () => {
                                     </a>
 
                                     <a
-                                        href="#"
-                                        title=""
+                                        href="https://github.com/Ujjal-ENG"
+                                        target="_blank"
                                         className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
-                                        role="button">
+                                        role="button"
+                                        rel="noreferrer">
                                         Explore the Code
                                     </a>
                                 </div>
