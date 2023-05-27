@@ -7,6 +7,7 @@ import React from 'react';
 const Projects = () => {
     return (
         <div className="h-screen  pt-20" id="projects">
+            <h1 className="text-6xl font-bold tracking-widest text-center pt-4">Case Study</h1>
             <section className="ml-20  2xl:py-24 ">
                 <div className="px-4 mx-auto bg-black max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">
                     <div className="py-10 sm:py-16 lg:py-24 2xl:pl-24">

@@ -259,6 +259,16 @@ const About = () => {
                             options: {
                                 image: [
                                     {
+                                        src: 'https://cdn.freebiesupply.com/logos/thumbs/2x/visual-studio-code-logo.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Netlify_logo_%282%29.svg/1200px-Netlify_logo_%282%29.svg.pnghttps://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Netlify_logo_%282%29.svg/1200px-Netlify_logo_%282%29.svg.pnghttps://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Netlify_logo_%282%29.svg/1200px-Netlify_logo_%282%29.svg.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
                                         src: 'https://raw.githubusercontent.com/saadeghi/files/main/daisyui/logo-4.svg',
                                         width: 32,
                                         height: 32
