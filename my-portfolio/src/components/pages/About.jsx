@@ -405,7 +405,7 @@ const About = () => {
                 <h1 className="text-4xl font-bold text-center py-4 text-black">About Me</h1>
                 <div className="max-w-[70px] p-1 bg-violet-600 w-full mx-auto" />
                 <Tabs>
-                    <TabList className="flex gap-2">
+                    <TabList className="flex justify-between items-center md:flex-row flex-col gap-2">
                         <Tab className={`tabs-button ${activeTabIndex === 0 ? 'active' : 'disabled'}`} onClick={() => setActiveTabIndex(0)}>
                             About Me
                         </Tab>
@@ -469,7 +469,7 @@ const About = () => {
                         </div>
                     </TabPanel>
                     <TabPanel className="mt-4">
-                        <div className="bg-white p-6 rounded-md shadow-lg max-w-6xl">
+                        <div className="bg-white p-6 rounded-md shadow-lg max-w-xs  md:max-w-6xl">
                             <div className="overflow-x-auto">
                                 <table className="table w-full">
                                     {/* head */}
@@ -582,7 +582,7 @@ https://www.coursera.org/account/accomplishments/certificate/NMNUN957MGWF">
                         <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl">
                             <h2 className="text-3xl font-bold mb-4">Technical Skills and Expertise Area</h2>
 
-                            <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 <div className="border border-gray-300 rounded p-4">
                                     <h3 className="text-2xl font-semibold mb-2">Front-end Development</h3>
                                     <ul className="list-disc pl-6">

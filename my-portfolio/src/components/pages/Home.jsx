@@ -283,7 +283,7 @@ const Home = () => {
                     }
                 }}
             />
-            <section className="pt-10 absolute  left-36  h-screen overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
+            <section className="pt-10 absolute left-0 md:left-36  h-screen overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-[1500px]">
                     <div className="grid items-center grid-cols-1 md:grid-cols-2 ">
                         <motion.div
@@ -303,7 +303,7 @@ const Home = () => {
                                 <div>
                                     <Typed strings={['Hey, I am Ujjal Kumar Roy']} typeSpeed={60} className="p-10" />
                                     <br />
-                                    <Typed strings={['I am Software Engineer']} typeSpeed={40} backSpeed={50} attr="placeholder" loop className="m-10">
+                                    <Typed strings={['I am Software Engineer']} typeSpeed={40} backSpeed={50} attr="placeholder" loop className="m-10 text-3xl mt-50">
                                         <input type="text" className=" bg-white ml-3 " disabled />
                                     </Typed>
                                 </div>
@@ -349,7 +349,7 @@ const Home = () => {
                                     }
                                 }}>
                                 <img
-                                    className="absolute inset-x-0 bottom-0 -mb-36 -translate-x-1/2 left-1/2"
+                                    className="absolute inset-x-0 bottom-0 -mb-36 md:-translate-x-1/2 md:left-1/2"
                                     src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"
                                     alt=""
                                 />
