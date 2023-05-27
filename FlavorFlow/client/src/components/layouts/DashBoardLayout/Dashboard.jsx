@@ -46,7 +46,7 @@ const Dashboard = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/carts" className="text-xl font-semibold uppercase hover:text-white">
+                            <Link to="carts" className="text-xl font-semibold uppercase hover:text-white">
                                 <BsFillCartFill />
                                 My Cart
                             </Link>
