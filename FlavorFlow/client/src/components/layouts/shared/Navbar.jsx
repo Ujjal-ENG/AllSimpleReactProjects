@@ -33,18 +33,20 @@ const Navbar = () => {
                 </div>
             )}
             {userInfo ? (
-                <button type="button" className="btn btn-outline btn-md" onClick={() => logOutUser()}>
-                    Logout
-                </button>
+                <>
+                    <button type="button" className="btn relative">
+                        <HiShoppingBag className="text-5xl" />
+                        <div className="badge badge-secondary absolute top-0 -right-3">+99</div>
+                    </button>
+                    <button type="button" className="btn text-white btn-outline btn-md" onClick={() => logOutUser()}>
+                        Logout
+                    </button>
+                </>
             ) : (
                 <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Login
                 </NavLink>
             )}
-            <button type="button" className="btn relative">
-                <HiShoppingBag className="text-5xl" />
-                <div className="badge badge-secondary absolute top-0 -right-3">+99</div>
-            </button>
         </div>
     );
 
