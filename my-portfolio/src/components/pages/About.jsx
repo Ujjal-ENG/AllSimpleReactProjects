@@ -7,16 +7,201 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Typed from 'react-typed';
 
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+
 const About = () => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const particlesInit = useCallback(async (engine) => {
+        console.log(engine);
+        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async (container) => {
+        await console.log(container);
+    }, []);
 
     return (
         <div className="h-screen flex justify-center items-start  pt-20" id="about">
+            <Particles
+                id="tsparticles"
+                init={particlesInit}
+                loaded={particlesLoaded}
+                options={{
+                    name: 'Fireworks',
+                    fullScreen: {
+                        enable: true
+                    },
+                    background: {
+                        color: '#000'
+                    },
+                    emitters: {
+                        direction: 'top',
+                        life: {
+                            count: 0,
+                            duration: 0.1,
+                            delay: 0.1
+                        },
+                        rate: {
+                            delay: 0.15,
+                            quantity: 1
+                        },
+                        size: {
+                            width: 100,
+                            height: 0
+                        },
+                        position: {
+                            y: 100,
+                            x: 50
+                        }
+                    },
+                    particles: {
+                        number: {
+                            value: 0
+                        },
+                        destroy: {
+                            bounds: {
+                                top: 30
+                            },
+                            mode: 'split',
+                            split: {
+                                count: 1,
+                                factor: {
+                                    value: 0.333333
+                                },
+                                rate: {
+                                    value: 100
+                                },
+                                particles: {
+                                    stroke: {
+                                        width: 0
+                                    },
+                                    color: {
+                                        value: ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93']
+                                    },
+                                    number: {
+                                        value: 0
+                                    },
+                                    collisions: {
+                                        enable: false
+                                    },
+                                    destroy: {
+                                        bounds: {
+                                            top: 0
+                                        }
+                                    },
+                                    opacity: {
+                                        value: {
+                                            min: 0.1,
+                                            max: 1
+                                        },
+                                        animation: {
+                                            enable: true,
+                                            speed: 0.7,
+                                            sync: false,
+                                            startValue: 'max',
+                                            destroy: 'min'
+                                        }
+                                    },
+                                    shape: {
+                                        type: 'circle'
+                                    },
+                                    size: {
+                                        value: 2,
+                                        animation: {
+                                            enable: false
+                                        }
+                                    },
+                                    life: {
+                                        count: 1,
+                                        duration: {
+                                            value: {
+                                                min: 1,
+                                                max: 2
+                                            }
+                                        }
+                                    },
+                                    move: {
+                                        enable: true,
+                                        gravity: {
+                                            enable: true,
+                                            acceleration: 9.81,
+                                            inverse: false
+                                        },
+                                        decay: 0.1,
+                                        speed: {
+                                            min: 10,
+                                            max: 25
+                                        },
+                                        direction: 'outside',
+                                        random: true,
+                                        straight: false,
+                                        outModes: 'destroy'
+                                    }
+                                }
+                            }
+                        },
+                        life: {
+                            count: 1
+                        },
+                        shape: {
+                            type: 'line'
+                        },
+                        size: {
+                            value: {
+                                min: 0.1,
+                                max: 50
+                            },
+                            animation: {
+                                enable: true,
+                                sync: true,
+                                speed: 90,
+                                startValue: 'max',
+                                destroy: 'min'
+                            }
+                        },
+                        stroke: {
+                            color: {
+                                value: '#ffffff'
+                            },
+                            width: 1
+                        },
+                        rotate: {
+                            path: true
+                        },
+                        move: {
+                            enable: true,
+                            gravity: {
+                                acceleration: 15,
+                                enable: true,
+                                inverse: true,
+                                maxSpeed: 100
+                            },
+                            speed: {
+                                min: 10,
+                                max: 20
+                            },
+                            outModes: {
+                                default: 'destroy',
+                                top: 'none'
+                            },
+                            trail: {
+                                fillColor: '#000',
+                                enable: true,
+                                length: 10
+                            }
+                        }
+                    }
+                }}
+            />
             <div className="absolute space-y-6">
                 <h1 className="text-4xl font-bold text-center py-4 ">About Me</h1>
                 <div className="max-w-[70px] p-1 bg-violet-600 w-full mx-auto" />
