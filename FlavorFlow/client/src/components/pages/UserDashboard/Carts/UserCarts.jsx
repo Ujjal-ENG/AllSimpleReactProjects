@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
@@ -42,7 +43,7 @@ const UserCarts = () => {
                             {/* row 1 */}
                             {cart &&
                                 cart.map((el, idx) => (
-                                    <tr>
+                                    <tr key={el._id}>
                                         <th>{(idx += 1)}</th>
                                         <td>
                                             <div className="avatar">
