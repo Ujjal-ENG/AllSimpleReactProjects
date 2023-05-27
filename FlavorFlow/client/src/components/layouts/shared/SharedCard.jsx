@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -5,16 +6,36 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const SharedCard = ({ items }) => {
+    const { userInfo } = useContext(AuthContext);
     const { image, name, price, recipe } = items;
+    const navigate = useNavigate();
     const handleAddToCart = async (item) => {
-        try {
-            const { data } = await axios.post('http://localhost:8080/carts', { item });
-            console.log(data);
-        } catch (error) {
-            console.log(error);
+        if (userInfo) {
+            try {
+                const { data } = await axios.post('http://localhost:8080/carts', { item });
+                console.log(data);
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            const result = await Swal.fire({
+                title: 'Please Login First for Add to Cart!!',
+                text: "You won't be able to cart item without Login😒😒!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login Now'
+            });
+            if (result.isConfirmed) {
+                navigate('/login');
+            }
         }
     };
 
