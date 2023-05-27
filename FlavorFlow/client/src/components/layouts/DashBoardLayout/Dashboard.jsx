@@ -28,7 +28,7 @@ const Dashboard = () => {
                         <h4 className="text-2xl uppercase tracking-widest font-bold text-center pt-2 pb-14">Restaurant</h4>
 
                         <li>
-                            <NavLink to="/dashboard" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/dashboard/home" className="text-xl font-semibold uppercase hover:text-white">
                                 <AiFillHome />
                                 User Home
                             </NavLink>
