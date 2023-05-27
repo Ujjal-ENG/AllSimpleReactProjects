@@ -6,15 +6,18 @@ import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 import { RouterProvider } from 'react-router-dom';
+import AuthProvider from './context/AuthProvider';
 import './index.css';
 import { router } from './routes/App.Routes';
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-            <Toaster />
-            <RouterProvider router={router} />
-        </QueryClientProvider>
-    </HelmetProvider>
+    <AuthProvider>
+        <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+                <Toaster />
+                <RouterProvider router={router} />
+            </QueryClientProvider>
+        </HelmetProvider>
+    </AuthProvider>
 );

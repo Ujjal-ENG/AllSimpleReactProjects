@@ -6,7 +6,6 @@ import React, { useEffect } from 'react';
 import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 import Footer from './components/layouts/shared/Footer';
 import Navbar from './components/layouts/shared/Navbar';
-import AuthProvider from './context/AuthProvider';
 
 const App = () => {
     const location = useLocation();
@@ -39,15 +38,13 @@ const App = () => {
     }, []);
 
     return (
-        <AuthProvider>
-            <div className="max-w-screen-2xl mx-auto">
-                {isLogin || isRegister || <Navbar />}
+        <div className="max-w-screen-2xl mx-auto">
+            {isLogin || isRegister || <Navbar />}
 
-                <Outlet />
-                <ScrollRestoration />
-                {isLogin || isRegister || <Footer />}
-            </div>
-        </AuthProvider>
+            <Outlet />
+            <ScrollRestoration />
+            {isLogin || isRegister || <Footer />}
+        </div>
     );
 };
 
