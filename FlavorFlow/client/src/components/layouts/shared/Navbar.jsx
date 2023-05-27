@@ -8,7 +8,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { HiShoppingBag } from 'react-icons/hi';
 import Lottie from 'react-lottie';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import animationData from '../../../assets/json/logo.json';
 import { AuthContext } from '../../../context/AuthProvider';
 import useCart from '../../../hooks/useCart';
@@ -38,10 +38,10 @@ const Navbar = () => {
             )}
             {userInfo ? (
                 <>
-                    <button type="button" className="btn relative">
+                    <Link to="/dashboard/carts" type="button" className="btn relative">
                         <HiShoppingBag className="text-5xl" />
                         <div className="badge badge-secondary absolute top-0 -right-3">+{cart?.length}</div>
-                    </button>
+                    </Link>
                     <button type="button" className="btn text-white btn-outline btn-md" onClick={() => logOutUser()}>
                         Logout
                     </button>
