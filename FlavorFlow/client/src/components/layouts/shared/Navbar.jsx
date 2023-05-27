@@ -13,7 +13,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
     const { userInfo, logOutUser } = useContext(AuthContext);
-    console.log(userInfo);
+
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>

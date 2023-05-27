@@ -13,12 +13,14 @@ const FoodTabs = () => {
     const { category } = useParams();
     const initalIndex = categories.indexOf(category);
     const [menuData] = useMenuHooks();
+
     const [tabIndex, setTabIndex] = useState(initalIndex);
     const drinks = menuData.filter((el) => el.category === 'drinks');
     const dessert = menuData.filter((el) => el.category === 'dessert');
     const pizza = menuData.filter((el) => el.category === 'pizza');
     const salad = menuData.filter((el) => el.category === 'salad');
     const soup = menuData.filter((el) => el.category === 'soup');
+    console.log(menuData);
 
     return (
         <div className="py-4">
