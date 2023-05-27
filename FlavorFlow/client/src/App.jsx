@@ -1,4 +1,5 @@
 /* eslint-disable comma-dangle */
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React, { useEffect } from 'react';
@@ -37,16 +38,19 @@ const App = () => {
             window.removeEventListener('aos:in', handleAOSIn);
         };
     }, []);
+    const queryClient = new QueryClient();
     return (
         <AuthProvider>
             <HelmetProvider>
-                <div className="max-w-screen-2xl mx-auto">
-                    {isLogin || isRegister || <Navbar />}
+                <QueryClientProvider client={queryClient}>
+                    <div className="max-w-screen-2xl mx-auto">
+                        {isLogin || isRegister || <Navbar />}
 
-                    <Outlet />
-                    <ScrollRestoration />
-                    {isLogin || isRegister || <Footer />}
-                </div>
+                        <Outlet />
+                        <ScrollRestoration />
+                        {isLogin || isRegister || <Footer />}
+                    </div>
+                </QueryClientProvider>
             </HelmetProvider>
         </AuthProvider>
     );
