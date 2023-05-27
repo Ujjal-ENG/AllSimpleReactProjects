@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable operator-linebreak */
@@ -48,8 +49,8 @@ const ChefSlider = () => {
             className="max-w-6xl mx-auto">
             {popular &&
                 popular.map((el) => (
-                    <SwiperSlide>
-                        <SharedCard img={el.image} name={el.name} price={el.price} recipe={el.recipe} />
+                    <SwiperSlide key={el._id}>
+                        <SharedCard items={el} />
                     </SwiperSlide>
                 ))}
         </Swiper>

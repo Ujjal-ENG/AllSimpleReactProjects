@@ -37,7 +37,7 @@ const SharedCard = ({ items }) => {
             }
         }
     };
-    // console.log(items);
+
     return (
         <div className="overflow-hidden bg-white rounded shadow">
             <div className="p-5">
