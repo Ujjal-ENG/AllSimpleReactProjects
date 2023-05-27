@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-multi-spaces */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 /* eslint-disable max-len */
@@ -30,56 +31,246 @@ const Home = () => {
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}
+                // options={{
+                //     background: {
+                //         color: {
+                //             value: '#fff'
+                //         }
+                //     },
+                //     fpsLimit: 120,
+
+                //     particles: {
+                //         color: {
+                //             value: '#000'
+                //         },
+                //         links: {
+                //             color: '#000',
+                //             distance: 150,
+                //             enable: true,
+                //             opacity: 0.5,
+                //             width: 1
+                //         },
+                //         collisions: {
+                //             enable: true
+                //         },
+                //         move: {
+                //             direction: 'none',
+                //             enable: true,
+                //             outModes: {
+                //                 default: 'bounce'
+                //             },
+                //             random: false,
+                //             speed: 2,
+                //             straight: false
+                //         },
+                //         number: {
+                //             density: {
+                //                 enable: true,
+                //                 area: 800
+                //             },
+                //             value: 80
+                //         },
+                //         opacity: {
+                //             value: 0.5
+                //         },
+                //         shape: {
+                //             type: 'circle'
+                //         },
+                //         size: {
+                //             value: { min: 1, max: 5 }
+                //         }
+                //     },
+                //     detectRetina: true
+                // }}
                 options={{
-                    background: {
-                        color: {
-                            value: '#fff'
+                    name: 'Images',
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            onHover: {
+                                enable: true,
+                                mode: 'bubble'
+                            }
+                        },
+                        modes: {
+                            bubble: {
+                                distance: 400,
+                                duration: 2,
+                                opacity: 0.8,
+                                size: 40
+                            },
+                            push: {
+                                quantity: 4
+                            }
                         }
                     },
-                    fpsLimit: 120,
-
                     particles: {
                         color: {
-                            value: '#000'
-                        },
-                        links: {
-                            color: '#000',
-                            distance: 150,
-                            enable: true,
-                            opacity: 0.5,
-                            width: 1
-                        },
-                        collisions: {
-                            enable: true
+                            value: '#ffffff'
                         },
                         move: {
-                            direction: 'none',
                             enable: true,
-                            outModes: {
-                                default: 'bounce'
-                            },
-                            random: false,
-                            speed: 2,
-                            straight: false
+                            speed: 2
                         },
                         number: {
                             density: {
-                                enable: true,
-                                area: 800
+                                enable: true
                             },
+                            limit: 0,
                             value: 80
                         },
                         opacity: {
-                            value: 0.5
+                            value: 1
+                        },
+                        rotate: {
+                            animation: {
+                                enable: true,
+                                speed: 5,
+                                sync: false
+                            },
+                            direction: 'random',
+                            value: {
+                                min: 0,
+                                max: 360
+                            }
                         },
                         shape: {
-                            type: 'circle'
+                            options: {
+                                image: [
+                                    {
+                                        src: 'https://raw.githubusercontent.com/saadeghi/files/main/daisyui/logo-4.svg',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://logovectorseek.com/wp-content/uploads/2019/10/bootstrap-logo-vector.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/CSS3_and_HTML5_logos_and_wordmarks.svg/1200px-CSS3_and_HTML5_logos_and_wordmarks.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://w7.pngwing.com/pngs/106/519/png-transparent-tailwind-css-hd-logo.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://swiperjs.com/images/share-banner-3.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://cdn.shopify.com/s/files/1/0057/5668/2355/files/Postman-logo-orange-2021_1155x.png?v=1637252529',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://pagepro.co/blog/wp-content/uploads/2020/03/framer-motion.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://w7.pngwing.com/pngs/87/586/png-transparent-next-js-hd-logo.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://www.vhv.rs/dpng/d/456-4562295_library-of-javascript-icon-graphic-freeuse-png-files.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://testrigor.com/wp-content/uploads/2023/01/express-logo.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://litslink.com/wp-content/uploads/2020/12/node.js-logo-image.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://raw.githubusercontent.com/keon/algorithms/master/docs/source/_static/logo/logotype1blue.png',
+                                        width: 44,
+                                        height: 44
+                                    },
+                                    {
+                                        src: 'https://www.vlrtraining.in/wp-content/uploads/2020/10/logo-data-structure.png',
+                                        width: 44,
+                                        height: 44
+                                    },
+                                    {
+                                        src: 'https://media.istockphoto.com/id/1334768175/vector/oop-object-oriented-programming-acronym.jpg?s=170667a&w=0&k=20&c=fHqp8voqHF0yIU7fcrWAvXERC9AHmiiJXjzy4y8kTB4=',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/OOP.svg/1280px-OOP.svg.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://e7.pngegg.com/pngimages/1018/16/png-clipart-mysql-workbench-database-mysql-cluster-others-text-logo.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://t4.ftcdn.net/jpg/04/96/33/33/360_F_496333368_onvz9v1ufijVhR6RPLIzOQtOweFCovRV.jpg',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://logowik.com/content/uploads/images/vercel1868.jpg',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Firebase_Logo.svg/1280px-Firebase_Logo.svg.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://img.freepik.com/free-icon/snakes_318-368381.jpg',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://w7.pngwing.com/pngs/751/3/png-transparent-logo-php-html-others-text-trademark-logo-thumbnail.png',
+                                        width: 70,
+                                        height: 70
+                                    }
+                                ]
+                            },
+                            type: 'image'
                         },
                         size: {
-                            value: { min: 1, max: 5 }
+                            value: 30
                         }
                     },
-                    detectRetina: true
+                    background: {
+                        color: '#fff'
+                    }
                 }}
             />
             <section className="pt-10 absolute  left-36  h-screen overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">

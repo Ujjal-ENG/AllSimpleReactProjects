@@ -7,12 +7,13 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/no-array-index-key */
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Typed from 'react-typed';
-
 import Particles from 'react-tsparticles';
+import Typed from 'react-typed';
 import { loadFull } from 'tsparticles';
 
 const About = () => {
@@ -35,170 +36,360 @@ const About = () => {
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}
+                // options={{
+                //     name: 'Fireworks',
+                //     fullScreen: {
+                //         enable: true
+                //     },
+                //     background: {
+                //         color: '#000'
+                //     },
+                //     emitters: {
+                //         direction: 'top',
+                //         life: {
+                //             count: 0,
+                //             duration: 0.1,
+                //             delay: 0.1
+                //         },
+                //         rate: {
+                //             delay: 0.15,
+                //             quantity: 1
+                //         },
+                //         size: {
+                //             width: 100,
+                //             height: 0
+                //         },
+                //         position: {
+                //             y: 100,
+                //             x: 50
+                //         }
+                //     },
+                //     particles: {
+                //         number: {
+                //             value: 0
+                //         },
+                //         destroy: {
+                //             bounds: {
+                //                 top: 30
+                //             },
+                //             mode: 'split',
+                //             split: {
+                //                 count: 1,
+                //                 factor: {
+                //                     value: 0.333333
+                //                 },
+                //                 rate: {
+                //                     value: 100
+                //                 },
+                //                 particles: {
+                //                     stroke: {
+                //                         width: 0
+                //                     },
+                //                     color: {
+                //                         value: ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93']
+                //                     },
+                //                     number: {
+                //                         value: 0
+                //                     },
+                //                     collisions: {
+                //                         enable: false
+                //                     },
+                //                     destroy: {
+                //                         bounds: {
+                //                             top: 0
+                //                         }
+                //                     },
+                //                     opacity: {
+                //                         value: {
+                //                             min: 0.1,
+                //                             max: 1
+                //                         },
+                //                         animation: {
+                //                             enable: true,
+                //                             speed: 0.7,
+                //                             sync: false,
+                //                             startValue: 'max',
+                //                             destroy: 'min'
+                //                         }
+                //                     },
+                //                     shape: {
+                //                         type: 'circle'
+                //                     },
+                //                     size: {
+                //                         value: 2,
+                //                         animation: {
+                //                             enable: false
+                //                         }
+                //                     },
+                //                     life: {
+                //                         count: 1,
+                //                         duration: {
+                //                             value: {
+                //                                 min: 1,
+                //                                 max: 2
+                //                             }
+                //                         }
+                //                     },
+                //                     move: {
+                //                         enable: true,
+                //                         gravity: {
+                //                             enable: true,
+                //                             acceleration: 9.81,
+                //                             inverse: false
+                //                         },
+                //                         decay: 0.1,
+                //                         speed: {
+                //                             min: 10,
+                //                             max: 25
+                //                         },
+                //                         direction: 'outside',
+                //                         random: true,
+                //                         straight: false,
+                //                         outModes: 'destroy'
+                //                     }
+                //                 }
+                //             }
+                //         },
+                //         life: {
+                //             count: 1
+                //         },
+                //         shape: {
+                //             type: 'line'
+                //         },
+                //         size: {
+                //             value: {
+                //                 min: 0.1,
+                //                 max: 50
+                //             },
+                //             animation: {
+                //                 enable: true,
+                //                 sync: true,
+                //                 speed: 90,
+                //                 startValue: 'max',
+                //                 destroy: 'min'
+                //             }
+                //         },
+                //         stroke: {
+                //             color: {
+                //                 value: '#ffffff'
+                //             },
+                //             width: 1
+                //         },
+                //         rotate: {
+                //             path: true
+                //         },
+                //         move: {
+                //             enable: true,
+                //             gravity: {
+                //                 acceleration: 15,
+                //                 enable: true,
+                //                 inverse: true,
+                //                 maxSpeed: 100
+                //             },
+                //             speed: {
+                //                 min: 10,
+                //                 max: 20
+                //             },
+                //             outModes: {
+                //                 default: 'destroy',
+                //                 top: 'none'
+                //             },
+                //             trail: {
+                //                 fillColor: '#000',
+                //                 enable: true,
+                //                 length: 10
+                //             }
+                //         }
+                //     }
+                // }}
                 options={{
-                    name: 'Fireworks',
-                    fullScreen: {
-                        enable: true
-                    },
-                    background: {
-                        color: '#000'
-                    },
-                    emitters: {
-                        direction: 'top',
-                        life: {
-                            count: 0,
-                            duration: 0.1,
-                            delay: 0.1
+                    name: 'Images',
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            onHover: {
+                                enable: true,
+                                mode: 'bubble'
+                            }
                         },
-                        rate: {
-                            delay: 0.15,
-                            quantity: 1
-                        },
-                        size: {
-                            width: 100,
-                            height: 0
-                        },
-                        position: {
-                            y: 100,
-                            x: 50
+                        modes: {
+                            bubble: {
+                                distance: 400,
+                                duration: 2,
+                                opacity: 0.8,
+                                size: 40
+                            },
+                            push: {
+                                quantity: 4
+                            }
                         }
                     },
                     particles: {
-                        number: {
-                            value: 0
-                        },
-                        destroy: {
-                            bounds: {
-                                top: 30
-                            },
-                            mode: 'split',
-                            split: {
-                                count: 1,
-                                factor: {
-                                    value: 0.333333
-                                },
-                                rate: {
-                                    value: 100
-                                },
-                                particles: {
-                                    stroke: {
-                                        width: 0
-                                    },
-                                    color: {
-                                        value: ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93']
-                                    },
-                                    number: {
-                                        value: 0
-                                    },
-                                    collisions: {
-                                        enable: false
-                                    },
-                                    destroy: {
-                                        bounds: {
-                                            top: 0
-                                        }
-                                    },
-                                    opacity: {
-                                        value: {
-                                            min: 0.1,
-                                            max: 1
-                                        },
-                                        animation: {
-                                            enable: true,
-                                            speed: 0.7,
-                                            sync: false,
-                                            startValue: 'max',
-                                            destroy: 'min'
-                                        }
-                                    },
-                                    shape: {
-                                        type: 'circle'
-                                    },
-                                    size: {
-                                        value: 2,
-                                        animation: {
-                                            enable: false
-                                        }
-                                    },
-                                    life: {
-                                        count: 1,
-                                        duration: {
-                                            value: {
-                                                min: 1,
-                                                max: 2
-                                            }
-                                        }
-                                    },
-                                    move: {
-                                        enable: true,
-                                        gravity: {
-                                            enable: true,
-                                            acceleration: 9.81,
-                                            inverse: false
-                                        },
-                                        decay: 0.1,
-                                        speed: {
-                                            min: 10,
-                                            max: 25
-                                        },
-                                        direction: 'outside',
-                                        random: true,
-                                        straight: false,
-                                        outModes: 'destroy'
-                                    }
-                                }
-                            }
-                        },
-                        life: {
-                            count: 1
-                        },
-                        shape: {
-                            type: 'line'
-                        },
-                        size: {
-                            value: {
-                                min: 0.1,
-                                max: 50
-                            },
-                            animation: {
-                                enable: true,
-                                sync: true,
-                                speed: 90,
-                                startValue: 'max',
-                                destroy: 'min'
-                            }
-                        },
-                        stroke: {
-                            color: {
-                                value: '#ffffff'
-                            },
-                            width: 1
-                        },
-                        rotate: {
-                            path: true
+                        color: {
+                            value: '#ffffff'
                         },
                         move: {
                             enable: true,
-                            gravity: {
-                                acceleration: 15,
+                            speed: 2
+                        },
+                        number: {
+                            density: {
+                                enable: true
+                            },
+                            limit: 0,
+                            value: 80
+                        },
+                        opacity: {
+                            value: 1
+                        },
+                        rotate: {
+                            animation: {
                                 enable: true,
-                                inverse: true,
-                                maxSpeed: 100
+                                speed: 5,
+                                sync: false
                             },
-                            speed: {
-                                min: 10,
-                                max: 20
-                            },
-                            outModes: {
-                                default: 'destroy',
-                                top: 'none'
-                            },
-                            trail: {
-                                fillColor: '#000',
-                                enable: true,
-                                length: 10
+                            direction: 'random',
+                            value: {
+                                min: 0,
+                                max: 360
                             }
+                        },
+                        shape: {
+                            options: {
+                                image: [
+                                    {
+                                        src: 'https://raw.githubusercontent.com/saadeghi/files/main/daisyui/logo-4.svg',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://logovectorseek.com/wp-content/uploads/2019/10/bootstrap-logo-vector.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/CSS3_and_HTML5_logos_and_wordmarks.svg/1200px-CSS3_and_HTML5_logos_and_wordmarks.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://w7.pngwing.com/pngs/106/519/png-transparent-tailwind-css-hd-logo.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://swiperjs.com/images/share-banner-3.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://cdn.shopify.com/s/files/1/0057/5668/2355/files/Postman-logo-orange-2021_1155x.png?v=1637252529',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://pagepro.co/blog/wp-content/uploads/2020/03/framer-motion.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://w7.pngwing.com/pngs/87/586/png-transparent-next-js-hd-logo.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://www.vhv.rs/dpng/d/456-4562295_library-of-javascript-icon-graphic-freeuse-png-files.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://testrigor.com/wp-content/uploads/2023/01/express-logo.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://litslink.com/wp-content/uploads/2020/12/node.js-logo-image.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png',
+                                        width: 32,
+                                        height: 32
+                                    },
+                                    {
+                                        src: 'https://raw.githubusercontent.com/keon/algorithms/master/docs/source/_static/logo/logotype1blue.png',
+                                        width: 44,
+                                        height: 44
+                                    },
+                                    {
+                                        src: 'https://www.vlrtraining.in/wp-content/uploads/2020/10/logo-data-structure.png',
+                                        width: 44,
+                                        height: 44
+                                    },
+                                    {
+                                        src: 'https://media.istockphoto.com/id/1334768175/vector/oop-object-oriented-programming-acronym.jpg?s=170667a&w=0&k=20&c=fHqp8voqHF0yIU7fcrWAvXERC9AHmiiJXjzy4y8kTB4=',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/OOP.svg/1280px-OOP.svg.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://e7.pngegg.com/pngimages/1018/16/png-clipart-mysql-workbench-database-mysql-cluster-others-text-logo.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://t4.ftcdn.net/jpg/04/96/33/33/360_F_496333368_onvz9v1ufijVhR6RPLIzOQtOweFCovRV.jpg',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://logowik.com/content/uploads/images/vercel1868.jpg',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Firebase_Logo.svg/1280px-Firebase_Logo.svg.png',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://img.freepik.com/free-icon/snakes_318-368381.jpg',
+                                        width: 70,
+                                        height: 70
+                                    },
+                                    {
+                                        src: 'https://w7.pngwing.com/pngs/751/3/png-transparent-logo-php-html-others-text-trademark-logo-thumbnail.png',
+                                        width: 70,
+                                        height: 70
+                                    }
+                                ]
+                            },
+                            type: 'image'
+                        },
+                        size: {
+                            value: 30
                         }
+                    },
+                    background: {
+                        color: '#fff'
                     }
                 }}
             />
@@ -231,6 +422,7 @@ const About = () => {
                                 typeSpeed={20}
                                 className="text-lg text-gray-800"
                             />
+                            <FontAwesomeIcon icon={faCoffee} as="img" spin size="2xl" color="red" className="coffee-icon" />
                             <br />
 
                             <br />
