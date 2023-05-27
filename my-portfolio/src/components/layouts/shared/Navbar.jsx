@@ -29,7 +29,7 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.pageYOffset;
-            if (scrollTop > 88 && !isScrolled) {
+            if (scrollTop > 28 && !isScrolled) {
                 setIsScrolled(true);
             } else if (scrollTop === 0 && isScrolled) {
                 setIsScrolled(false);
@@ -43,7 +43,7 @@ const Navbar = () => {
     return (
         <div>
             <div
-                className={`z-10 navbar  duration-200 transition-all px-20 ${
+                className={`z-10 navbar shadow-xl  duration-200 transition-all px-20 ${
                     isScrolled ? 'ease-out fixed bg-opacity-100 mx-auto text-white bg-black' : 'fixed  bg-white text-black py-3 ease-in bg-opacity-30'
                 }`}>
                 <div className="navbar-start">
