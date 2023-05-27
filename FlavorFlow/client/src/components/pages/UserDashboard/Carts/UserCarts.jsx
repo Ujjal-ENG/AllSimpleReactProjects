@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -5,14 +6,37 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable operator-linebreak */
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import axios from 'axios';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import Swal from 'sweetalert2';
 import useCart from '../../../../hooks/useCart';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
 
 const UserCarts = () => {
-    const [cart] = useCart();
+    const [cart, refetch] = useCart();
+
+    const handleDelete = async (id) => {
+        try {
+            const result = await Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            });
+            if (result.isConfirmed) {
+                await axios.delete(`http://localhost:8080/carts/${id}`);
+                Swal.fire('Deleted!', 'Your Food Item has been deleted.', 'success');
+                refetch();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const totalPrice = Math.ceil(cart?.reduce((ps, cs) => ps + cs.price, 0));
     return (
         <div className=" w-full md:-ml-48 -ml-0 py-5">
@@ -56,7 +80,7 @@ const UserCarts = () => {
                                         <td>{el.name}</td>
                                         <td>{el.price}</td>
                                         <td>
-                                            <button type="button" className="btn btn-error  border-0">
+                                            <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-error  border-0">
                                                 <RiDeleteBin6Line className="text-2xl text-white" />
                                             </button>
                                         </td>

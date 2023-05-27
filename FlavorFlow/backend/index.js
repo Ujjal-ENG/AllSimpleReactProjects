@@ -97,6 +97,26 @@ async function run() {
                 });
             }
         });
+
+        // cart delete collection
+        app.delete('/carts/:id', async (req, res) => {
+            try {
+                const { id } = req.params;
+                const result = await cartCollection.deleteOne({ _id: id });
+                if (result.deletedCount === 1) {
+                    res.status(201).json({
+                        success: true,
+                        message: 'Successfully deleted one Item!!',
+                    });
+                }
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when deleting the Cart data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
         // cart collection
         app.post('/carts', async (req, res) => {
             try {
