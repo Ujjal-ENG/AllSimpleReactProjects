@@ -13,9 +13,11 @@ import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../context/AuthProvider';
+import useCart from '../../../hooks/useCart';
 
 const SharedCard = ({ items }) => {
     const { userInfo } = useContext(AuthContext);
+    const [, refetch] = useCart();
     const location = useLocation();
     const navigate = useNavigate();
     const handleAddToCart = async (item) => {
@@ -25,6 +27,7 @@ const SharedCard = ({ items }) => {
             try {
                 const { data } = await axios.post('http://localhost:8080/carts', { item });
                 if (data.success) {
+                    refetch();
                     toast.success('Cart Items Added!!');
                 }
             } catch (error) {

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
@@ -10,9 +11,12 @@ import Lottie from 'react-lottie';
 import { NavLink } from 'react-router-dom';
 import animationData from '../../../assets/json/logo.json';
 import { AuthContext } from '../../../context/AuthProvider';
+import useCart from '../../../hooks/useCart';
 
 const Navbar = () => {
     const { userInfo, logOutUser } = useContext(AuthContext);
+
+    const [cart] = useCart();
 
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
@@ -36,7 +40,7 @@ const Navbar = () => {
                 <>
                     <button type="button" className="btn relative">
                         <HiShoppingBag className="text-5xl" />
-                        <div className="badge badge-secondary absolute top-0 -right-3">+99</div>
+                        <div className="badge badge-secondary absolute top-0 -right-3">+{cart?.length}</div>
                     </button>
                     <button type="button" className="btn text-white btn-outline btn-md" onClick={() => logOutUser()}>
                         Logout

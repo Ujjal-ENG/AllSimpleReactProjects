@@ -79,6 +79,24 @@ async function run() {
             }
         });
 
+        // cart get collection
+        app.get('/carts', async (req, res) => {
+            try {
+                const { email } = req.query;
+                const result = await cartCollection.find({ user: email }).toArray();
+                res.status(201).json({
+                    success: true,
+                    message: 'Cart Item is Created!!',
+                    data: result,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Posting the Cart data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
         // cart collection
         app.post('/carts', async (req, res) => {
             try {

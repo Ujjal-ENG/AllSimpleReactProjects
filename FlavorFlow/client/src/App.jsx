@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable comma-dangle */
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AOS from 'aos';
