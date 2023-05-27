@@ -7,8 +7,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/no-array-index-key */
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -394,7 +392,7 @@ const About = () => {
                 }}
             />
             <div className="absolute space-y-6">
-                <h1 className="text-4xl font-bold text-center py-4 text-white">About Me</h1>
+                <h1 className="text-4xl font-bold text-center py-4 text-black">About Me</h1>
                 <div className="max-w-[70px] p-1 bg-violet-600 w-full mx-auto" />
                 <Tabs>
                     <TabList className="flex gap-2">
@@ -422,7 +420,7 @@ const About = () => {
                                 typeSpeed={20}
                                 className="text-lg text-gray-800"
                             />
-                            <FontAwesomeIcon icon={faCoffee} as="img" spin size="2xl" color="red" className="coffee-icon" />
+
                             <br />
 
                             <br />
