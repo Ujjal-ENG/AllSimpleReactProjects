@@ -82,7 +82,12 @@ async function run() {
         // cart collection
         app.post('/carts', async (req, res) => {
             try {
-                
+                const { item } = req.body;
+                res.status(201).json({
+                    success: true,
+                    message: 'Cart Item is Created!!',
+                    data: item,
+                });
             } catch (error) {
                 res.status(500).json({
                     success: false,

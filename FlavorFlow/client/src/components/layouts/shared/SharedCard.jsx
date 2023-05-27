@@ -1,14 +1,21 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
+import axios from 'axios';
 import React from 'react';
 
 const SharedCard = ({ items }) => {
     const { image, name, price, recipe } = items;
-    const handleAddToCart = (item) => {
-        console.log(item);
+    const handleAddToCart = async (item) => {
+        try {
+            const { data } = await axios.post('http://localhost:8080/carts', { item });
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
