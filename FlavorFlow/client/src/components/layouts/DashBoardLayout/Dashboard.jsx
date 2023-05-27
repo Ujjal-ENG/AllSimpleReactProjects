@@ -13,8 +13,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div className="grid grid-cols-3 ">
-            <div className="drawer  drawer-mobile">
+        <div className="grid grid-cols-3">
+            <div className="drawer col-span-1  drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
@@ -92,7 +92,9 @@ const Dashboard = () => {
                     </ul>
                 </div>
             </div>
-            <Outlet />
+            <div className="col-span-2">
+                <Outlet />
+            </div>
         </div>
     );
 };
