@@ -1,9 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useContext, useEffect, useState } from 'react';
+import { HiShoppingBag } from 'react-icons/hi';
 import Lottie from 'react-lottie';
 import { NavLink } from 'react-router-dom';
 import animationData from '../../../assets/json/logo.json';
@@ -39,6 +41,10 @@ const Navbar = () => {
                     Login
                 </NavLink>
             )}
+            <button type="button" className="btn relative">
+                <HiShoppingBag className="text-5xl" />
+                <div className="badge badge-secondary absolute top-0 -right-3">+99</div>
+            </button>
         </div>
     );
 
