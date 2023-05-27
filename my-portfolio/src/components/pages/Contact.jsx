@@ -25,7 +25,7 @@ const Contact = () => {
         e.target.reset();
     };
     return (
-        <div className="h-screen  w-full" id="contact">
+        <div data-aos="fade-up" className="h-screen  w-full" id="contact">
             <section className="py-10  bg-gradient-to-r w-full from-fuchsia-600 to-blue-600 sm:py-16 lg:py-24">
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div className="max-w-2xl mx-auto text-center">
