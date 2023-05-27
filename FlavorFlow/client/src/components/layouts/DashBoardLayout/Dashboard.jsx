@@ -9,7 +9,7 @@ import { HiMenu } from 'react-icons/hi';
 import { MdContactPhone, MdOutlineRateReview } from 'react-icons/md';
 import { RiSecurePaymentFill } from 'react-icons/ri';
 import { TbBrandBooking } from 'react-icons/tb';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -28,66 +28,66 @@ const Dashboard = () => {
                         <h4 className="text-2xl uppercase tracking-widest font-bold text-center pt-2 pb-14">Restaurant</h4>
 
                         <li>
-                            <Link to="/dashboard" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/dashboard" className="text-xl font-semibold uppercase hover:text-white">
                                 <AiFillHome />
                                 User Home
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/reservations" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/reservations" className="text-xl font-semibold uppercase hover:text-white">
                                 <BsFillCalendar2DayFill />
                                 Reservation
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/payments" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/payments" className="text-xl font-semibold uppercase hover:text-white">
                                 <RiSecurePaymentFill />
                                 Payment History
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="carts" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/dashboard/carts" className="text-xl font-semibold uppercase hover:text-white">
                                 <BsFillCartFill />
                                 My Cart
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/reviews" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/reviews" className="text-xl font-semibold uppercase hover:text-white">
                                 <MdOutlineRateReview />
                                 Add Review
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/bookings" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/bookings" className="text-xl font-semibold uppercase hover:text-white">
                                 <TbBrandBooking />
                                 My Booking
-                            </Link>
+                            </NavLink>
                         </li>
 
                         <div className="divider text-white" />
                         <li>
-                            <Link to="/" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/" className="text-xl font-semibold uppercase hover:text-white">
                                 <AiFillHome />
                                 Home
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/our-menu" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/our-menu" className="text-xl font-semibold uppercase hover:text-white">
                                 <HiMenu />
                                 Food Menu
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/order-food/salad" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/order-food/salad" className="text-xl font-semibold uppercase hover:text-white">
                                 <AiFillShopping />
                                 Shop
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/order-food/salad" className="text-xl font-semibold uppercase hover:text-white">
+                            <NavLink to="/order-food/salad" className="text-xl font-semibold uppercase hover:text-white">
                                 <MdContactPhone />
                                 Contact
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
