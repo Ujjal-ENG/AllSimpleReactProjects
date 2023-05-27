@@ -7,12 +7,13 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 import axios from 'axios';
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const SharedCard = ({ items }) => {
     const { userInfo } = useContext(AuthContext);
+    const location = useLocation();
     const navigate = useNavigate();
     const handleAddToCart = async (item) => {
         if (userInfo) {
@@ -33,7 +34,8 @@ const SharedCard = ({ items }) => {
                 confirmButtonText: 'Login Now'
             });
             if (result.isConfirmed) {
-                navigate('/login');
+                // Todo: Location relocation
+                navigate('/login', { state: { from: location } });
             }
         }
     };
