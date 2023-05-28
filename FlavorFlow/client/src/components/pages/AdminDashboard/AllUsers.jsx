@@ -9,8 +9,8 @@
 import axios from 'axios';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { GrGroup } from 'react-icons/gr';
-import { RiDeleteBin6Line } from 'react-icons/ri';
+
+import { RiAdminFill, RiDeleteBin6Line } from 'react-icons/ri';
 import Swal from 'sweetalert2';
 import AllUser from '../../../hooks/allUsers';
 import SharedTitle from '../../layouts/shared/SharedTitle';
@@ -70,13 +70,15 @@ const AllUsers = () => {
                                         <td>{el.email}</td>
 
                                         <td>
-                                            {' '}
-                                            <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-warning  border-0">
-                                                <GrGroup className="text-2xl text-white" />
-                                            </button>
+                                            {el.role === 'admin' ? (
+                                                'admin'
+                                            ) : (
+                                                <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-warning  border-0">
+                                                    <RiAdminFill className="text-2xl text-white" />
+                                                </button>
+                                            )}
                                         </td>
                                         <td>
-                                            {' '}
                                             <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-error  border-0">
                                                 <RiDeleteBin6Line className="text-2xl text-white" />
                                             </button>
