@@ -56,41 +56,43 @@ const UserCarts = () => {
                 <div className="overflow-x-auto ">
                     <table className="table text-center w-full">
                         {/* head */}
-                        <thead style={{ backgroundColor: '#D1A054' }}>
-                            <tr className="uppercase">
-                                <th />
-                                <th>Item Image</th>
-                                <th>Item Name</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            {cart.length > 0 ? (
-                                cart.map((el, idx) => (
-                                    <tr key={el._id}>
-                                        <th>{(idx += 1)}</th>
-                                        <td>
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={el.image} alt={el.name} />
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>{el.name}</td>
-                                        <td>{el.price}</td>
-                                        <td>
-                                            <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-error  border-0">
-                                                <RiDeleteBin6Line className="text-2xl text-white" />
-                                            </button>
-                                        </td>
+                        {!cart.length === 0 ? (
+                            <>
+                                <thead style={{ backgroundColor: '#D1A054' }}>
+                                    <tr className="uppercase">
+                                        <th />
+                                        <th>Item Image</th>
+                                        <th>Item Name</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
                                     </tr>
-                                ))
-                            ) : (
-                                <h1 className="text-4xl font-semibold tracking-wider">You Don't have added any Items or You deleted all the items!!</h1>
-                            )}
-                        </tbody>
+                                </thead>
+                                <tbody>
+                                    {/* row 1 */}
+                                    {cart.map((el, idx) => (
+                                        <tr key={el._id}>
+                                            <th>{(idx += 1)}</th>
+                                            <td>
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle w-12 h-12">
+                                                        <img src={el.image} alt={el.name} />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{el.name}</td>
+                                            <td>{el.price}</td>
+                                            <td>
+                                                <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-error  border-0">
+                                                    <RiDeleteBin6Line className="text-2xl text-white" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </>
+                        ) : (
+                            <h1 className="text-4xl font-semibold tracking-wider">You Don't have added any Items or You deleted all the items!!</h1>
+                        )}
                     </table>
                 </div>
             </div>
