@@ -43,8 +43,8 @@ const AuthProvider = ({ children }) => {
         await signOut(auth);
     };
 
-    const singInGoogle = async () => {
-        await signInWithPopup(auth, googleProvider);
+    const singInGoogle = () => {
+        return signInWithPopup(auth, googleProvider);
     };
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, (user) => {

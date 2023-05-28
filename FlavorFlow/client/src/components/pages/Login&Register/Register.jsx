@@ -14,7 +14,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 import './styles.css';
 
 const Register = () => {
-    const { createUser, setLoading, loading, userInfo, singInGoogle, setPrivateLoad } = useContext(AuthContext);
+    const { createUser, setLoading, loading, singInGoogle, setPrivateLoad } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -45,15 +45,17 @@ const Register = () => {
     const handleGoogleSignIn = async () => {
         setLoading(true);
         try {
-            await singInGoogle();
-            console.log(userInfo);
+            const result = await singInGoogle();
+            const { user } = result;
+            console.log(user);
+            const { displayName, email } = user;
             toast.success('Successfully Logged In');
             setLoading(false);
             navigate(from, { replace: true });
+            await axios.post('http://localhost:8080/users', { name: displayName, email });
         } catch (error) {
             setLoading(false);
             console.log(error);
-            toast.error('Error occurred while user try to SignIn with Google!!');
         }
     };
     return (

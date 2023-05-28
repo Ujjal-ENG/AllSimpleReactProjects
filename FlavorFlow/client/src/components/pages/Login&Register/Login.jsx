@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable max-len */
 /* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
@@ -6,6 +7,7 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
+import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -44,18 +46,22 @@ const Login = () => {
         }
     };
     const handleGoogleSignIn = async () => {
-        setLoading(true);
         try {
-            await singInGoogle();
+            setLoading(true);
+            const result = await singInGoogle();
+            const { user } = result;
             toast.success('Successfully Logged In');
+            const { displayName, email } = user;
+            await axios.post('http://localhost:8080/users', { name: displayName, email });
             setLoading(false);
             navigate(from, { replace: true });
         } catch (error) {
-            setLoading(false);
             console.log(error);
-            toast.error('Error occurred while user try to SignIn with Google!!');
+            setLoading(false);
+            toast.error('An error occurred during Google Sign-In');
         }
     };
+
     const handleCaptcha = () => {
         const captcha = captchRef.current.value;
         if (validateCaptcha(captcha)) {

@@ -50,6 +50,11 @@ async function run() {
         // user creation api
         app.post('/users', async (req, res) => {
             try {
+                const { email } = req.body;
+                const isExistUser = await userCollection.findOne({ email });
+                if (isExistUser) {
+                    return res.status(404).json({ message: 'Email is already Registered' });
+                }
                 const result = await userCollection.insertOne({
                     ...req.body,
                 });
