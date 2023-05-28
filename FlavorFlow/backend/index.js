@@ -3,7 +3,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
 const PORT = process.env.PORT || 8080;
@@ -60,6 +60,26 @@ async function run() {
                 res.status(500).json({
                     success: false,
                     message: 'Error occurred when fetching the Users  data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
+        // user delete collection
+        app.delete('/users/:id', async (req, res) => {
+            try {
+                const { id } = req.params;
+                const result = await userCollection.deleteOne({ _id: new ObjectId(id) });
+                if (result.deletedCount === 1) {
+                    res.status(201).json({
+                        success: true,
+                        message: 'Successfully deleted one Item!!',
+                    });
+                }
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when deleting the User data!!',
                     error: error.message, // Include the error message in the response
                 });
             }
@@ -152,7 +172,7 @@ async function run() {
         app.delete('/carts/:id', async (req, res) => {
             try {
                 const { id } = req.params;
-                const result = await cartCollection.deleteOne({ _id: id });
+                const result = await cartCollection.deleteOne({ _id: new ObjectId(id) });
                 if (result.deletedCount === 1) {
                     res.status(201).json({
                         success: true,

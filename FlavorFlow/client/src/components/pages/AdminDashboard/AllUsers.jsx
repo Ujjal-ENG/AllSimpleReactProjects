@@ -16,7 +16,7 @@ import AllUser from '../../../hooks/allUsers';
 import SharedTitle from '../../layouts/shared/SharedTitle';
 
 const AllUsers = () => {
-    const [users] = AllUser();
+    const [users, refetch] = AllUser();
 
     const handleDelete = async (id) => {
         try {
@@ -29,9 +29,11 @@ const AllUsers = () => {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
             });
+
             if (result.isConfirmed) {
-                await axios.delete(`http://localhost:8080/carts/${id}`);
-                Swal.fire('Deleted!', 'Your Food Item has been deleted.', 'success');
+                await axios.delete(`http://localhost:8080/users/${id}`);
+                Swal.fire('Deleted!', 'User is Deleted.', 'success');
+                refetch();
             }
         } catch (error) {
             console.log(error);
