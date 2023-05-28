@@ -46,7 +46,7 @@ const Register = () => {
             console.log(userInfo);
             toast.success('Successfully Logged In');
             setLoading(false);
-            navigate(from);
+            navigate(from, { replace: true });
         } catch (error) {
             setLoading(false);
             console.log(error);

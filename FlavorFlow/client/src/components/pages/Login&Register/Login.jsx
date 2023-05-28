@@ -33,7 +33,7 @@ const Login = () => {
         setPrivateLoad(true);
         try {
             signInUser(email, password);
-            navigate(from);
+            navigate(from, { replace: true });
             toast.success('User is Logged in Successfully!!!');
             setLoading(false);
         } catch (error) {
@@ -48,13 +48,14 @@ const Login = () => {
             await singInGoogle();
             toast.success('Successfully Logged In');
             setLoading(false);
-            navigate(from);
+            navigate(from, { replace: true });
         } catch (error) {
             setLoading(false);
             console.log(error);
             toast.error('Error occurred while user try to SignIn with Google!!');
         }
     };
+    console.log(location);
     const handleCaptcha = () => {
         const captcha = captchRef.current.value;
         if (validateCaptcha(captcha)) {
