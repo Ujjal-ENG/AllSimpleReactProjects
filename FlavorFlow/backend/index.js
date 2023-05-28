@@ -47,6 +47,23 @@ async function run() {
 
         // users related api
 
+        // get all users
+        app.get('/users', async (req, res) => {
+            try {
+                const usersData = await userCollection.find().toArray();
+                res.status(200).json({
+                    success: true,
+                    message: 'Data found!!',
+                    data: usersData,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when fetching the Users  data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
         // user creation api
         app.post('/users', async (req, res) => {
             try {
