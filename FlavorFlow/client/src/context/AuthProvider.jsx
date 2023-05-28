@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
+import axios from 'axios';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -25,7 +27,8 @@ const AuthProvider = ({ children }) => {
                 displayName: name,
                 photoURL: photo
             });
-            toast.success('User is Created Successfully!!!');
+            await axios.post('http://localhost:8080/users', { name, email });
+
             await signOut(auth);
             setLoading(false);
         } catch (error) {

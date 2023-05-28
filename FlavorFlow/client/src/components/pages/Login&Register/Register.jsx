@@ -3,6 +3,7 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../../assets/others/authentication2.png';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -18,6 +19,7 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         createUser(name, photo, email, password);
+        toast.success('User is Created Successfully!!!');
         navigate('/login');
     };
     return (
