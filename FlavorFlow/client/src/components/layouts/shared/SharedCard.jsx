@@ -45,7 +45,7 @@ const SharedCard = ({ items }) => {
             });
             if (result.isConfirmed) {
                 // Todo: Location relocation
-                navigate('/login', { state: { from: location } });
+                navigate('/login', { state: { from: location }, replace: true });
             }
         }
     };

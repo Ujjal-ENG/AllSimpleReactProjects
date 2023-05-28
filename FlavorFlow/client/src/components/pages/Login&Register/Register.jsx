@@ -16,6 +16,9 @@ import './styles.css';
 const Register = () => {
     const { createUser, setLoading, loading, userInfo, singInGoogle, setPrivateLoad } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
     const handleSubmit = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -25,11 +28,13 @@ const Register = () => {
         setLoading(true);
         setPrivateLoad(true);
         try {
-            createUser(name, photo, email, password);
-            toast.success('User is Created Successfully!!!');
-            navigate('/login');
-            await axios.post('http://localhost:8080/users', { name, email });
-            setLoading(false);
+            const user = createUser(name, photo, email, password);
+            if (user) {
+                toast.success('User is Created Successfully!!!');
+                navigate('/login');
+                await axios.post('http://localhost:8080/users', { name, email });
+                setLoading(false);
+            }
         } catch (error) {
             console.log(error);
             setLoading(false);
@@ -37,8 +42,6 @@ const Register = () => {
         }
     };
 
-    const location = useLocation();
-    const from = location?.pathname?.from || '/';
     const handleGoogleSignIn = async () => {
         setLoading(true);
         try {

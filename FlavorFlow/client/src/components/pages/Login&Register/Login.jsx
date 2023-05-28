@@ -20,7 +20,8 @@ const Login = () => {
     const captchRef = useRef(null);
     const [isClicked, setIsClicked] = useState(true);
     const location = useLocation();
-    const from = location?.pathname?.from || '/';
+    const from = location?.state?.from?.pathname || '/';
+
     const navigate = useNavigate();
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -55,7 +56,6 @@ const Login = () => {
             toast.error('Error occurred while user try to SignIn with Google!!');
         }
     };
-    console.log(location);
     const handleCaptcha = () => {
         const captcha = captchRef.current.value;
         if (validateCaptcha(captcha)) {
