@@ -65,6 +65,30 @@ async function run() {
             }
         });
 
+        // update user document
+        app.patch('/users/admin/:id', async (req, res) => {
+            try {
+                const { id } = req.params;
+                const updateDoc = {
+                    $set: {
+                        role: 'admin',
+                    },
+                };
+                const result = await userCollection.updateOne({ _id: new ObjectId(id) }, updateDoc);
+                res.status(200).json({
+                    success: true,
+                    message: 'User is Updated Successfully!!',
+                    data: result,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Updating the Users data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
         // user delete collection
         app.delete('/users/:id', async (req, res) => {
             try {

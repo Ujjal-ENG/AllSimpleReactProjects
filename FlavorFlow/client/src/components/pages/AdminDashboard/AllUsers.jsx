@@ -39,6 +39,27 @@ const AllUsers = () => {
             console.log(error);
         }
     };
+    const handleMakeAdmin = async (id) => {
+        try {
+            const result = await Swal.fire({
+                title: 'Are you sure to make User Admin?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Admin it!'
+            });
+
+            if (result.isConfirmed) {
+                await axios.patch(`http://localhost:8080/users/admin/${id}`);
+                Swal.fire('Congrats!', 'User is now Admin Position.', 'success');
+                refetch();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <div className="w-full -ml-0 md:-ml-36">
@@ -73,7 +94,7 @@ const AllUsers = () => {
                                             {el.role === 'admin' ? (
                                                 'admin'
                                             ) : (
-                                                <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-warning  border-0">
+                                                <button onClick={() => handleMakeAdmin(el._id)} type="button" className="btn btn-warning  border-0">
                                                     <RiAdminFill className="text-2xl text-white" />
                                                 </button>
                                             )}
