@@ -52,13 +52,12 @@ const Login = () => {
             const { user } = result;
             toast.success('Successfully Logged In');
             const { displayName, email } = user;
-            await axios.post('http://localhost:8080/users', { name: displayName, email });
             setLoading(false);
             navigate(from, { replace: true });
+            await axios.post('http://localhost:8080/users', { name: displayName, email });
         } catch (error) {
             console.log(error);
             setLoading(false);
-            toast.error('An error occurred during Google Sign-In');
         }
     };
 
