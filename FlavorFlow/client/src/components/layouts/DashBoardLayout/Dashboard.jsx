@@ -6,10 +6,12 @@
 import React from 'react';
 import { AiFillHome, AiFillShopping } from 'react-icons/ai';
 import { BsFillCalendar2DayFill, BsFillCartFill } from 'react-icons/bs';
-import { HiMenu } from 'react-icons/hi';
+import { FaUtensils } from 'react-icons/fa';
+import { HiMenu, HiUserGroup } from 'react-icons/hi';
 import { MdContactPhone, MdOutlineRateReview } from 'react-icons/md';
-import { RiSecurePaymentFill } from 'react-icons/ri';
+import { RiContactsBook2Fill, RiSecurePaymentFill } from 'react-icons/ri';
 import { TbBrandBooking } from 'react-icons/tb';
+import { TfiMenuAlt } from 'react-icons/tfi';
 import { NavLink, Outlet } from 'react-router-dom';
 import useCart from '../../../hooks/useCart';
 
@@ -18,6 +20,7 @@ const Dashboard = () => {
 
     // TODO: load data from the server to have dynamic isAdmin based on Data
     const isAdmin = true;
+
     return (
         <div className="grid grid-cols-3">
             <div className="drawer col-span-1  drawer-mobile">
@@ -32,44 +35,80 @@ const Dashboard = () => {
                     <ul className="menu p-4 w-80 bg-[#D1A054] text-base-content">
                         <h1 className="text-4xl uppercase font-bold text-center py-2">Flavor | Flow</h1>
                         <h4 className="text-2xl uppercase tracking-widest font-bold text-center pt-2 pb-14">Restaurant</h4>
-
-                        <li>
-                            <NavLink to="/dashboard/home" className="text-xl font-semibold uppercase hover:text-white">
-                                <AiFillHome />
-                                User Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/reservations" className="text-xl font-semibold uppercase hover:text-white">
-                                <BsFillCalendar2DayFill />
-                                Reservation
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/payments" className="text-xl font-semibold uppercase hover:text-white">
-                                <RiSecurePaymentFill />
-                                Payment History
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/carts" className="text-xl font-semibold uppercase hover:text-white">
-                                <BsFillCartFill />
-                                My Cart
-                                <div className="badge badge-secondary">+{cart?.length || 0}</div>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/reviews" className="text-xl font-semibold uppercase hover:text-white">
-                                <MdOutlineRateReview />
-                                Add Review
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/bookings" className="text-xl font-semibold uppercase hover:text-white">
-                                <TbBrandBooking />
-                                My Booking
-                            </NavLink>
-                        </li>
+                        {isAdmin ? (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/home" className="text-xl font-semibold uppercase hover:text-white">
+                                        <AiFillHome />
+                                        Admin Home
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/reservations" className="text-xl font-semibold uppercase hover:text-white">
+                                        <FaUtensils />
+                                        Add Items
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/payments" className="text-xl font-semibold uppercase hover:text-white">
+                                        <TfiMenuAlt />
+                                        Manage Items
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/carts" className="text-xl font-semibold uppercase hover:text-white">
+                                        <RiContactsBook2Fill />
+                                        Manage Bookings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/reviews" className="text-xl font-semibold uppercase hover:text-white">
+                                        <HiUserGroup />
+                                        All Users
+                                    </NavLink>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/home" className="text-xl font-semibold uppercase hover:text-white">
+                                        <AiFillHome />
+                                        User Home
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/reservations" className="text-xl font-semibold uppercase hover:text-white">
+                                        <BsFillCalendar2DayFill />
+                                        Reservation
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/payments" className="text-xl font-semibold uppercase hover:text-white">
+                                        <RiSecurePaymentFill />
+                                        Payment History
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/carts" className="text-xl font-semibold uppercase hover:text-white">
+                                        <BsFillCartFill />
+                                        My Cart
+                                        <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/reviews" className="text-xl font-semibold uppercase hover:text-white">
+                                        <MdOutlineRateReview />
+                                        Add Review
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/bookings" className="text-xl font-semibold uppercase hover:text-white">
+                                        <TbBrandBooking />
+                                        My Booking
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
 
                         <div className="divider text-white" />
                         <li>
