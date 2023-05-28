@@ -62,7 +62,7 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/reviews" className="text-xl font-semibold uppercase hover:text-white">
+                                    <NavLink to="/dashboard/all-users" className="text-xl font-semibold uppercase hover:text-white">
                                         <HiUserGroup />
                                         All Users
                                     </NavLink>
