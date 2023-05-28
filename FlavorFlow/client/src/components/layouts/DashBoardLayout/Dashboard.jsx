@@ -15,6 +15,9 @@ import useCart from '../../../hooks/useCart';
 
 const Dashboard = () => {
     const [cart] = useCart();
+
+    // TODO: load data from the server to have dynamic isAdmin based on Data
+    const isAdmin = true;
     return (
         <div className="grid grid-cols-3">
             <div className="drawer col-span-1  drawer-mobile">

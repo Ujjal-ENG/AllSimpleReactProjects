@@ -44,7 +44,6 @@ const SharedCard = ({ items }) => {
                 confirmButtonText: 'Login Now'
             });
             if (result.isConfirmed) {
-                // Todo: Location relocation
                 navigate('/login', { state: { from: location }, replace: true });
             }
         }
