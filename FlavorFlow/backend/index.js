@@ -40,10 +40,33 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
+        const userCollection = client.db('FlavorFlow').collection('Users');
         const menuCollection = client.db('FlavorFlow').collection('Menus');
         const reviewCollection = client.db('FlavorFlow').collection('Reviews');
         const cartCollection = client.db('FlavorFlow').collection('Carts');
 
+        // users related api
+
+        // user creation api
+        app.post('/users', async (req, res) => {
+            try {
+                const result = await userCollection.insertOne({
+                    ...req.body,
+                });
+                res.status(201).json({
+                    success: true,
+                    message: 'User Created Successfully!!',
+                    data: result,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when creating the Users data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+        // menu related api
         // get menu
         app.get('/menu', async (req, res) => {
             try {
@@ -61,6 +84,8 @@ async function run() {
                 });
             }
         });
+
+        // All reviews related api
         // get reviews
         app.get('/reviews', async (req, res) => {
             try {
@@ -78,6 +103,8 @@ async function run() {
                 });
             }
         });
+
+        // All carts related api
 
         // cart get collection
         app.get('/carts', async (req, res) => {
