@@ -4,8 +4,8 @@ import React from 'react';
 
 const SideBar = () => {
     return (
-        <div>
-            <div className="drawer drawer-mobile">
+        <div className="grid md:grid-cols-3 grid-cols-1">
+            <div className="drawer drawer-mobile col-span-1 border-2">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
