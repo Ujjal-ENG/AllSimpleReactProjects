@@ -12,7 +12,11 @@ const useCart = () => {
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', userInfo?.email],
         queryFn: async () => {
-            const { data } = await axios.get(`http://localhost:8080/carts?email=${userInfo.email}`);
+            const { data } = await axios.get(`http://localhost:8080/carts?email=${userInfo.email}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
 
             if (data.success) return data.data;
         }

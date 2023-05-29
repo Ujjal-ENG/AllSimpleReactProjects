@@ -16,6 +16,33 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// jwt middleware
+const verifyJWT = async (req, res, next) => {
+    try {
+        const { authorization } = req.headers;
+        if (!authorization) {
+            return res.status(401).json({
+                success: false,
+                message: 'Unauthorized Access!!',
+            });
+        }
+        const token = authorization.split(' ')[1];
+
+        jwt.verify(token, process.env.SECRET_KEY, (err, decode) => {
+            if (err) {
+                return res.status(401).json({
+                    success: false,
+                    message: 'Unauthorized Access!!',
+                });
+            }
+            req.user = decode;
+            next();
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 // default route
 app.get('/', (req, res) => {
     res.json({ message: 'Hello from Server' });
@@ -182,9 +209,21 @@ async function run() {
         // All carts related api
 
         // cart get collection
-        app.get('/carts', async (req, res) => {
+        app.get('/carts', verifyJWT, async (req, res) => {
             try {
                 const { email } = req.query;
+                if (!email) {
+                    res.status(200).json([]);
+                }
+
+                const decodedEmail = req.user.email;
+                if (email !== decodedEmail) {
+                    return res.status(403).json({
+                        success: false,
+                        message: 'Forbidden Access!!',
+                    });
+                }
+
                 const result = await cartCollection.find({ user: email }).toArray();
                 res.status(201).json({
                     success: true,
