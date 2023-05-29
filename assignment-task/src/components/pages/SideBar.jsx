@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
     return (
-        <div className="grid md:grid-cols-3 grid-cols-1">
+        <div>
             <div className="drawer drawer-mobile col-span-1 border-2">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
@@ -16,7 +17,7 @@ const SideBar = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay" />
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li>
-                            <a>Sidebar Item 1</a>
+                            <NavLink to="text">Test</NavLink>
                         </li>
                         <li>
                             <a>Sidebar Item 2</a>
