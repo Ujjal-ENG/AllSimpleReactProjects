@@ -80,8 +80,30 @@ async function run() {
 
             res.json({ token });
         });
-        // users related api
 
+        // users related api
+        // check admin or not
+        app.get('/users/admin/:email', verifyJWT, async (req, res) => {
+            try {
+                const { email } = req.params;
+
+                const decodedEmail = req.user.email;
+
+                if (decodedEmail !== email) {
+                    return res.status(403).json({ message: 'Forbidden Access' });
+                }
+                const user = await userCollection.findOne({ email });
+                const result = { admin: user?.role === 'admin' };
+
+                res.status(200).json({
+                    success: true,
+                    message: 'Your are verified admin!',
+                    data: result,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
         // get all users
         app.get('/users', async (req, res) => {
             try {

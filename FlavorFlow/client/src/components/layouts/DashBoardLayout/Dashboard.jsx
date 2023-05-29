@@ -13,13 +13,15 @@ import { RiContactsBook2Fill, RiSecurePaymentFill } from 'react-icons/ri';
 import { TbBrandBooking } from 'react-icons/tb';
 import { TfiMenuAlt } from 'react-icons/tfi';
 import { NavLink, Outlet } from 'react-router-dom';
+import useAdmin from '../../../hooks/useAdmin';
 import useCart from '../../../hooks/useCart';
 
 const Dashboard = () => {
     const [cart] = useCart();
 
     // TODO: load data from the server to have dynamic isAdmin based on Data
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="grid grid-cols-3">
