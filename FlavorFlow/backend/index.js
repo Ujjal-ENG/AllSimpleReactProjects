@@ -3,6 +3,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
+import jwt from 'jsonwebtoken';
 import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get('/health', (req, res) => {
     res.json({ message: 'This server Health is very good!!' });
 });
 
+// jwt token
 // mongodb database
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.zzrczzq.mongodb.net/?retryWrites=true&w=majority`;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -44,7 +46,13 @@ async function run() {
         const menuCollection = client.db('FlavorFlow').collection('Menus');
         const reviewCollection = client.db('FlavorFlow').collection('Reviews');
         const cartCollection = client.db('FlavorFlow').collection('Carts');
+        // jwt security
+        app.post('/jwt', (req, res) => {
+            const user = req.body;
+            const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' });
 
+            res.json({ token });
+        });
         // users related api
 
         // get all users

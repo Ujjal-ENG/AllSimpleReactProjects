@@ -2,6 +2,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
+import axios from 'axios';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -47,8 +48,14 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider);
     };
     useEffect(() => {
-        const unSubscriber = onAuthStateChanged(auth, (user) => {
+        const unSubscriber = onAuthStateChanged(auth, async (user) => {
             setUserInfo(user);
+
+            // get and set token
+            if (user) {
+                const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
+                localStorage.setItem('token', data.token);
+            }
             setPrivateLoad(false);
         });
         return () => unSubscriber();
