@@ -76,7 +76,7 @@ async function run() {
         // jwt security
         app.post('/jwt', (req, res) => {
             const user = req.body;
-            const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' });
+            const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '10s' });
 
             res.json({ token });
         });
@@ -217,6 +217,7 @@ async function run() {
                 }
 
                 const decodedEmail = req.user.email;
+
                 if (email !== decodedEmail) {
                     return res.status(403).json({
                         success: false,
