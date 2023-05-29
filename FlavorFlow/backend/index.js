@@ -20,10 +20,11 @@ app.use(cors());
 const verifyJWT = async (req, res, next) => {
     try {
         const { authorization } = req.headers;
+
         if (!authorization) {
             return res.status(401).json({
                 success: false,
-                message: 'Unauthorized Access!!',
+                message: 'Unauthorized Accesss from server!!',
             });
         }
         const token = authorization.split(' ')[1];
@@ -75,11 +76,35 @@ async function run() {
         const cartCollection = client.db('FlavorFlow').collection('Carts');
         // jwt security
         app.post('/jwt', (req, res) => {
-            const user = req.body;
-            const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '10s' });
-
-            res.json({ token });
+            try {
+                const user = req.body;
+                const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' });
+                res.json({ token });
+            } catch (error) {
+                console.log(error);
+            }
         });
+
+        // check isAdmin MiddleWare
+        const verifyAdmin = async (req, res, next) => {
+            try {
+                const { email } = req.user;
+                const user = await userCollection.findOne({ email });
+                if (user?.role !== 'admin') {
+                    return res.status(403).json({
+                        success: false,
+                        message: 'Forbidden Access!!',
+                    });
+                }
+                next();
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Internal Server Error',
+                    error: error.message,
+                });
+            }
+        };
 
         // users related api
         // check admin or not
@@ -104,8 +129,9 @@ async function run() {
                 console.log(error);
             }
         });
+
         // get all users
-        app.get('/users', async (req, res) => {
+        app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
             try {
                 const usersData = await userCollection.find().toArray();
                 res.status(200).json({

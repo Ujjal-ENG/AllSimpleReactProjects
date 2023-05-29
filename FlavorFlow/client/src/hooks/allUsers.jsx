@@ -6,10 +6,17 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 const AllUser = () => {
+    const token = localStorage.getItem('token');
     const { refetch, data: users = [] } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', token],
         queryFn: async () => {
-            const { data } = await axios.get('http://localhost:8080/users');
+            if (!token) return [];
+
+            const { data } = await axios.get('http://localhost:8080/users', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
 
             if (data.success) return data.data;
         }
