@@ -5,10 +5,10 @@ import axios from 'axios';
 import useAuth from './useAuth';
 
 const useAdmin = () => {
-    const { userInfo, loading } = useAuth();
+    const { userInfo } = useAuth();
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
         queryKey: ['isAmin'],
-        enabled: !loading,
+
         queryFn: async () => {
             const { data } = await axios.get(`http://localhost:8080/users/admin/${userInfo.email}`, {
                 headers: {

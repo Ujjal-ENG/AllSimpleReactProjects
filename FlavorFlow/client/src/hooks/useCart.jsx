@@ -13,7 +13,7 @@ const useCart = () => {
         queryKey: ['carts', userInfo?.email],
         enabled: !loading,
         queryFn: async () => {
-            const { data } = await axios.get(`http://localhost:8080/carts?email=${userInfo.email}`, {
+            const { data } = await axios.get(`http://localhost:8080/carts?email=${userInfo?.email}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
