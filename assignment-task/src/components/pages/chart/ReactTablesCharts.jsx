@@ -19,9 +19,9 @@ const ReactTablesCharts = () => {
             y2: [151729266, 244595555, 213973344, 187934565, 209883469, 164612977, 201036506, 245573737, 157334842, 147887868, 176581251]
         },
         names: {
-            y0: 'Sales',
-            y1: 'Marketing',
-            y2: 'Operations'
+            y0: 'Visits',
+            y1: 'Orders',
+            y2: 'Refused'
         },
         colors: {
             y0: '#2373DB',
