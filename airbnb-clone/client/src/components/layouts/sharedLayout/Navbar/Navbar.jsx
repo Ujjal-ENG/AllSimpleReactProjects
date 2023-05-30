@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/images/logo.png';
-import Container from './Container';
+import logo from '../../../../assets/images/logo.png';
+import Container from '../Container';
 
 const Navbar = () => {
     return (
@@ -12,7 +12,7 @@ const Navbar = () => {
                         <Link to="/" className="hidden md:block">
                             <img src={logo} alt="logo" className="w-32 h-10 cursor-pointer" />
                         </Link>
-                        <div>Search</div>
+                        <div>search</div>
                         <div>Menu</div>
                     </div>
                 </Container>
