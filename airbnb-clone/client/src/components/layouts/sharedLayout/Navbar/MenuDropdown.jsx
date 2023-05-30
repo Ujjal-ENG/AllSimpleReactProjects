@@ -6,7 +6,7 @@ import avatar from '../../../../assets/images/placeholder.jpg';
 import useAuth from '../../../../hooks/useAuth';
 
 const MenuDropdown = () => {
-    const { user, logOut } = useAuth();
+    const { userInfo, logOut } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
@@ -18,7 +18,7 @@ const MenuDropdown = () => {
                 <div onClick={toggleOpen} className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">
                     <AiOutlineMenu />
                     <div className="hidden md:block">
-                        <img src={avatar} alt="avatar" className="w-8 h-8 rounded-full" />
+                        <img src={userInfo ? userInfo.photoURL : avatar} alt="avatar" className="w-8 h-8 rounded-full" />
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@ const MenuDropdown = () => {
                         <Link to="/" className="block  px-4 py-3 hover:bg-neutral-100 transition font-semibold">
                             Home
                         </Link>
-                        {user ? (
+                        {userInfo ? (
                             <div onClick={logOut} className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
                                 Logout
                             </div>
