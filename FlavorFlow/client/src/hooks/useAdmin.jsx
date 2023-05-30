@@ -1,3 +1,4 @@
+/* eslint-disable no-promise-executor-return */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 import { useQuery } from '@tanstack/react-query';
@@ -9,9 +10,9 @@ const useAdmin = () => {
     const token = localStorage.getItem('token');
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
         queryKey: ['isAmin', token],
-
         queryFn: async () => {
-            const { data } = await axios.get(`http://localhost:8080/users/admin/${userInfo.email}`, {
+            if (!userInfo) return false;
+            const { data } = await axios.get(`http://localhost:8080/users/admin/${userInfo?.email}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

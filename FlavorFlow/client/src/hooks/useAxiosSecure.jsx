@@ -14,10 +14,9 @@ const useAxiosSecure = () => {
     const axiosSecure = axios.create({
         baseURL: 'http://localhost:8080'
     });
-
+    const token = localStorage.getItem('token');
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {
-            const token = localStorage.getItem('token');
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
             }
@@ -34,7 +33,7 @@ const useAxiosSecure = () => {
                 return Promise.reject(error);
             }
         );
-    }, [logOutUser, navigate, axiosSecure]);
+    }, [logOutUser, navigate, axiosSecure, token]);
 
     return [axiosSecure];
 };
