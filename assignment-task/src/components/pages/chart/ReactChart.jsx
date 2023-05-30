@@ -31,7 +31,7 @@ const ReachChart = () => {
     };
 
     return (
-        <div className="container shadow-2xl px-5 py-2 max-h-[600px] mt-6">
+        <div className="container shadow-2xl px-5 py-2 bg-white max-h-[600px] mt-6">
             <h1 className="text-xl font-bold pt-7">Sales Report</h1>
             <Charty {...BOX_OFFICE_DATA} title="Sales Report" style={{ width: '100%', height: 500 }} tepX={1} startX={2015} endX={2024} />
         </div>
