@@ -292,7 +292,7 @@ async function run() {
         app.delete('/carts/:id', async (req, res) => {
             try {
                 const { id } = req.params;
-                const result = await cartCollection.deleteOne({ _id: new ObjectId(id) });
+                const result = await cartCollection.deleteOne({ _id: id });
                 if (result.deletedCount === 1) {
                     res.status(201).json({
                         success: true,
