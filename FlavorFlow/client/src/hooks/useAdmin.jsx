@@ -6,13 +6,14 @@ import useAuth from './useAuth';
 
 const useAdmin = () => {
     const { userInfo } = useAuth();
+    const token = localStorage.getItem('token');
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
-        queryKey: ['isAmin'],
+        queryKey: ['isAmin', token],
 
         queryFn: async () => {
             const { data } = await axios.get(`http://localhost:8080/users/admin/${userInfo.email}`, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                    Authorization: `Bearer ${token}`
                 }
             });
             return data.data.admin;

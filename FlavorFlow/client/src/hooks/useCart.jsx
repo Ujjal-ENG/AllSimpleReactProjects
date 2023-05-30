@@ -25,7 +25,6 @@ const useCart = () => {
 
                 if (data.success) return data.data;
             } catch (error) {
-                console.log(error.response.status);
                 if (error.response.status >= 400) {
                     logOutUser();
                 }
