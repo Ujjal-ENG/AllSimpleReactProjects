@@ -4,7 +4,6 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import app from '../config/firebase';
 
 export const AuthContext = createContext(null);
@@ -15,8 +14,7 @@ const AuthProvider = ({ children }) => {
     const [privateLoad, setPrivateLoad] = useState(true);
     const [loading, setLoading] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
-    const navigate = useNavigate();
-    // create user
+    //  create user
     const createUser = async (name, photo, email, password) => {
         setLoading(true);
         setPrivateLoad(true);
@@ -29,7 +27,6 @@ const AuthProvider = ({ children }) => {
             toast.success('User is Created Successfully!!!');
             await signOut(auth);
             setLoading(false);
-            navigate('/login');
         } catch (error) {
             console.log(error);
             setLoading(false);
@@ -61,7 +58,6 @@ const AuthProvider = ({ children }) => {
             await signInWithPopup(auth, googleProvider);
             toast.success('Successfully Logged In');
             setLoading(false);
-            navigate('/');
         } catch (error) {
             setLoading(false);
             console.log(error);
@@ -76,21 +72,14 @@ const AuthProvider = ({ children }) => {
         return () => unSubscriber();
     }, []);
 
-    if (loading) {
-        return (
-            <div className="h-screen flex justify-center items-center">
-                <progress className="progress w-56" />
-            </div>
-        );
-    }
-
     const auths = {
         privateLoad,
         userInfo,
         createUser,
         signInUser,
         logOutUser,
-        singInGoogle
+        singInGoogle,
+        loading
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
