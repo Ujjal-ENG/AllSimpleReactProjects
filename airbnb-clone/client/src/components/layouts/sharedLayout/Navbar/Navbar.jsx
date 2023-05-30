@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../assets/images/logo.png';
 import Container from '../Container';
+import MenuDropdown from './MenuDropdown';
 import Search from './Search';
 
 const Navbar = () => {
@@ -16,7 +17,7 @@ const Navbar = () => {
 
                         <Search />
 
-                        <div>Menu</div>
+                        <MenuDropdown />
                     </div>
                 </Container>
             </div>
