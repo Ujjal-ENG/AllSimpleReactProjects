@@ -15,17 +15,20 @@ const Home = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay" />
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        <li>
-                            <NavLink to="/text">Test</NavLink>
-                        </li>
-                        <li>
-                            <a>Sidebar Item 2</a>
-                        </li>
+                    <ul className="menu p-4 w-80 bg-base-100 text-base-content space-y-5">
+                        <NavLink to="/test" className="btn w-32 bg-white text-black">
+                            Test
+                        </NavLink>
+
+                        <NavLink to="/testing" className="btn w-32 bg-white text-black">
+                            Testing
+                        </NavLink>
                     </ul>
                 </div>
             </div>
-            <Outlet />
+            <div className="col-span-8">
+                <Outlet />
+            </div>
         </div>
     );
 };

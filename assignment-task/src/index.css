@@ -21,3 +21,8 @@
 .default {
     @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400;
 }
+
+.content {
+    background-color: white;
+    color: black;
+}
