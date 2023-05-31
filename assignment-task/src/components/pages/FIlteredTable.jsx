@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
 import React, { useState } from 'react';
 
 const FilteredTable = () => {
