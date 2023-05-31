@@ -67,7 +67,7 @@ const FilteredTable = () => {
     });
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto bg-white px-4 shadow-2xl max-h-96 rounded-lg mt-6">
             <div className="my-4">
                 <input type="text" placeholder="Filter by Company Name" className="p-2 border border-gray-300 rounded" onChange={handleFilter} />
             </div>
