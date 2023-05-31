@@ -1,7 +1,17 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import {
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile
+} from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import app from '../config/firebase';
@@ -64,6 +74,20 @@ const AuthProvider = ({ children }) => {
             toast.error('Error occured while user try to SignIn with Google!!');
         }
     };
+
+    const resetPassword = async (email) => {
+        setLoading(true);
+        setPrivateLoad(false);
+        try {
+            await sendPasswordResetEmail(auth, email);
+            toast.success('Please open your email and Reset Your password with your link!!');
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+            toast.error('Error occurred while user try to Reset their passsword!!');
+        }
+    };
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, (user) => {
             setUserInfo(user);
@@ -79,7 +103,8 @@ const AuthProvider = ({ children }) => {
         signInUser,
         logOutUser,
         singInGoogle,
-        loading
+        loading,
+        resetPassword
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;

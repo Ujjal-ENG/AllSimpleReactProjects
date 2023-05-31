@@ -5,12 +5,15 @@
 /* eslint-disable react/jsx-indent-props */
 import { Link } from 'react-router-dom';
 
+import { useRef } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { TbFidgetSpinner } from 'react-icons/tb';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { singInGoogle, signInUser, loading } = useAuth();
+    const { singInGoogle, signInUser, loading, resetPassword } = useAuth();
+
+    const emailRef = useRef();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +23,10 @@ const Login = () => {
     };
     const handleGoogleSignIn = () => {
         singInGoogle();
+    };
+
+    const handleResetPassword = () => {
+        resetPassword(emailRef.current.value);
     };
 
     return (
@@ -36,6 +43,7 @@ const Login = () => {
                                 Email address
                             </label>
                             <input
+                                ref={emailRef}
                                 type="email"
                                 name="email"
                                 id="email"
@@ -69,7 +77,9 @@ const Login = () => {
                     </div>
                 </form>
                 <div className="space-y-1">
-                    <button className="text-xs hover:underline hover:text-rose-500 text-gray-400">Forgot password?</button>
+                    <button onClick={handleResetPassword} className="text-xs hover:underline hover:text-rose-500 text-gray-400">
+                        Forgot password?
+                    </button>
                 </div>
                 <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-700" />
