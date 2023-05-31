@@ -8,7 +8,7 @@ const AdminOnlyRoutes = ({ children }) => {
     const [isAdmin, isAdminLoading] = useAdmin();
 
     const { pathname } = useLocation();
-
+    console.log(pathname);
     if (userInfo && isAdmin) {
         return children;
     }
