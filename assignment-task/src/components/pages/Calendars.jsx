@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent-props */
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -9,11 +10,14 @@ const Calendars = () => {
         setSelectedDate(date);
     };
     return (
-        <div>
-            <div>
-                <h1>My Calendar</h1>
-                <Calendar onChange={handleDateChange} value={selectedDate} />
-            </div>
+        <div className="mx-2 border-0">
+            <h1>My Calendar</h1>
+            <Calendar
+                onChange={handleDateChange}
+                value={selectedDate}
+                className=" shadow-2xl p-3
+            "
+            />
         </div>
     );
 };
