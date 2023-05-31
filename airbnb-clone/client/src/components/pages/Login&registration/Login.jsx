@@ -10,12 +10,18 @@ import { TbFidgetSpinner } from 'react-icons/tb';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { singInGoogle, loading } = useAuth();
+    const { singInGoogle, signInUser, loading } = useAuth();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInUser(email, password);
+    };
     const handleGoogleSignIn = () => {
         singInGoogle();
     };
-    console.log(loading);
+
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -23,7 +29,7 @@ const Login = () => {
                     <h1 className="my-3 text-4xl font-bold">Log In</h1>
                     <p className="text-sm text-gray-400">Sign in to access your account</p>
                 </div>
-                <form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleSubmit} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm">
