@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -5,8 +6,16 @@
 import { Link } from 'react-router-dom';
 
 import { FcGoogle } from 'react-icons/fc';
+import { TbFidgetSpinner } from 'react-icons/tb';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
+    const { singInGoogle, loading } = useAuth();
+
+    const handleGoogleSignIn = () => {
+        singInGoogle();
+    };
+    console.log(loading);
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -49,7 +58,7 @@ const Login = () => {
 
                     <div>
                         <button type="submit" className="bg-rose-500 w-full rounded-md py-3 text-white">
-                            Continue
+                            {loading ? <TbFidgetSpinner size={24} className="animate-spin m-auto" /> : 'Continue'}
                         </button>
                     </div>
                 </form>
@@ -61,7 +70,7 @@ const Login = () => {
                     <p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-700" />
                 </div>
-                <div className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+                <div onClick={handleGoogleSignIn} className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
                     <FcGoogle size={32} />
 
                     <p>Continue with Google</p>

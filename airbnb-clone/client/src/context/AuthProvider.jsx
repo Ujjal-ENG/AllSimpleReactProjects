@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
         } catch (error) {
             setLoading(false);
-            console.log(error);
+            console.log(error.error);
             toast.error('Error occured while user try to SignIn with Google!!');
         }
     };
