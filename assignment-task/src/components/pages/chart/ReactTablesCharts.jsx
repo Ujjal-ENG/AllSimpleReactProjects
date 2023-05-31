@@ -1,8 +1,11 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable max-len */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { motion } from 'framer-motion';
 import React from 'react';
 import Charty from 'react-charty';
 
@@ -31,10 +34,23 @@ const ReactTablesCharts = () => {
     };
 
     return (
-        <div className="container shadow-2xl bg-white px-5 py-2 max-h-[700px] mt-6 rounded-lg">
+        <motion.div
+            initial={{ x: -10000, opacity: 0, scale: 0.5 }}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{
+                duration: 2,
+                ease: [0, 0.71, 0.2, 1.01],
+                scale: {
+                    type: 'spring',
+                    damping: 25,
+                    stiffness: 100,
+                    restDelta: 0.001
+                }
+            }}
+            className="container shadow-2xl bg-white px-5 py-2 max-h-[700px] mt-6 rounded-lg">
             <h1 className="text-xl font-bold pt-7">Market Share Report</h1>
             <Charty {...BOX_OFFICE_DATA} title="Market Share" style={{ width: '100%', height: 500 }} tepX={1} startX={2015} endX={2024} />
-        </div>
+        </motion.div>
     );
 };
 

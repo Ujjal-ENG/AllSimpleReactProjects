@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable no-unused-vars */
 /* eslint-disable comma-dangle */
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 const FilteredTable = () => {
@@ -69,7 +72,20 @@ const FilteredTable = () => {
     });
 
     return (
-        <div className="container mx-auto bg-white px-4 shadow-2xl max-h-96 rounded-lg mt-6">
+        <motion.div
+            initial={{ x: 10000, opacity: 0, scale: 0.5 }}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{
+                duration: 2,
+                ease: [0, 0.71, 0.2, 1.01],
+                scale: {
+                    type: 'spring',
+                    damping: 25,
+                    stiffness: 100,
+                    restDelta: 0.001
+                }
+            }}
+            className="container mx-auto bg-white px-4 shadow-2xl max-h-96 rounded-lg mt-6">
             <div className="my-4">
                 <input type="text" placeholder="Filter by Company Name" className="p-2 border border-gray-300 rounded" onChange={handleFilter} />
             </div>
@@ -101,7 +117,7 @@ const FilteredTable = () => {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </motion.div>
     );
 };
 
