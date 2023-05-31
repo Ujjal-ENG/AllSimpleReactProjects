@@ -2,21 +2,17 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import useAuth from './useAuth';
+import useAxiosSecure from './useAxiosSecure';
 
 const useAdmin = () => {
     const { userInfo } = useAuth();
     const token = localStorage.getItem('token');
+    const [axiosSecure] = useAxiosSecure();
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
-        queryKey: ['isAmin', token],
+        queryKey: ['isAmin', token, userInfo?.email],
         queryFn: async () => {
-            if (!userInfo) return false;
-            const { data } = await axios.get(`http://localhost:8080/users/admin/${userInfo?.email}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+            const { data } = await axiosSecure.get(`/users/admin/${userInfo?.email}`);
             return data.data.admin;
         }
     });
