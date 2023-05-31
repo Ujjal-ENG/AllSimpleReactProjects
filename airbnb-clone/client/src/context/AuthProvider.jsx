@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
     const [privateLoad, setPrivateLoad] = useState(true);
     const [loading, setLoading] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
+
     //  create user
     const createUser = async (name, photo, email, password) => {
         setLoading(true);

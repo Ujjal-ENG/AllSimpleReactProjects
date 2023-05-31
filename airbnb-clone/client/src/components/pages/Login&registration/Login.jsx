@@ -4,7 +4,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { useRef } from 'react';
 import { FcGoogle } from 'react-icons/fc';
@@ -13,6 +13,9 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const { singInGoogle, signInUser, loading, resetPassword } = useAuth();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
+    const navigate = useNavigate();
 
     const emailRef = useRef();
 
@@ -21,13 +24,16 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         signInUser(email, password);
+        navigate(from, { replace: true });
     };
     const handleGoogleSignIn = () => {
         singInGoogle();
+        navigate(from, { replace: true });
     };
 
     const handleResetPassword = () => {
         resetPassword(emailRef.current.value);
+        navigate(from, { replace: true });
     };
 
     return (
