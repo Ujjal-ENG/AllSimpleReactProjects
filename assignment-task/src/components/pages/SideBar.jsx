@@ -17,7 +17,9 @@ const SideBar = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay" />
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li>
-                            <NavLink to="/text">Test</NavLink>
+                            <NavLink to="/text" className="btn btn-active">
+                                Test
+                            </NavLink>
                         </li>
                         <li>
                             <a>Sidebar Item 2</a>
