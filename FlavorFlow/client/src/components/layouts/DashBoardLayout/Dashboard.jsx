@@ -46,9 +46,9 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/reservations" className="text-xl font-semibold uppercase hover:text-white">
+                                    <NavLink to="/dashboard/addItem" className="text-xl font-semibold uppercase hover:text-white">
                                         <FaUtensils />
-                                        Add Items
+                                        Add an Item
                                     </NavLink>
                                 </li>
                                 <li>

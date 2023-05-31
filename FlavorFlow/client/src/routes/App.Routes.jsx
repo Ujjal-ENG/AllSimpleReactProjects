@@ -4,6 +4,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Dashboard from '../components/layouts/DashBoardLayout/Dashboard';
+import AddItem from '../components/pages/AdminDashboard/AddItem';
 import AllUsers from '../components/pages/AdminDashboard/AllUsers';
 import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
@@ -12,6 +13,7 @@ import OrderFood from '../components/pages/OUR-MENU/ORDERFOOD/OrderFood';
 import OurMenus from '../components/pages/OUR-MENU/OurMenus';
 import UserCarts from '../components/pages/UserDashboard/Carts/UserCarts';
 import DashboardHome from '../components/pages/UserDashboard/Home/DashboardHome';
+import PrivateRoutes from './PrivateRoutes';
 
 export const router = createBrowserRouter([
     {
@@ -42,7 +44,11 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard />,
+        element: (
+            <PrivateRoutes>
+                <Dashboard />
+            </PrivateRoutes>
+        ),
         children: [
             {
                 path: '/dashboard/home',
@@ -55,6 +61,11 @@ export const router = createBrowserRouter([
             {
                 path: 'all-users',
                 element: <AllUsers />
+            },
+
+            {
+                path: 'addItem',
+                element: <AddItem />
             }
         ]
     }
