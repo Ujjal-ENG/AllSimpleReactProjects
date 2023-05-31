@@ -31,7 +31,7 @@ const ReactTablesCharts = () => {
     };
 
     return (
-        <div className="container shadow-2xl bg-white px-5 py-2 max-h-[700px] mt-6">
+        <div className="container shadow-2xl bg-white px-5 py-2 max-h-[700px] mt-6 rounded-lg">
             <h1 className="text-xl font-bold pt-7">Market Share Report</h1>
             <Charty {...BOX_OFFICE_DATA} title="Market Share" style={{ width: '100%', height: 500 }} tepX={1} startX={2015} endX={2024} />
         </div>
