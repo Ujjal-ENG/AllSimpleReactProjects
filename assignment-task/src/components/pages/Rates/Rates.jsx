@@ -66,7 +66,7 @@ const Rates = () => {
     };
 
     return (
-        <div className="container mx-auto p-6 grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <div className="container mx-auto p-6 grid gap-6 grid-cols-4">
             {shareMarketData.map((item, index) => (
                 <div key={index} className="bg-white shadow-md rounded-md p-4">
                     <div className="flex justify-between items-center mb-2">
@@ -85,6 +85,7 @@ const Rates = () => {
                         }}
                         width={180}
                         height={50}
+                        className="pt-20"
                     />
                 </div>
             ))}
