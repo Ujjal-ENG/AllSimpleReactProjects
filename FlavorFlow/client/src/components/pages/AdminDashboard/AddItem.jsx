@@ -22,6 +22,7 @@ const AddItem = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors }
     } = useForm();
 
@@ -41,10 +42,11 @@ const AddItem = () => {
             if (res) {
                 const imgURL = res.data.data.display_url;
                 data.image = imgURL;
-                const response = await axiosSecure.post('/menu', { data });
+                const response = await axiosSecure.post('/menu', data);
 
                 if (response.data.success) {
                     toast.success(response.data.message);
+                    reset();
                     setIsLoading(false);
                 }
             }
