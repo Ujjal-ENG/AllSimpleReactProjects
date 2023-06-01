@@ -22,6 +22,7 @@ const AddItem = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors }
     } = useForm();
 
@@ -43,7 +44,9 @@ const AddItem = () => {
                 const response = await axiosSecure.post('/menu', data);
                 if (response.data.success) {
                     toast.success(response.data.message);
+                    console.log(response);
                     setIsLoading(false);
+                    reset();
                 }
             }
             setIsLoading(false);

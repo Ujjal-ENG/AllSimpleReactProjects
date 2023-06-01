@@ -78,6 +78,7 @@ async function run() {
         app.post('/jwt', (req, res) => {
             try {
                 const user = req.body;
+                console.log(user);
                 const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' });
                 res.json({ token });
             } catch (error) {
@@ -237,7 +238,7 @@ async function run() {
         });
 
         // post menu item
-        app.post('/menu', async (req, res) => {
+        app.post('/menu', verifyJWT, verifyAdmin, async (req, res) => {
             try {
                 const data = req.body;
                 const result = await menuCollection.insertOne(data);
