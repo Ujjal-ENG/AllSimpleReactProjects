@@ -257,6 +257,26 @@ async function run() {
                 });
             }
         });
+
+        // Menu Item Delete api
+        app.delete('/menu/:id', verifyJWT, verifyAdmin, async (req, res) => {
+            try {
+                const { id } = req.params;
+                const result = await menuCollection.deleteOne({ _id: new ObjectId(id) });
+                if (result.deletedCount === 1) {
+                    res.status(200).json({
+                        success: true,
+                        message: 'You Successfully Deleted Items!!',
+                    });
+                }
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when deleting the Menu data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
         // All reviews related api
         // get reviews
         app.get('/reviews', async (req, res) => {
