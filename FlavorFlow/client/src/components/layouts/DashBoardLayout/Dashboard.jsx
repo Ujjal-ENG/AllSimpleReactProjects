@@ -52,7 +52,7 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/payments" className="text-xl font-semibold uppercase hover:text-white">
+                                    <NavLink to="/dashboard/manage-items" className="text-xl font-semibold uppercase hover:text-white">
                                         <TfiMenuAlt />
                                         Manage Items
                                     </NavLink>

@@ -6,6 +6,7 @@ import App from '../App';
 import Dashboard from '../components/layouts/DashBoardLayout/Dashboard';
 import AddItem from '../components/pages/AdminDashboard/AddItem';
 import AllUsers from '../components/pages/AdminDashboard/AllUsers';
+import ManageItems from '../components/pages/AdminDashboard/ManageItems';
 import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
@@ -69,6 +70,14 @@ export const router = createBrowserRouter([
                 element: (
                     <AdminOnlyRoutes>
                         <AddItem />
+                    </AdminOnlyRoutes>
+                )
+            },
+            {
+                path: 'manage-items',
+                element: (
+                    <AdminOnlyRoutes>
+                        <ManageItems />
                     </AdminOnlyRoutes>
                 )
             }
