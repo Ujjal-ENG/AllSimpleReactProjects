@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -9,17 +10,21 @@ import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { FaUtensils } from 'react-icons/fa';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import SharedTitle from '../../layouts/shared/SharedTitle';
 
 const imgHoistingToken = import.meta.env.VITE_IMG_UPLOAD_TOKEN;
 
 const AddItem = () => {
+    const [axiosSecure] = useAxiosSecure();
     const [loading, setIsLoading] = useState(false);
+
     const {
         register,
         handleSubmit,
         formState: { errors }
     } = useForm();
+
     const imgHoistingUrl = `https://api.imgbb.com/1/upload?key=${imgHoistingToken}`;
     const onSubmit = async (data) => {
         setIsLoading(true);
@@ -35,7 +40,7 @@ const AddItem = () => {
                 const imgURL = res.data.data.display_url;
                 data.image = imgURL;
 
-                const response = await axios.post('http://localhost:8080/menu', data);
+                const response = await axiosSecure.post('/menu', data);
                 if (response.data.success) {
                     toast.success(response.data.message);
                     setIsLoading(false);
