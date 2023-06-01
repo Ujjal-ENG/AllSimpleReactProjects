@@ -216,6 +216,7 @@ async function run() {
                 });
             }
         });
+
         // menu related api
         // get menu
         app.get('/menu', async (req, res) => {
@@ -235,6 +236,24 @@ async function run() {
             }
         });
 
+        // post menu item
+        app.post('/menu', async (req, res) => {
+            try {
+                const data = req.body;
+                const result = await menuCollection.insertOne(data);
+                res.status(201).json({
+                    success: true,
+                    message: 'Data Is Successfully Inserted',
+                    result,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when posting the Menu data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
         // All reviews related api
         // get reviews
         app.get('/reviews', async (req, res) => {

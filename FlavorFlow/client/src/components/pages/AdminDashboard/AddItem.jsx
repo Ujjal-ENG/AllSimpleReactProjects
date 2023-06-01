@@ -1,19 +1,55 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { FaUtensils } from 'react-icons/fa';
 import SharedTitle from '../../layouts/shared/SharedTitle';
 
+const imgHoistingToken = import.meta.env.VITE_IMG_UPLOAD_TOKEN;
+
 const AddItem = () => {
+    const [loading, setIsLoading] = useState(false);
     const {
         register,
         handleSubmit,
         formState: { errors }
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const imgHoistingUrl = `https://api.imgbb.com/1/upload?key=${imgHoistingToken}`;
+    const onSubmit = async (data) => {
+        setIsLoading(true);
+        const fromData = new FormData();
+        const price = parseInt(data.price, 10);
+        data.price = price;
+        fromData.append('image', data.image[0]);
+        try {
+            const res = await axios.post(imgHoistingUrl, fromData);
+            // data.image = res..imgHoistingUrl
+
+            if (res.data.success) {
+                const imgURL = res.data.data.display_url;
+                data.image = imgURL;
+
+                const response = await axios.post('http://localhost:8080/menu', data);
+                if (response.data.success) {
+                    toast.success(response.data.message);
+                    setIsLoading(false);
+                }
+            }
+            setIsLoading(false);
+        } catch (error) {
+            setIsLoading(false);
+            console.log(error);
+        }
+        console.log(data);
+    };
+
+    console.log(loading);
 
     return (
         <div className="md:-ml-36 -ml-0 ">
@@ -26,7 +62,7 @@ const AddItem = () => {
                     <label className="label">
                         <span className="label-text font-bold text-black">Recipe Name*</span>
                     </label>
-                    <input {...register('recipeName', { required: true })} type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-3xl" required />
+                    <input {...register('name', { required: true })} type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-3xl" required />
                 </div>
 
                 <div className="grid grid-cols-2">
@@ -34,10 +70,8 @@ const AddItem = () => {
                         <label className="label">
                             <span className="label-text font-bold text-black">Category Name*</span>
                         </label>
-                        <select {...register('category')} className="select select-primary w-full max-w-xs">
-                            <option disabled selected>
-                                Category
-                            </option>
+                        <select defaultValue="Pick One" {...register('category')} className="select select-primary w-full max-w-xs">
+                            <option disabled>Category</option>
                             <option value="pizza">Pizza</option>
                             <option value="soup">Soup</option>
                             <option value="salad">Salad</option>
@@ -58,20 +92,27 @@ const AddItem = () => {
                     <label className="label">
                         <span className="label-text font-bold text-black">Recipe Details*</span>
                     </label>
-                    <textarea {...register('recipeDetails', { required: true })} className="textarea textarea-primary w-full max-w-3xl" rows={6} placeholder="Recipe Details" />
+                    <textarea {...register('recipe', { required: true })} className="textarea textarea-primary w-full max-w-3xl" rows={6} placeholder="Recipe Details" />
                 </div>
 
                 <div>
                     <label className="label">
                         <span className="label-text font-bold text-black">Item Image*</span>
                     </label>
-                    <input {...register('recipeImg', { required: true })} type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
+                    <input {...register('image', { required: true })} type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
-                    Add Item
-                    <FaUtensils className="ml-3" />
-                </button>
+                {loading ? (
+                    <button type="button" className="btn">
+                        <span className="loading btn-primary loading-spinner" />
+                        loading
+                    </button>
+                ) : (
+                    <button type="submit" className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                        Add Item
+                        <FaUtensils className="ml-3" />
+                    </button>
+                )}
             </form>
         </div>
     );
