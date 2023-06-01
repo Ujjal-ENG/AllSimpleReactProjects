@@ -10,7 +10,7 @@ const useCart = () => {
     const { userInfo, privateLoad } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const { refetch, data: cart = [] } = useQuery({
-        queryKey: ['carts', userInfo?.email],
+        queryKey: ['carts'],
         enabled: !privateLoad,
         queryFn: async () => {
             try {
