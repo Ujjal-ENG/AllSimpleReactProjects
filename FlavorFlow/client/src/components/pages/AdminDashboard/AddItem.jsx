@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -26,40 +27,27 @@ const AddItem = () => {
 
     const imgHoistingUrl = `https://api.imgbb.com/1/upload?key=${imgHoistingToken}`;
     const onSubmit = async (data) => {
-        setIsLoading(true);
-
         try {
-            //
-
-            // const formData = new FormData();
-            // formData.append('image', data.image[0]);
-
-            // fetch(imgHoistingUrl, {
-            //     method: 'POST',
-            //     body: formData
-            // })
-            //     .then((res) => res.json())
-            //     .then((data) => console.log(data));
+            setIsLoading(true);
             const fromData = new FormData();
 
             const price = parseInt(data.price, 10);
             data.price = price;
 
             fromData.append('image', data.image[0]);
-            console.log(fromData, data.image[0]);
+
             const res = await axios.post(imgHoistingUrl, fromData);
 
             if (res) {
                 const imgURL = res.data.data.display_url;
                 data.image = imgURL;
+                const response = await axiosSecure.post('/menu', { data });
 
-                const response = await axiosSecure.post('/menu', data);
                 if (response.data.success) {
                     toast.success(response.data.message);
                     setIsLoading(false);
                 }
             }
-            setIsLoading(false);
         } catch (error) {
             setIsLoading(false);
             console.log(error);

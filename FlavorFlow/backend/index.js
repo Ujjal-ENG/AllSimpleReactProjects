@@ -243,12 +243,12 @@ async function run() {
             try {
                 const data = req.body;
 
-                // const result = await menuCollection.insertOne(data);
-                // res.status(201).json({
-                //     success: true,
-                //     message: 'Data Is Successfully Inserted',
-                //     result,
-                // });
+                const result = await menuCollection.insertOne(data);
+                res.status(201).json({
+                    success: true,
+                    message: 'Data Is Successfully Inserted',
+                    result,
+                });
             } catch (error) {
                 res.status(500).json({
                     success: false,
