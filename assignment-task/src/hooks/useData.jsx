@@ -4,19 +4,22 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 const useData = () => {
-    const { refetch, datas = [] } = useQuery({
-        queryKey: ['data'],
-
+    const {
+        refetch,
+        data: datas = [],
+        isLoading
+    } = useQuery({
+        queryKey: ['datas'],
         queryFn: async () => {
             try {
-                const { data } = await axios.get('/assignment-task/public/jsondata.json');
-                if (data) return data;
+                const { data } = await axios.get('/public/jsondata.json');
+                return data;
             } catch (error) {
                 console.log(error);
             }
         }
     });
-    return [refetch, datas];
+    return [refetch, datas, isLoading];
 };
 
 export default useData;

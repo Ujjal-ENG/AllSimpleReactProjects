@@ -8,8 +8,13 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import Charty from 'react-charty';
+import useData from '../../../hooks/useData';
 
 const ReachChart = () => {
+    const [datas, isLoading] = useData();
+    if (isLoading) return false;
+    const addEd = datas.filter((el) => el.added);
+    console.log(datas);
     const BOX_OFFICE_DATA = {
         type: 'pie',
         data: {
