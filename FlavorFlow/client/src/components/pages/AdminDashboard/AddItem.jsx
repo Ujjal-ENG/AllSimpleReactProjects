@@ -46,10 +46,7 @@ const AddItem = () => {
             setIsLoading(false);
             console.log(error);
         }
-        console.log(data);
     };
-
-    console.log(loading);
 
     return (
         <div className="md:-ml-36 -ml-0 ">
