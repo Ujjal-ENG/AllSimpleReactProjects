@@ -2,19 +2,23 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import dessretImg from '../../../../assets/menu/dessert-bg.jpeg';
 import pizzaImg from '../../../../assets/menu/pizza-bg.jpg';
 import saladImg from '../../../../assets/menu/salad-bg.jpg';
 import soupImg from '../../../../assets/menu/soup-bg.jpg';
-import useMenuHooks from '../../../../hooks/useMenuHooks';
 import Cover from '../../../layouts/cover/Cover';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
 import MenuItem from './MenuItem';
 
 const Menu = () => {
-    const [menuData] = useMenuHooks();
+    const [menuData, setMenuData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8080/menu')
+            .then((res) => res.json())
+            .then((data) => setMenuData(data.data));
+    }, []);
     const offered = menuData.filter((el) => el.category === 'offered');
     const dessert = menuData.filter((el) => el.category === 'dessert');
     const pizza = menuData.filter((el) => el.category === 'pizza');

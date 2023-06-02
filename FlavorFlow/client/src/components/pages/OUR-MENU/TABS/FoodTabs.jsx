@@ -1,18 +1,22 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import useMenuHooks from '../../../../hooks/useMenuHooks';
 import SharedCard from '../../../layouts/shared/SharedCard';
 
 const FoodTabs = () => {
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drink'];
     const { category } = useParams();
     const initalIndex = categories.indexOf(category);
-    const [menuData] = useMenuHooks();
+    const [menuData, setMenuData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8080/menu')
+            .then((res) => res.json())
+            .then((data) => setMenuData(data.data));
+    }, []);
 
     const [tabIndex, setTabIndex] = useState(initalIndex);
     const drinks = menuData.filter((el) => el.category === 'drinks');

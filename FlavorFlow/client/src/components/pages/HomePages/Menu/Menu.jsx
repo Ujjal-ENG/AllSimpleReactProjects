@@ -2,13 +2,17 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
-import useMenuHooks from '../../../../hooks/useMenuHooks';
+import React, { useEffect, useState } from 'react';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
 import MenuItem from './MenuItem';
 
 const Menu = () => {
-    const [menuData] = useMenuHooks();
+    const [menuData, setMenuData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8080/menu')
+            .then((res) => res.json())
+            .then((data) => setMenuData(data.data));
+    }, []);
     const popular = menuData.filter((el) => el.category === 'popular');
 
     return (

@@ -277,6 +277,7 @@ async function run() {
                 });
             }
         });
+        
         // All reviews related api
         // get reviews
         app.get('/reviews', async (req, res) => {
