@@ -5,7 +5,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 
-const CheckOutForm = () => {
+const CheckOutForm = ({ price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -37,7 +37,7 @@ const CheckOutForm = () => {
             console.log('[PaymentMethod]', paymentMethod);
         }
     };
-    // console.log(cardError);
+    console.log(price);
     return (
         <div>
             <form className="max-w-lg mx-auto py-7 space-y-8" onSubmit={handleSubmit}>

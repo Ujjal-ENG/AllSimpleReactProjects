@@ -5,8 +5,12 @@ import dotenv from 'dotenv';
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
+import stripePackage from 'stripe';
+
+const stripe = stripePackage(process.env.PAYMENT_API_KEY);
 
 dotenv.config();
+
 const PORT = process.env.PORT || 8080;
 
 // app initialize
@@ -78,7 +82,6 @@ async function run() {
         app.post('/jwt', (req, res) => {
             try {
                 const user = req.body;
-                console.log(user);
                 const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' });
                 res.json({ token });
             } catch (error) {
@@ -367,6 +370,21 @@ async function run() {
                     error: error.message, // Include the error message in the response
                 });
             }
+        });
+        // payment options
+        app.post('/create-payment-intent', async (req, res) => {
+            const { price } = req.body;
+            const amount = price * 100;
+            // Create a PaymentIntent with the order amount and currency
+            const paymentIntent = await stripe.paymentIntents.create({
+                amount,
+                currency: 'usd',
+                payment_method_types: ['card'],
+            });
+
+            res.send({
+                clientSecret: paymentIntent.client_secret,
+            });
         });
 
         // Send a ping to confirm a successful connection
