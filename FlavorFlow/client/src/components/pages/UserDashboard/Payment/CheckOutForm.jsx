@@ -3,11 +3,12 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable comma-dangle */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React from 'react';
+import React, { useState } from 'react';
 
 const CheckOutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+    const [cardError, setCardError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,10 +31,13 @@ const CheckOutForm = () => {
 
         if (error) {
             console.log('[error]', error);
+            setCardError(error.message);
         } else {
+            setCardError('');
             console.log('[PaymentMethod]', paymentMethod);
         }
     };
+    // console.log(cardError);
     return (
         <div>
             <form className="max-w-lg mx-auto py-7 space-y-8" onSubmit={handleSubmit}>
@@ -57,6 +61,7 @@ const CheckOutForm = () => {
                     Pay
                 </button>
             </form>
+            {cardError && <p className="text-xl font-bold text-red-500 text-center mt-4">{cardError}</p>}
         </div>
     );
 };
