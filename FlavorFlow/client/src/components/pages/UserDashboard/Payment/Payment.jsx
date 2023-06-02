@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
+import CheckOutForm from './CheckOutForm';
 
 const Payment = () => {
     return (
@@ -9,6 +10,7 @@ const Payment = () => {
                 <title>Flavor|Flow - Payment</title>
             </Helmet>
             <SharedTitle title="PAYMENT" message="Please proceed to Process!" />
+            <CheckOutForm />
         </div>
     );
 };
