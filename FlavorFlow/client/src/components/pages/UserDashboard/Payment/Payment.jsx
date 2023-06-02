@@ -1,7 +1,10 @@
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
 import CheckOutForm from './CheckOutForm';
+
+const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
 const Payment = () => {
     return (

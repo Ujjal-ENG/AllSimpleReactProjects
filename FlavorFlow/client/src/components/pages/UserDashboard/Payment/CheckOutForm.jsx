@@ -8,6 +8,7 @@ import React from 'react';
 const CheckOutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+
     const handleSubmit = async (e) => {
         e.preventdefault();
         if (!stripe || !elements) return;
