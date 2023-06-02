@@ -1,3 +1,4 @@
+import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -13,7 +14,9 @@ const Payment = () => {
                 <title>Flavor|Flow - Payment</title>
             </Helmet>
             <SharedTitle title="PAYMENT" message="Please proceed to Process!" />
-            <CheckOutForm />
+            <Elements stripe={stripePromise}>
+                <CheckOutForm />
+            </Elements>
         </div>
     );
 };
