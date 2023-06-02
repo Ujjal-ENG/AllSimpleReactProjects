@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
 import CheckOutForm from './CheckOutForm';
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_API_KEY);
 
 const Payment = () => {
     return (

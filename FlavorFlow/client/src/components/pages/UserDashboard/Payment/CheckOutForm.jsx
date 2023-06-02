@@ -10,7 +10,7 @@ const CheckOutForm = () => {
     const elements = useElements();
 
     const handleSubmit = async (e) => {
-        e.preventdefault();
+        e.preventDefault();
         if (!stripe || !elements) return;
 
         // Get a reference to a mounted CardElement. Elements knows how
@@ -36,7 +36,7 @@ const CheckOutForm = () => {
     };
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className="max-w-lg mx-auto py-7 space-y-8" onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -53,7 +53,7 @@ const CheckOutForm = () => {
                         }
                     }}
                 />
-                <button type="submit" disabled={!stripe}>
+                <button type="submit" className="btn btn-primary  btn-wide btn-sm" disabled={!stripe}>
                     Pay
                 </button>
             </form>
