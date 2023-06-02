@@ -14,6 +14,7 @@ import OrderFood from '../components/pages/OUR-MENU/ORDERFOOD/OrderFood';
 import OurMenus from '../components/pages/OUR-MENU/OurMenus';
 import UserCarts from '../components/pages/UserDashboard/Carts/UserCarts';
 import DashboardHome from '../components/pages/UserDashboard/Home/DashboardHome';
+import Payment from '../components/pages/UserDashboard/Payment/Payment';
 import AdminOnlyRoutes from './AdminRoutes';
 import PrivateRoutes from './PrivateRoutes';
 
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
             {
                 path: 'all-users',
                 element: <AllUsers />
+            },
+            {
+                path: 'payment',
+                element: <Payment />
             },
 
             {

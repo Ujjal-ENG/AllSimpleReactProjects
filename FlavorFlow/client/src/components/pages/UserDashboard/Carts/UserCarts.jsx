@@ -11,6 +11,7 @@ import axios from 'axios';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useCart from '../../../../hooks/useCart';
 import SharedTitle from '../../../layouts/shared/SharedTitle';
@@ -48,9 +49,9 @@ const UserCarts = () => {
                 <div className="flex justify-between  mb-10 items-center">
                     <h1 className="uppercase text-2xl font-bold">Total Orders: {cart?.length}</h1>
                     <h1 className="uppercase text-2xl font-bold">Total Price: ${totalPrice}</h1>
-                    <button type="button" className="btn bg-[#D1A054] text-white font-bold uppercase border-0 btn-md">
+                    <Link to="/dashboard/payment" type="button" className="btn bg-[#D1A054] text-white font-bold uppercase border-0 btn-md">
                         pay
-                    </button>
+                    </Link>
                 </div>
                 <div className="overflow-x-auto ">
                     <table className="table text-center w-full">
