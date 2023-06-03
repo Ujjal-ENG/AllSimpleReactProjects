@@ -10,6 +10,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import './checkoutfrom.css';
 
 const CheckOutForm = ({ price, length, cart }) => {
     const stripe = useStripe();
@@ -20,7 +21,7 @@ const CheckOutForm = ({ price, length, cart }) => {
     const { userInfo } = useAuth();
     const [processingStates, setProcessingStates] = useState(false);
     const [transitionId, setTransactionId] = useState('');
-    console.log(price, length, cart);
+
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
     }, [price, axiosSecure]);
@@ -69,8 +70,11 @@ const CheckOutForm = ({ price, length, cart }) => {
             const payment = {
                 email: userInfo?.email,
                 transitionID,
+                price,
+                date: new Date(),
                 quantity: length,
                 items: cart?.map((el) => el._id),
+                status: 'service pending',
                 itemNames: cart?.map((el) => el.name)
             };
             const { data } = await axiosSecure.post('/payments', payment);
