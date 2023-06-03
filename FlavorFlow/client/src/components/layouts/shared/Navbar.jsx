@@ -19,7 +19,7 @@ const Navbar = () => {
     const [cart] = useCart();
 
     const navItems = (
-        <div className="uppercase text-md md:text-xl flex md:flex-row flex-col items-center gap-5">
+        <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                 Home
             </NavLink>

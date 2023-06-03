@@ -11,7 +11,6 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import useAuth from '../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
-import './checkoutfrom.css';
 
 const CheckOutForm = ({ price, length, cart }) => {
     const stripe = useStripe();
