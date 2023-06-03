@@ -10,7 +10,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_API_KEY);
 
 const Payment = () => {
     const { state } = useLocation();
-
+    const totalPrice = Math.ceil(state?.cart?.reduce((ps, cs) => ps + cs.price, 0));
     return (
         <div className="md:-ml-60 -ml-0">
             <Helmet>
@@ -18,7 +18,7 @@ const Payment = () => {
             </Helmet>
             <SharedTitle title="PAYMENT" message="Please proceed to Process!" />
             <Elements stripe={stripePromise}>
-                <CheckOutForm price={state} />
+                <CheckOutForm price={totalPrice} length={state?.cart?.length} cart={state?.cart} />
             </Elements>
         </div>
     );

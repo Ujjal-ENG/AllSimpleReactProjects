@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -10,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
-const CheckOutForm = ({ price }) => {
+const CheckOutForm = ({ price, length, cart }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -65,6 +66,15 @@ const CheckOutForm = ({ price }) => {
         if (paymentIntent.status === 'succeeded') {
             const transitionID = paymentIntent.id;
             setTransactionId(transitionID);
+            // save payment information to the server
+            const payment = {
+                email: userInfo?.email,
+                transitionID,
+                quantity: length,
+                items: cart?.map((el) => el._id),
+                itemNames: cart?.map((el) => el.name)
+            };
+            axiosSecure.post('/payments', payment).then((data) => console.log(data.data));
         }
     };
     return (

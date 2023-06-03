@@ -78,6 +78,7 @@ async function run() {
         const menuCollection = client.db('FlavorFlow').collection('Menus');
         const reviewCollection = client.db('FlavorFlow').collection('Reviews');
         const cartCollection = client.db('FlavorFlow').collection('Carts');
+        const paymentCollection = client.db('FlavorFlow').collection('Payments');
         // jwt security
         app.post('/jwt', (req, res) => {
             try {
@@ -387,6 +388,20 @@ async function run() {
 
                 res.json({
                     clientSecret: paymentIntent.client_secret,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+
+        // payment done related data store api
+        app.post('/payments', verifyJWT, async (req, res) => {
+            try {
+                const payment = req.body;
+                const result = await paymentCollection.insertOne(payment);
+                res.status(201).json({
+                    success: true,
+                    data: result,
                 });
             } catch (error) {
                 console.log(error);
