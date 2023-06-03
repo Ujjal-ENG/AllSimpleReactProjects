@@ -40,7 +40,7 @@ const UserCarts = () => {
     };
     const totalPrice = Math.ceil(cart?.reduce((ps, cs) => ps + cs.price, 0));
     return (
-        <div className=" w-full md:-ml-48 -ml-0 py-5">
+        <div className="max-w-5xl w-full -ml-24 mx-auto">
             <Helmet>
                 <title>Flavor|Flow - My Cart</title>
             </Helmet>
@@ -49,7 +49,7 @@ const UserCarts = () => {
                 <div className="flex justify-between  mb-10 items-center">
                     <h1 className="uppercase text-2xl font-bold">Total Orders: {cart?.length}</h1>
                     <h1 className="uppercase text-2xl font-bold">Total Price: ${totalPrice}</h1>
-                    <Link to="/dashboard/payment" state={cart} type="button" className="btn bg-[#D1A054] text-white font-bold uppercase border-0 btn-md">
+                    <Link to="/dashboard/payment" state={cart} type="button" className="btn bg-[#D1A054] text-white font-bold uppercase border-0 btn-md" disabled={cart.length === 0}>
                         pay
                     </Link>
                 </div>
