@@ -8,6 +8,7 @@
 /* eslint-disable comma-dangle */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import useAuth from '../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import './checkoutfrom.css';
@@ -83,7 +84,7 @@ const CheckOutForm = ({ price, length, cart }) => {
             const { data } = await axiosSecure.post('/payments', payment);
             console.log(data);
             if (data.data?.insertedId) {
-                console.log('data is inserted');
+                toast.success('Payment is Successfully Done, Happy Food Day!!');
             }
         }
     };
