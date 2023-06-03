@@ -40,7 +40,7 @@ const Dashboard = () => {
                         {isAdmin ? (
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/home" className="text-xl font-semibold uppercase hover:text-white">
+                                    <NavLink to="/dashboard/admin-home" className="text-xl font-semibold uppercase hover:text-white">
                                         <AiFillHome />
                                         Admin Home
                                     </NavLink>
@@ -73,7 +73,7 @@ const Dashboard = () => {
                         ) : (
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/home" className="text-xl font-semibold uppercase hover:text-white">
+                                    <NavLink to="/dashboard/user-home" className="text-xl font-semibold uppercase hover:text-white">
                                         <AiFillHome />
                                         User Home
                                     </NavLink>

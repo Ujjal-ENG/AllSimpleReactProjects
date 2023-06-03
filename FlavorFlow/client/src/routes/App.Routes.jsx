@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Dashboard from '../components/layouts/DashBoardLayout/Dashboard';
 import AddItem from '../components/pages/AdminDashboard/AddItem';
+import AdminHome from '../components/pages/AdminDashboard/AdminHome';
 import AllUsers from '../components/pages/AdminDashboard/AllUsers';
 import ManageItems from '../components/pages/AdminDashboard/ManageItems';
 import Home from '../components/pages/HomePages/Home';
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
         ),
         children: [
             {
-                path: '/dashboard/home',
+                path: '/dashboard/user-home',
                 element: <DashboardHome />
             },
             {
@@ -83,6 +84,14 @@ export const router = createBrowserRouter([
                 element: (
                     <AdminOnlyRoutes>
                         <ManageItems />
+                    </AdminOnlyRoutes>
+                )
+            },
+            {
+                path: 'admin-home',
+                element: (
+                    <AdminOnlyRoutes>
+                        <AdminHome />
                     </AdminOnlyRoutes>
                 )
             }
