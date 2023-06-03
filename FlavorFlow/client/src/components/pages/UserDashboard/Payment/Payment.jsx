@@ -19,7 +19,7 @@ const Payment = () => {
             </Helmet>
             <SharedTitle title="PAYMENT" message="Please proceed to Process!" />
             <Elements stripe={stripePromise}>
-                <CheckOutForm price={totalPrice} length={state?.cart?.length} cart={state?.cart} />
+                <CheckOutForm price={totalPrice} length={state?.length} cart={state} />
             </Elements>
         </div>
     );

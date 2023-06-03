@@ -397,6 +397,7 @@ async function run() {
         // payment done related data store api
         app.post('/payments', verifyJWT, async (req, res) => {
             try {
+                console.log(req.body);
                 const payment = req.body;
                 const result = await paymentCollection.insertOne(payment);
                 res.status(201).json({
