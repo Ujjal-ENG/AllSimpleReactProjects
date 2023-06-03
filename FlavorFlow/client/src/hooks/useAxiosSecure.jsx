@@ -15,9 +15,9 @@ const useAxiosSecure = () => {
     const { logOutUser } = useAuth();
     const navigate = useNavigate();
 
-    const token = localStorage.getItem('token');
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {
+            const token = localStorage.getItem('token');
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
             }
@@ -28,14 +28,14 @@ const useAxiosSecure = () => {
             (response) => response,
             async (error) => {
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+                    console.log(error);
                     await logOutUser();
-                    localStorage.removeItem('token');
                     navigate('/login');
                 }
                 return Promise.reject(error);
             }
         );
-    }, [logOutUser, navigate, axiosSecure, token]);
+    }, [logOutUser, navigate]);
 
     return [axiosSecure];
 };

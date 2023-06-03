@@ -50,7 +50,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, async (user) => {
             setUserInfo(user);
-
             // get and set token
             if (user) {
                 const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });

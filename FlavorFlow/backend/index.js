@@ -202,6 +202,7 @@ async function run() {
         app.post('/users', async (req, res) => {
             try {
                 const { email } = req.body;
+                console.log(email);
                 const isExistUser = await userCollection.findOne({ email });
                 if (isExistUser) {
                     return res.status(404).json({ message: 'Email is already Registered' });
@@ -321,7 +322,7 @@ async function run() {
                 }
 
                 const result = await cartCollection.find({ user: email }).toArray();
-                res.status(201).json({
+                res.status(200).json({
                     success: true,
                     message: 'Cart Item is Created!!',
                     data: result,
