@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable semi-spacing */
@@ -16,7 +17,8 @@ const CheckOutForm = ({ price }) => {
     const [axiosSecure] = useAxiosSecure();
     const [clientSecret, setClientSecret] = useState('');
     const { userInfo } = useAuth();
-
+    const [processingStates, setProcessingStates] = useState(false);
+    const [transitionId, setTransactionId] = useState('');
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
     }, [price]);
@@ -47,7 +49,7 @@ const CheckOutForm = ({ price }) => {
             setCardError('');
             console.log('[PaymentMethod]', paymentMethod);
         }
-
+        setProcessingStates(true);
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card,
@@ -61,7 +63,11 @@ const CheckOutForm = ({ price }) => {
         if (confirmError) {
             console.log(confirmError);
         }
-        console.log(paymentIntent);
+        setProcessingStates(false);
+        if (paymentIntent.status === 'succeeded') {
+            const transitionID = paymentIntent.id;
+            setTransactionId(transitionID);
+        }
     };
     return (
         <div>
@@ -82,11 +88,12 @@ const CheckOutForm = ({ price }) => {
                         }
                     }}
                 />
-                <button type="submit" className="btn btn-primary  btn-wide btn-sm" disabled={!stripe || !clientSecret}>
+                <button type="submit" className="btn btn-primary  btn-wide btn-sm" disabled={!stripe || !clientSecret || processingStates}>
                     Pay
                 </button>
             </form>
             {cardError && <p className="text-xl font-bold text-red-500 text-center mt-4">{cardError}</p>}
+            {transitionId && <p className="text-xl font-bold text-green-500 text-center mt-4">Transaction Complete with transitionID: {transitionId}</p>}
         </div>
     );
 };
