@@ -10,7 +10,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_API_KEY);
 
 const Payment = () => {
     const { state } = useLocation();
-    const totalPrice = Math.ceil(state?.cart?.reduce((ps, cs) => ps + cs.price, 0));
+    const totalPrice = Math.ceil(state?.reduce((ps, cs) => ps + cs.price, 0));
+
     return (
         <div className="md:-ml-60 -ml-0">
             <Helmet>

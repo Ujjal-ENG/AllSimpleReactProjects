@@ -23,8 +23,7 @@ const CheckOutForm = ({ price, length, cart }) => {
 
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
-    }, []);
-
+    }, [price, axiosSecure]);
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!stripe || !elements) return;
@@ -74,7 +73,11 @@ const CheckOutForm = ({ price, length, cart }) => {
                 items: cart?.map((el) => el._id),
                 itemNames: cart?.map((el) => el.name)
             };
-            axiosSecure.post('/payments', payment).then((data) => console.log(data.data));
+            const { data } = axiosSecure.post('/payments', payment);
+            console.log(data);
+            // if (data.insertedId) {
+            //     console.log('data is inserted');
+            // }
         }
     };
     return (
