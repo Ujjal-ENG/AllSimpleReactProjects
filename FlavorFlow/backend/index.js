@@ -400,9 +400,14 @@ async function run() {
                 console.log(req.body);
                 const payment = req.body;
                 const result = await paymentCollection.insertOne(payment);
+                const deleteResults = await cartCollection.deleteMany({
+                    _id: { $in: payment.cartItems.map((id) => new ObjectId(id)) },
+                });
+
                 res.status(201).json({
                     success: true,
                     data: result,
+                    deleteResults,
                 });
             } catch (error) {
                 console.log(error);

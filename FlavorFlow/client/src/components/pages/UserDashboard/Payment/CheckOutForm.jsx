@@ -73,13 +73,14 @@ const CheckOutForm = ({ price, length, cart }) => {
                 price,
                 date: new Date(),
                 quantity: length,
-                items: cart?.map((el) => el._id),
+                cartItems: cart?.map((el) => el._id),
+                menuItems: cart?.map((el) => el.menuItemId),
                 status: 'service pending',
                 itemNames: cart?.map((el) => el.name)
             };
             const { data } = await axiosSecure.post('/payments', payment);
             console.log(data);
-            if (data.insertedId) {
+            if (data.data?.insertedId) {
                 console.log('data is inserted');
             }
         }
