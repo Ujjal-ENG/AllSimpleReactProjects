@@ -17,11 +17,8 @@ const CheckOutForm = ({ price }) => {
     const { userInfo } = useAuth();
 
     useEffect(() => {
-        axiosSecure
-            .post('/create-payment-intent', { price })
-            .then((res) => res.json())
-            .then((data) => setClientSecret(data.clientSecret));
-    }, [price, axiosSecure]);
+        axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
+    }, [price]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -68,7 +65,6 @@ const CheckOutForm = ({ price }) => {
         }
         console.log(paymentIntent);
     };
-    console.log(price);
     return (
         <div>
             <form className="max-w-lg mx-auto py-7 space-y-8" onSubmit={handleSubmit}>
