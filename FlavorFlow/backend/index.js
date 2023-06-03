@@ -7,9 +7,9 @@ import jwt from 'jsonwebtoken';
 import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 import stripePackage from 'stripe';
 
-const stripe = stripePackage(process.env.PAYMENT_API_KEY);
-
 dotenv.config();
+
+const stripe = stripePackage(process.env.PAYMENT_API_KEY);
 
 const PORT = process.env.PORT || 8080;
 
@@ -371,10 +371,12 @@ async function run() {
                 });
             }
         });
+
         // payment options
         app.post('/create-payment-intent', verifyJWT, async (req, res) => {
             try {
                 const { price } = req.body;
+                console.log(price);
                 const amount = price * 100;
                 // Create a PaymentIntent with the order amount and currency
                 const paymentIntent = await stripe.paymentIntents.create({
