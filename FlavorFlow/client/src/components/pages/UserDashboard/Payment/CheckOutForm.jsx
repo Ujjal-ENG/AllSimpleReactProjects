@@ -23,7 +23,9 @@ const CheckOutForm = ({ price, length, cart }) => {
     const [transitionId, setTransactionId] = useState('');
 
     useEffect(() => {
-        axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
+        if (price > 0) {
+            axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
+        }
     }, [price, axiosSecure]);
     const handleSubmit = async (e) => {
         e.preventDefault();
