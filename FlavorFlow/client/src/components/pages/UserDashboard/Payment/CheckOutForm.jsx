@@ -19,17 +19,15 @@ const CheckOutForm = ({ price }) => {
     const { userInfo } = useAuth();
     const [processingStates, setProcessingStates] = useState(false);
     const [transitionId, setTransactionId] = useState('');
+
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price }).then((res) => setClientSecret(res.data.clientSecret));
-    }, [price]);
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!stripe || !elements) return;
 
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
         const card = elements.getElement(CardElement);
 
         if (card == null) {

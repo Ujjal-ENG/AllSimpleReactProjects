@@ -7,13 +7,13 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
+const axiosSecure = axios.create({
+    baseURL: 'http://localhost:8080'
+});
 const useAxiosSecure = () => {
     const { logOutUser } = useAuth();
     const navigate = useNavigate();
 
-    const axiosSecure = axios.create({
-        baseURL: 'http://localhost:8080'
-    });
     const token = localStorage.getItem('token');
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {
