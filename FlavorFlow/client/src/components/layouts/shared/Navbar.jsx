@@ -11,13 +11,14 @@ import Lottie from 'react-lottie';
 import { Link, NavLink } from 'react-router-dom';
 import animationData from '../../../assets/json/logo.json';
 import { AuthContext } from '../../../context/AuthProvider';
+import useAdmin from '../../../hooks/useAdmin';
 import useCart from '../../../hooks/useCart';
 
 const Navbar = () => {
     const { userInfo, logOutUser } = useContext(AuthContext);
 
     const [cart] = useCart();
-
+    const [isAdmin] = useAdmin();
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
@@ -30,22 +31,32 @@ const Navbar = () => {
                 Oder Food
             </NavLink>
             {userInfo && (
-                <div className="avatar">
-                    <div className="w-14 rounded-full">
-                        <img alt={userInfo?.displayName} src={userInfo?.photoURL} />
-                    </div>
+                <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-14 rounded-full">
+                            <img alt={userInfo?.displayName} src={userInfo?.photoURL} />
+                        </div>
+                    </label>
+                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60 space-y-5">
+                        <li>
+                            <Link to={`${isAdmin ? '/dashboard/admin-home' : '/dashboard/user-home'}`} className="justify-between">
+                                Dashboard
+                            </Link>
+                        </li>
+
+                        <li>
+                            <button type="button" className="btn btn-block text-white" onClick={() => logOutUser()}>
+                                Logout
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             )}
             {userInfo ? (
-                <>
-                    <Link to="/dashboard/carts" type="button" className="btn relative">
-                        <HiShoppingBag className="text-5xl" />
-                        <div className="badge badge-secondary absolute top-0 -right-3">+{cart?.length}</div>
-                    </Link>
-                    <button type="button" className="btn text-white btn-outline btn-md" onClick={() => logOutUser()}>
-                        Logout
-                    </button>
-                </>
+                <Link to="/dashboard/carts" type="button" className="btn relative">
+                    <HiShoppingBag className="text-5xl" />
+                    <div className="badge badge-secondary absolute top-0 -right-3">+{cart?.length}</div>
+                </Link>
             ) : (
                 <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Login
