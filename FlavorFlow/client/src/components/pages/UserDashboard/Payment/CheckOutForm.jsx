@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable semi-spacing */
 /* eslint-disable consistent-return */
@@ -47,19 +48,16 @@ const CheckOutForm = ({ price }) => {
             console.log('[PaymentMethod]', paymentMethod);
         }
 
-        const { paymentIntent, error: confirmError } = await stripe
-            .confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card,
-                    billing_details: {
-                        name: userInfo?.displayName || 'unknown',
-                        email: userInfo?.email || 'unknown@unknown.com'
-                    }
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card,
+                billing_details: {
+                    name: userInfo?.displayName || 'unknown',
+                    email: userInfo?.email || 'unknown@unknown.com'
                 }
-            })
-            .then((result) => {
-                // Handle result.error or result.paymentIntent
-            });
+            }
+        });
+
         if (confirmError) {
             console.log(confirmError);
         }
