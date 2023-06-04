@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import AdminGreet from './AdminGreet';
+import Barchat from './Barchat';
 import ReveneOrders from './ReveneOrders';
 
 const AdminHome = () => {
@@ -15,6 +16,9 @@ const AdminHome = () => {
         <div>
             <AdminGreet />
             <ReveneOrders data={datas} />
+            <div className="grid grid-cols-2">
+                <Barchat />
+            </div>
         </div>
     );
 };

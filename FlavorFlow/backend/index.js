@@ -449,7 +449,7 @@ async function run() {
         });
 
         // admin home oder stats route
-        app.get('/order-stats', async (req, res) => {
+        app.get('/order-stats', verifyJWT, verifyAdmin, async (req, res) => {
             try {
                 const pipeLine = [
                     {

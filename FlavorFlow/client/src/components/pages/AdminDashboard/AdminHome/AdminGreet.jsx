@@ -5,7 +5,6 @@ import useAuth from '../../../../hooks/useAuth';
 
 const AdminGreet = () => {
     const { userInfo } = useAuth();
-    console.log(userInfo);
     return (
         <div className="max-w-5xl -ml-36">
             <section className="py-10 bg-white ">
