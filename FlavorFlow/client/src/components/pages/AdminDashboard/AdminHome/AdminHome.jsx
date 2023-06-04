@@ -16,7 +16,7 @@ const AdminHome = () => {
         <div>
             <AdminGreet />
             <ReveneOrders data={datas} />
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 pt-20 -ml-60">
                 <Barchat />
             </div>
         </div>
