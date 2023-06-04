@@ -416,12 +416,28 @@ async function run() {
         });
 
         // admin home routes
-        app.get('/admin-stats', async (req, res) => {
+        app.get('/admin-stats', verifyJWT, verifyAdmin, async (req, res) => {
             try {
-                const user = await userCollection.estimatedDocumentCount();
+                const users = await userCollection.estimatedDocumentCount();
+                const products = await menuCollection.estimatedDocumentCount();
+                const orders = await paymentCollection.estimatedDocumentCount();
+                const sum = await paymentCollection
+                    .aggregate([
+                        {
+                            $group: {
+                                _id: null,
+                                total: { $sum: '$price' },
+                            },
+                        },
+                    ])
+                    .toArray();
+
                 res.status(200).json({
                     success: true,
-                    data: user,
+                    users,
+                    products,
+                    orders,
+                    sum: sum[0].total,
                 });
             } catch (error) {
                 res.status(500).json({
