@@ -52,12 +52,12 @@ const Login = () => {
             setLoading(true);
             const result = await singInGoogle();
             const { user } = result;
-            console.log(`User ${user}`);
-            const { data } = await axios.post('http://localhost:8080/users', { name: user?.displayName, email: user?.email });
-            console.log(data);
+            console.log(user);
             navigate(from, { replace: true });
+
             toast.success('Successfully Logged In');
             setLoading(false);
+            axios.post('http://localhost:8080/users', { name: user?.displayName, email: user?.email });
         } catch (error) {
             console.log(error);
             setLoading(false);

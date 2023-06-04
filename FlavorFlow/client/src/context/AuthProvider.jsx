@@ -55,8 +55,6 @@ const AuthProvider = ({ children }) => {
                 const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
                 localStorage.setItem('token', data.token);
                 setPrivateLoad(false);
-            } else {
-                localStorage.removeItem('token');
             }
         });
         return () => unSubscriber();

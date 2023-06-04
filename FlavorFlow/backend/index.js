@@ -203,22 +203,22 @@ async function run() {
             try {
                 const { email } = req.body;
                 console.log(email);
-                // const isExistUser = await userCollection.findOne({ email });
-                // if (isExistUser) {
-                //     return res.status(404).json({ message: 'Email is already Registered' });
-                // }
+                const isExistUser = await userCollection.findOne({ email });
+                if (isExistUser) {
+                    return res.status(409).json({ message: 'Email is already registered' });
+                }
                 const result = await userCollection.insertOne({
                     ...req.body,
                 });
                 res.status(201).json({
                     success: true,
-                    message: 'User Created Successfully!!',
+                    message: 'User created successfully!',
                     data: result,
                 });
             } catch (error) {
                 res.status(500).json({
                     success: false,
-                    message: 'Error occurred when creating the Users data!!',
+                    message: 'Error occurred when creating the user data!',
                     error: error.message, // Include the error message in the response
                 });
             }
