@@ -415,6 +415,23 @@ async function run() {
             }
         });
 
+        // admin home routes
+        app.get('/admin-stats', async (req, res) => {
+            try {
+                const user = await userCollection.estimatedDocumentCount();
+                res.status(200).json({
+                    success: true,
+                    data: user,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Getting the Admin Stats data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');
