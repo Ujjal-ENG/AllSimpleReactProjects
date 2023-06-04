@@ -203,10 +203,10 @@ async function run() {
             try {
                 const { email } = req.body;
                 console.log(email);
-                const isExistUser = await userCollection.findOne({ email });
-                if (isExistUser) {
-                    return res.status(404).json({ message: 'Email is already Registered' });
-                }
+                // const isExistUser = await userCollection.findOne({ email });
+                // if (isExistUser) {
+                //     return res.status(404).json({ message: 'Email is already Registered' });
+                // }
                 const result = await userCollection.insertOne({
                     ...req.body,
                 });
