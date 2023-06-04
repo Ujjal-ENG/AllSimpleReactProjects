@@ -13,13 +13,14 @@ const AdminGreet = () => {
                     <div className="md:flex md:items-center md:justify-center md:space-x-14 order-2">
                         <div className="relative flex-shrink-0 w-48 h-48">
                             <div className="absolute w-48 h-48 bg-gray-300 rounded-full -bottom-2 -right-1" />
-                            <img className="relative object-cover w-48 h-48 rounded-full" src={userInfo.photoURL} alt="" />
+                            <img className="relative object-cover w-48 h-48 rounded-full" src={userInfo?.photoURL} alt="" />
                         </div>
 
                         <div className="mt-10 md:mt-0">
                             <p className="text-6xl font-bold text-black mt-7">
                                 Welcome
-                                <br /> Ujjal Kumar Roy
+                                <br />
+                                {userInfo?.displayName}
                             </p>
                         </div>
                     </div>

@@ -448,6 +448,40 @@ async function run() {
             }
         });
 
+        // admin home oder stats route
+        app.get('/order-stats', async (req, res) => {
+            try {
+                const pipeLine = [
+                    {
+                        $lookup: {
+                            from: 'cartItems',
+                            localField: '_id',
+                            foreignField: 'menuItems',
+                            as: 'payments',
+                        },
+                    },
+                    {
+                        $unwind: '$menuItems',
+                    },
+                    {
+                        $group: {
+                            _id: '$menuItems.category',
+                            count: { $sum: 1 },
+                            totalPrice: { $sum: '$menuItems.price' },
+                        },
+                    },
+                ];
+                const result = await paymentCollection.aggregate(pipeLine).toArray();
+                res.send(result);
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Getting the Admin Home Route Order Stats data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
         // Send a ping to confirm a successful connection
         await client.db('admin').command({ ping: 1 });
         console.log('Pinged your deployment. You successfully connected to MongoDB!');
