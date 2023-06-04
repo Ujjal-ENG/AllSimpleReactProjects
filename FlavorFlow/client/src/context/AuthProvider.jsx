@@ -14,12 +14,11 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [privateLoad, setPrivateLoad] = useState(true);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
 
     // create user
     const createUser = async (name, photo, email, password) => {
-        setLoading(true);
         setPrivateLoad(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
@@ -28,10 +27,9 @@ const AuthProvider = ({ children }) => {
                 photoURL: photo
             });
             await signOut(auth);
-            setLoading(false);
         } catch (error) {
             console.log(error);
-            setLoading(false);
+
             toast.error('There was an error while creating user!!');
         }
     };
@@ -75,9 +73,8 @@ const AuthProvider = ({ children }) => {
         signInUser,
         logOutUser,
         singInGoogle,
-        setLoading,
-        setPrivateLoad,
-        loading
+
+        setPrivateLoad
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;

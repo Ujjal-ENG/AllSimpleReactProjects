@@ -453,21 +453,40 @@ async function run() {
             try {
                 const pipeLine = [
                     {
-                        $lookup: {
-                            from: 'cartItems',
-                            localField: '_id',
-                            foreignField: 'menuItems',
-                            as: 'payments',
+                        $addFields: {
+                            menuItemsObjectIds: {
+                                $map: {
+                                    input: '$menuItems',
+                                    as: 'itemId',
+                                    in: { $toObjectId: '$$itemId' },
+                                },
+                            },
                         },
                     },
                     {
-                        $unwind: '$menuItems',
+                        $lookup: {
+                            from: 'Menus',
+                            localField: 'menuItemsObjectIds',
+                            foreignField: '_id',
+                            as: 'menuItemsData',
+                        },
+                    },
+                    {
+                        $unwind: '$menuItemsData',
                     },
                     {
                         $group: {
-                            _id: '$menuItems.category',
+                            _id: '$menuItemsData.category',
                             count: { $sum: 1 },
-                            totalPrice: { $sum: '$menuItems.price' },
+                            total: { $sum: '$menuItemsData.price' },
+                        },
+                    },
+                    {
+                        $project: {
+                            category: '$_id',
+                            count: 1,
+                            total: { $round: ['$total', 2] },
+                            _id: 0,
                         },
                     },
                 ];

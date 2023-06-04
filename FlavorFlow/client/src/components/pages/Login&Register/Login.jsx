@@ -17,7 +17,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 import './styles.css';
 
 const Login = () => {
-    const { signInUser, setLoading, singInGoogle, loading, setPrivateLoad } = useContext(AuthContext);
+    const { signInUser, singInGoogle, setPrivateLoad, privateLoad } = useContext(AuthContext);
     const [error, setError] = useState('');
     const captchRef = useRef(null);
     const [isClicked, setIsClicked] = useState(true);
@@ -34,32 +34,32 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        setLoading(true);
-        setPrivateLoad(true);
+
         try {
             signInUser(email, password);
             navigate(from, { replace: true });
             toast.success('User is Logged in Successfully!!!');
-            setLoading(false);
+            setPrivateLoad(false);
         } catch (error) {
             console.log(error);
-            setLoading(false);
+
             toast.error('There was an error while signIn user!!');
+            setPrivateLoad(false);
         }
     };
     const handleGoogleSignIn = async () => {
         try {
-            setLoading(true);
             const result = await singInGoogle();
             const { user } = result;
             navigate(from, { replace: true });
 
             toast.success('Successfully Logged In');
-            setLoading(false);
+
             axios.post('http://localhost:8080/users', { name: user?.displayName, email: user?.email });
+            setPrivateLoad(false);
         } catch (error) {
             console.log(error);
-            setLoading(false);
+            setPrivateLoad(false);
         }
     };
 
@@ -188,7 +188,7 @@ const Login = () => {
                             </form>
 
                             <div className="mt-3 space-y-3">
-                                {loading ? (
+                                {privateLoad ? (
                                     <button
                                         type="button"
                                         className="btn relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none loading">
