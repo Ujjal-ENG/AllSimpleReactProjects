@@ -11,12 +11,13 @@ import useAuth from './useAuth';
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:8080'
 });
+
 const useAxiosSecure = () => {
     const { logOutUser } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
-        axiosSecure.interceptors.request.use((config) => {
+        const interceptorRequest = axiosSecure.interceptors.request.use((config) => {
             const token = localStorage.getItem('token');
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
@@ -24,17 +25,21 @@ const useAxiosSecure = () => {
             return config;
         });
 
-        axiosSecure.interceptors.response.use(
+        const interceptorResponse = axiosSecure.interceptors.response.use(
             (response) => response,
             async (error) => {
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-                    console.log(error);
                     await logOutUser();
                     navigate('/login');
                 }
                 return Promise.reject(error);
             }
         );
+
+        return () => {
+            axiosSecure.interceptors.request.eject(interceptorRequest);
+            axiosSecure.interceptors.response.eject(interceptorResponse);
+        };
     }, [logOutUser, navigate]);
 
     return [axiosSecure];

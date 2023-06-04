@@ -52,7 +52,6 @@ const Login = () => {
             setLoading(true);
             const result = await singInGoogle();
             const { user } = result;
-            console.log(user);
             navigate(from, { replace: true });
 
             toast.success('Successfully Logged In');

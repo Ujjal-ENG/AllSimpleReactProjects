@@ -26,6 +26,7 @@ const SharedCard = ({ items }) => {
             item.user = userInfo.email;
             try {
                 const { data } = await axios.post('http://localhost:8080/carts', { item });
+
                 if (data.success) {
                     refetch();
                     toast.success('Cart Items Added!!');

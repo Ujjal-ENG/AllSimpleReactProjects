@@ -114,6 +114,7 @@ async function run() {
 
         // users related api
         // check admin or not
+
         app.get('/users/admin/:email', verifyJWT, async (req, res) => {
             try {
                 const { email } = req.params;
@@ -121,16 +122,18 @@ async function run() {
                 const decodedEmail = req.user.email;
 
                 if (decodedEmail !== email) {
-                    return res.status(403).json({ message: 'Forbidden Access' });
+                    return res.status(403).json({ admin: false });
                 }
                 const user = await userCollection.findOne({ email });
+                // console.log(user);
                 const result = { admin: user?.role === 'admin' };
 
-                res.status(200).json({
-                    success: true,
-                    message: 'Your are verified admin!',
-                    data: result,
-                });
+                // res.status(200).json({
+                //     success: true,
+                //     message: 'Your are verified admin!',
+                //     data: result,
+                // });
+                res.send(result);
             } catch (error) {
                 console.log(error);
             }
@@ -153,7 +156,6 @@ async function run() {
                 });
             }
         });
-
         // update user document
         app.patch('/users/admin/:id', async (req, res) => {
             try {
@@ -202,10 +204,9 @@ async function run() {
         app.post('/users', async (req, res) => {
             try {
                 const { email } = req.body;
-                console.log(email);
                 const isExistUser = await userCollection.findOne({ email });
                 if (isExistUser) {
-                    return res.status(409).json({ message: 'Email is already registered' });
+                    return res.send({ message: 'Email is already registered' });
                 }
                 const result = await userCollection.insertOne({
                     ...req.body,
@@ -398,7 +399,6 @@ async function run() {
         // payment done related data store api
         app.post('/payments', verifyJWT, async (req, res) => {
             try {
-                console.log(req.body);
                 const payment = req.body;
                 const result = await paymentCollection.insertOne(payment);
                 const deleteResults = await cartCollection.deleteMany({

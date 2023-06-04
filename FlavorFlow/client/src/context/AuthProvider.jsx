@@ -47,19 +47,27 @@ const AuthProvider = ({ children }) => {
     const singInGoogle = () => {
         return signInWithPopup(auth, googleProvider);
     };
+
     useEffect(() => {
-        const unSubscriber = onAuthStateChanged(auth, async (user) => {
-            setUserInfo(user);
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUserInfo(currentUser);
+            console.log('current user', currentUser);
+
             // get and set token
-            if (user) {
-                const { data } = await axios.post('http://localhost:8080/jwt', { email: user.email });
-                localStorage.setItem('token', data.token);
-                setPrivateLoad(false);
+            if (currentUser) {
+                axios.post('http://localhost:8080/jwt', { email: currentUser.email }).then((data) => {
+                    console.log(data.data.token);
+                    localStorage.setItem('token', data.data.token);
+                    setPrivateLoad(false);
+                });
             } else {
                 localStorage.removeItem('token');
+                setPrivateLoad(false);
             }
         });
-        return () => unSubscriber();
+        return () => {
+            return unsubscribe();
+        };
     }, []);
 
     const auths = {

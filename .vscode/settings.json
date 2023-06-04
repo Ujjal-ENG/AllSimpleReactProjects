@@ -1,3 +1,12 @@
 {
-  "cSpell.words": ["fortawesome"]
+  "cSpell.words": ["fortawesome"],
+  "workbench.editor.enablePreview": true,
+  "editor.rename.enablePreview": true,
+  "editor.suggest.preview": true,
+  "search.useReplacePreview": true,
+  "markdown.preview.openMarkdownLinks": "inPreview",
+  "notebook.diff.enablePreview": true,
+  "markdown.math.enabled": true,
+  "markdown.preview.doubleClickToSwitchToEditor": true,
+  "markdown.preview.breaks": true
 }
