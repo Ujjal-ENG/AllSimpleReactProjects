@@ -1,10 +1,38 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+
+const immgBB = import.meta.env.VITE_IMG_SERVER_API;
 
 const Register = () => {
+    const { createUser, privateLoad } = useAuth();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const image = e.target.image.files[0];
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        try {
+            const formData = new FormData();
+            formData.append('image', image);
+            const response = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_SERVER_API}`, formData);
+            // const imageUrl = response.data.data;
+            console.log(response);
+            // const userInfo = {
+            //     name,
+            //     email,
+            //     password,
+            //     imageUrl
+            // };
+            // console.log(userInfo);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="flex flex-col w-full max-w-xl p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -12,7 +40,7 @@ const Register = () => {
                     <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
                     <p className="text-sm text-gray-400">Welcome to AirBNB clone</p>
                 </div>
-                <form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm">
@@ -66,7 +94,7 @@ const Register = () => {
 
                     <div>
                         <button type="submit" className="bg-rose-500 w-full rounded-md py-3 text-white">
-                            Continue
+                            {privateLoad ? <TbFidgetSpinner size={24} className="animate-spin m-auto" /> : 'Continue'}
                         </button>
                     </div>
                 </form>

@@ -7,12 +7,13 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { useRef } from 'react';
+import { toast } from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { TbFidgetSpinner } from 'react-icons/tb';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { singInGoogle, signInUser, loading, resetPassword } = useAuth();
+    const { singInGoogle, signInUser, privateLoad, resetPassword } = useAuth();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
     const navigate = useNavigate();
@@ -21,14 +22,27 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        signInUser(email, password);
-        navigate(from, { replace: true });
+        try {
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            signInUser(email, password);
+            toast.success('User is Logged in Successfully!!!');
+            navigate(from, { replace: true });
+        } catch (error) {
+            console.log(error);
+            toast.error('There was an error while signIn user!!');
+        }
     };
-    const handleGoogleSignIn = () => {
-        singInGoogle();
-        navigate(from, { replace: true });
+    const handleGoogleSignIn = (e) => {
+        e.preventDefault();
+        try {
+            singInGoogle();
+            toast.success('Successfully Logged In with Email');
+            navigate(from, { replace: true });
+        } catch (error) {
+            console.log(error.error);
+            toast.error('Error ocurred while user try to SignIn with Google!!');
+        }
     };
 
     const handleResetPassword = () => {
@@ -79,7 +93,7 @@ const Login = () => {
 
                     <div>
                         <button type="submit" className="bg-rose-500 w-full rounded-md py-3 text-white">
-                            {loading ? <TbFidgetSpinner size={24} className="animate-spin m-auto" /> : 'Continue'}
+                            {privateLoad ? <TbFidgetSpinner size={24} className="animate-spin m-auto" /> : 'Continue'}
                         </button>
                     </div>
                 </form>
