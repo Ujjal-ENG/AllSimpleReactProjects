@@ -6,7 +6,7 @@ import avatar from '../../../../assets/images/placeholder.jpg';
 import useAuth from '../../../../hooks/useAuth';
 
 const MenuDropdown = () => {
-    const { userInfo, logOut } = useAuth();
+    const { userInfo, logOutUser } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
@@ -29,7 +29,7 @@ const MenuDropdown = () => {
                             Home
                         </Link>
                         {userInfo ? (
-                            <div onClick={logOut} className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
+                            <div onClick={logOutUser} className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
                                 Logout
                             </div>
                         ) : (
