@@ -20,8 +20,10 @@ const Register = () => {
             const formData = new FormData();
             formData.append('image', image);
             const response = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_SERVER_API}`, formData);
-            // const imageUrl = response.data.data;
+
             console.log(response);
+
+            // const imageUrl = response.data.data;
             // const userInfo = {
             //     name,
             //     email,
@@ -94,7 +96,8 @@ const Register = () => {
 
                     <div>
                         <button type="submit" className="bg-rose-500 w-full rounded-md py-3 text-white">
-                            {privateLoad ? <TbFidgetSpinner size={24} className="animate-spin m-auto" /> : 'Continue'}
+                            {/* {privateLoad ? <TbFidgetSpinner size={24} className="animate-spin m-auto" /> : 'Continue'} */}
+                            Continue
                         </button>
                     </div>
                 </form>
