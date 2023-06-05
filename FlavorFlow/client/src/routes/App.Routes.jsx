@@ -3,6 +3,7 @@
 /* eslint-disable comma-dangle */
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
+import ErrorPage from '../ErrorPage';
 import Dashboard from '../components/layouts/DashBoardLayout/Dashboard';
 import AddItem from '../components/pages/AdminDashboard/AddItem';
 import AdminHome from '../components/pages/AdminDashboard/AdminHome/AdminHome';
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -55,6 +57,7 @@ export const router = createBrowserRouter([
                 <Dashboard />
             </PrivateRoutes>
         ),
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/dashboard/user-home',
