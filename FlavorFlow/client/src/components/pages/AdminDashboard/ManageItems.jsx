@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import SharedTitle from '../../layouts/shared/SharedTitle';
@@ -23,6 +23,7 @@ const ManageItems = () => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [clicked, isClcikced] = useState(false);
+
     const itemsPerPage = 10;
     const totalPage = Math.ceil(allMenuItems / itemsPerPage);
 
@@ -35,17 +36,9 @@ const ManageItems = () => {
     }, [currentPage, clicked]);
 
     const navigateToPage = (page) => {
-        console.log(page);
         setCurrentPage(page);
     };
 
-    const handleEdit = async (id) => {
-        try {
-            console.log(id);
-        } catch (error) {
-            console.log(error);
-        }
-    };
     const handleDelete = async (id) => {
         try {
             const result = await Swal.fire({
@@ -93,7 +86,7 @@ const ManageItems = () => {
                             {}
                             {/* row 1 */}
                             {loading ? (
-                                <span className="loading loading-bars loading-md bg-error" />
+                                <span className="loading loading-bars loading-md bg-error w-10 h-10 " />
                             ) : (
                                 allItems?.map((el, idx) => (
                                     <tr key={el._id}>
@@ -104,9 +97,9 @@ const ManageItems = () => {
                                         <td>{el.name}</td>
                                         <td>{el.price}</td>
                                         <td>
-                                            <button onClick={() => handleEdit(el._id)} type="button" className="btn btn-warning  border-0">
+                                            <Link to={`/dashboard/manage-items/update-details/${el._id}`} state={el} type="button" className="btn btn-warning  border-0">
                                                 <AiFillEdit className="text-2xl text-white" />
-                                            </button>
+                                            </Link>
                                         </td>
                                         <td>
                                             <button onClick={() => handleDelete(el._id)} type="button" className="btn btn-error  border-0">

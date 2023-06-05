@@ -287,6 +287,33 @@ async function run() {
             }
         });
 
+        // update menu item
+        app.patch('/menu/:id', verifyJWT, verifyAdmin, async (req, res) => {
+            try {
+                const { id } = req.params;
+                const updateDoc = {
+                    $set: {
+                        ...req.body,
+                    },
+                };
+                console.log(id, updateDoc);
+                const result = await menuCollection.updateOne({ _id: id }, updateDoc);
+                if (result.modifiedCount) {
+                    res.status(201).json({
+                        success: true,
+                        message: 'Data Is Successfully Updated',
+                        result,
+                    });
+                }
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when posting the Menu data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
         // Menu Item Delete api
         app.delete('/menu/:id', verifyJWT, verifyAdmin, async (req, res) => {
             try {

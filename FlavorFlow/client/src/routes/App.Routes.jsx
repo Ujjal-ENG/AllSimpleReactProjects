@@ -8,6 +8,7 @@ import AddItem from '../components/pages/AdminDashboard/AddItem';
 import AdminHome from '../components/pages/AdminDashboard/AdminHome/AdminHome';
 import AllUsers from '../components/pages/AdminDashboard/AllUsers';
 import ManageItems from '../components/pages/AdminDashboard/ManageItems';
+import UpdateDetails from '../components/pages/AdminDashboard/UpdateDetails';
 import Home from '../components/pages/HomePages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
@@ -87,6 +88,14 @@ export const router = createBrowserRouter([
                     </AdminOnlyRoutes>
                 ),
                 loader: () => fetch('http://localhost:8080/allMenuItems')
+            },
+            {
+                path: 'manage-items/update-details/:id',
+                element: (
+                    <AdminOnlyRoutes>
+                        <UpdateDetails />
+                    </AdminOnlyRoutes>
+                )
             },
             {
                 path: 'admin-home',
