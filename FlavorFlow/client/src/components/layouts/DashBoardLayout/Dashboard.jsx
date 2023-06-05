@@ -58,7 +58,7 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/carts" className="text-xl font-semibold uppercase hover:text-white">
+                                    <NavLink to="/dashboard/manage-bookings" className="text-xl font-semibold uppercase hover:text-white">
                                         <RiContactsBook2Fill />
                                         Manage Bookings
                                     </NavLink>

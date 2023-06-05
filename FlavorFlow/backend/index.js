@@ -447,6 +447,23 @@ async function run() {
             }
         });
 
+        // payment get related data api
+        app.get('/payments', verifyJWT, verifyAdmin, async (req, res) => {
+            try {
+                const result = await paymentCollection.find().toArray();
+                res.status(201).json({
+                    success: true,
+                    data: result,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Get the payment Data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+
         // payment done related data store api
         app.post('/payments', verifyJWT, async (req, res) => {
             try {
@@ -463,6 +480,34 @@ async function run() {
                 });
             } catch (error) {
                 console.log(error);
+            }
+        });
+
+        // payment status update related api
+        app.patch('/menu/:id', verifyJWT, verifyAdmin, async (req, res) => {
+            try {
+                const { id } = req.params;
+                const updateDoc = {
+                    $set: {
+                        ...req.body,
+                    },
+                };
+
+                const result = await menuCollection.updateOne({ _id: new ObjectId(id) }, updateDoc);
+
+                if (result.modifiedCount) {
+                    res.status(201).json({
+                        success: true,
+                        message: 'Data Is Successfully Updated',
+                        result,
+                    });
+                }
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when Updating the payment status!!',
+                    error: error.message, // Include the error message in the response
+                });
             }
         });
 

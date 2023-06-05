@@ -7,6 +7,7 @@ import Dashboard from '../components/layouts/DashBoardLayout/Dashboard';
 import AddItem from '../components/pages/AdminDashboard/AddItem';
 import AdminHome from '../components/pages/AdminDashboard/AdminHome/AdminHome';
 import AllUsers from '../components/pages/AdminDashboard/AllUsers';
+import ManageBookings from '../components/pages/AdminDashboard/ManageBookings';
 import ManageItems from '../components/pages/AdminDashboard/ManageItems';
 import UpdateDetails from '../components/pages/AdminDashboard/UpdateDetails';
 import Home from '../components/pages/HomePages/Home';
@@ -77,6 +78,14 @@ export const router = createBrowserRouter([
                 element: (
                     <AdminOnlyRoutes>
                         <AddItem />
+                    </AdminOnlyRoutes>
+                )
+            },
+            {
+                path: 'manage-bookings',
+                element: (
+                    <AdminOnlyRoutes>
+                        <ManageBookings />
                     </AdminOnlyRoutes>
                 )
             },
