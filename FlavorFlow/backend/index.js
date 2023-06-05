@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-tabs */
 // dependencies
 import cors from 'cors';
