@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import AdminGreet from './AdminGreet';
 import Barchat from './Barchat';
+import PieChart from './PieChart';
 import ReveneOrders from './ReveneOrders';
 
 const AdminHome = () => {
@@ -18,6 +19,7 @@ const AdminHome = () => {
             <ReveneOrders data={datas} />
             <div className="grid grid-cols-2 pt-20 -ml-60">
                 <Barchat />
+                <PieChart />
             </div>
         </div>
     );
