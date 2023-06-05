@@ -6,7 +6,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import axios from 'axios';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
@@ -30,32 +29,22 @@ const UpdateDetails = () => {
         formState: { errors }
     } = useForm();
     const navigate = useNavigate();
-    const imgHoistingUrl = `https://api.imgbb.com/1/upload?key=${imgHoistingToken}`;
+
     const onSubmit = async (data) => {
         try {
             setIsLoading(true);
-            const fromData = new FormData();
-
             const price = parseInt(data.price, 10);
             data.price = price;
+            data.image = state?.image;
 
-            fromData.append('image', data.image[0]);
-
-            const res = await axios.post(imgHoistingUrl, fromData);
-
-            if (res) {
-                const imgURL = res.data.data.display_url;
-                data.image = imgURL;
-                const response = await axiosSecure.patch(`/menu/${state?._id}`, data);
-                console.log(response);
-                if (response.data.success) {
-                    console.log(response);
-                    toast.success(response.data.message);
-                    reset();
-                    setIsLoading(false);
-                    navigate(-1);
-                }
+            const response = await axiosSecure.patch(`/menu/${state?._id}`, data);
+            if (response) {
+                toast.success(response.data.message);
+                reset();
+                navigate(-1);
+                setIsLoading(false);
             }
+            setIsLoading(false);
         } catch (error) {
             setIsLoading(false);
             console.log(error);
@@ -118,13 +107,6 @@ const UpdateDetails = () => {
                         <span className="label-text font-bold text-black">Recipe Details*</span>
                     </label>
                     <textarea {...register('recipe', { required: true })} className="textarea textarea-primary w-full max-w-3xl" rows={6} defaultValue={state?.recipe} placeholder="Recipe Details" />
-                </div>
-
-                <div>
-                    <label className="label">
-                        <span className="label-text font-bold text-black">Item Image*</span>
-                    </label>
-                    <input {...register('image', { required: true })} type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
                 </div>
 
                 {loading ? (

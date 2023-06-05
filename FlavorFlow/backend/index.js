@@ -296,8 +296,9 @@ async function run() {
                         ...req.body,
                     },
                 };
-                console.log(id, updateDoc);
-                const result = await menuCollection.updateOne({ _id: id }, updateDoc);
+
+                const result = await menuCollection.updateOne({ _id: new ObjectId(id) }, updateDoc);
+
                 if (result.modifiedCount) {
                     res.status(201).json({
                         success: true,
