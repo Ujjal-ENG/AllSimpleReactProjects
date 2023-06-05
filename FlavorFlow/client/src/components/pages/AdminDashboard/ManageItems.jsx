@@ -22,6 +22,7 @@ const ManageItems = () => {
     const { allMenuItems } = useLoaderData();
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [clicked, isClcikced] = useState(false);
     const itemsPerPage = 10;
     const totalPage = Math.ceil(allMenuItems / itemsPerPage);
 
@@ -31,7 +32,7 @@ const ManageItems = () => {
             setAllItems(data.data);
             setLoading(false);
         });
-    }, [currentPage]);
+    }, [currentPage, clicked]);
 
     const navigateToPage = (page) => {
         console.log(page);
@@ -60,7 +61,7 @@ const ManageItems = () => {
             if (result.isConfirmed) {
                 await axiosSecure.delete(`/menu/${id}`);
                 Swal.fire('Deleted!', 'User is Deleted.', 'success');
-                refetch();
+                isClcikced((ps) => !ps);
             }
         } catch (error) {
             console.log(error);
