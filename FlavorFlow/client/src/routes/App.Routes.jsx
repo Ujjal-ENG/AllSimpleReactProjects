@@ -85,7 +85,8 @@ export const router = createBrowserRouter([
                     <AdminOnlyRoutes>
                         <ManageItems />
                     </AdminOnlyRoutes>
-                )
+                ),
+                loader: () => fetch('http://localhost:8080/allMenuItems')
             },
             {
                 path: 'admin-home',

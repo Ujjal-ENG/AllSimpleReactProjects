@@ -229,7 +229,15 @@ async function run() {
         // get menu
         app.get('/menu', async (req, res) => {
             try {
-                const categoryData = await menuCollection.find().toArray();
+                const currentPage = parseInt(req.query.page, 10) || 1;
+                const itemsPerPage = 10;
+                const skip = currentPage * itemsPerPage;
+                console.log(currentPage);
+                const categoryData = await menuCollection
+                    .find()
+                    .skip(skip)
+                    .limit(itemsPerPage)
+                    .toArray();
                 res.status(200).json({
                     success: true,
                     message: 'Data found!!',
@@ -239,6 +247,22 @@ async function run() {
                 res.status(500).json({
                     success: false,
                     message: 'Error occurred when fetching the Menu data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
+        // get menu
+        app.get('/allMenuItems', async (req, res) => {
+            try {
+                const allMenuItems = await menuCollection.estimatedDocumentCount();
+                res.json({
+                    success: true,
+                    allMenuItems,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when fetching the AllMenu Items Count!!',
                     error: error.message, // Include the error message in the response
                 });
             }

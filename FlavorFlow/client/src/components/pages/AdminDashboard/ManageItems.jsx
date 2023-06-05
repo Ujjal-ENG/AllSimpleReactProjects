@@ -6,18 +6,38 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import useMenuHooks from '../../../hooks/useMenuHooks';
 import SharedTitle from '../../layouts/shared/SharedTitle';
 
 const ManageItems = () => {
-    const [menuData, loading, refetch] = useMenuHooks();
     const [axiosSecure] = useAxiosSecure();
+    const { privateLoad } = useAuth();
+    const { allMenuItems } = useLoaderData();
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 10;
+
+    const {
+        data: allItems = [],
+        isLoading: loading,
+        refetch
+    } = useQuery({
+        queryKey: ['allItems'],
+        enabled: !privateLoad,
+        queryFn: async () => {
+            const { data } = await axios.get(`http://localhost:8080/menu?page=${currentPage}`);
+            return data.data;
+        }
+    });
+
     const handleEdit = async (id) => {
         try {
             console.log(id);
@@ -46,6 +66,11 @@ const ManageItems = () => {
             console.log(error);
         }
     };
+    const totalPage = Math.ceil(allMenuItems / itemsPerPage);
+    const navigateToPage = (page) => {
+        setCurrentPage(page);
+        refetch();
+    };
     return (
         <div className="md:-ml-48 -ml-0">
             <Helmet>
@@ -53,7 +78,7 @@ const ManageItems = () => {
             </Helmet>
             <SharedTitle message="Hurry Up!" title="MANAGE ALL ITEMS" />
             <div className="shadow-lg rounded-lg p-8 mt-4 mb-6">
-                <h1 className="text-2xl md:text-4xl font-bold tracking-wider">Total Items: {menuData.length || 0}</h1>
+                <h1 className="text-2xl md:text-4xl font-bold tracking-wider">Total Items: {allItems.length || 0}</h1>
                 <div className="overflow-x-auto my-8">
                     <table className="table w-full">
                         {/* head */}
@@ -70,8 +95,8 @@ const ManageItems = () => {
                         <tbody>
                             {loading && <span className="loading loading-bars loading-md bg-error" />}
                             {/* row 1 */}
-                            {menuData &&
-                                menuData.map((el, idx) => (
+                            {allItems &&
+                                allItems.map((el, idx) => (
                                     <tr key={el._id}>
                                         <th>{++idx}</th>
                                         <td>
@@ -94,6 +119,17 @@ const ManageItems = () => {
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className="join grid py-8 grid-cols-3 justify-items-center">
+                <button type="button" disabled={currentPage === 1} className="join-item btn btn-outline" onClick={() => navigateToPage(currentPage - 1)}>
+                    Previous page
+                </button>
+                <h1 className="pt-1 font-bold text-3xl">
+                    Page {currentPage} of {totalPage}
+                </h1>
+                <button type="button" disabled={currentPage === totalPage} className="join-item btn btn-outline" onClick={() => navigateToPage(currentPage + 1)}>
+                    Next
+                </button>
             </div>
         </div>
     );
