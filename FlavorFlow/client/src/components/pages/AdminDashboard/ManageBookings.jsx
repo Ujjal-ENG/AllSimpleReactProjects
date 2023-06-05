@@ -33,7 +33,11 @@ const ManageBookings = () => {
         });
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            Swal.fire('Updated the Status Successfully!', '', 'success');
+            const { data } = await axiosSecure.patch(`/payments?id=${id}`);
+            if (data.success) {
+                Swal.fire('Updated the Status Successfully!', '', 'success');
+                refetch();
+            }
         } else if (result.isDenied) {
             Swal.fire('Changes are not saved', '', 'info');
         }
@@ -65,15 +69,21 @@ const ManageBookings = () => {
                             {paymentsData &&
                                 paymentsData.map((el) => (
                                     <tr>
-                                        <th>{el.email}</th>
-                                        <td>{moment(el.date).subtract(10, 'days').calendar()}</td>
-                                        <td>{moment(el.date).format('h:mm:ss a')}</td>
-                                        <td>{el.price}</td>
-                                        <td>{el.status.split(' ')[1]}</td>
+                                        <th>{el?.email}</th>
+                                        <td>{moment(el?.date).subtract(10, 'days').calendar()}</td>
+                                        <td>{moment(el?.date).format('h:mm:ss a')}</td>
+                                        <td>{el?.price}</td>
+                                        <td>{el?.status}</td>
                                         <td>
-                                            <button onClick={() => handleEdit(el._id)} type="button" className="btn btn-circle btn-outline">
-                                                <TiTickOutline size={30} />
-                                            </button>
+                                            {el?.status === 'Done' ? (
+                                                <button onClick={() => handleEdit(el?._id)} type="button" className="btn btn-circle  btn-success" disabled style={{ backgroundColor: 'greenyellow' }}>
+                                                    <TiTickOutline size={30} />
+                                                </button>
+                                            ) : (
+                                                <button onClick={() => handleEdit(el?._id)} type="button" className="btn btn-circle btn-outline">
+                                                    <TiTickOutline size={30} />
+                                                </button>
+                                            )}
                                         </td>
                                     </tr>
                                 ))}

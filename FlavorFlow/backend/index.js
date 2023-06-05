@@ -484,16 +484,19 @@ async function run() {
         });
 
         // payment status update related api
-        app.patch('/menu/:id', verifyJWT, verifyAdmin, async (req, res) => {
+        app.patch('/payments', verifyJWT, verifyAdmin, async (req, res) => {
             try {
-                const { id } = req.params;
+                const { id } = req.query;
                 const updateDoc = {
                     $set: {
-                        ...req.body,
+                        status: 'Done',
                     },
                 };
 
-                const result = await menuCollection.updateOne({ _id: new ObjectId(id) }, updateDoc);
+                const result = await paymentCollection.updateOne(
+                    { _id: new ObjectId(id) },
+                    updateDoc
+                );
 
                 if (result.modifiedCount) {
                     res.status(201).json({
