@@ -13,7 +13,6 @@ const PieCharts = () => {
         queryKey: ['pie-data'],
         queryFn: async () => {
             const res = await axiosSecure('/order-stats');
-            console.log(res.data);
             return res.data;
         }
     });
@@ -36,7 +35,7 @@ const PieCharts = () => {
             <PieChart width={600} height={400}>
                 <Pie data={pieChart} cx="50%" cy="50%" labelLine={false} label={renderCustomizedLabel} outerRadius={80} fill="#8884d8" dataKey="count">
                     {pieChart.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        <Cell name={entry.category} key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                 </Pie>
             </PieChart>
