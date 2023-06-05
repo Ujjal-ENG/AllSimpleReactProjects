@@ -231,8 +231,7 @@ async function run() {
             try {
                 const currentPage = parseInt(req.query.page, 10) || 1;
                 const itemsPerPage = 10;
-                const skip = currentPage * itemsPerPage;
-                console.log(currentPage);
+                const skip = (currentPage - 1) * itemsPerPage;
                 const categoryData = await menuCollection
                     .find()
                     .skip(skip)

@@ -6,37 +6,37 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-extraneous-dependencies */
-import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import SharedTitle from '../../layouts/shared/SharedTitle';
 
 const ManageItems = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { privateLoad } = useAuth();
+    const [allItems, setAllItems] = useState([]);
     const { allMenuItems } = useLoaderData();
-    const [currentPage, setCurrentPage] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
+    const totalPage = Math.ceil(allMenuItems / itemsPerPage);
 
-    const {
-        data: allItems = [],
-        isLoading: loading,
-        refetch
-    } = useQuery({
-        queryKey: ['allItems'],
-        enabled: !privateLoad,
-        queryFn: async () => {
-            const { data } = await axios.get(`http://localhost:8080/menu?page=${currentPage}`);
-            return data.data;
-        }
-    });
+    useEffect(() => {
+        setLoading(true);
+        axios.get(`http://localhost:8080/menu?page=${currentPage}`).then(({ data }) => {
+            setAllItems(data.data);
+            setLoading(false);
+        });
+    }, [currentPage]);
+
+    const navigateToPage = (page) => {
+        console.log(page);
+        setCurrentPage(page);
+    };
 
     const handleEdit = async (id) => {
         try {
@@ -66,11 +66,7 @@ const ManageItems = () => {
             console.log(error);
         }
     };
-    const totalPage = Math.ceil(allMenuItems / itemsPerPage);
-    const navigateToPage = (page) => {
-        setCurrentPage(page);
-        refetch();
-    };
+
     return (
         <div className="md:-ml-48 -ml-0">
             <Helmet>
@@ -78,7 +74,7 @@ const ManageItems = () => {
             </Helmet>
             <SharedTitle message="Hurry Up!" title="MANAGE ALL ITEMS" />
             <div className="shadow-lg rounded-lg p-8 mt-4 mb-6">
-                <h1 className="text-2xl md:text-4xl font-bold tracking-wider">Total Items: {allItems.length || 0}</h1>
+                <h1 className="text-2xl md:text-4xl font-bold tracking-wider">Total Items: {allItems?.length || 0}</h1>
                 <div className="overflow-x-auto my-8">
                     <table className="table w-full">
                         {/* head */}
@@ -93,10 +89,12 @@ const ManageItems = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {loading && <span className="loading loading-bars loading-md bg-error" />}
+                            {}
                             {/* row 1 */}
-                            {allItems &&
-                                allItems.map((el, idx) => (
+                            {loading ? (
+                                <span className="loading loading-bars loading-md bg-error" />
+                            ) : (
+                                allItems?.map((el, idx) => (
                                     <tr key={el._id}>
                                         <th>{++idx}</th>
                                         <td>
@@ -115,7 +113,8 @@ const ManageItems = () => {
                                             </button>
                                         </td>
                                     </tr>
-                                ))}
+                                ))
+                            )}
                         </tbody>
                     </table>
                 </div>
