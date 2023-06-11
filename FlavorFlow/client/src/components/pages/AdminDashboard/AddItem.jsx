@@ -38,7 +38,7 @@ const AddItem = () => {
             fromData.append('image', data.image[0]);
 
             const res = await axios.post(imgHoistingUrl, fromData);
-
+            console.log(res);
             if (res) {
                 const imgURL = res.data.data.display_url;
                 data.image = imgURL;
