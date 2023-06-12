@@ -8,7 +8,7 @@ import img from '../../../../assets/foodieadventurer.png';
 
 const FoodieAdventurer = () => {
     return (
-        <div>
+        <div data-aos="fade-up">
             <section className="md:ml-20 ml-0 mt-10 md:mt-0  2xl:py-24 ">
                 <div className="px-4 mx-auto bg-black max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">
                     <div className="py-10 sm:py-16 lg:py-24 2xl:pl-24">

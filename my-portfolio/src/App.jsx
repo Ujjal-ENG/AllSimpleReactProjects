@@ -9,7 +9,7 @@ import Navbar from './components/layouts/shared/Navbar';
 const App = () => {
     useEffect(() => {
         AOS.init({
-            offset: 300,
+            offset: 200,
             duration: 800,
             easing: 'ease-in-out',
             delay: 30,
