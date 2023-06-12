@@ -149,12 +149,20 @@ const FoodieAdventurer = () => {
                                     </a>
 
                                     <a
-                                        href="https://github.com/Ujjal-ENG"
+                                        href="https://github.com/Ujjal-ENG/Foodie-Adventurer-Client"
                                         target="_blank"
                                         className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
                                         role="button"
                                         rel="noreferrer">
-                                        Explore the Code
+                                        Explore the Code Frontend
+                                    </a>
+                                    <a
+                                        href="https://github.com/Ujjal-ENG/Foodie-Adventurer-Server"
+                                        target="_blank"
+                                        className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
+                                        role="button"
+                                        rel="noreferrer">
+                                        Explore the Code Backend
                                     </a>
                                 </div>
                             </motion.div>
