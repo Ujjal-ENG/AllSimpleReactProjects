@@ -7,7 +7,7 @@ import img from '../../../../assets/flavorsome.png';
 
 const FlaborsomeFood = () => {
     return (
-        <div data-aos="fade-left">
+        <div data-aos="fade-up">
             <div data-aos="fade-right">
                 <section className="md:ml-20 ml-0 mt-10 md:mt-0  2xl:py-24 ">
                     <div className="px-4 mx-auto bg-black max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">
