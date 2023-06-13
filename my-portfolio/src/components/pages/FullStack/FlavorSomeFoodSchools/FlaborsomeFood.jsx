@@ -143,7 +143,7 @@ const FlaborsomeFood = () => {
                                         </a>
 
                                         <a
-                                            href="https://github.com/Ujjal-ENG/Toy-Troppers"
+                                            href="https://github.com/Ujjal-ENG/Flavor-Some-Food-School-Camp-Cilent"
                                             target="_blank"
                                             className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
                                             role="button"
@@ -151,7 +151,7 @@ const FlaborsomeFood = () => {
                                             Explore the Code Frontend
                                         </a>
                                         <a
-                                            href="https://github.com/Ujjal-ENG/Toy-Troppers-server"
+                                            href="https://github.com/Ujjal-ENG/Flavorsome-Food-School-Camp-Server"
                                             target="_blank"
                                             className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
                                             role="button"

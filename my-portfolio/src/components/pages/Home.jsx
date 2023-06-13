@@ -286,13 +286,13 @@ const Home = () => {
             />
             <div className="hidden md:block top-1/2 fixed transform -translate-y-1/2">
                 <div className="flex flex-col gap-5 ml-5">
-                    <a href="https://www.facebook.com/ujjal.roy.7862" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                    <a href="https://www.facebook.com/ujjal.roy.7862" target="_blank" className="btn btn-square btn-outline border-4 border-orange-500" rel="noreferrer">
                         <i className="fa-brands fa-facebook fa-spin fa-2xl text-[#1f66e0]" />
                     </a>
-                    <a href="https://github.com/Ujjal-ENG" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                    <a href="https://github.com/Ujjal-ENG" target="_blank" className="btn btn-square btn-outline border-4 border-orange-500" rel="noreferrer">
                         <i className="fa-brands fa-github fa-spin fa-2xl" />
                     </a>
-                    <a href="https://www.linkedin.com/in/ujjal-kumar-roy/" target="_blank" className="btn btn-square btn-outline" rel="noreferrer">
+                    <a href="https://www.linkedin.com/in/ujjal-kumar-roy/" target="_blank" className="btn btn-square btn-outline border-4 border-orange-500" rel="noreferrer">
                         <i className="fa-brands fa-linkedin fa-2xl fa-spin text-[#144eb3]" />
                     </a>
                 </div>
