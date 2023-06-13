@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import ConffeExpresso from './FullStack/CoffeExpresso/ConffeExpresso';
 import FlaborsomeFood from './FullStack/FlavorSomeFoodSchools/FlaborsomeFood';
 import FoodieAdventurer from './FullStack/FoodAdventurer/FoodieAdventurer';
 import ToyTroppers from './FullStack/ToyTroppers/ToyTroppers';
@@ -29,6 +30,7 @@ const Projects = () => {
             <FoodieAdventurer />
             <ToyTroppers />
             <FlaborsomeFood />
+            <ConffeExpresso />
         </div>
     );
 };
