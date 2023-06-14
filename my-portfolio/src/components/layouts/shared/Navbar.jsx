@@ -23,7 +23,7 @@ const Navbar = () => {
                 Contact
             </NavLink>
             <a
-                href="https://drive.google.com/file/d/1clX2CEZ2Lr13DTOWmIqOVSLNLw9AflHl/view?usp=share_link"
+                href="https://drive.google.com/file/d/1sdPY5IvLERjrdz9UDPkQwWJ2TIwTzb5Z/view?usp=sharing"
                 target="_blank"
                 type="button"
                 className="btn btn-outline btn-xs text-inherit font-bold sm:btn-sm md:btn-md lg:btn-lg"
