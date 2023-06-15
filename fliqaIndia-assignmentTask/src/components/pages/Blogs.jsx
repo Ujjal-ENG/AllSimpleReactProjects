@@ -16,7 +16,7 @@ const Blogs = () => {
                 <div className="flex justify-between items-center">
                     <div>
                         <h2 className="text-5xl font-semibold tracking-wider px-10   text-teal-700 pt-10">Our Blogs</h2>
-                        <p className="pb-[400px] px-10 text-xl tracking-wider text-black">Check out our Latest Blog</p>
+                        <p className="pb-[420px] px-10 text-xl tracking-wider text-black">Check out our Latest Blog</p>
                     </div>
                 </div>
                 <div className="absolute bottom-4 pl-10">

@@ -4,6 +4,7 @@ import Blogs from './Blogs';
 import Discover from './Discover';
 import Featured from './Featured';
 import Header from './HeaderPart/Header';
+import OurSuccess from './OurSuccess';
 import TrustedAssociate from './TrustedAssociate';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Featured />
             <Discover />
             <Blogs />
+            <OurSuccess />
         </div>
     );
 };
