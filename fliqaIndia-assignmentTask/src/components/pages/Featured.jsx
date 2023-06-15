@@ -17,7 +17,7 @@ const Featured = () => {
                         <img
                             src="https://images.pexels.com/photos/13123599/pexels-photo-13123599.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
-                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-purple-300"
+                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-purple-300 duration-150 transition-all ease-in-out hover:scale-110 "
                         />
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
@@ -36,7 +36,7 @@ const Featured = () => {
                         <img
                             src="https://images.pexels.com/photos/14840508/pexels-photo-14840508.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
-                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-red-200"
+                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-red-200 duration-150 transition-all ease-in-out hover:scale-110 "
                         />
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
@@ -55,7 +55,7 @@ const Featured = () => {
                         <img
                             src="https://images.pexels.com/photos/725463/pexels-photo-725463.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
-                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-fuchsia-500  "
+                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-fuchsia-500  duration-150 transition-all ease-in-out hover:scale-110 "
                         />
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
@@ -75,7 +75,7 @@ const Featured = () => {
                         <img
                             src="https://images.pexels.com/photos/1777843/pexels-photo-1777843.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
-                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-violet-400"
+                            className="w-full h-full object-fill shadow-2xl rounded-2xl shadow-violet-400 duration-150 transition-all ease-in-out hover:scale-110 "
                         />
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
