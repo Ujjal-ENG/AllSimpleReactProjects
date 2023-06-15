@@ -3,8 +3,8 @@ import banner from '../../assets/bannerImg.png';
 
 const BannerImg = () => {
     return (
-        <div>
-            <img src={banner} alt="banner-img" />
+        <div className="w-full">
+            <img src={banner} alt="banner-img" className="object-contain w-full" />
         </div>
     );
 };
