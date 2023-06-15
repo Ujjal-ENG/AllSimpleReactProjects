@@ -59,7 +59,7 @@ const Navbar = () => {
     return (
         <div>
             <div
-                className={`z-10 mb-10 navbar w-full px-10 bg-black  duration-200 transition-all ${
+                className={`z-30 mb-10 navbar w-full px-10 bg-black  duration-200 transition-all ${
                     isScrolled ? 'ease-out fixed bg-opacity-100 mx-auto bg-black' : 'fixed  bg-black py-3 ease-in bg-opacity-30'
                 }`}>
                 <div className="navbar-start">
