@@ -1,5 +1,6 @@
 import React from 'react';
 import BannerImg from './BannerImg';
+import Blogs from './Blogs';
 import Discover from './Discover';
 import Featured from './Featured';
 import Header from './HeaderPart/Header';
@@ -13,6 +14,7 @@ const Home = () => {
             <TrustedAssociate />
             <Featured />
             <Discover />
+            <Blogs />
         </div>
     );
 };
