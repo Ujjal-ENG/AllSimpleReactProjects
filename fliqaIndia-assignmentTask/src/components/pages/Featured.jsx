@@ -22,7 +22,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-full h-1" />
+                        <div className="bg-black  w-80 mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
@@ -41,7 +41,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-full h-1" />
+                        <div className="bg-black  w-80 mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
@@ -60,7 +60,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-full h-1" />
+                        <div className="bg-black  w-80 mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
@@ -80,7 +80,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-full h-1" />
+                        <div className="bg-black  w-80 mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
