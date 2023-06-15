@@ -8,6 +8,7 @@ import Goup from './Goup';
 import Header from './HeaderPart/Header';
 import Offers from './Offers';
 import OurSuccess from './OurSuccess';
+import Reviews from './Reviews';
 import TrustedAssociate from './TrustedAssociate';
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
             <Discover />
             <Blogs />
             <Offers />
+            <Reviews />
             <Goup />
             <OurSuccess />
             <Bannner2 />
