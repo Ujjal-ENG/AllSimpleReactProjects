@@ -6,6 +6,7 @@ import Discover from './Discover';
 import Featured from './Featured';
 import Goup from './Goup';
 import Header from './HeaderPart/Header';
+import Offers from './Offers';
 import OurSuccess from './OurSuccess';
 import TrustedAssociate from './TrustedAssociate';
 
@@ -18,6 +19,7 @@ const Home = () => {
             <Featured />
             <Discover />
             <Blogs />
+            <Offers />
             <Goup />
             <OurSuccess />
             <Bannner2 />
