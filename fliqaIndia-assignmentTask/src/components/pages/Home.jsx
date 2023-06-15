@@ -1,5 +1,6 @@
 import React from 'react';
 import BannerImg from './BannerImg';
+import Bannner2 from './Bannner2';
 import Blogs from './Blogs';
 import Discover from './Discover';
 import Featured from './Featured';
@@ -19,6 +20,7 @@ const Home = () => {
             <Blogs />
             <Goup />
             <OurSuccess />
+            <Bannner2 />
         </div>
     );
 };
