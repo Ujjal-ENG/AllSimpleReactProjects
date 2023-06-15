@@ -12,7 +12,7 @@ import logo from '../../../assets/FliqaIndia-Logo1.png';
 import Button from './Button';
 
 const Navbar = () => {
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState('light');
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
     }, [theme]);
