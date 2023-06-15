@@ -79,7 +79,10 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-end hidden lg:flex">
-                    <Button>Sign In</Button>
+                    <div className="mx-4 flex items-center gap-4">
+                        <Button>Sign Up</Button>
+                        <Button>Sign In</Button>
+                    </div>
                     <div>
                         <label htmlFor="themeToggle" className="swap swap-rotate">
                             <input type="checkbox" id="themeToggle" checked={theme === 'dark' ? 'light' : 'dark'} onChange={toggleTheme} className="hidden" />
