@@ -41,7 +41,7 @@ const Bannner2 = () => {
                             <p className="mt-4 font-bold text-2xl tracking-wider text-gray-200 uppercase">Grow your freelancing career with Fliqa Associate</p>
                             <p className="mt-4  text-xl tracking-wider text-gray-200 uppercase">Register yourself Verification & Quality Check Verified Associate at FliqaIndia</p>
                         </div>
-                        <button type="button" className="btn ">
+                        <button type="button" className="btn px-14">
                             {' '}
                             join now
                         </button>
