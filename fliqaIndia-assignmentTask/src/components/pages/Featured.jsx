@@ -90,12 +90,12 @@ const Featured = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-80 left-0">
+                <div className="absolute top-80 left-0 md:block hidden">
                     <button type="button" className="btn btn-circle">
                         <HiOutlineArrowSmLeft size={32} />
                     </button>
                 </div>
-                <div className="absolute top-80 right-0">
+                <div className="absolute top-80 right-0 md:block hidden">
                     <button type="button" className="btn btn-circle">
                         <HiOutlineArrowSmRight size={32} />
                     </button>
