@@ -73,7 +73,7 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <div className="flex items-center">
+                    <div className="hidden lg:flex items-center">
                         <img src={logo} alt="logo" />
                         <ul className="menu menu-horizontal px-1">{navItems}</ul>
                     </div>
