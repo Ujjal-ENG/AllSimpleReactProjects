@@ -7,7 +7,7 @@ const Offers = () => {
         <div className="border-y-2 border-black my-10 pb-5 bg-gradient-to-t from-transparent via-[#BADCDC] to-transparent">
             <h1 className="text-[#4C696D] text-4xl font-semibold text-center pt-5 pb-2">Best Offers</h1>
             <h1 className="text-[#4C696D] text-xl font-semibold text-center  pb-2">Discover the best offers on our services</h1>
-            <div className="grid grid-cols-4 justify-items-center py-9">
+            <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center py-9 gap-10 md:gap-0">
                 <div className="w-[350px] h-[440px] bg-white rounded-2xl">
                     <div className="w-full h-[395px] relative">
                         <img
