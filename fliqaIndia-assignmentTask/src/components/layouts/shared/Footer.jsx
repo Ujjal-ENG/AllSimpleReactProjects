@@ -7,8 +7,8 @@ import { AiFillFacebook, AiFillInstagram, AiFillLinkedin, AiFillYoutube, AiOutli
 const Footer = () => {
     return (
         <div className="bg-black relative pb-40">
-            <div className="grid grid-cols-4 justify-items-center">
-                <div className="col-span-2 w-full  p-10">
+            <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center">
+                <div className="col-span-2 z-10 w-full  p-10">
                     <h1 className="text-2xl font-semibold tracking-wider py-4 text-white">Never miss a thing.</h1>
                     <div className="join max-w-xl w-full">
                         <input className="input input-bordered rounded-full join-item  w-full" placeholder="Email" />
