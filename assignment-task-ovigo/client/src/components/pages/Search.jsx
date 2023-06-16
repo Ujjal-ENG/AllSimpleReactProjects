@@ -11,16 +11,18 @@ import { IoIosMan } from 'react-icons/io';
 import { MdDateRange } from 'react-icons/md';
 import { DateRangePicker, END_DATE, START_DATE } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
-
+    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         data.startDate = startDate;
         data.endDate = endDate;
         console.log(data);
+        navigate('/search-results', { state: data });
     };
 
     return (
@@ -71,7 +73,7 @@ const Search = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn border-none text-xl font-bold text-white bg-blue-700 px-5">
+                <button type="submit" className="btn border-none text-xl font-bold text-white bg-blue-700 hover:bg-black px-5">
                     Search
                 </button>
             </form>
