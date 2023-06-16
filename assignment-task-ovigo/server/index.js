@@ -49,8 +49,8 @@ async function run() {
 
         // hotels route
         app.get('/hotels', async (req, res) => {
-            try {
-              const result = await hotelsCollections.find().toArray();
+          try {
+            const result = await hotelsCollections.find(req.query).toArray();
               res.status(200).json({ 
                 success: true,
                 data: result,

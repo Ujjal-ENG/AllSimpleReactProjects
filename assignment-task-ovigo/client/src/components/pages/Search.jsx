@@ -3,6 +3,7 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-props-no-spreading */
 
+import axios from 'axios';
 import { enGB } from 'date-fns/locale';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -16,21 +17,30 @@ import { useNavigate } from 'react-router-dom';
 const Search = () => {
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
+    const [hotelsData, setHotelsData] = useState([]);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
         data.startDate = startDate;
         data.endDate = endDate;
         try {
-            // const response = await axios.get;
+            const response = await axios.get(`http://localhost:8080/hotels?placeName=${data?.place}`);
+            if (response.data.success) {
+                setHotelsData(response?.data?.data);
+                setLoading(false);
+                navigate('/search-results', { state: [data, ...hotelsData] });
+            }
         } catch (error) {
+            setLoading(false);
             console.log(error);
         }
-        navigate('/search-results', { state: data });
     };
 
+    console.log(hotelsData);
+
     return (
-        <div className="max-w-[1400px] mx-auto bg-white border-black duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
+        <div className="max-w-[1400px] px-4 mx-auto bg-white border-black duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
             <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between items-center">
                 <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -92,9 +102,16 @@ const Search = () => {
                     </div>
                 </div>
 
-                <button type="submit" className="btn border-none text-xl font-bold text-white bg-blue-700 hover:bg-black px-5">
-                    Search
-                </button>
+                {loading ? (
+                    <button type="button" className="btn">
+                        <span className="loading btn-primary loading-spinner" />
+                        loading
+                    </button>
+                ) : (
+                    <button type="submit" className="btn border-none text-xl font-bold text-white bg-blue-700 hover:bg-black px-5">
+                        Search
+                    </button>
+                )}
             </form>
         </div>
     );

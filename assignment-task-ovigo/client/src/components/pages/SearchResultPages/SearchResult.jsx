@@ -10,7 +10,7 @@ const SearchResult = () => {
     const { state } = useLocation();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => console.log(data);
-    console.log(state);
+    console.log(state[1]);
     return (
         <div className="h-[30vh] bg-blue-900 pt-40">
             <div className="grid grid-cols-3 justify-items-center my-32">
@@ -19,13 +19,13 @@ const SearchResult = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                         <div className="space-y-2">
                             <h3 className="text-xl font-bold">Destination</h3>
-                            <input {...register('firstName', { required: true, maxLength: 20 })} defaultValue={state?.place} className="input input-bordered w-full text-xl  font-bold" />
+                            <input {...register('firstName', { required: true, maxLength: 20 })} defaultValue={state[0]?.place} className="input input-bordered w-full text-xl  font-bold" />
                         </div>
                         <div className="space-y-2">
                             <h3 className="text-xl font-bold">Check in Date</h3>
                             <input
                                 {...register('date', { required: true, maxLength: 20 })}
-                                defaultValue={`${moment(state?.startDate).format('LL')} to ${moment(state?.endDate).format('LL')}`}
+                                defaultValue={`${moment(state[0]?.startDate).format('LL')} to ${moment(state[0]?.endDate).format('LL')}`}
                                 className="input input-bordered w-full text-xl  font-bold"
                             />
                         </div>
@@ -46,7 +46,7 @@ const SearchResult = () => {
                                     type="number"
                                     min={0}
                                     className="input input-bordered w-[80px] text-xl  font-bold"
-                                    defaultValue={state?.adult}
+                                    defaultValue={state[0]?.adult}
                                 />
                             </div>
                             <div className="flex justify-between items-center">
@@ -56,7 +56,7 @@ const SearchResult = () => {
                                     type="number"
                                     min={0}
                                     className="input input-bordered w-[80px] text-xl  font-bold"
-                                    defaultValue={state?.children}
+                                    defaultValue={state[0]?.children}
                                 />
                             </div>
                             <div className="flex justify-between items-center">
@@ -66,7 +66,7 @@ const SearchResult = () => {
                                     type="number"
                                     min={0}
                                     className="input input-bordered w-[80px] text-xl  font-bold"
-                                    defaultValue={state?.room}
+                                    defaultValue={state[0]?.room}
                                 />
                             </div>
                         </div>
@@ -75,9 +75,7 @@ const SearchResult = () => {
                         </button>
                     </form>
                 </div>
-                <div className="col-span-2 border-2 border-red-500 w-full p-10">
-                    <SearchCard />
-                </div>
+                <div className="col-span-2 flex flex-col gap-10 w-full p-10">{state[1]?.hotels && state[1]?.hotels.map((item) => <SearchCard key={item?.hotelId} data={item} />)}</div>
             </div>
         </div>
     );
