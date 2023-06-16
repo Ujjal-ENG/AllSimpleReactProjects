@@ -52,9 +52,9 @@ const Search = () => {
                         locale={enGB}>
                         {({ startDateInputProps, endDateInputProps, focus }) => (
                             <div className="date-range">
-                                <input className={`input${focus === START_DATE ? ' -focused' : ''} pl-10`} {...startDateInputProps} required />
+                                <input className={`input${focus === START_DATE ? ' -focused' : ''} pl-10 font-bold`} {...startDateInputProps} required />
                                 <span className="date-range_arrow" />
-                                <input className={`input${focus === END_DATE ? ' -focused' : ''}`} {...endDateInputProps} placeholder="08/06/2022" required />
+                                <input className={`input${focus === END_DATE ? ' -focused' : ''} font-bold`} {...endDateInputProps} placeholder="08/06/2022" required />
                             </div>
                         )}
                     </DateRangePicker>
