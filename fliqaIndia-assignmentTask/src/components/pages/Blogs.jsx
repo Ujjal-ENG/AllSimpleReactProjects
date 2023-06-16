@@ -39,7 +39,7 @@ const Blogs = () => {
                             <h1 className="text-2xl font-bold">View All</h1>
                         </div>
 
-                        <div className="py-5 border-b-2 border-black flex justify-between">
+                        <div className="py-5 border-b-2 border-black flex justify-between md:flex-row flex-col md:items-start items-center">
                             <div className="avatar">
                                 <div className="w-32 rounded">
                                     <img src={goa1} alt="goa1" />
@@ -50,7 +50,7 @@ const Blogs = () => {
                                 <p className="text-xs  w-64">In a period where many industries remain highly unclear, others want to grasp how COVID-19 impact</p>
                             </div>
                         </div>
-                        <div className="py-5 border-b-2 border-black flex justify-between">
+                        <div className="py-5 border-b-2 border-black flex justify-between md:flex-row flex-col md:items-start items-center">
                             <div className="avatar">
                                 <div className="w-32 rounded">
                                     <img src={goa2} alt="goa2" />

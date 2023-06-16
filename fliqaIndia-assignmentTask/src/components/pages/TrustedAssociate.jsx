@@ -19,7 +19,7 @@ import { FreeMode, Pagination } from 'swiper';
 const TrustedAssociate = () => {
     return (
         <div className="bg-gradient-to-r from-teal-400 to-teal-900 relative">
-            <div className="flex justify-between items-center">
+            <div className="flex md:flex-row flex-col justify-between items-center">
                 <div>
                     <h2 className="text-5xl font-semibold tracking-wider px-10 pt-14 text-teal-700">Find Trusted Associate</h2>
                     <p className=" pb-10 px-10 text-xl tracking-wider text-black">Find the best Fliqa Associate for your Special Day</p>
