@@ -27,9 +27,9 @@ const Bannner2 = () => {
                 </section>
             </div>
             <div>
-                <section className="relative py-10 my-10 overflow-hidden bg-black sm:py-16 lg:py-24 xl:py-32">
+                <section className="relative py-10 mt-10 overflow-hidden bg-black sm:py-16 lg:py-24 xl:py-32">
                     <div className="absolute inset-0">
-                        <img className="object-cover w-full h-full md:object-left md:scale-150 md:origin-top-left" src={banner4} alt="bannerimg" />
+                        <img className="object-fill w-full h-full" src={banner4} alt="bannerimg" />
                     </div>
 
                     <div className="absolute inset-0 hidden bg-gradient-to-r md:block from-black to-transparent" />
