@@ -32,8 +32,21 @@ const TrustedAssociate = () => {
             </div>
             <div className="px-20 py-10">
                 <Swiper
-                    slidesPerView={3}
-                    spaceBetween={30}
+                    slidesPerView={1}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                            spaceBetween: 10
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 10
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 50
+                        }
+                    }}
                     freeMode
                     pagination={{
                         clickable: true
