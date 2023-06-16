@@ -7,12 +7,14 @@ import Footer from './components/layouts/shared/Footer';
 import Navbar from './components/layouts/shared/Navbar';
 
 const App = () => {
-    AOS.init({
-        offset: 200,
-        duration: 600,
-        easing: 'ease-in-sine',
-        delay: 100
-    });
+    useEffect(() => {
+        AOS.init({
+            offset: 200,
+            duration: 600,
+            easing: 'ease-in-sine',
+            delay: 100
+        });
+    }, []);
 
     const [isLoading, setIsLoading] = useState(document.readyState !== 'complete');
 
