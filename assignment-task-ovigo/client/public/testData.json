@@ -1,0 +1,94 @@
+{
+    "touristPlaces": [
+        {
+            "placeId": 1,
+            "placeName": "Cox's Bazar",
+            "description": "Cox's Bazar is a popular tourist destination known for its long sandy beach, vibrant atmosphere, and scenic beauty. It offers a range of water activities, stunning sunsets, and delicious seafood.",
+            "imageURL": "https://images.pexels.com/photos/269583/pexels-photo-269583.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "hotels": [
+                {
+                    "hotelId": 1,
+                    "hotelName": "Hotel Sea Pearl",
+                    "rating": 8.5,
+                    "distanceFromBeach": "Walking distance",
+                    "amenities": ["Swimming Pool", "Restaurant", "Spa"],
+                    "price": 120,
+                    "includesTaxAndFees": true,
+                    "description": "Hotel Sea Pearl offers comfortable rooms with beautiful views of the beach. The hotel features a swimming pool, on-site restaurant, and spa facilities.",
+                    "imageURL": "https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=600"
+                },
+                {
+                    "hotelId": 2,
+                    "hotelName": "Long Beach Hotel",
+                    "rating": 9.2,
+                    "distanceFromBeach": "On the beach",
+                    "amenities": ["Private Beach", "Infinity Pool", "Fitness Center"],
+                    "price": 180,
+                    "includesTaxAndFees": true,
+                    "description": "Experience luxury and relaxation at Long Beach Hotel. This beachfront hotel offers a private beach, infinity pool, and a well-equipped fitness center.",
+                    "imageURL": "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=600"
+                }
+            ]
+        },
+        {
+            "placeId": 2,
+            "placeName": "Sundarbans",
+            "description": "Sundarbans is the largest mangrove forest in the world and a UNESCO World Heritage Site. It is home to the Royal Bengal Tigers and offers thrilling wildlife safaris, boat tours, and breathtaking natural beauty.",
+            "imageURL": "https://images.pexels.com/photos/2666806/pexels-photo-2666806.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "hotels": [
+                {
+                    "hotelId": 3,
+                    "hotelName": "Sundarban Tiger Camp",
+                    "rating": 8.8,
+                    "distanceFromForest": "In the forest",
+                    "amenities": ["Jungle Safari", "Bonfire", "Nature Walks"],
+                    "price": 150,
+                    "includesTaxAndFees": true,
+                    "description": "Immerse yourself in the beauty of Sundarbans at Sundarban Tiger Camp. Enjoy thrilling jungle safaris, bonfires, and guided nature walks.",
+                    "imageURL": "https://images.pexels.com/photos/2416472/pexels-photo-2416472.jpeg?auto=compress&cs=tinysrgb&w=600"
+                },
+                {
+                    "hotelId": 4,
+                    "hotelName": "Sundarban Riverside Resort",
+                    "rating": 9.0,
+                    "distanceFromForest": "Near the forest",
+                    "amenities": ["Boat Tours", "Swimming Pool", "Restaurant"],
+                    "price": 200,
+                    "includesTaxAndFees": true,
+                    "description": "Sundarban Riverside Resort offers a peaceful retreat near the Sundarbans. Experience boat tours, relax by the swimming pool, and savor delicious meals at the on-site restaurant.",
+                    "imageURL": "https://images.pexels.com/photos/4917176/pexels-photo-4917176.jpeg?auto=compress&cs=tinysrgb&w=600"
+                }
+            ]
+        },
+        {
+            "placeId": 3,
+            "placeName": "Sylhet",
+            "description": "Sylhet is a scenic city surrounded by tea gardens, lush green hills, and enchanting waterfalls. It is known for its natural beauty, religious sites, and rich cultural heritage.",
+            "imageURL": "https://images.pexels.com/photos/392100/pexels-photo-392100.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "hotels": [
+                {
+                    "hotelId": 5,
+                    "hotelName": "Rose View Hotel",
+                    "rating": 8.6,
+                    "distanceFromCityCenter": "In the city center",
+                    "amenities": ["Rooftop Restaurant", "Conference Rooms", "Spa"],
+                    "price": 100,
+                    "includesTaxAndFees": true,
+                    "description": "Experience luxury at Rose View Hotel in the heart of Sylhet. Enjoy stunning city views from the rooftop restaurant, access to conference rooms, and rejuvenating spa services.",
+                    "imageURL": "https://images.pexels.com/photos/1297340/pexels-photo-1297340.jpeg?auto=compress&cs=tinysrgb&w=600"
+                },
+                {
+                    "hotelId": 6,
+                    "hotelName": "Grand Sultan Tea Resort",
+                    "rating": 9.3,
+                    "distanceFromCityCenter": "Near tea gardens",
+                    "amenities": ["Infinity Pool", "Golf Course", "Luxurious Villas"],
+                    "price": 250,
+                    "includesTaxAndFees": true,
+                    "description": "Indulge in luxury at Grand Sultan Tea Resort. This resort offers an infinity pool, a golf course, and luxurious villas nestled amidst picturesque tea gardens.",
+                    "imageURL": "https://images.pexels.com/photos/4577388/pexels-photo-4577388.jpeg?auto=compress&cs=tinysrgb&w=600"
+                }
+            ]
+        }
+    ]
+}

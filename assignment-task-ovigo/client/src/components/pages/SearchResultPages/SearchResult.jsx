@@ -4,16 +4,17 @@ import moment from 'moment';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
+import SearchCard from './SearchCard';
 
 const SearchResult = () => {
     const { state } = useLocation();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => console.log(data);
-    console.log(state);
+
     return (
         <div className="h-[30vh] bg-blue-900 pt-40">
             <div className="grid grid-cols-3 justify-items-center my-32">
-                <div className="col-span-1 bg-orange-400 p-4 space-y-4 rounded-2xl mt-10 max-w-sm w-full">
+                <div className="col-span-1 h-[90vh] sticky bg-orange-400 p-4 space-y-4 rounded-2xl mt-10 max-w-sm w-full">
                     <h1 className="text-4xl tracking-wider font-bold text-gray-500">Search</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                         <div className="space-y-2">
@@ -56,7 +57,9 @@ const SearchResult = () => {
                         </button>
                     </form>
                 </div>
-                <div className="col-span-2 border-2 border-red-500 w-full p-10">gderg</div>
+                <div className="col-span-2 border-2 border-red-500 w-full p-10">
+                    <SearchCard />
+                </div>
             </div>
         </div>
     );

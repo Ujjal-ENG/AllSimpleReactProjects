@@ -18,10 +18,14 @@ const Search = () => {
     const [endDate, setEndDate] = useState();
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         data.startDate = startDate;
         data.endDate = endDate;
-        console.log(data);
+        try {
+            // const response = await axios.get;
+        } catch (error) {
+            console.log(error);
+        }
         navigate('/search-results', { state: data });
     };
 
