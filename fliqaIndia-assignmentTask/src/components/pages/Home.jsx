@@ -8,6 +8,7 @@ import Goup from './Goup';
 import Header from './HeaderPart/Header';
 import Offers from './Offers';
 import OurSuccess from './OurSuccess';
+import RealWeding from './RealWeding';
 import Reviews from './Reviews';
 import TrustedAssociate from './TrustedAssociate';
 
@@ -29,6 +30,9 @@ const Home = () => {
             </div>
             <div data-aos="zoom-in-up">
                 <Blogs />
+            </div>
+            <div data-aos="fade-up">
+                <RealWeding />
             </div>
             <div data-aos="fade-up">
                 <Offers />
