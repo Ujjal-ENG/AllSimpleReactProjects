@@ -10,11 +10,15 @@
         "lint": "yarn add -D prettier && yarn add -D babel-eslint && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
     },
     "dependencies": {
+        "date-fns": "^2.30.0",
+        "i": "^0.3.7",
         "localforage": "^1.10.0",
         "match-sorter": "^6.3.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-hook-form": "^7.44.3",
         "react-icons": "^4.9.0",
+        "react-nice-dates": "^3.1.0",
         "react-router-dom": "^6.10.0",
         "sort-by": "^1.2.0"
     },
