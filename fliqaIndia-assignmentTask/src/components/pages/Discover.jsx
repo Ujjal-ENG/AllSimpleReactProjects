@@ -30,17 +30,27 @@ const Discover = () => {
                             Search
                         </button>
                     </div>
-
-                    <div className="absolute top-0 left-2/3">
+                    <div className="md:block hidden">
+                        <div className="absolute top-0 left-2/3">
+                            <img src={img1} alt="img1" className="border-8 border-black" />
+                        </div>
+                        <div className="absolute -top-20 -right-10">
+                            <img src={img2} alt="img2" className="border-8 border-black" />
+                        </div>
+                        <div className="absolute top-40 -right-72">
+                            <img src={img3} alt="img3" className="border-8 border-black" />
+                        </div>
+                        <div className="absolute -top-24 -right-1/3">
+                            <img src={img4} alt="img4" className="border-8 border-black" />
+                        </div>
+                    </div>
+                    <div className="md:hidden flex flex-col justify-center items-center gap-10 pt-10">
                         <img src={img1} alt="img1" className="border-8 border-black" />
-                    </div>
-                    <div className="absolute -top-20 -right-10">
+
                         <img src={img2} alt="img2" className="border-8 border-black" />
-                    </div>
-                    <div className="absolute top-40 -right-72">
+
                         <img src={img3} alt="img3" className="border-8 border-black" />
-                    </div>
-                    <div className="absolute -top-24 -right-1/3">
+
                         <img src={img4} alt="img4" className="border-8 border-black" />
                     </div>
                 </div>
