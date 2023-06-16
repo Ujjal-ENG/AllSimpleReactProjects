@@ -23,6 +23,10 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Server is Running!!' });
 });
+// health route
+app.get('/health', (req, res) => {
+    res.status(200).json({ message: 'Server is Health is Good!!' });
+});
 
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.zzrczzq.mongodb.net/?retryWrites=true&w=majority`;
 
