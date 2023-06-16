@@ -30,8 +30,8 @@ const Search = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto bg-white border-black duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
-            <form onSubmit={handleSubmit(onSubmit)} className="flex justify-evenly items-center">
+        <div className="max-w-[1400px] mx-auto bg-white border-black duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between items-center">
                 <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <FaBed size={24} />
@@ -67,14 +67,29 @@ const Search = () => {
                 </div>
 
                 <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <div className="absolute inset-y-0 left-0 flex items-center  pointer-events-none w-[250px] ">
                         <IoIosMan size={24} />
                     </div>
-                    <input
-                        {...register('room-details', { required: true })}
-                        placeholder="1 adult . 0 children . 1 room"
-                        className="block font-bold w-full py-4 pl-10 pr-9 text-black placeholder-gray-500 transition-all duration-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                    />
+                    <div className="flex items-center justify-between">
+                        <input
+                            {...register('adult', { required: true })}
+                            placeholder="1 adult,"
+                            type="number"
+                            className="block font-bold py-4 pl-5 pr-9 text-black placeholder-gray-500 transition-all duration-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 w-[130px]"
+                        />
+                        <input
+                            {...register('children', { required: true })}
+                            placeholder="0 children ,"
+                            type="number"
+                            className="block font-bold py-4  text-black placeholder-gray-500 transition-all duration-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 w-[100px]"
+                        />
+                        <input
+                            {...register('room', { required: true })}
+                            placeholder="1 room"
+                            type="number"
+                            className="block font-bold py-4  text-black placeholder-gray-500 transition-all duration-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 w-[100px]"
+                        />
+                    </div>
                 </div>
 
                 <button type="submit" className="btn border-none text-xl font-bold text-white bg-blue-700 hover:bg-black px-5">
