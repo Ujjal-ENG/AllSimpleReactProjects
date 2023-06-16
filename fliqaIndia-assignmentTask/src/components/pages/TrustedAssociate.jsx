@@ -54,14 +54,14 @@ const TrustedAssociate = () => {
                     modules={[FreeMode, Pagination]}
                     className="mySwiper">
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -72,14 +72,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -90,14 +90,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -108,14 +108,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -126,14 +126,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/718261/pexels-photo-718261.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -144,14 +144,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/2379429/pexels-photo-2379429.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -162,14 +162,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -180,14 +180,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/1760901/pexels-photo-1760901.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
@@ -198,14 +198,14 @@ const TrustedAssociate = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="w-96 h-96 rounded-2xl">
+                        <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
                                 src="https://images.pexels.com/photos/709188/pexels-photo-709188.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="avatar"
                                 className="object-cover w-full h-full rounded-t-2xl"
                             />
                         </div>
-                        <div className="bg-gray-900 text-white w-96 rounded-b-2xl h-20 flex justify-between items-center pl-5">
+                        <div className="bg-gray-900 text-white md:w-96 w-full rounded-b-2xl h-20 flex justify-between items-center pl-5">
                             <div>
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
