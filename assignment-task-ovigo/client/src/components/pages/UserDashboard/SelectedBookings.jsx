@@ -61,10 +61,10 @@ const SelectedBookings = () => {
         }
     };
     return (
-        <div>
+        <div data-aos="zoom-in-up">
             <div>
                 <Helmet>
-                    <title>F|Food|School - My Selected Classes</title>
+                    <title>AssignmentTask - My Selected Booking</title>
                 </Helmet>
                 {isLoading && (
                     <div className="h-screen flex justify-center items-center">

@@ -4,7 +4,7 @@ import React from 'react';
 
 const HomepageCard = () => {
     return (
-        <div>
+        <div data-aos="fade-down">
             <section className="bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-3 py-10 px-10 gap-5">
                     <div className="relative flex items-end px-4 pb-10 pt-60 sm:pb-16 md:justify-center lg:pb-24 bg-gray-50 sm:px-6 lg:px-8">

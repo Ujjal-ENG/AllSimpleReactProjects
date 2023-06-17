@@ -13,8 +13,10 @@ const AdminHome = () => {
     // }, []);
     return (
         <div>
-            <AdminGreet />
-            <div className="flex justify-between items-center">
+            <div data-aos="fade-up">
+                <AdminGreet />
+            </div>
+            <div data-aos="fade-down" className="flex justify-between items-center">
                 <PieCharts />
                 <Barchat />
             </div>

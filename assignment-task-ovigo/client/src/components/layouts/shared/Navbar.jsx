@@ -124,7 +124,7 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60 space-y-5">
                                 <li>
-                                    <Link to={`${isAdmin ? '/dashboard/admin-home' : '/dashboard/user-home'}`} className="justify-between">
+                                    <Link to={`${isAdmin ? '/dashboard/admin-home' : '/dashboard/user-home'}`} className="justify-between btn btn-primary">
                                         Dashboard
                                     </Link>
                                     {/* <Link to="/dashboard/admin-home" className="justify-between">
@@ -133,7 +133,7 @@ const Navbar = () => {
                                 </li>
 
                                 <li>
-                                    <button type="button" className="btn btn-block text-white" onClick={() => logOutUser()}>
+                                    <button type="button" className="btn btn-block btn-success text-white" onClick={() => logOutUser()}>
                                         Logout
                                     </button>
                                 </li>

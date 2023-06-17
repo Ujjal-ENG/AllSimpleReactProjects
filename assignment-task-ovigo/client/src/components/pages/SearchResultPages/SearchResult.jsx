@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -26,7 +27,7 @@ const SearchResult = () => {
     };
     return (
         <div className="h-[30vh] bg-blue-900 pt-40">
-            <div className="grid grid-cols-3 justify-items-center my-32">
+            <div data-aos="fade-left" className="grid grid-cols-3 justify-items-center my-32">
                 <div className="col-span-1 h-[90vh] sticky bg-orange-400 p-4 space-y-4 rounded-2xl mt-10 max-w-sm w-full">
                     <h1 className="text-4xl tracking-wider font-bold text-gray-500">Search</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -88,7 +89,9 @@ const SearchResult = () => {
                         </button>
                     </form>
                 </div>
-                <div className="col-span-2 flex flex-col gap-10 w-full p-10">{state[1]?.hotels && state[1]?.hotels.map((item) => <SearchCard key={item?.hotelId} data={item} />)}</div>
+                <div data-aos="fade-up" className="col-span-2 flex flex-col gap-10 w-full p-10">
+                    {state[1]?.hotels && state[1]?.hotels.map((item) => <SearchCard key={item?.hotelId} data={item} />)}
+                </div>
             </div>
             {showPopup && (
                 <div className="fixed inset-0 flex items-center justify-center z-10">

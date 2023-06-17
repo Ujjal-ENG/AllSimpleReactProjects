@@ -11,7 +11,7 @@ const DashboardHome = () => {
             <Helmet>
                 <title>AssignmentTask - User Dashboard</title>
             </Helmet>
-            <section className="py-10 bg-white ">
+            <section data-aos="fade-up" className="py-10 bg-white ">
                 <div className="max-w-4xl px-4 mx-auto sm:px-6 lg:px-8">
                     <div className="md:flex md:items-center md:justify-center md:space-x-14 order-2">
                         <div className="relative flex-shrink-0 w-48 h-48">
@@ -30,7 +30,7 @@ const DashboardHome = () => {
                 </div>
             </section>
 
-            <div className="flex justify-between items-center">
+            <div data-aos="fade-down" className="flex justify-between items-center">
                 <PieCharts />
                 <Barchat />
             </div>
