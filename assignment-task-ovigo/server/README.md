@@ -1,6 +1,6 @@
-# Assignment Task from Ovigo
+# Assignment Task from Ovigo Backend
 
-Welcome to the Assignment Task. This project is built with Node.js and Express.js for the backend and for Database used MongoDB Atlas
+Welcome to the Assignment Task. This project is built with Node.js and Express.js for the backend and for Database using MongoDB Atlas
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ Before running the project, make sure you have the following installed on your m
 
 # Assignment Task from Ovigo Backend
 
-This is the backend server for the  project. It provides the necessary APIs and functionalities to manage users, classes, payments, and more.
+This is the backend server for the  project. It provides the necessary APIs and functionalities to manage users, bookings, hotels, and more.
 
 ## Technologies Used
 
@@ -77,7 +77,7 @@ Note: Please make sure to replace `:email` and `:id` with the actual email and b
 
 The server connects to a MongoDB database using the provided credentials in the `.env` file. The collections used are:
 
-- `Users`: Collection for user information.
+- `Users`: Collection of user information.
 - `Hotels`: Collection for hotels information.
 - `Bookings`: Collection for selected booking by users.
 
@@ -95,7 +95,7 @@ The server handles errors by sending appropriate error responses with correspond
 
 ## Conclusion
 
-This project backend server provides a robust API for managing users, hotels, and bookings. It leverages Node.js, Express.js, MongoDB, and JWT deliver the required functionalities.
+This project backend server provides a robust API for managing users, hotels, and bookings. It leverages Node.js, Express.js, MongoDB, and JWT to deliver the required functionalities.
 
 For more detailed information about the code and routes, please refer to the source code files.
 
