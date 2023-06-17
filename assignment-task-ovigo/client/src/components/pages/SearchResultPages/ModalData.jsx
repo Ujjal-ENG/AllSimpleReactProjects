@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-shadow */
+/* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-indent-props */
@@ -5,14 +8,39 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const ModalData = ({ data }) => {
-    const handleReserveNow = () => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Please Login for reserve the rooms!'
-        });
+    const { userInfo } = useAuth();
+    console.log(userInfo);
+    const [axiosSecure] = useAxiosSecure();
+    const handleReserveNow = async (room) => {
+        if (!userInfo) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please Login for reserve the rooms!'
+            });
+        }
+        const hotelBooker = {
+            ...room,
+            userName: userInfo?.displayName,
+            userEmail: userInfo?.email,
+            hotelName: data?.hotelName,
+            hotelImage: data?.imageURL
+        };
+        try {
+            const { data } = await axiosSecure.post('/bookings', hotelBooker);
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Your Room is Booked now!!! please Payment Asap,,'
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <div>
@@ -45,14 +73,14 @@ const ModalData = ({ data }) => {
                                     <span className="title-font font-medium">{item}</span>
                                 </div>
                             ))}
+                            <button
+                                onClick={() => handleReserveNow(room)}
+                                type="button"
+                                className="btn flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none btn-block my-6 hover:bg-indigo-600 rounded">
+                                Reserve Now
+                            </button>
                         </div>
                     ))}
-                    <button
-                        onClick={handleReserveNow}
-                        type="button"
-                        className="btn flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none btn-block my-6 hover:bg-indigo-600 rounded">
-                        Reserve Now
-                    </button>
                     <div className="modal-action">
                         <label htmlFor="my_modal_6" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-black text-white">
                             ✕

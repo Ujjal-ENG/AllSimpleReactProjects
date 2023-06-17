@@ -76,6 +76,7 @@ async function run() {
         // DB NAME and Collections Name
         const hotelsCollections = client.db('AssignmentHotel').collection('Hotels');
         const userCollection = client.db('AssignmentHotel').collection('Users');
+        const userBookings = client.db('AssignmentHotel').collection('Bookings');
 
         // jwt security
         app.post('/jwt', (req, res) => {
@@ -152,6 +153,7 @@ async function run() {
                 console.log(error);
             }
         });
+        
         // get all users
         app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
             try {
@@ -169,6 +171,7 @@ async function run() {
                 });
             }
         });
+        
         // user creation api
         app.post('/users', async (req, res) => {
             try {
@@ -191,6 +194,19 @@ async function run() {
                     message: 'Error occurred when creating the user data!',
                     error: error.message, // Include the error message in the response
                 });
+            }
+        });
+
+        // post bookings
+        app.post('/bookings', verifyJWT, async (req, res) => {
+            try {
+                const result = await userBookings.insertOne({ ...req.body });
+                res.status(201).json({
+                    success: true,
+                    data: result,
+                });
+            } catch (error) {
+                console.log(error);
             }
         });
 

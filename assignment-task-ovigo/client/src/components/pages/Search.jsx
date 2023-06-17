@@ -17,17 +17,17 @@ import { useNavigate } from 'react-router-dom';
 const Search = () => {
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
-    const [hotelsData, setHotelsData] = useState([]);
+
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
         data.startDate = startDate;
         data.endDate = endDate;
+        const query = data?.place.toLowerCase();
         try {
-            const response = await axios.get(`http://localhost:8080/hotels?placeName=${data?.place}`);
+            const response = await axios.get(`http://localhost:8080/hotels?placeName=${query}`);
             if (response.data.data.length > 0) {
-                setHotelsData(response?.data?.data);
                 setLoading(false);
                 navigate('/search-results', { state: [data, ...response.data.data] });
             }
@@ -36,8 +36,6 @@ const Search = () => {
             console.log(error);
         }
     };
-
-    console.log(hotelsData);
 
     return (
         <div className="max-w-[1400px] px-4 mx-auto bg-white border-black duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
