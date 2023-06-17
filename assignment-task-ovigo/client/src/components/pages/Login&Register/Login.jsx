@@ -8,15 +8,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import './styles.css';
 
 const Login = () => {
-    const { signInUser, singInGoogle, setPrivateLoad, privateLoad } = useContext(AuthContext);
-
+    const { signInUser, singInGoogle } = useContext(AuthContext);
+    const [loading, setLoading] = useState(false);
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
@@ -31,12 +31,11 @@ const Login = () => {
             signInUser(email, password);
             navigate(from, { replace: true });
             toast.success('User is Logged in Successfully!!!');
-            setPrivateLoad(false);
+            setLoading(false);
         } catch (error) {
             console.log(error);
-
+            setLoading(false);
             toast.error('There was an error while signIn user!!');
-            setPrivateLoad(false);
         }
     };
     const handleGoogleSignIn = async () => {
@@ -48,10 +47,10 @@ const Login = () => {
             toast.success('Successfully Logged In');
 
             axios.post('http://localhost:8080/users', { name: user?.displayName, email: user?.email });
-            setPrivateLoad(false);
+            setLoading(false);
         } catch (error) {
             console.log(error);
-            setPrivateLoad(false);
+            setLoading(false);
         }
     };
 
@@ -139,7 +138,7 @@ const Login = () => {
                             </form>
 
                             <div className="mt-3 space-y-3">
-                                {privateLoad ? (
+                                {loading ? (
                                     <button
                                         type="button"
                                         className="btn relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none loading">

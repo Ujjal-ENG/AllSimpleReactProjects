@@ -6,7 +6,7 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -14,9 +14,9 @@ import { AuthContext } from '../../../context/AuthProvider';
 import './styles.css';
 
 const Register = () => {
-    const { createUser, setLoading, loading, singInGoogle, setPrivateLoad } = useContext(AuthContext);
+    const { createUser, singInGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const [loading, setLoading] = useState(false);
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
     const handleSubmit = async (e) => {
@@ -25,24 +25,26 @@ const Register = () => {
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        setLoading(true);
-        setPrivateLoad(true);
+        const role = 'user';
+
         try {
             const user = createUser(name, photo, email, password);
             if (user) {
                 toast.success('User is Created Successfully!!!');
                 navigate('/login');
-                await axios.post('http://localhost:8080/users', { name, email });
+
+                await axios.post('http://localhost:8080/users', { name, email, role });
                 setLoading(false);
             }
         } catch (error) {
             console.log(error);
-            setLoading(false);
+
             toast.error('There was an error while creating user!!');
         }
     };
 
     const handleGoogleSignIn = async () => {
+        const role = 'user';
         setLoading(true);
         try {
             const result = await singInGoogle();
@@ -52,7 +54,7 @@ const Register = () => {
             toast.success('Successfully Logged In');
             setLoading(false);
             navigate(from, { replace: true });
-            await axios.post('http://localhost:8080/users', { name: displayName, email });
+            await axios.post('http://localhost:8080/users', { name: displayName, email, role });
         } catch (error) {
             setLoading(false);
             console.log(error);
