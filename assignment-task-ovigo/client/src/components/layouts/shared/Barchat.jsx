@@ -55,7 +55,7 @@ const Barchat = () => {
     };
     return (
         <div className="container">
-            <Charty title="Box Office Ticket Sales" {...BOX_OFFICE_DATA} stepX={1} startX={2017} endX={2018} style={{ width: 500, height: 650 }} />
+            <Charty title="Booking Culture" {...BOX_OFFICE_DATA} stepX={1} startX={2017} endX={2018} style={{ width: 500, height: 650 }} />
         </div>
     );
 };
