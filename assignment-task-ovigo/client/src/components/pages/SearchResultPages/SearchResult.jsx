@@ -19,7 +19,7 @@ const SearchResult = () => {
             setShowPopup(true);
         }, 5000);
 
-        return () => clearTimeout(timer); // Cleanup the timer when the component unmounts
+        return () => clearTimeout(timer);
     }, []);
 
     const closeModal = () => {
@@ -109,7 +109,7 @@ const SearchResult = () => {
                     </div>
                 </div>
             )}
-            {/* Put this part before the </body> tag */}
+
             <input type="checkbox" id="close-modal" className="modal-toggle" />
         </div>
     );
