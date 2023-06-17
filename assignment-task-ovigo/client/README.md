@@ -1,113 +1,53 @@
 # Assignment Task from Ovigo
 
-Welcome to the Assignment Task. This project is built with Node.js and Express.js for the backend and for Database used MongoDB Atlas
-
-## Prerequisites
-
-Before running the project, make sure you have the following installed on your machine:
-
-- Node.js (v12 or higher)
-- MongoDB
-
-# Assignment Task from Ovigo Backend
-
-This is the backend server for the  project. It provides the necessary APIs and functionalities to manage users, classes, payments, and more.
-
-## Technologies Used
-
-- Node.js
-- Express.js
-- MongoDB
-- JSON Web Token (JWT)
-- Stripe API
-
-## Prerequisites
-
-Before running the server, make sure you have the following installed:
-
-- Node.js
-- MongoDB
-
-## Getting Started
+Welcome to the Assignment Task. This project is built with MERN stack for this project.
 
 
+### This project utilizes the following packages and libraries to enhance its functionality and user experience:
 
-- Set up environment variables:
+-   React-Types: A library for animating text.
+-   React Tanstack Query- For Data fethcing using React Tanstack Query.
+-   Helmet: For changed the dynamically page title used.
+-   Axios: A popular library for making HTTP requests from the browser.
+-   React Router DOM: A routing library for handling client-side navigation in React applications.
+-   React Icons: A collection of popular icon libraries as React components.
 
-- Create a `.env` file in the project root directory.
-- Add the following environment variables to the file:
-
-  ```
-  PORT=<port_number>
-  DB_USERNAME=<mongodb_username>
-  DB_PASSWORD=<mongodb_password>
-  JWT_SECRET_KEY=<jwt_secret_key>
-  PAYMENT_KEY=<stripe_payment_key>
-  ```
-
-- Start the server:
+**Several Types of Packages Used in this Project**
 
 
+### Firebase Authentication
 
--The server will be running on `http://localhost:<port_number>`.
+Firebase Authentication is a powerful service provided by Google Firebase that offers built-in user management, secure authentication methods, and seamless integration with other Firebase services. In our project, we used Firebase Authentication for user registration, login, and authentication processes. This allowed us to implement user authentication quickly and securely.
 
-## Available Routes
+To set up Firebase Authentication in your project, follow these steps:
 
+1. Create a Firebase project on the Firebase console.
+2. Enable the Authentication service in your project settings.
+3. Configure the desired authentication methods, such as email/password, Google Sign-In, or social media authentication providers.
+4. Install the Firebase SDK and initialize it in your application.
+5. Use the Firebase Authentication APIs to handle user registration, login, and other authentication-related tasks.
 
-List all the available API routes provided by your server and describe their purpose and functionality. Include information about request methods, required parameters, and expected responses. Specify any authentication or authorization requirements for each route.
+### JWT (JSON Web Tokens) for Token Generation
 
-- `GET /`: Returns a message indicating that the server is running.
-- `GET /health`: Returns a message indicating the server's health status.
-- `POST /jwt`: Generates a JSON Web Token (JWT) for user authentication.
-- `GET /hotels`: Retrieves hotels based on the specified place name.
-- `POST /hotels`: Creates a new hotel entry (requires authentication and admin role).
-- `GET /users/admin/:email`: Checks if the specified email belongs to an admin user.
-- `GET /users`: Retrieves all users (requires authentication and admin role).
-- `POST /users`: Creates a new user.
-- `POST /bookings`: Creates a new booking (requires authentication).
-- `GET /bookings`: Retrieves all bookings for a specific email (requires authentication).
-- `GET /bookings-admin`: Retrieves all bookings (requires authentication and admin role).
-- `PATCH /bookings/:id`: Updates the status of a booking (requires authentication).
-- `DELETE /bookings/:id`: Deletes a booking (requires authentication).
+JWT (JSON Web Tokens) is a standard for creating and verifying tokens that represent authenticated users. We used JWT in our project's backend to generate tokens upon successful authentication. These tokens can then be used for authorization and secure communication between the client and server.
 
-Note: Please make sure to replace `:email` and `:id` with the actual email and booking ID parameters in the routes.
-
-
-## Database
-
-The server connects to a MongoDB database using the provided credentials in the `.env` file. The collections used are:
-
-- `Users`: Collection for user information.
-- `Hotels`: Collection for hotels information.
-- `Bookings`: Collection for selected booking by users.
-
-## Authentication and Authorization
-
-JSON Web Tokens (JWT) are used for user authentication and authorization. The server verifies the JWT sent in the request headers to authenticate the user and determine their role for authorization purposes.
-
-- `verifyJWT`: Middleware function to verify the JWT in the request headers.
-- `verifyAdmin`: Middleware function to verify if the user has an admin role.
-
-
-## Error Handling
-
-The server handles errors by sending appropriate error responses with corresponding status codes and error messages. Error handling middleware is used to centralize error handling and provide consistent responses.
-
-## Conclusion
-
-This project backend server provides a robust API for managing users, hotels, and bookings. It leverages Node.js, Express.js, MongoDB, and JWT deliver the required functionalities.
-
-For more detailed information about the code and routes, please refer to the source code files.
+The advantages of using JWT include stateless authentication, scalability, and easy integration with various platforms and frameworks.
 
 ## Live Server Site Link
 
-You can visit the Live Server Site at [https://assignment-task-ovigo-server.vercel.app/]
+You can visit the Live Server Site at [https://assignment-task-ovigo.web.app/]
 
+# For use Admin
+**adminEmail: test.admin@gmail.com**
+-
+**adminPassword: 1234Tt@**
+-
 ## Author
 
 My name is Ujjal Kumar Roy and I recently graduated with a degree in Computer Science and Engineering. I am passionate about web development and love to build things that people can use. In my free time, I enjoy playing cricket and listening to music.
 
 - Facebook: [Ujjal Kumar Roy](https://www.facebook.com/ujjal.roy.7862/)
 - LinkedIn: [Ujjal Kumar Roy](https://www.linkedin.com/in/ujjal-kumar-roy/)
+- My Portfolio: [https://my-portfolio-c465b.web.app/]
 
 If you have any feedback or suggestions for this project, feel free to contact me at ujjalroy7862@gmail.com
