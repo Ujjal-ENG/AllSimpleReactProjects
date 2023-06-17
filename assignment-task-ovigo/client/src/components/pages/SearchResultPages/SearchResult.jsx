@@ -23,7 +23,7 @@ const SearchResult = () => {
                         <div className="space-y-2">
                             <h3 className="text-xl font-bold">Check in Date</h3>
                             <input
-                                {...register('date', { required: true, maxLength: 20 })}
+                                {...register('date')}
                                 defaultValue={`${moment(state[0]?.startDate).format('LL')} to ${moment(state[0]?.endDate).format('LL')}`}
                                 className="input input-bordered w-full text-xl  font-bold"
                             />
