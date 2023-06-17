@@ -60,22 +60,22 @@ const ModalData = ({ data }) => {
                             <h3 className="font-bold">Max People: {room?.occupancy}</h3>
                             <h3 className="font-bold text-xl">Price: ${room?.pricePerNight}</h3>
                             <h3 className="font-bold">Amenities: {data?.amenities.length}</h3>
-                            {data?.amenities.map((item, idx) => (
-                                <div key={idx} className="bg-gray-100 rounded flex p-4 h-full items-center">
-                                    <svg
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="3"
-                                        className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
-                                        viewBox="0 0 24 24">
-                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                                        <path d="M22 4L12 14.01l-3-3" />
-                                    </svg>
-                                    <span className="title-font font-medium">{item}</span>
-                                </div>
-                            ))}
+
+                            <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="3"
+                                    className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
+                                    viewBox="0 0 24 24">
+                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                                    <path d="M22 4L12 14.01l-3-3" />
+                                </svg>
+                                <span className="title-font font-medium">{data?.amenities}</span>
+                            </div>
+
                             <button
                                 onClick={() => handleReserveNow(room)}
                                 type="button"
