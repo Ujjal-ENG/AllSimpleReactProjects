@@ -8,6 +8,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -68,6 +69,9 @@ const AddHotel = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
+            <Helmet>
+                <title>AssignmentTask - Add a Hotel</title>
+            </Helmet>
             <h1 className="text-2xl font-bold mb-4">Add Hotel</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {/* Place ID */}

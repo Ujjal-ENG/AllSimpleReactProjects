@@ -9,6 +9,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -56,6 +57,9 @@ const Login = () => {
 
     return (
         <section className="bg-white container h-screen">
+            <Helmet>
+                <title>AssignmentTask - Login</title>
+            </Helmet>
             <div className="grid grid-cols-1  lg:grid-cols-2">
                 <div data-aos="fade-right" className="flex justify-center container shadow-2xl max-w-2xl mx-auto items-center">
                     <img src="https://images.pexels.com/photos/3584967/pexels-photo-3584967.jpeg?auto=compress&cs=tinysrgb&w=600" alt="login-img" />

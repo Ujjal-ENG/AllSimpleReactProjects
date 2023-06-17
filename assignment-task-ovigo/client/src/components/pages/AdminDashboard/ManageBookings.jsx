@@ -11,6 +11,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -68,6 +69,9 @@ const ManageBookings = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>AssignmentTask - Manage Bookings</title>
+            </Helmet>
             <div className="overflow-x-auto mr-10 py-10 ">
                 {isLoading && (
                     <div className="h-screen flex justify-center items-center">

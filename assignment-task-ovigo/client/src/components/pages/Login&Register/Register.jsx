@@ -10,6 +10,7 @@ import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../../context/AuthProvider';
 import './styles.css';
 
@@ -62,6 +63,9 @@ const Register = () => {
     };
     return (
         <section className="bg-white container h-screen">
+            <Helmet>
+                <title>AssignmentTask - Register</title>
+            </Helmet>
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div data-aos="fade-left" className="flex justify-center container shadow-2xl max-w-2xl mx-auto items-center">
                     <img src="https://images.pexels.com/photos/3584967/pexels-photo-3584967.jpeg?auto=compress&cs=tinysrgb&w=600" alt="login-img" />
