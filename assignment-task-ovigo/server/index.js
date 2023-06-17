@@ -6,7 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
 
@@ -202,6 +202,34 @@ async function run() {
             try {
                 const result = await userBookings.insertOne({ ...req.body });
                 res.status(201).json({
+                    success: true,
+                    data: result,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+        
+        // get all bookings
+        app.get('/bookings', verifyJWT, async (req, res) => {
+            try {
+                const query = req.query.email;
+                const result = await userBookings.find({ userEmail: query }).toArray();
+                res.status(200).json({
+                    success: true,
+                    data: result,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+        
+        // delete booking
+        app.delete('/bookings/:id', verifyJWT, async (req, res) => {
+            try {
+                const { id } = req.params;
+                const result = await userBookings.deleteOne({ _id: new ObjectId(id) });
+                res.status(200).json({
                     success: true,
                     data: result,
                 });
