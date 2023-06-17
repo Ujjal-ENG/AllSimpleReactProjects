@@ -28,7 +28,7 @@ const Search = () => {
         data.startDate = startDate;
         data.endDate = endDate;
         const query = data?.place.toLowerCase();
-        console.log(query);
+        setLoading(true);
         try {
             const response = await axios.get(`https://assignment-task-ovigo-server.vercel.app/hotels?placeName=${query}`);
 
