@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../../../hooks/useAuth';
+import Barchat from '../../../layouts/shared/Barchat';
+import PieCharts from '../../../layouts/shared/PieChart';
 
 const DashboardHome = () => {
     const { userInfo } = useAuth();
@@ -27,6 +29,11 @@ const DashboardHome = () => {
                     </div>
                 </div>
             </section>
+
+            <div className="flex justify-between items-center">
+                <PieCharts />
+                <Barchat />
+            </div>
         </div>
     );
 };

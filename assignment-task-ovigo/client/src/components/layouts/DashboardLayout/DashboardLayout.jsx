@@ -18,7 +18,7 @@ const Dashboard = () => {
                 {isAdmin ? (
                     <div className="col-span-1 h-[90vh] sticky bg-orange-400 p-4 space-y-4 rounded-2xl mt-10 max-w-sm w-full">
                         <h1 className="text-4xl tracking-wider font-bold text-gray-500">Admin Dashboard</h1>
-                        <ul className="menu bg-base-200 w-56 rounded-box">
+                        <ul className="menu bg-base-200 w-72 rounded-box text-xl font-bold tracking-wide">
                             <li>
                                 <Link to="dashboard/manage-users">Manage Users</Link>
                             </li>
@@ -36,15 +36,12 @@ const Dashboard = () => {
                 ) : (
                     <div className="col-span-1 h-[90vh] sticky bg-orange-400 p-4 space-y-4 rounded-2xl mt-10 max-w-sm w-full">
                         <h1 className="text-4xl tracking-wider font-bold text-gray-500">User Dashboard</h1>
-                        <ul className="menu bg-base-200 w-56 rounded-box">
+                        <ul className="menu bg-base-200 w-72 rounded-box text-xl font-bold tracking-wide">
                             <li>
                                 <Link to="dashboard/selected-bookings">Selected Booking</Link>
                             </li>
                             <li>
                                 <Link to="/">Home</Link>
-                            </li>
-                            <li>
-                                <a>Item 3</a>
                             </li>
                         </ul>
                     </div>
