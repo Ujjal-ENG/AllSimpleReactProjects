@@ -8,12 +8,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import useAdmin from '../../../hooks/useAdmin';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const ModalData = ({ data }) => {
     const { userInfo } = useAuth();
     const [isClicked, setIsClicked] = useState(null);
+    const [isAdmin] = useAdmin();
 
     const [axiosSecure] = useAxiosSecure();
     const handleReserveNow = async (room) => {
@@ -80,7 +82,7 @@ const ModalData = ({ data }) => {
                                 onClick={() => handleReserveNow(room)}
                                 type="button"
                                 className="btn flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none btn-block my-6 hover:bg-indigo-600 rounded"
-                                disabled={room?.roomId === isClicked}>
+                                disabled={room?.roomId === isClicked || isAdmin}>
                                 Reserve Now
                             </button>
                         </div>
