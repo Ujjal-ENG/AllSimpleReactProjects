@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Dashboard from '../components/layouts/DashboardLayout/DashboardLayout';
 import AdminHome from '../components/pages/AdminDashboard/AdminHome/AdminHome';
+import ManageBookings from '../components/pages/AdminDashboard/ManageBookings';
 import ManageUsers from '../components/pages/AdminDashboard/ManageUsers';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login&Register/Login';
@@ -73,6 +74,15 @@ export const router = createBrowserRouter([
                 element: (
                     <AdminOnlyRoutes>
                         <ManageUsers />
+                    </AdminOnlyRoutes>
+                )
+            },
+
+            {
+                path: 'dashboard/manage-bookings',
+                element: (
+                    <AdminOnlyRoutes>
+                        <ManageBookings />
                     </AdminOnlyRoutes>
                 )
             }

@@ -30,7 +30,7 @@ const SelectedBookings = () => {
         }
     });
 
-    const handleDeleteClasses = async (id) => {
+    const handleDeleteBooking = async (id) => {
         setIsLoading(true);
         try {
             const result = await Swal.fire({
@@ -120,7 +120,7 @@ const SelectedBookings = () => {
                                                 <span className="loading loading-spinner" />
                                             </button>
                                         ) : (
-                                            <button type="button" className="btn btn-error font-bold  mt-5" onClick={() => handleDeleteClasses(data?._id)}>
+                                            <button type="button" className="btn btn-error font-bold  mt-5" onClick={() => handleDeleteBooking(data?._id)}>
                                                 Cancel Booking!!
                                             </button>
                                         )}

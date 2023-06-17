@@ -210,7 +210,7 @@ async function run() {
             }
         });
         
-        // get all bookings
+        // get all bookings based on email
         app.get('/bookings', verifyJWT, async (req, res) => {
             try {
                 const query = req.query.email;
@@ -223,7 +223,40 @@ async function run() {
                 console.log(error);
             }
         });
+
+        // get all bookings based on email
+        app.get('/bookings-admin', verifyJWT, verifyAdmin, async (req, res) => {
+            try {
+                const result = await userBookings.find().toArray();
+                res.status(200).json({
+                    success: true,
+                    data: result,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
         
+        // update booking
+        app.patch('/bookings/:id', verifyJWT, async (req, res) => {
+            try {
+                const { id } = req.params;
+                const updateDoc = {
+                    $set: {
+                        
+                     status: 'approved',
+                    },
+                  };
+                const result = await userBookings.updateOne({ _id: new ObjectId(id) }, updateDoc);
+                res.status(200).json({
+                    success: true,
+                    data: result,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+
         // delete booking
         app.delete('/bookings/:id', verifyJWT, async (req, res) => {
             try {
