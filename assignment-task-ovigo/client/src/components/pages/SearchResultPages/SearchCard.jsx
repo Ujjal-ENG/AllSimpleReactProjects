@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchCard = ({ data }) => {
+    console.log(data);
     return (
         <div>
             <div className="card card-side bg-base-100 shadow-xl ">
@@ -38,9 +40,9 @@ const SearchCard = ({ data }) => {
                         )}
                     </div>
                     <div className="card-actions justify-end">
-                        <button type="button" className="btn btn-primary  border-none text-xl font-bold text-white  bg-blue-700 hover:bg-black px-5">
+                        <Link to={`/search-hotel/${data?.hotelId}`} state={data} type="button" className="btn btn-primary  border-none text-xl font-bold text-white  bg-blue-700 hover:bg-black px-5">
                             See Availability
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

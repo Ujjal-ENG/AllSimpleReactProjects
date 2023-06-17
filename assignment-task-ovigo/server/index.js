@@ -5,6 +5,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
+import jwt from 'jsonwebtoken';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
@@ -39,6 +40,34 @@ const client = new MongoClient(uri, {
     },
 });
 
+// jwt middleware
+const verifyJWT = async (req, res, next) => {
+    try {
+        const { authorization } = req.headers;
+
+        if (!authorization) {
+            return res.status(401).json({
+                success: false,
+                message: 'Unauthorized Accesss from server!!',
+            });
+        }
+        const token = authorization.split(' ')[1];
+
+        jwt.verify(token, process.env.SECRET_KEY, (err, decode) => {
+            if (err) {
+                return res.status(401).json({
+                    success: false,
+                    message: 'Unauthorized Access!!',
+                });
+            }
+            req.user = decode;
+            next();
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 async function run() {
     try {
         // Connect the client to the server (optional starting in v4.7)
@@ -46,6 +75,40 @@ async function run() {
 
         // DB NAME and Collections Name
         const hotelsCollections = client.db('AssignmentHotel').collection('Hotels');
+        const userCollection = client.db('AssignmentHotel').collection('Users');
+
+        // jwt security
+        app.post('/jwt', (req, res) => {
+            try {
+                const user = req.body;
+                const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' });
+                res.json({ token });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+
+        // check isAdmin MiddleWare
+        const verifyAdmin = async (req, res, next) => {
+            try {
+                const { email } = req.user;
+                const user = await userCollection.findOne({ email });
+
+                if (user?.role !== 'admin') {
+                    return res.status(403).json({
+                        success: false,
+                        message: 'Forbidden Access!!',
+                    });
+                }
+                next();
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Internal Server Error',
+                    error: error.message,
+                });
+            }
+        };
 
         // hotels route
         app.get('/hotels', async (req, res) => {
@@ -60,6 +123,31 @@ async function run() {
                  });
             } catch (error) {
                 console.log(error);
+            }
+        });
+
+        // user creation api
+        app.post('/users', async (req, res) => {
+            try {
+                const { email } = req.body;
+                const isExistUser = await userCollection.findOne({ email });
+                if (isExistUser) {
+                    return res.send({ message: 'Email is already registered' });
+                }
+                const result = await userCollection.insertOne({
+                    ...req.body,
+                });
+                res.status(201).json({
+                    success: true,
+                    message: 'User created successfully!',
+                    data: result,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when creating the user data!',
+                    error: error.message, // Include the error message in the response
+                });
             }
         });
 

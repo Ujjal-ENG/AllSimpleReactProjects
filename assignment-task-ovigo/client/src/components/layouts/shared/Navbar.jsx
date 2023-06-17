@@ -5,12 +5,14 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaBed, FaCarSide } from 'react-icons/fa';
 import { MdFlight } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
+    const { userInfo, logOutUser } = useContext(AuthContext);
     const [theme, setTheme] = useState('light');
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -20,7 +22,7 @@ const Navbar = () => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
     }
     const navItems = (
-        <div className="uppercase md:text-xl flex md:flex-row flex-col items-center gap-3 ">
+        <div className="uppercase text-md flex md:flex-row flex-col items-center gap-9 ">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                 <div className="flex items-center gap-1">
                     <FaBed size={32} />
@@ -85,11 +87,7 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-black">
                             {navItems}
-                            <div className="mx-4 flex flex-col items-center gap-4">
-                                <button className="btn btn-primary" type="button">
-                                    Log In
-                                </button>
-                            </div>
+
                             <div>
                                 <label htmlFor="themeToggle" className="swap swap-rotate">
                                     <input type="checkbox" id="themeToggle" checked={theme === 'dark' ? 'light' : 'dark'} onChange={toggleTheme} className="hidden" />
@@ -112,7 +110,37 @@ const Navbar = () => {
                         <ul className="menu menu-horizontal px-1">{navItems}</ul>
                     </div>
                 </div>
-                <div className="navbar-end hidden lg:flex">
+                <div className="navbar-end hidden lg:flex items-center gap-7">
+                    {userInfo && (
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-14 rounded-full">
+                                    <img alt={userInfo?.displayName} src={userInfo?.photoURL} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60 space-y-5">
+                                <li>
+                                    {/* <Link to={`${isAdmin ? '/dashboard/admin-home' : '/dashboard/user-home'}`} className="justify-between">
+                                Dashboard
+                            </Link> */}
+                                    <Link to="/dashboard/admin-home" className="justify-between">
+                                        Dashboard
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <button type="button" className="btn btn-block text-white" onClick={() => logOutUser()}>
+                                        Logout
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    )}
+                    {!userInfo && (
+                        <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                            Login
+                        </NavLink>
+                    )}
                     <div>
                         <label htmlFor="themeToggle" className="swap swap-rotate">
                             <input type="checkbox" id="themeToggle" checked={theme === 'dark' ? 'light' : 'dark'} onChange={toggleTheme} className="hidden" />

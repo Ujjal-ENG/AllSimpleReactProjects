@@ -1,32 +1,78 @@
 {
-    "touristPlaces": [
+     [
         {
             "placeId": 1,
             "placeName": "Cox's Bazar",
-            "description": "Cox's Bazar is a popular tourist destination known for its long sandy beach, vibrant atmosphere, and scenic beauty. It offers a range of water activities, stunning sunsets, and delicious seafood.",
+            "description": "Cox's Bazar is a picturesque beach town in Bangladesh, known for having the longest natural sandy beach in the world. It offers breathtaking views of the Bay of Bengal and is a popular tourist destination for its natural beauty and tranquility.",
             "imageURL": "https://images.pexels.com/photos/269583/pexels-photo-269583.jpeg?auto=compress&cs=tinysrgb&w=600",
             "hotels": [
                 {
-                    "hotelId": 1,
-                    "hotelName": "Hotel Sea Pearl",
-                    "rating": 8.5,
-                    "distanceFromBeach": "Walking distance",
-                    "amenities": ["Swimming Pool", "Restaurant", "Spa"],
+                    "hotelId": 9,
+                    "hotelName": "Seagull Hotel",
+                    "rating": 8.4,
+                    "distanceFromCityCenter": "Near the beach",
+                    "amenities": ["Swimming Pool", "Beachfront Restaurant", "Spa"],
                     "price": 120,
                     "includesTaxAndFees": true,
-                    "description": "Hotel Sea Pearl offers comfortable rooms with beautiful views of the beach. The hotel features a swimming pool, on-site restaurant, and spa facilities.",
-                    "imageURL": "https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    "description": "Experience comfort at Seagull Hotel. Enjoy the swimming pool, dine at the beachfront restaurant, and rejuvenate at the spa while overlooking the stunning Cox's Bazar beach.",
+                    "imageURL": "https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "rooms": [
+                        {
+                            "roomId": 12,
+                            "roomType": "Standard",
+                            "description": "Cozy room with a double bed, air conditioning, and partial views of the beach.",
+                            "occupancy": 2,
+                            "pricePerNight": 120
+                        },
+                        {
+                            "roomId": 13,
+                            "roomType": "Deluxe",
+                            "description": "Spacious room with a king-size bed, private balcony, and panoramic views of the beach.",
+                            "occupancy": 2,
+                            "pricePerNight": 180
+                        },
+                        {
+                            "roomId": 14,
+                            "roomType": "Family Suite",
+                            "description": "Family suite with multiple rooms, a separate living area, and direct beach access.",
+                            "occupancy": 4,
+                            "pricePerNight": 300
+                        }
+                    ]
                 },
                 {
-                    "hotelId": 2,
-                    "hotelName": "Long Beach Hotel",
-                    "rating": 9.2,
-                    "distanceFromBeach": "On the beach",
-                    "amenities": ["Private Beach", "Infinity Pool", "Fitness Center"],
+                    "hotelId": 10,
+                    "hotelName": "Sylhet Paradise Resort",
+                    "rating": 9.1,
+                    "distanceFromCityCenter": "In the heart of Sylhet",
+                    "amenities": ["Infinity Pool", "Spacious Gardens", "Restaurant"],
                     "price": 180,
                     "includesTaxAndFees": true,
-                    "description": "Experience luxury and relaxation at Long Beach Hotel. This beachfront hotel offers a private beach, infinity pool, and a well-equipped fitness center.",
-                    "imageURL": "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    "description": "Indulge in luxury at Sylhet Paradise Resort. Enjoy the infinity pool, explore the spacious gardens, and savor delicious meals at the resort's restaurant.",
+                    "imageURL": "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "rooms": [
+                        {
+                            "roomId": 15,
+                            "roomType": "Superior",
+                            "description": "Comfortable room with a queen-size bed, modern amenities, and garden views.",
+                            "occupancy": 2,
+                            "pricePerNight": 180
+                        },
+                        {
+                            "roomId": 16,
+                            "roomType": "Deluxe Suite",
+                            "description": "Spacious suite with a separate living area, a king-size bed, and a private balcony overlooking the gardens.",
+                            "occupancy": 2,
+                            "pricePerNight": 250
+                        },
+                        {
+                            "roomId": 17,
+                            "roomType": "Family Villa",
+                            "description": "Luxurious villa with multiple bedrooms, a private pool, and a tranquil setting amidst the resort's lush gardens.",
+                            "occupancy": 4,
+                            "pricePerNight": 400
+                        }
+                    ]
                 }
             ]
         },
@@ -44,8 +90,31 @@
                     "amenities": ["Jungle Safari", "Bonfire", "Nature Walks"],
                     "price": 150,
                     "includesTaxAndFees": true,
-                    "description": "Immerse yourself in the beauty of Sundarbans at Sundarban Tiger Camp. Enjoy thrilling jungle safaris, bonfires, and guided nature walks.",
-                    "imageURL": "https://images.pexels.com/photos/2416472/pexels-photo-2416472.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    "description": "Immerse yourself in the beauty of Sundarbans at Sundarban Tiger Camp. Enjoy thrilling jungle safaris, cozy bonfires, and guided nature walks.",
+                    "imageURL": "https://images.pexels.com/photos/2416472/pexels-photo-2416472.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "rooms": [
+                        {
+                            "roomId": 5,
+                            "roomType": "Standard",
+                            "description": "Comfortable room with a double bed, basic amenities, and views of the forest.",
+                            "occupancy": 2,
+                            "pricePerNight": 150
+                        },
+                        {
+                            "roomId": 6,
+                            "roomType": "Deluxe",
+                            "description": "Spacious room with a queen-size bed, private balcony, and scenic views of the Sundarbans.",
+                            "occupancy": 2,
+                            "pricePerNight": 200
+                        },
+                        {
+                            "roomId": 7,
+                            "roomType": "Family Cottage",
+                            "description": "Cozy cottage with multiple rooms, a living area, and direct access to the forest.",
+                            "occupancy": 4,
+                            "pricePerNight": 350
+                        }
+                    ]
                 },
                 {
                     "hotelId": 4,
@@ -55,8 +124,31 @@
                     "amenities": ["Boat Tours", "Swimming Pool", "Restaurant"],
                     "price": 200,
                     "includesTaxAndFees": true,
-                    "description": "Sundarban Riverside Resort offers a peaceful retreat near the Sundarbans. Experience boat tours, relax by the swimming pool, and savor delicious meals at the on-site restaurant.",
-                    "imageURL": "https://images.pexels.com/photos/4917176/pexels-photo-4917176.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    "description": "Sundarban Riverside Resort offers a peaceful retreat near the Sundarbans. Experience exciting boat tours, relax by the swimming pool, and savor delicious meals at the on-site restaurant.",
+                    "imageURL": "https://images.pexels.com/photos/4917176/pexels-photo-4917176.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "rooms": [
+                        {
+                            "roomId": 8,
+                            "roomType": "River View",
+                            "description": "Comfortable room with a king-size bed, river views, and modern amenities.",
+                            "occupancy": 2,
+                            "pricePerNight": 200
+                        },
+                        {
+                            "roomId": 9,
+                            "roomType": "Executive Suite",
+                            "description": "Spacious suite with a separate living area, a private balcony, and panoramic views of the surrounding nature.",
+                            "occupancy": 2,
+                            "pricePerNight": 250
+                        },
+                        {
+                            "roomId": 10,
+                            "roomType": "Family Villa",
+                            "description": "Luxurious villa with multiple bedrooms, a private pool, and a serene setting amidst nature.",
+                            "occupancy": 4,
+                            "pricePerNight": 450
+                        }
+                    ]
                 }
             ]
         },
@@ -75,7 +167,30 @@
                     "price": 100,
                     "includesTaxAndFees": true,
                     "description": "Experience luxury at Rose View Hotel in the heart of Sylhet. Enjoy stunning city views from the rooftop restaurant, access to conference rooms, and rejuvenating spa services.",
-                    "imageURL": "https://images.pexels.com/photos/1297340/pexels-photo-1297340.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    "imageURL": "https://images.pexels.com/photos/1297340/pexels-photo-1297340.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "rooms": [
+                        {
+                            "roomId": 1,
+                            "roomType": "Standard",
+                            "description": "Comfortable room with a king-size bed and modern amenities.",
+                            "occupancy": 2,
+                            "pricePerNight": 100
+                        },
+                        {
+                            "roomId": 2,
+                            "roomType": "Deluxe",
+                            "description": "Spacious room with a king-size bed, separate seating area, and luxurious furnishings.",
+                            "occupancy": 2,
+                            "pricePerNight": 150
+                        },
+                        {
+                            "roomId": 3,
+                            "roomType": "Suite",
+                            "description": "Luxurious suite with multiple rooms, a king-size bed, living area, and panoramic views.",
+                            "occupancy": 4,
+                            "pricePerNight": 250
+                        }
+                    ]
                 },
                 {
                     "hotelId": 6,
@@ -86,7 +201,23 @@
                     "price": 250,
                     "includesTaxAndFees": true,
                     "description": "Indulge in luxury at Grand Sultan Tea Resort. This resort offers an infinity pool, a golf course, and luxurious villas nestled amidst picturesque tea gardens.",
-                    "imageURL": "https://images.pexels.com/photos/4577388/pexels-photo-4577388.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    "imageURL": "https://images.pexels.com/photos/4577388/pexels-photo-4577388.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "rooms": [
+                        {
+                            "roomId": 4,
+                            "roomType": "Deluxe Room",
+                            "description": "Elegant room with a king-size bed, private balcony, and garden views.",
+                            "occupancy": 2,
+                            "pricePerNight": 250
+                        },
+                        {
+                            "roomId": 5,
+                            "roomType": "Villa",
+                            "description": "Spacious villa with multiple bedrooms, a fully-equipped kitchen, and a private pool.",
+                            "occupancy": 4,
+                            "pricePerNight": 400
+                        }
+                    ]
                 }
             ]
         }

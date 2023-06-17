@@ -26,7 +26,7 @@ const Search = () => {
         data.endDate = endDate;
         try {
             const response = await axios.get(`http://localhost:8080/hotels?placeName=${data?.place}`);
-            if (response.data.success) {
+            if (response.data.data.length > 0) {
                 setHotelsData(response?.data?.data);
                 setLoading(false);
                 navigate('/search-results', { state: [data, ...response.data.data] });
