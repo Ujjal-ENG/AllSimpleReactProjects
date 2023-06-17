@@ -41,12 +41,13 @@ const Login = () => {
     };
     const handleGoogleSignIn = async () => {
         setLoading(true);
+        const role = 'user';
         try {
             const result = await singInGoogle();
             const { user } = result;
             navigate(from, { replace: true });
             toast.success('Successfully Logged In');
-            axios.post('http://localhost:8080/users', { name: user?.displayName, email: user?.email });
+            axios.post('https://assignment-task-ovigo-server.vercel.app/users', { name: user?.displayName, email: user?.email, role });
             setLoading(false);
         } catch (error) {
             console.log(error);

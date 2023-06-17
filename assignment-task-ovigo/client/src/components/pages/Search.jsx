@@ -30,7 +30,7 @@ const Search = () => {
         const query = data?.place.toLowerCase();
         console.log(query);
         try {
-            const response = await axios.get(`http://localhost:8080/hotels?placeName=${query}`);
+            const response = await axios.get(`https://assignment-task-ovigo-server.vercel.app/hotels?placeName=${query}`);
 
             if (response.data.data.length === 0) {
                 setLoading(false);

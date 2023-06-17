@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
 
             // get and set token
             if (currentUser) {
-                axios.post('http://localhost:8080/jwt', { email: currentUser.email }).then((data) => {
+                axios.post('https://assignment-task-ovigo-server.vercel.app/jwt', { email: currentUser.email }).then((data) => {
                     localStorage.setItem('token', data.data.token);
                     setPrivateLoad(false);
                 });

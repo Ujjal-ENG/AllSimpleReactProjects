@@ -34,7 +34,7 @@ const Register = () => {
                 toast.success('User is Created Successfully!!!');
                 navigate('/login');
 
-                await axios.post('http://localhost:8080/users', { name, email, role });
+                await axios.post('https://assignment-task-ovigo-server.vercel.app/users', { name, email, role });
                 setLoading(false);
             }
         } catch (error) {
@@ -55,7 +55,7 @@ const Register = () => {
             toast.success('Successfully Logged In');
             setLoading(false);
             navigate(from, { replace: true });
-            await axios.post('http://localhost:8080/users', { name: displayName, email, role });
+            await axios.post('https://assignment-task-ovigo-server.vercel.app/users', { name: displayName, email, role });
         } catch (error) {
             setLoading(false);
             console.log(error);

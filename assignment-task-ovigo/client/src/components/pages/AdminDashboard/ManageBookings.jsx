@@ -78,69 +78,66 @@ const ManageBookings = () => {
                         <progress className="progress w-56" />
                     </div>
                 )}
-                {bookings.length > 0 ? (
-                    bookings.map((item, idx) => {
-                        return (
-                            <table key={item?._id} className="table">
-                                {/* head */}
-                                <thead className="bg-green-400 text-white font-bold text-2xl">
-                                    <tr>
-                                        <th />
-                                        <th>Hotel Name & Image</th>
-                                        <th>UserName & Email</th>
-                                        <th>Price</th>
-                                        <th>Room Type</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-center text-2xl font-bold">
-                                    {/* row 1 */}
-                                    <tr>
-                                        <th>{++idx}</th>
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle w-12 h-12">
-                                                        <img src={item?.hotelImage} alt={item?.hotelName} />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">{item?.hotelName}</div>
+                <table className="table">
+                    {/* head */}
+                    <thead className="bg-green-400 text-white font-bold text-2xl">
+                        <tr>
+                            <th />
+                            <th>Hotel Name & Image</th>
+                            <th>UserName & Email</th>
+                            <th>Price</th>
+                            <th>Room Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody className="text-center text-2xl font-bold">
+                        {bookings.length > 0 ? (
+                            bookings.map((item, idx) => (
+                                <tr>
+                                    <th>{++idx}</th>
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={item?.hotelImage} alt={item?.hotelName} />
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            {item?.userName}
-                                            <br />
-                                            <span className="badge badge-ghost badge-sm">{item?.userEmail}</span>
-                                        </td>
-                                        <td className="text-red-500">${item?.pricePerNight}</td>
-                                        <th>{item?.roomType}</th>
-                                        <th>{item?.status}</th>
-                                        <td>
-                                            {loading ? (
-                                                <button className="btn btn-square">
-                                                    <span className="loading loading-spinner" />
-                                                </button>
-                                            ) : (
-                                                <button
-                                                    type="button"
-                                                    className="btn btn-error font-bold  mt-5"
-                                                    onClick={() => handleApproveBooking(item?._id)}
-                                                    disabled={String(item?._id) === String(clicked)}>
-                                                    Make it Approve!!
-                                                </button>
-                                            )}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        );
-                    })
-                ) : (
-                    <h1 className="text-5xl font-bold text-red-500 text-center py-10">No Booking yet!!!</h1>
-                )}
+                                            <div>
+                                                <div className="font-bold">{item?.hotelName}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {item?.userName}
+                                        <br />
+                                        <span className="badge badge-ghost badge-sm">{item?.userEmail}</span>
+                                    </td>
+                                    <td className="text-red-500">${item?.pricePerNight}</td>
+                                    <th>{item?.roomType}</th>
+                                    <th>{item?.status}</th>
+                                    <td>
+                                        {loading ? (
+                                            <button className="btn btn-square">
+                                                <span className="loading loading-spinner" />
+                                            </button>
+                                        ) : (
+                                            <button
+                                                type="button"
+                                                className="btn btn-error font-bold  mt-5"
+                                                onClick={() => handleApproveBooking(item?._id)}
+                                                disabled={String(item?._id) === String(clicked)}>
+                                                Make it Approve!!
+                                            </button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <h1 className="text-4xl font-bold text-red-500 py-10 text-center">No one booking yet...</h1>
+                        )}
+                    </tbody>
+                </table>
             </div>
         </div>
     );
