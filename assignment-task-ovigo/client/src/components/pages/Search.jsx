@@ -13,6 +13,7 @@ import { MdDateRange } from 'react-icons/md';
 import { DateRangePicker, END_DATE, START_DATE } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Search = () => {
     const [startDate, setStartDate] = useState();
@@ -25,8 +26,18 @@ const Search = () => {
         data.startDate = startDate;
         data.endDate = endDate;
         const query = data?.place.toLowerCase();
+        console.log(query);
         try {
             const response = await axios.get(`http://localhost:8080/hotels?placeName=${query}`);
+
+            if (response.data.data.length === 0) {
+                setLoading(false);
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "Please write the place name like 'sundarbans,sylhet or cox's bazar'"
+                });
+            }
             if (response.data.data.length > 0) {
                 setLoading(false);
                 navigate('/search-results', { state: [data, ...response.data.data] });
@@ -38,7 +49,7 @@ const Search = () => {
     };
 
     return (
-        <div className="max-w-[1400px] px-4 mx-auto bg-white border-black duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
+        <div className="max-w-[1400px] px-4 mx-auto bg-white  duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  -mt-10">
             <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between items-center">
                 <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
