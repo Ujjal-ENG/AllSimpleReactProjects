@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -27,7 +29,7 @@ const SelectedBookings = () => {
             return data.data;
         }
     });
-    console.log(bookings);
+
     const handleDeleteClasses = async (id) => {
         setIsLoading(true);
         try {
@@ -82,7 +84,12 @@ const SelectedBookings = () => {
                                         </a>
 
                                         <div className="absolute top-4 right-6">
-                                            <span className="px-4 py-2 text-2xl font-semibold tracking-widest text-white uppercase bg-black rounded-full">${data?.pricePerNight} </span>
+                                            <span
+                                                className={`px-4 py-2 text-2xl font-semibold tracking-widest text-white uppercase ${
+                                                    data?.status === 'pending' ? 'bg-red-500' : 'bg-green-400'
+                                                } rounded-full`}>
+                                                {data?.status}{' '}
+                                            </span>
                                         </div>
                                     </div>
 
@@ -101,6 +108,9 @@ const SelectedBookings = () => {
                                         </h5>
                                         <h5 className="text-2xl font-bold ">
                                             Max People: <span className="text-error">{data?.occupancy}</span>
+                                        </h5>
+                                        <h5 className="text-2xl font-bold ">
+                                            Price: <span className="text-error">${data?.pricePerNight}</span>
                                         </h5>
                                     </div>
 
