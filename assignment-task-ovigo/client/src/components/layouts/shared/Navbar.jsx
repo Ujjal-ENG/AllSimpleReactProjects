@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-indent-props */
