@@ -65,7 +65,7 @@ const ManageBookings = () => {
             });
         }
     };
-    console.log(bookings);
+
     return (
         <div>
             <div className="overflow-x-auto mr-10 py-10 ">

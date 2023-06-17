@@ -3,6 +3,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Dashboard from '../components/layouts/DashboardLayout/DashboardLayout';
+import AddHotel from '../components/pages/AdminDashboard/AddHotel';
 import AdminHome from '../components/pages/AdminDashboard/AdminHome/AdminHome';
 import ManageBookings from '../components/pages/AdminDashboard/ManageBookings';
 import ManageUsers from '../components/pages/AdminDashboard/ManageUsers';
@@ -83,6 +84,14 @@ export const router = createBrowserRouter([
                 element: (
                     <AdminOnlyRoutes>
                         <ManageBookings />
+                    </AdminOnlyRoutes>
+                )
+            },
+            {
+                path: 'dashboard/add-hotel',
+                element: (
+                    <AdminOnlyRoutes>
+                        <AddHotel />
                     </AdminOnlyRoutes>
                 )
             }

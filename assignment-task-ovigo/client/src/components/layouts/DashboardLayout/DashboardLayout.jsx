@@ -26,7 +26,7 @@ const Dashboard = () => {
                                 <Link to="dashboard/manage-bookings">Manage Bookings</Link>
                             </li>
                             <li>
-                                <Link to="/">Add Room</Link>
+                                <Link to="dashboard/add-hotel">Add Hotel Room</Link>
                             </li>
                             <li>
                                 <Link to="/">Manage Room</Link>
