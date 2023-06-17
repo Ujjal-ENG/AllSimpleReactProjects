@@ -21,7 +21,6 @@ const AddHotel = () => {
     const onSubmit = async (data) => {
         const { placeId, placeName, description, imageURL, hotels } = data;
         data.placeName = data.placeName.toLowerCase();
-        // Create a new hotel object with the submitted data, including rooms
         const newHotel = {
             placeId: parseInt(placeId, 10),
             placeName,
