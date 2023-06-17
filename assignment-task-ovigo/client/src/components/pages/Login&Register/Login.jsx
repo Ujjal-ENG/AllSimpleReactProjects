@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-
+        setLoading(true);
         try {
             signInUser(email, password);
             navigate(from, { replace: true });
@@ -39,17 +39,17 @@ const Login = () => {
         }
     };
     const handleGoogleSignIn = async () => {
+        setLoading(true);
         try {
             const result = await singInGoogle();
             const { user } = result;
             navigate(from, { replace: true });
-
             toast.success('Successfully Logged In');
-
             axios.post('http://localhost:8080/users', { name: user?.displayName, email: user?.email });
             setLoading(false);
         } catch (error) {
             console.log(error);
+            toast.error('There was an error while signIn user!!');
             setLoading(false);
         }
     };
@@ -128,22 +128,26 @@ const Login = () => {
                                     </div>
 
                                     <div>
-                                        <button
-                                            type="submit"
-                                            className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 border border-transparent rounded-md bg-gradient-to-r from-fuchsia-600 to-blue-600 focus:outline-none hover:opacity-80 focus:opacity-80">
-                                            Log In
-                                        </button>
+                                        {loading ? (
+                                            <div className="w-full flex justify-center items-center">
+                                                <span className="loading loading-spinner loading-md" />
+                                            </div>
+                                        ) : (
+                                            <button
+                                                type="submit"
+                                                className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 border border-transparent rounded-md bg-gradient-to-r from-fuchsia-600 to-blue-600 focus:outline-none hover:opacity-80 focus:opacity-80">
+                                                Log In
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </form>
 
                             <div className="mt-3 space-y-3">
                                 {loading ? (
-                                    <button
-                                        type="button"
-                                        className="btn relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none loading">
-                                        loading | Please Wait
-                                    </button>
+                                    <div className="w-full flex justify-center items-center">
+                                        <span className="loading loading-spinner loading-md" />
+                                    </div>
                                 ) : (
                                     <button
                                         onClick={handleGoogleSignIn}
