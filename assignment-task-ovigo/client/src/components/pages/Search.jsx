@@ -29,7 +29,7 @@ const Search = () => {
             if (response.data.success) {
                 setHotelsData(response?.data?.data);
                 setLoading(false);
-                navigate('/search-results', { state: [data, ...hotelsData] });
+                navigate('/search-results', { state: [data, ...response.data.data] });
             }
         } catch (error) {
             setLoading(false);

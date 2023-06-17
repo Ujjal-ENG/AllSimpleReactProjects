@@ -10,7 +10,7 @@ const SearchResult = () => {
     const { state } = useLocation();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => console.log(data);
-    console.log(state[1]);
+    console.log(state);
     return (
         <div className="h-[30vh] bg-blue-900 pt-40">
             <div className="grid grid-cols-3 justify-items-center my-32">
