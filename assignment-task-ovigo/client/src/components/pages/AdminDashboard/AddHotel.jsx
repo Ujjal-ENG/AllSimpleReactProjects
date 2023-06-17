@@ -1,16 +1,20 @@
-/* eslint-disable comma-dangle */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AddHotel = () => {
     const { register, handleSubmit, reset } = useForm();
-    const [hotels, setHotels] = useState([]);
-
-    const onSubmit = (data) => {
+    const [hotel, setHotels] = useState([]);
+    const [axiosSecure] = useAxiosSecure();
+    const [loading, setLoading] = useState(false);
+    const onSubmit = async (data) => {
         const { placeId, placeName, description, imageURL, hotels } = data;
-
+        data.placeName = data.placeName.toLowerCase();
         // Create a new hotel object with the submitted data, including rooms
         const newHotel = {
             placeId: parseInt(placeId, 10),
@@ -21,7 +25,7 @@ const AddHotel = () => {
                 hotelId: hotel.hotelId,
                 hotelName: hotel.hotelName,
                 rating: parseFloat(hotel.rating),
-                distanceFromForest: hotel.distanceFromForest,
+                distance: hotel.distance,
                 amenities: hotel.amenities.split(',').map((amenity) => amenity.trim()),
                 price: parseInt(hotel.price, 10),
                 includesTaxAndFees: hotel.includesTaxAndFees === 'true',
@@ -36,12 +40,25 @@ const AddHotel = () => {
                 }))
             }))
         };
-        console.log(newHotel);
-        // Add the new hotel to the existing hotels list
-        setHotels([...hotels, newHotel]);
 
-        // Reset the form fields
-        reset();
+        try {
+            const res = await axiosSecure.post('/hotels', data);
+            if (res.data.success) {
+                Swal.fire({
+                    icon: 'success',
+
+                    text: 'Hotel Data is Successfully Inserted!'
+                });
+                setLoading(false);
+                reset();
+            }
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+
+        setHotels([...hotels, newHotel]);
     };
 
     return (
@@ -53,7 +70,7 @@ const AddHotel = () => {
                     <label htmlFor="placeId" className="block font-medium mb-1">
                         Place ID
                     </label>
-                    <input type="number" id="placeId" {...register('placeId')} required className="input input-bordered input-primary" />
+                    <input className="input input-bordered input-primary w-full" type="number" id="placeId" {...register('placeId')} required />
                 </div>
 
                 {/* Place Name */}
@@ -61,7 +78,7 @@ const AddHotel = () => {
                     <label htmlFor="placeName" className="block font-medium mb-1">
                         Place Name
                     </label>
-                    <input type="text" id="placeName" {...register('placeName')} required className="input  input-bordered input-primary" />
+                    <input className="input input-bordered input-primary w-full" type="text" id="placeName" {...register('placeName')} required />
                 </div>
 
                 {/* Description */}
@@ -69,7 +86,7 @@ const AddHotel = () => {
                     <label htmlFor="description" className="block font-medium mb-1">
                         Description
                     </label>
-                    <textarea id="description" {...register('description')} required className="input  input-bordered input-primary w-full" />
+                    <textarea id="description" {...register('description')} required className="w-full input input-bordered input-primary" />
                 </div>
 
                 {/* Image URL */}
@@ -77,116 +94,116 @@ const AddHotel = () => {
                     <label htmlFor="imageURL" className="block font-medium mb-1">
                         Image URL
                     </label>
-                    <input type="text" id="imageURL" {...register('imageURL')} required className="input  input-bordered input-primary w-full" />
+                    <input className="input input-bordered input-primary w-full" type="text" id="imageURL" {...register('imageURL')} required />
                 </div>
 
-                {/* Hotel */}
+                {/* Hotels */}
                 <div>
-                    <label className="block font-medium mt-4">Hotel</label>
-                    <div className="border border-gray-300 p-4 rounded-md">
-                        <div className="grid grid-cols-2 gap-4">
-                            {/* Hotel ID */}
-                            <div>
-                                <label htmlFor="hotelId" className="block font-medium">
-                                    Hotel ID
-                                </label>
-                                <input type="number" id="hotelId" {...register('hotelId')} required className="input  input-bordered input-primary" />
+                    <label className="block font-medium mb-1">Hotels</label>
+                    <div className="space-y-4">
+                        <div className="border border-gray-300 p-4 rounded-md">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label htmlFor="hotelId" className="block font-medium">
+                                        Hotel ID
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="number" id="hotelId" {...register('hotels[0].hotelId')} required />
+                                </div>
+                                <div>
+                                    <label htmlFor="hotelName" className="block font-medium">
+                                        Hotel Name
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="text" id="hotelName" {...register('hotels[0].hotelName')} required />
+                                </div>
+                                <div>
+                                    <label htmlFor="rating" className="block font-medium">
+                                        Rating
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="number" id="rating" {...register('hotels[0].rating')} required step="0.1" />
+                                </div>
+                                <div>
+                                    <label htmlFor="distance" className="block font-medium">
+                                        Distance from City,Bus Stand or Any Tourist Places
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="text" id="distance" {...register('hotels[0].distance')} required />
+                                </div>
+                                <div>
+                                    <label htmlFor="amenities" className="block font-medium">
+                                        Amenities (comma-separated)
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="text" id="amenities" {...register('hotels[0].amenities')} required />
+                                </div>
+                                <div>
+                                    <label htmlFor="price" className="block font-medium">
+                                        Price
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="number" id="price" {...register('hotels[0].price')} required />
+                                </div>
+                                <div>
+                                    <label htmlFor="includesTaxAndFees" className="block font-medium">
+                                        Includes Tax and Fees
+                                    </label>
+                                    <select id="includesTaxAndFees" {...register('hotels[0].includesTaxAndFees')} required>
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label htmlFor="hotelDescription" className="block font-medium">
+                                        Hotel Description
+                                    </label>
+                                    <textarea id="hotelDescription" {...register('hotels[0].description')} required className="w-full input input-bordered input-primary" />
+                                </div>
+                                <div>
+                                    <label htmlFor="hotelImageURL" className="block font-medium">
+                                        Hotel Image URL
+                                    </label>
+                                    <input className="input input-bordered input-primary w-full" type="text" id="hotelImageURL" {...register('hotels[0].imageURL')} required />
+                                </div>
                             </div>
-                            {/* Hotel Name */}
-                            <div>
-                                <label htmlFor="hotelName" className="block font-medium">
-                                    Hotel Name
-                                </label>
-                                <input type="text" id="hotelName" {...register('hotelName')} required className="input  input-bordered input-primary" />
-                            </div>
-                            {/* Rating */}
-                            <div>
-                                <label htmlFor="rating" className="block font-medium">
-                                    Rating
-                                </label>
-                                <input type="number" id="rating" {...register('rating')} required step="0.1" className="input  input-bordered input-primary" />
-                            </div>
-                            {/* Distance from Forest */}
-                            <div>
-                                <label htmlFor="distanceFromForest" className="block font-medium">
-                                    Distance from Forest
-                                </label>
-                                <input type="text" id="distanceFromForest" {...register('distanceFromForest')} required className="input  input-bordered input-primary" />
-                            </div>
-                            {/* Amenities */}
-                            <div>
-                                <label htmlFor="amenities" className="block font-medium">
-                                    Amenities (comma-separated)
-                                </label>
-                                <input type="text" id="amenities" {...register('amenities')} required className="input  input-bordered input-primary" />
-                            </div>
-                            {/* Price */}
-                            <div>
-                                <label htmlFor="price" className="block font-medium">
-                                    Price
-                                </label>
-                                <input type="number" id="price" {...register('price')} required className="input  input-bordered input-primary" />
-                            </div>
-                            {/* Includes Tax and Fees */}
-                            <div>
-                                <label htmlFor="includesTaxAndFees" className="block font-medium">
-                                    Includes Tax and Fees
-                                </label>
-                                <input type="checkbox" id="includesTaxAndFees" {...register('includesTaxAndFees')} className="checkbox" />
-                            </div>
-                            {/* Description */}
-                            <div className="col-span-2">
-                                <label htmlFor="hotelDescription" className="block font-medium">
-                                    Hotel Description
-                                </label>
-                                <textarea id="hotelDescription" {...register('description')} required className="input  input-bordered input-primary w-full" />
-                            </div>
-                            {/* Image URL */}
-                            <div className="col-span-2">
-                                <label htmlFor="hotelImageURL" className="block font-medium">
-                                    Hotel Image URL
-                                </label>
-                                <input type="text" id="hotelImageURL" {...register('imageURL')} required className="input  input-bordered input-primary w-full" />
-                            </div>
+
                             {/* Rooms */}
-                            <div className="col-span-2">
+                            <div>
                                 <label className="block font-medium mt-4">Rooms</label>
-                                <div className="border border-gray-300 p-4 rounded-md">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {/* Room ID */}
-                                        <div>
-                                            <label htmlFor="roomId" className="block font-medium">
-                                                Room ID
-                                            </label>
-                                            <input type="number" id="roomId" {...register('rooms[0].roomId')} required className="input  input-bordered input-primary" />
-                                        </div>
-                                        {/* Room Type */}
-                                        <div>
-                                            <label htmlFor="roomType" className="block font-medium">
-                                                Room Type
-                                            </label>
-                                            <input type="text" id="roomType" {...register('rooms[0].roomType')} required className="input  input-bordered input-primary" />
-                                        </div>
-                                        {/* Room Description */}
-                                        <div className="col-span-2">
-                                            <label htmlFor="roomDescription" className="block font-medium">
-                                                Room Description
-                                            </label>
-                                            <textarea id="roomDescription" {...register('rooms[0].description')} required className="input  input-bordered input-primary" />
-                                        </div>
-                                        {/* Room Occupancy */}
-                                        <div>
-                                            <label htmlFor="roomOccupancy" className="block font-medium">
-                                                Room Occupancy
-                                            </label>
-                                            <input type="number" id="roomOccupancy" {...register('rooms[0].occupancy')} required className="input  input-bordered input-primary" />
-                                        </div>
-                                        {/* Room Price Per Night */}
-                                        <div>
-                                            <label htmlFor="roomPricePerNight" className="block font-medium">
-                                                Room Price Per Night
-                                            </label>
-                                            <input type="number" id="roomPricePerNight" {...register('rooms[0].pricePerNight')} required className="input  input-bordered input-primary" />
+                                <div className="space-y-4">
+                                    <div className="border border-gray-300 p-4 rounded-md">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label htmlFor="roomId" className="block font-medium">
+                                                    Room ID
+                                                </label>
+                                                <input className="input input-bordered input-primary w-full" type="number" id="roomId" {...register('hotels[0].rooms[0].roomId')} required />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="roomType" className="block font-medium">
+                                                    Room Type
+                                                </label>
+                                                <input className="input input-bordered input-primary w-full" type="text" id="roomType" {...register('hotels[0].rooms[0].roomType')} required />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="roomDescription" className="block font-medium">
+                                                    Room Description
+                                                </label>
+                                                <textarea id="roomDescription" {...register('hotels[0].rooms[0].description')} className="input input-bordered input-primary w-full" required />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="occupancy" className="block font-medium">
+                                                    Occupancy
+                                                </label>
+                                                <input className="input input-bordered input-primary w-full" type="number" id="occupancy" {...register('hotels[0].rooms[0].occupancy')} required />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="pricePerNight" className="block font-medium">
+                                                    Price per Night
+                                                </label>
+                                                <input
+                                                    className="input input-bordered input-primary w-full"
+                                                    type="number"
+                                                    id="pricePerNight"
+                                                    {...register('hotels[0].rooms[0].pricePerNight')}
+                                                    required
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -196,9 +213,15 @@ const AddHotel = () => {
                 </div>
 
                 {/* Add Hotel Button */}
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2">
-                    Add Hotel
-                </button>
+                {loading ? (
+                    <button className="btn btn-square">
+                        <span className="loading loading-spinner" />
+                    </button>
+                ) : (
+                    <button type="submit" className="btn btn-primary tracking-wider text-3xl btn-block font-bold  mt-5">
+                        Add Hotel!!
+                    </button>
+                )}
             </form>
         </div>
     );
