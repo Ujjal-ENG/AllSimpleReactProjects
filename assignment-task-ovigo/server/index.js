@@ -126,6 +126,49 @@ async function run() {
             }
         });
 
+        // users related api
+        // check admin or not
+
+        app.get('/users/admin/:email', verifyJWT, async (req, res) => {
+            try {
+                const { email } = req.params;
+
+                const decodedEmail = req.user.email;
+
+                if (decodedEmail !== email) {
+                    return res.status(403).json({ admin: false });
+                }
+                const user = await userCollection.findOne({ email });
+                // console.log(user);
+                const result = { admin: user?.role === 'admin' };
+
+                // res.status(200).json({
+                //     success: true,
+                //     message: 'Your are verified admin!',
+                //     data: result,
+                // });
+                res.send(result);
+            } catch (error) {
+                console.log(error);
+            }
+        });
+        // get all users
+        app.get('/users', verifyJWT, verifyAdmin, async (req, res) => {
+            try {
+                const usersData = await userCollection.find().toArray();
+                res.status(200).json({
+                    success: true,
+                    message: 'Data found!!',
+                    data: usersData,
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'Error occurred when fetching the Users  data!!',
+                    error: error.message, // Include the error message in the response
+                });
+            }
+        });
         // user creation api
         app.post('/users', async (req, res) => {
             try {

@@ -11,9 +11,12 @@ import { FaBed, FaCarSide } from 'react-icons/fa';
 import { MdFlight } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
     const { userInfo, logOutUser } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
+    console.log(isAdmin);
     const [theme, setTheme] = useState('light');
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -121,12 +124,12 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60 space-y-5">
                                 <li>
-                                    {/* <Link to={`${isAdmin ? '/dashboard/admin-home' : '/dashboard/user-home'}`} className="justify-between">
-                                Dashboard
-                            </Link> */}
-                                    <Link to="/dashboard/admin-home" className="justify-between">
+                                    <Link to={`${isAdmin ? '/dashboard/admin-home' : '/dashboard/user-home'}`} className="justify-between">
                                         Dashboard
                                     </Link>
+                                    {/* <Link to="/dashboard/admin-home" className="justify-between">
+                                        Dashboard
+                                    </Link> */}
                                 </li>
 
                                 <li>
