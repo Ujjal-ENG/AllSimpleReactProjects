@@ -126,7 +126,7 @@ const ManageBookings = () => {
                                                 type="button"
                                                 className="btn btn-error font-bold  mt-5"
                                                 onClick={() => handleApproveBooking(item?._id)}
-                                                disabled={String(item?._id) === String(clicked)}>
+                                                disabled={String(item?._id) === String(clicked) || item?.status === 'approved'}>
                                                 Make it Approve!!
                                             </button>
                                         )}
