@@ -31,7 +31,7 @@ app.get('/api/users', (req, res) => {
     try {
         res.status(200).json({
             success: true,
-            message: 'Succssfully get the All Users',
+            message: 'Successfully get the All Users',
             data: users,
         });
     } catch (error) {
