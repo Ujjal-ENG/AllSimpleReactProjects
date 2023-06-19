@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import cors from 'cors';
 import express from 'express';
 
@@ -33,6 +34,28 @@ app.get('/api/users', (req, res) => {
             success: true,
             message: 'Successfully get the All Users',
             data: users,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// get the user based on specific id
+app.get('/api/users/:id', (req, res) => {
+    try {
+        const { id } = req.params;
+        let findUser;
+        for (const i in users) {
+            if (users[i].id === Number(id)) {
+                findUser = users[i];
+            } else {
+                findUser = 'User id is not in database!!';
+            }
+        }
+        res.status(200).json({
+            success: true,
+            message: 'Successfully get the  User based on the id',
+            data: findUser,
         });
     } catch (error) {
         console.log(error);
