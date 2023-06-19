@@ -48,14 +48,12 @@ app.get('/api/users/:id', (req, res) => {
         for (const i in users) {
             if (users[i].id === Number(id)) {
                 findUser = users[i];
-            } else {
-                findUser = 'User id is not in database!!';
             }
         }
         res.status(200).json({
             success: true,
             message: 'Successfully get the  User based on the id',
-            data: findUser,
+            data: findUser || null,
         });
     } catch (error) {
         console.log(error);
