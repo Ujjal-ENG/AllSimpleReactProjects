@@ -8,6 +8,7 @@ import OwnTime from './OwnTime/OwnTime';
 import Partners from './Partners/Partners';
 import Searchbar from './SearchBar.jsx/Searchbar';
 import Testmonicals from './TestMonials/Testmonicals';
+import Testmonials2 from './TestMonials2/Testmonials2';
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             <Testmonicals />
             <OwnTime />
             <EarnLearn />
+            <Testmonials2 />
             <Partners />
         </div>
     );
