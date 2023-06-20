@@ -16,8 +16,8 @@ const Header = () => {
                 }}>
                 <div className="hero-overlay w-[1000px] h-[400px] bg-[#51200C] bg-opacity-60 rounded-2xl" />
                 <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-5xl  w-full grid grid-cols-1 md:grid-cols-3 ">
-                        <div data-aos="fade-down" className="col-span-2 w-[500px] ">
+                    <div className="max-w-5xl  w-full grid grid-cols-1 justify-items-stretch md:grid-cols-3 ">
+                        <div data-aos="fade-down" className="col-span-2 w-[500px]">
                             <h1 className="mb-5 text-4xl font-bold text-white ">Learn and Grow – all on a single Skills Ecosystem.</h1>
                             <p className="text-xl font-semibold tracking-wider text-start text-white px-10">
                                 From online courses and classes, to applying the skills you learn with mentors and coaches, the future of learning & development is Uplyrn.
