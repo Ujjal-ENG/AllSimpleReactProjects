@@ -4,6 +4,7 @@ import Company from './Company/Company';
 import Discover from './Discover/Discover';
 import Header from './Header/Header';
 import Searchbar from './SearchBar.jsx/Searchbar';
+import Testmonicals from './TestMonials/Testmonicals';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Categories />
             <Discover />
             <Company />
+            <Testmonicals />
         </div>
     );
 };
