@@ -5,6 +5,7 @@ import Discover from './Discover/Discover';
 import EarnLearn from './EarnLearn/EarnLearn';
 import Header from './Header/Header';
 import OwnTime from './OwnTime/OwnTime';
+import Partners from './Partners/Partners';
 import Searchbar from './SearchBar.jsx/Searchbar';
 import Testmonicals from './TestMonials/Testmonicals';
 
@@ -19,6 +20,7 @@ const Home = () => {
             <Testmonicals />
             <OwnTime />
             <EarnLearn />
+            <Partners />
         </div>
     );
 };
