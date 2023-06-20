@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable max-len */
 import React from 'react';
 
 const OwnTime = () => {
     return (
-        <div className="flex justify-evenly items-center px-32">
+        <div className="flex justify-evenly items-center px-32 my-20">
             <div>
                 <h1 className="text-5xl tracking-wider  pb-4 font-bold text-black">Learn At Your Own Time</h1>
                 <div className="h-2 max-w-md w-full py-1  bg-[#3D96F7] rounded-full my-4" />
@@ -12,7 +13,7 @@ const OwnTime = () => {
                 </p>
             </div>
             <div className="-mt-32 z-10">
-                <img src="https://uplyrn.com/images/webpimg/LearnAtYourOwnTime.webp" alt="" />
+                <img src="https://uplyrn.com/images/webpimg/LearnAtYourOwnTime.webp" alt="photo" />
             </div>
         </div>
     );
