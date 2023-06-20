@@ -13,7 +13,7 @@ import SliderCard from './SliderCard';
 
 const TestmonialSlider = () => {
     return (
-        <div className="bg-white py-10 rounded-2xl">
+        <div className=" py-10 rounded-2xl">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={10}
@@ -43,31 +43,31 @@ const TestmonialSlider = () => {
                     }
                 }}
                 modules={[Pagination, Autoplay]}>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="swiper-slide1">
                     <SliderCard />
                 </SwiperSlide>
             </Swiper>
