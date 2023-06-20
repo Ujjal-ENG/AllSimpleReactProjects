@@ -15,7 +15,7 @@ const Searchbar = () => {
                 />
             </div>
 
-            <button type="button" className="btn btn-ghost px-10 bg-gray-600 text-white text-2xl font-bold tracking-wider">
+            <button type="button" className="btn btn-ghost px-10 hover:bg-blue-600 bg-gray-600 text-white text-2xl font-bold tracking-wider">
                 Search
             </button>
         </div>
