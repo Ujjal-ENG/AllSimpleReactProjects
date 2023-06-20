@@ -10,6 +10,7 @@
         "lint": "yarn add -D prettier && yarn add -D babel-eslint && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "install": "^0.13.0",
         "localforage": "^1.10.0",
         "match-sorter": "^6.3.1",
@@ -24,6 +25,7 @@
         "@vitejs/plugin-react": "^3.1.0",
         "autoprefixer": "^10.4.14",
         "babel-eslint": "^10.1.0",
+        "daisyui": "^3.1.1",
         "eslint": "8.2.0",
         "eslint-config-airbnb": "19.0.4",
         "eslint-config-prettier": "^8.8.0",
