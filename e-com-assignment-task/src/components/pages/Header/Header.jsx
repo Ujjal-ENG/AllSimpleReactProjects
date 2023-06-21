@@ -14,7 +14,7 @@ const Header = () => {
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'center'
                 }}>
-                <div className="hero-overlay w-[1000px] h-[400px] bg-[#51200C] bg-opacity-60 rounded-2xl" />
+                <div className="hero-overlay w-full md:w-[1000px] h-full md:h-[400px] bg-[#51200C] bg-opacity-60 rounded-2xl" />
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-5xl  w-full grid grid-cols-1 justify-items-stretch md:grid-cols-3 ">
                         <div data-aos="fade-down" className="col-span-2 w-[500px]">

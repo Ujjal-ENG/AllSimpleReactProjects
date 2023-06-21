@@ -10,7 +10,7 @@ const Categories = () => {
             <p className="text-xl font-semibold tracking-wider text-center">Bite-sized content for fast learning, taught by the world’s best experts</p>
             <div>
                 <Tabs>
-                    <TabList className="max-w-7xl w-full mx-auto py-20 space-x-10 flex justify-center">
+                    <TabList className="max-w-7xl w-full mx-auto py-20 space-x-10 flex md:flex-row flex-wrap flex-col gap-5 md:gap-0 justify-center">
                         <Tab className="text-xl font-bold text-black cursor-pointer focus:text-blue-600 focus:border-b-4 focus:border-b-blue-600 pb-3">All Categories</Tab>
                         <Tab className="text-xl font-bold text-black cursor-pointer focus:text-blue-600 focus:border-b-4 focus:border-b-blue-600 pb-3">Personal Development</Tab>
                         <Tab className="text-xl font-bold text-black cursor-pointer focus:text-blue-600 focus:border-b-4 focus:border-b-blue-600 pb-3">Business</Tab>

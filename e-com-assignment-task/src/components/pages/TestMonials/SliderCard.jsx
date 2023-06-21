@@ -3,8 +3,8 @@ import React from 'react';
 
 const SliderCard = () => {
     return (
-        <div className="w-[220px]">
-            <div className="w-[298px] h-auto bg-[#416F75] text-white py-5 px-3 rounded-md">
+        <div className="md:w-[220px] w-full">
+            <div className="w-full md:w-[298px] h-auto bg-[#416F75] text-white py-5 px-3 rounded-md">
                 <div className="h-20 w-20  mx-auto">
                     <img
                         alt="testimonial"
