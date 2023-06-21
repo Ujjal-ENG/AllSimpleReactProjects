@@ -4,7 +4,7 @@ import React from 'react';
 
 const EarnLearn = () => {
     return (
-        <div data-aos="fade-down" className="flex justify-evenly items-center px-40">
+        <div data-aos="fade-down" className="flex justify-evenly items-center my-20 px-40">
             <div>
                 <h1 className="md:text-5xl text-2xl tracking-wider  pb-4 font-bold text-black">Earn As You Learn</h1>
                 <div className="h-2 max-w-md w-full py-1  bg-[#3D96F7] rounded-full my-4" />
