@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
@@ -8,7 +10,7 @@ import 'video-react/dist/video-react.css'; // import css
 const Header = () => {
     return (
         <div className="bg-[#06202D] py-24 mb-32 text-white">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2">
+            <div className="md:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2">
                 <div>
                     <div className="text-sm breadcrumbs ">
                         <ul className="text-[#93CC7A] text-lg">
@@ -24,7 +26,7 @@ const Header = () => {
 
                     <h1 className="text-2xl font-bold text-white tracking-wider py-4">Being a Productivity Guru: Efficiency Tips & Tricks</h1>
                     <p className="text-lg font-semibold">Learn productivity strategies and practical methods to be more effective personally and professionally.</p>
-                    <div className="flex justify-between items-center py-4">
+                    <div className="flex md:flex-row flex-col justify-between items-center py-4">
                         <div className="rating rating-lg">
                             <input type="radio" name="rating-9" className="rating-hidden" />
                             <input type="radio" name="rating-9" className="mask mask-star-2 " />
@@ -33,9 +35,9 @@ const Header = () => {
                             <input type="radio" name="rating-9" className="mask mask-star-2" />
                             <input type="radio" name="rating-9" className="mask mask-star-2" checked />
                         </div>
-                        <h1 className="text-2xl font-bold text-[#FFE417] tracking-wider py-4">245 views</h1>
+                        <h1 className="text-2xl  font-bold text-[#FFE417] tracking-wider py-4">245 views</h1>
                     </div>
-                    <h1 className="text-md  inline-flex  font-bold text-white tracking-wider py-4">
+                    <h1 className="text-md  inline-flex md:px-0 px-4  font-bold text-white tracking-wider py-4">
                         Last Updated 6/2023
                         <IoMdPlanet size={24} className="ml-5" />
                         English
@@ -44,15 +46,17 @@ const Header = () => {
 
                 <div className="py-10 mx-10">
                     <div className="border-2 border-[#93CC7A] rounded-xl p-10">
-                        <button type="button" className="btn bg-[#3D96F7] px-4 text-xl font-semibold tracking-wider hover:bg-black text-white border-none">
+                        <button
+                            type="button"
+                            className="btn bg-[#3D96F7]  md:pb-0 pb-20 px-0 w-full md:px-4 text-base md:text-xl font-normal md:font-semibold tracking-tighter md:tracking-wider hover:bg-black text-white border-none">
                             Buy only this course for <del>$71.85</del> <u>$19.45*</u>
                         </button>
-                        <div className="divider">OR</div>
+                        <div className="divider md:py-0 py-8">OR</div>
                         <div className="bg-[#93CC7A] transition-all duration-200 ease-in-out cursor-pointer hover:bg-[#497a34] rounded-2xl px-4 py-2">
                             <p className="text-center text-black text-xl">
                                 <del>$71.85</del> <u>$19.45*</u>
                             </p>
-                            <h1 className="text-2xl text-center font-bold text-black tracking-wider py-4">Annual Subscription</h1>
+                            <h1 className="text-xl md:text-2xl text-center font-bold text-black tracking-wider py-4">Annual Subscription</h1>
                             <p className="text-center tracking-wider text-xl text-black">Enjoy full access to all available video content</p>
                         </div>
                         <p className="pt-4">* Please use the WELCOME-20 Discount Code to enjoy 20% Off</p>
