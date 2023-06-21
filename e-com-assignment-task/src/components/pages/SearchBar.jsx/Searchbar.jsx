@@ -9,7 +9,7 @@ const Searchbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.pageYOffset;
-            if (scrollTop > 500 && !isScrolled) {
+            if (scrollTop > 70 && !isScrolled) {
                 setIsScrolled(true);
             } else if (scrollTop === 0 && isScrolled) {
                 setIsScrolled(false);
