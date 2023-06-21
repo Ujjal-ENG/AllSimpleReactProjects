@@ -1,8 +1,15 @@
 import React from 'react';
+import { BsArrowUp } from 'react-icons/bs';
 
 const Footer = () => {
+    const handleTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
     return (
-        <div className="bg-[#06202D] h-[50vh] w-full">
+        <div className="bg-[#06202D] h-[50vh] w-full relative">
             <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center pt-32 max-w-7xl mx-auto">
                 <div className="text-white space-y-3">
                     <h1 className="text-2xl font-bold">Company</h1>
@@ -45,6 +52,8 @@ const Footer = () => {
                     <img src="https://uplyrn.com/images/webpimg/iconyoutube.webp" alt="youtube" className="w-10" />
                 </div>
             </div>
+
+            <BsArrowUp type="button" onClick={handleTop} size={32} className="absolute right-10 bottom-5 text-white" />
         </div>
     );
 };
