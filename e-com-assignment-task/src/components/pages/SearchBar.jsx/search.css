@@ -2,14 +2,14 @@
     top: 0px;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 100;
 }
 .headroom--unfixed {
     position: relative;
     top: 230px;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 100;
     transform: translateY(0);
 }
 .headroom--scrolled {
@@ -30,6 +30,6 @@
     top: -180px;
     left: 0px;
     right: 0px;
-    z-index: 95;
+    z-index: 100;
     /*  transform: translate3d(0px, -100%, 0px); */
 }
