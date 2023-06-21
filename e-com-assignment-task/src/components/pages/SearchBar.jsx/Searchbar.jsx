@@ -23,7 +23,7 @@ const Searchbar = () => {
         <>
             <Headroom>
                 <div className="headroom headroom--unpinned headroom-disable-animation ">
-                    <div className="max-w-[1400px] px-14 py-5 mx-auto bg-white  duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  flex w-full justify-between items-center shadow-2xl">
+                    <div className="max-w-[1400px]  z-50 px-14 py-5 mx-auto bg-white  duration-150 transition-all ease-in-out hover:border-orange-400 hover:border-4 border-2 rounded-md  flex w-full justify-between items-center shadow-2xl">
                         <div className="mt-2.5 relative  w-full text-gray-400 focus-within:text-gray-600 max-w-5xl">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <BiSearchAlt2 size={24} />
