@@ -1,0 +1,35 @@
+.headroom {
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.headroom--unfixed {
+    position: relative;
+    top: 230px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateY(0);
+}
+.headroom--scrolled {
+    transition: transform 200ms ease-in-out;
+}
+.headroom--unpinned {
+    position: fixed;
+    /* transform: translateY(-100%); */
+    top: 180px;
+    left: 0px;
+    right: 0px;
+    z-index: 5;
+    transform: translate3d(0px, -100%, 0px);
+}
+.headroom--pinned {
+    position: fixed;
+    transform: translateY(0%);
+    top: -180px;
+    left: 0px;
+    right: 0px;
+    z-index: 95;
+    /*  transform: translate3d(0px, -100%, 0px); */
+}

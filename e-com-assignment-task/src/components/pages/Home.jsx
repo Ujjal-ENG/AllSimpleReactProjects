@@ -14,7 +14,9 @@ const Home = () => {
     return (
         <div>
             <Header />
+
             <Searchbar />
+
             <Categories />
             <Discover />
             <Company />
