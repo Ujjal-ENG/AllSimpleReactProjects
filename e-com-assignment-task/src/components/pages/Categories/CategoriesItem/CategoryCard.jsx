@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const CategoryCard = () => {
     return (
@@ -33,9 +34,9 @@ const CategoryCard = () => {
                                 <p>59m</p>
                             </div>
                             <div className="flex justify-between items-center px-2">
-                                <button type="button" className="btn btn-success">
+                                <Link to="/instructor-details" type="button" className="btn btn-success">
                                     Add to Cart?
-                                </button>
+                                </Link>
                                 <div className="tooltip" data-tip="hello">
                                     <button type="button">
                                         <AiOutlineHeart size={32} />
