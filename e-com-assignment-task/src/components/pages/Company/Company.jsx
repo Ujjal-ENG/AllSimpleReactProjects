@@ -3,7 +3,7 @@ import Marquee from 'react-fast-marquee';
 
 const Company = () => {
     return (
-        <div className="bg-gray-400 py-10 mt-20">
+        <div data-aos="fade-down" className="bg-gray-400 py-10 mt-20">
             <h1 className="text-5xl tracking-wider text-center font-bold pb-10 text-black">As Seen On</h1>
             <Marquee className="flex justify-between items-center">
                 <div>

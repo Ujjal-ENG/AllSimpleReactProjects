@@ -6,9 +6,15 @@ import Header from './Header/Header';
 const InstructorDetails = () => {
     return (
         <div>
-            <Header />
-            <CourseOverview />
-            <Company />
+            <div data-aos="fade-up">
+                <Header />
+            </div>
+            <div className="fade-up">
+                <CourseOverview />
+            </div>
+            <div data-aos="fade-down">
+                <Company />
+            </div>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import Marquee from 'react-fast-marquee';
 
 const Partners = () => {
     return (
-        <div className="bg-gray-400 py-10 mt-20">
+        <div data-aos="fade-down" className="bg-gray-400 py-10 mt-20">
             <h1 className="text-5xl tracking-wider text-center font-bold pb-14 text-black">We work with trusted partners to collaborate, engage and connect with you.</h1>
             <Marquee className="flex justify-between items-center">
                 <div>
