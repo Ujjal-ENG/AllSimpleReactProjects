@@ -21,7 +21,7 @@ const Navbar = () => {
     const navItems = (
         <div className="uppercase text-xl md:text-2xl flex md:flex-row flex-col items-center gap-5 ">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                <img src="https://s3.ap-southeast-1.amazonaws.com/uplyrn.com/uploads%2F0000%2F1%2F2021%2F02%2F10%2Fuplyrn-logo-reverse.png" alt="logo" className="w-40" />
+                <img src="https://s3.ap-southeast-1.amazonaws.com/uplyrn.com/uploads%2F0000%2F1%2F2021%2F02%2F10%2Fuplyrn-logo-reverse.png" alt="logo" className=" w-14 md:w-40" />
             </NavLink>
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                 Online Classes
@@ -58,7 +58,7 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-black">
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-72 bg-black">
                             {navItems}
                             <div className="mx-4 flex flex-col items-center gap-4">
                                 <Link to="/" className="text-2xl text-white">

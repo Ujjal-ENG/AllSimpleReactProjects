@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from 'react';
 import { BsArrowUp } from 'react-icons/bs';
 
