@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <BsArrowUp type="button" onClick={handleTop} size={32} className="absolute right-0 md:right-10 bottom-5 text-white" />
+            <BsArrowUp type="button" onClick={handleTop} size={32} className="absolute right-0 md:right-10 bottom-5 text-white cursor-pointer" />
         </div>
     );
 };

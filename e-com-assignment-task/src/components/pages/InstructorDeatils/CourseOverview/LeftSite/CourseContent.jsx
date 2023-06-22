@@ -1,10 +1,19 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { AiFillLock } from 'react-icons/ai';
 import { BsFillPlayFill } from 'react-icons/bs';
 import { TbPointFilled } from 'react-icons/tb';
+import Swal from 'sweetalert2';
 
 const CourseContent = () => {
+    const handlePay = () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Buy the Course Asap!!'
+        });
+    };
     return (
         <div className="border border-primary rounded-lg p-2 md:p-10 space-y-3 mb-10">
             <h1 className="text-2xl font-bold pb-5">Course Content</h1>
@@ -32,19 +41,19 @@ const CourseContent = () => {
 
                 <div className="collapse-content py-5">
                     <div className="flex items-center justify-between py-4">
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">
+                        <a href="#" className="inline-flex items-center gap-2 text-xl tracking-wider">
                             <BsFillPlayFill size={32} color="gray" />A Short intro About Me
-                        </p>
+                        </a>
                         <p className="inline-flex items-center gap-2 text-xl tracking-wider">40.16</p>
                     </div>
                     <div className="flex items-center justify-between">
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">
+                        <button type="button" onClick={handlePay} className="inline-flex cursor-pointer items-center gap-2 text-xl tracking-wider">
                             <BsFillPlayFill size={32} color="gray" />
                             My Projects
-                        </p>
+                        </button>
                         <p className="inline-flex items-center gap-2 text-xl tracking-wider">
                             <AiFillLock />
-                            40.16
+                            32.30
                         </p>
                     </div>
                 </div>
@@ -61,19 +70,19 @@ const CourseContent = () => {
                 </div>
                 <div className="collapse-content py-5">
                     <div className="flex items-center justify-between py-4">
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">
-                            <BsFillPlayFill size={32} color="gray" />A Short intro About Me
-                        </p>
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">40.16</p>
+                        <a href="#" className="inline-flex items-center gap-2 text-xl tracking-wider">
+                            <BsFillPlayFill size={32} color="gray" />A Short intro Course
+                        </a>
+                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">22.16</p>
                     </div>
                     <div className="flex items-center justify-between">
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">
+                        <button type="button" onClick={handlePay} className="inline-flex cursor-pointer items-center gap-2 text-xl tracking-wider">
                             <BsFillPlayFill size={32} color="gray" />
-                            My Projects
-                        </p>
+                            My Games
+                        </button>
                         <p className="inline-flex items-center gap-2 text-xl tracking-wider">
                             <AiFillLock />
-                            40.16
+                            47.30
                         </p>
                     </div>
                 </div>
@@ -90,19 +99,19 @@ const CourseContent = () => {
                 </div>
                 <div className="collapse-content py-5">
                     <div className="flex items-center justify-between py-4">
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">
+                        <a href="#" className="inline-flex items-center gap-2 text-xl tracking-wider">
                             <BsFillPlayFill size={32} color="gray" />A Short intro About Me
-                        </p>
+                        </a>
                         <p className="inline-flex items-center gap-2 text-xl tracking-wider">40.16</p>
                     </div>
                     <div className="flex items-center justify-between">
-                        <p className="inline-flex items-center gap-2 text-xl tracking-wider">
+                        <button type="button" onClick={handlePay} className="inline-flex cursor-pointer items-center gap-2 text-xl tracking-wider">
                             <BsFillPlayFill size={32} color="gray" />
                             My Projects
-                        </p>
+                        </button>
                         <p className="inline-flex items-center gap-2 text-xl tracking-wider">
                             <AiFillLock />
-                            40.16
+                            32.30
                         </p>
                     </div>
                 </div>
