@@ -1,0 +1,35 @@
+.section-title1 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #212b36;
+    margin-bottom: 22px;
+    align-items: center;
+    position: relative;
+}
+.section-paragraph1 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 28px;
+}
+.bar1 {
+    display: block;
+    width: 64%;
+    height: 7px;
+    background: #3d96f7;
+    bottom: 0;
+    left: 0;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.section-image {
+    width: 450px;
+    border: 2px solid #edd7f3d4;
+    border-radius: 75px;
+    box-shadow: #edd7f3d4 0px 3px 12px 12px;
+    padding: 20px 20px 0px;
+}
