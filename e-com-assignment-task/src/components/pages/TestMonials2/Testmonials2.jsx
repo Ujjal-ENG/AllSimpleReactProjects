@@ -24,7 +24,7 @@ const Testmonials2 = () => {
                         }}
                     />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center py-10 px-32">
-                        <div className=" bg-white p-10 rounded-2xl">
+                        <div className=" bg-white p-10 rounded-2xl transition-all duration-200 ease-in-out hover:scale-125">
                             <blockquote className="mt-7">
                                 <p className="text-xl leading-relaxed text-gray-800">
                                     “Great platform. I like there’s so many personal development courses available. I bought a communications course and learned a lot.”
@@ -50,7 +50,7 @@ const Testmonials2 = () => {
                             </div>
                             <h4 className="text-xl text-center">Atiksh P</h4>
                         </div>
-                        <div className=" bg-[#F58006]  p-10 rounded-2xl">
+                        <div className=" bg-[#F58006]  p-10 rounded-2xl transition-all duration-200 ease-in-out hover:scale-125">
                             <blockquote className="mt-7">
                                 <p className="text-xl leading-relaxed text-gray-800">“Great explanation on how to use Adobe Audition with its tools.”</p>
                             </blockquote>
@@ -74,7 +74,7 @@ const Testmonials2 = () => {
                             </div>
                             <h4 className="text-xl text-center text-white mt-auto">Tan Jun Hoe</h4>
                         </div>
-                        <div className=" bg-[#FF5C4E]  p-10 rounded-2xl">
+                        <div className=" bg-[#FF5C4E]  p-10 rounded-2xl transition-all duration-200 ease-in-out hover:scale-125">
                             <blockquote className="mt-7">
                                 <p className="text-xl leading-relaxed text-gray-800">“Great talk! I have gain much knowledge after watching the course.”</p>
                             </blockquote>
@@ -98,7 +98,7 @@ const Testmonials2 = () => {
                             </div>
                             <h4 className="text-xl text-center text-white mt-auto">Tan Joey</h4>
                         </div>
-                        <div className=" bg-white p-10 rounded-2xl">
+                        <div className=" bg-white p-10 rounded-2xl transition-all duration-200 ease-in-out hover:scale-125">
                             <blockquote className="mt-7">
                                 <p className="text-xl leading-relaxed text-gray-800">“I really like learning courses on this site. It is very easy to use and lecturers are good.”</p>
                             </blockquote>

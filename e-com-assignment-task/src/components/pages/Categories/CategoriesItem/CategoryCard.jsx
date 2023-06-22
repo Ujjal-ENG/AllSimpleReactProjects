@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const CategoryCard = () => {
     return (
         <div>
-            <section className="pb-20 rounded-2xl cursor-grab">
+            <section className="pb-20 rounded-2xl cursor-grab transition-all duration-200 ease-in-out hover:scale-125">
                 <div className="grid max-w-xl grid-cols-1 mx-5 shadow-2xl rounded-2xl ">
                     <div className="overflow-hidden bg-white  shadow-2xl py-4 rounded-2xl">
                         <div className="">
