@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Partners from './Partners/Partners';
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+    return (
+        <div>
+            <Partners />
+        </div>
+    );
+};
 
-export default Home
+export default Home;
