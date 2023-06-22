@@ -1,0 +1,57 @@
+.section-title {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+}
+.section-title p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000;
+    text-align: justify;
+}
+.section-title h1 {
+    padding: 10px 0px;
+    line-height: 22px;
+    color: #000;
+    text-align: justify;
+}
+
+.bar {
+    content: '';
+    display: block;
+    width: 64%;
+    height: 7px;
+    background: #93cc82;
+    bottom: 0;
+    left: 0;
+    border-radius: 25px;
+    margin: 20px 0px;
+}
+
+.section-title-coach {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section-title-coach p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #fff;
+    text-align: justify;
+}
+.section-title-coach h1 {
+    padding: 10px 0px;
+    line-height: 22px;
+    color: #fff;
+    text-align: justify;
+}
