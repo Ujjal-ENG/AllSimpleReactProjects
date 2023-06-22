@@ -53,7 +53,7 @@ const Slider = () => {
                     <img src="https://uplyrn.com/images/webpimg/previous-arrow.webp" width="50" height="50" className="position-absolute bottom-0 start-30 mx-5" />
                 </button>
                 <button className="carousel-control-next  position-absolute  start-50 " type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                    <img src="https://uplyrn.com/images/webpimg/next-arrow.webp" width="50" height="50" className="position-absolute bottom-0 start-50 mx-5 " />
+                    <img src="https://uplyrn.com/images/webpimg/next-arrow.webp" width="50" height="50" className="position-absolute bottom-0 start-50 mx-5" />
                 </button>
             </div>
         </div>

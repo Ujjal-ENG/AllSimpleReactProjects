@@ -17,7 +17,7 @@ const Learn = () => {
                     </button>
                 </div>
                 <div className="col">
-                    <img src="https://uplyrn.com/images/webpimg/EarnAsYouLearn.webp" alt="avatar" className="section-image" />
+                    <img src="https://uplyrn.com/images/webpimg/EarnAsYouLearn.webp" alt="avatar" className="section-image mx-5" />
                 </div>
             </div>
         </div>
