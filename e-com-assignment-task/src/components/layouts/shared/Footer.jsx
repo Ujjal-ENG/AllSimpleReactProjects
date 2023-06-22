@@ -53,7 +53,6 @@ const Footer = () => {
                     <img src="https://uplyrn.com/images/webpimg/iconyoutube.webp" alt="youtube" className="w-10" />
                 </div>
             </div>
-
             <BsArrowUp type="button" onClick={handleTop} size={32} className="absolute right-0 md:right-10 bottom-5 text-white cursor-pointer" />
         </div>
     );
