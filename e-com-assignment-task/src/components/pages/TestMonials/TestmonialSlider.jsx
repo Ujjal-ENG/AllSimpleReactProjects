@@ -43,31 +43,31 @@ const TestmonialSlider = () => {
                     }
                 }}
                 modules={[Pagination, Autoplay]}>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide1">
+                <SwiperSlide className="swiper-slide1 cursor-grab">
                     <SliderCard />
                 </SwiperSlide>
             </Swiper>
