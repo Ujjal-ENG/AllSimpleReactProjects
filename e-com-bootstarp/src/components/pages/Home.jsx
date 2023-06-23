@@ -1,6 +1,7 @@
 import React from 'react';
 import Categories from './Categories/Categories';
 import Company from './Company/Company';
+import Discover from './Discover/Discover';
 import Header from './Header/Header';
 import Learn from './Learn/Learn';
 import LearnOwn from './OwnTime/LearnOwn';
@@ -16,6 +17,7 @@ const Home = () => {
             <Header />
             <Searchbar />
             <Categories />
+            <Discover />
             <Company />
             <Testmonicals />
             <LearnOwn />
