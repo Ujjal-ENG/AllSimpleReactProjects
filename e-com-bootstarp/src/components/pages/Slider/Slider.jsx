@@ -10,7 +10,7 @@ import './slider1.css';
 
 const Slider = () => {
     return (
-        <div classNameName="py-5">
+        <div className="py-5">
             <div id="carouselExampleInterval" className="carousel slide carousel-fade position-relative" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div
