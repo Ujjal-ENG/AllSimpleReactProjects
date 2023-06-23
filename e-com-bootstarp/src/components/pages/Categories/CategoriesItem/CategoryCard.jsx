@@ -7,7 +7,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 
 const CategoryCard = () => {
     return (
-        <div className="card" style={{ width: '340px' }}>
+        <div className="card" style={{ width: '340px', cursor: 'grabbing' }}>
             <img
                 src="https://s3.ap-southeast-1.amazonaws.com/uplyrn.com/uploads%2F0000%2F50%2F2022%2F10%2F09%2Fbeing-a-productivity-guru-efficiency-tips-tricks-uplyrn.webp"
                 className="card-img-top"
