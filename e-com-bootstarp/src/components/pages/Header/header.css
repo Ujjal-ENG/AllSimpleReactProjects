@@ -1,0 +1,36 @@
+.header {
+    background-image: url('https://uplyrn.com/images/webpimg/web-banner.webp');
+    background-size: cover;
+    height: 100vh;
+    margin-top: -100px;
+}
+
+.header .inner-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+.header .inner-content .inner-content2 {
+    background-color: rgba(60, 22, 12, 0.3);
+    width: 100%;
+    padding: 20px;
+}
+
+.header .inner-content .inner-content2 h1 {
+    color: white;
+    opacity: 1;
+    z-index: 1;
+}
+
+.my-class {
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.my-class:hover {
+    transform: scale(1.1);
+}
