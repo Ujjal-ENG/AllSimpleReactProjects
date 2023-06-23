@@ -30,7 +30,6 @@ const Searchbar = () => {
                             maxWidth: '1400px',
                             margin: '0 auto',
                             backgroundColor: 'white',
-                            padding: '40px 30px 50px 40px',
                             borderRadius: '20px'
                         }}>
                         <div className="position-relative">
@@ -44,7 +43,7 @@ const Searchbar = () => {
                                     placeholder="Up for some learning and growing today?"
                                     aria-label="Up for some learning and growing today?"
                                     aria-describedby="addon-wrapping"
-                                    style={{ fontSize: '24px' }}
+                                    style={{ fontSize: '24px', boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.25)' }}
                                 />
                             </div>
                             <button type="button" className="btn btn-primary btn-abs btn-lg ">
