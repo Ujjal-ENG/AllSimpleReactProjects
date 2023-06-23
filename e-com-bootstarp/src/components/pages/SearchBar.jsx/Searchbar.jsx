@@ -38,7 +38,14 @@ const Searchbar = () => {
                                 <span className="input-group-text" id="addon-wrapping">
                                     <BiSearchAlt2 size={24} />
                                 </span>
-                                <input type="text" className="form-control py-4" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" />
+                                <input
+                                    type="text"
+                                    className="form-control py-4"
+                                    placeholder="Up for some learning and growing today?"
+                                    aria-label="Up for some learning and growing today?"
+                                    aria-describedby="addon-wrapping"
+                                    style={{ fontSize: '24px' }}
+                                />
                             </div>
                             <button type="button" className="btn btn-primary btn-abs btn-lg ">
                                 Search
@@ -61,9 +68,16 @@ const Searchbar = () => {
                             <span className="input-group-text" id="addon-wrapping">
                                 <BiSearchAlt2 size={24} />
                             </span>
-                            <input type="text" className="form-control py-4" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" />
+                            <input
+                                type="text"
+                                className="form-control py-4"
+                                placeholder="Up for some learning and growing today?"
+                                aria-label="Up for some learning and growing today?"
+                                aria-describedby="addon-wrapping"
+                                style={{ fontSize: '24px' }}
+                            />
                         </div>
-                        <button type="button" className="btn btn-primary btn-abs btn-lg ">
+                        <button type="button" className="btn btn-primary btn-abs btn-lg">
                             Search
                         </button>
                     </div>
