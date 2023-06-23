@@ -8,16 +8,17 @@
     font-size: 18px;
     background-color: #06202d;
     /* Center slide text vertically */
-    display: flex !important;
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .swiper-pagination-bullet {
-    width: 40px;
+    width: 50px;
     height: 50px;
     text-align: center;
-    line-height: 20px;
+    line-height: 50px;
     font-size: 24px;
     color: #000;
     opacity: 1;

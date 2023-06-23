@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 
 import './Slider.css';
 import SliderCard from './SliderCard';
@@ -24,10 +24,10 @@ const TestmonialSlider = () => {
                         return `<span class="${className}">${index + 1}</span>`;
                     }
                 }}
-                // autoplay={{
-                //     delay: 4500,
-                //     disableOnInteraction: false
-                // }}
+                autoplay={{
+                    delay: 4500,
+                    disableOnInteraction: false
+                }}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,
@@ -42,32 +42,31 @@ const TestmonialSlider = () => {
                         spaceBetween: 50
                     }
                 }}
-                // modules={[Pagination, Autoplay]}
-                modules={[Pagination]}
+                modules={[Pagination, Autoplay]}
                 className="container">
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75 " />
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25 " />
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
-                <SwiperSlide className="w-75">
+                <SwiperSlide className="w-25">
                     <SliderCard />
                 </SwiperSlide>
             </Swiper>
