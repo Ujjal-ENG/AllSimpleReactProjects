@@ -10,6 +10,7 @@ const Company = () => {
             <Marquee className="flex justify-between items-center">
                 <div>
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -23,6 +24,7 @@ const Company = () => {
 
                 <div>
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -36,6 +38,7 @@ const Company = () => {
 
                 <div>
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -49,6 +52,7 @@ const Company = () => {
 
                 <div>
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -62,6 +66,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -75,6 +80,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -88,6 +94,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -101,6 +108,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -114,6 +122,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -127,6 +136,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -140,6 +150,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
@@ -153,6 +164,7 @@ const Company = () => {
 
                 <div className="hidden md:block">
                     <img
+                        className="hovers"
                         style={{
                             height: '32px',
                             width: '100%',
