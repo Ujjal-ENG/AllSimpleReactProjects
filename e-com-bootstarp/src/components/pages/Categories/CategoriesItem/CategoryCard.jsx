@@ -4,16 +4,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const CategoryCard = () => {
     return (
-        <div className="card" style={{ width: '340px', cursor: 'grabbing' }}>
-            <img
-                src="https://s3.ap-southeast-1.amazonaws.com/uplyrn.com/uploads%2F0000%2F50%2F2022%2F10%2F09%2Fbeing-a-productivity-guru-efficiency-tips-tricks-uplyrn.webp"
-                className="card-img-top"
-                alt="card-img"
-            />
-            <div className="card-body">
+        <div className="card" style={{ width: '340px' }}>
+            <Link to="instructor-details">
+                <img
+                    src="https://s3.ap-southeast-1.amazonaws.com/uplyrn.com/uploads%2F0000%2F50%2F2022%2F10%2F09%2Fbeing-a-productivity-guru-efficiency-tips-tricks-uplyrn.webp"
+                    className="card-img-top"
+                    alt="card-img"
+                />
+            </Link>
+            <div className="card-body" style={{ cursor: 'grabbing' }}>
                 <p className="card-text">Tj Walker</p>
                 <h5 className="card-title">Being a Productivity Guru: Efficiency Tips & Tricks</h5>
                 <div className="d-flex justify-content-between align-items-center">
