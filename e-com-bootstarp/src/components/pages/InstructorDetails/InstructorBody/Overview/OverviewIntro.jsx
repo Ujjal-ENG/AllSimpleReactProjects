@@ -1,7 +1,12 @@
 import React from 'react';
+import OverviewContent from './OverViewContent/OverviewContent';
 
 const OverviewIntro = () => {
-    return <div>OverviewIntro</div>;
+    return (
+        <div>
+            <OverviewContent />
+        </div>
+    );
 };
 
 export default OverviewIntro;
