@@ -3,6 +3,7 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import CategorieItem from './CategoriesItem/CategorieItem';
 import './categories.css';
 
 const Categories = () => {
@@ -25,7 +26,9 @@ const Categories = () => {
                             <Tab className="text-xl font-bold text-black cursor-pointer focus:text-blue-600 focus:border-b-4 focus:border-b-blue-600 pb-3">Photography & Video</Tab>
                         </TabList>
 
-                        <TabPanel>{/* <CategorieItem /> */}</TabPanel>
+                        <TabPanel>
+                            <CategorieItem />
+                        </TabPanel>
                         <TabPanel>
                             <h2>Any content 2</h2>
                         </TabPanel>
