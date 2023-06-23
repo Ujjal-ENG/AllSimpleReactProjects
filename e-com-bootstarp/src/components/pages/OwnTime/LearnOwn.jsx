@@ -14,7 +14,7 @@ const LearnOwn = () => {
                             Everyone has their personal sweet spot when it comes to learning. With Uplyrn, you can choose to learn at any time, anywhere. But maybe not on a first date!
                         </p>
                     </div>
-                    <div className="col">
+                    <div className="col img">
                         <img src="https://uplyrn.com/images/webpimg/LearnAtYourOwnTime.webp" alt="avatar" className="section-image1 mx-5" />
                     </div>
                 </div>
