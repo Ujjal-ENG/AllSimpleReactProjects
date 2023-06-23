@@ -15,9 +15,10 @@
 }
 
 .header .inner-content .inner-content2 {
-    background-color: rgba(60, 22, 12, 0.3);
+    background-color: rgba(60, 22, 12, 0.5);
     width: 100%;
-    padding: 20px;
+    padding: 30px 40px;
+    border-radius: 30px;
 }
 
 .header .inner-content .inner-content2 h1 {
