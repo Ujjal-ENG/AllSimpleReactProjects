@@ -1,6 +1,10 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 import React from 'react';
+import { AiFillLock } from 'react-icons/ai';
+import { BsFillCircleFill, BsFillPlayFill } from 'react-icons/bs';
 import './overview.css';
 
 const OverviewContent = () => {
@@ -41,13 +45,102 @@ const OverviewContent = () => {
                 </p>
             </div>
 
-            <div id="overview" className="py-4 mt-4">
+            <div id="overview" className="py-4 mt-5">
                 <h3>Who this course is for</h3>
                 <p>Anyone who is willing to improve themselves in their personal & professional lives.</p>
             </div>
-            <div id="overview" className="py-4 mt-4">
+            <div id="overview" className="py-4 mt-5">
                 <h3>Requirements</h3>
                 <p>Anyone who is interested in improving themselves and making a better version of themselves is welcome to this course.</p>
+            </div>
+            <div id="overview" className="py-4 mt-5">
+                <h3>Course Content</h3>
+                <p className="d-flex justify-content-start align-items-center ">
+                    18 Sections <BsFillCircleFill className="me-2 ms-4" /> 101 Lectures
+                    <BsFillCircleFill className="me-2 ms-4" /> 4h 43m total length
+                </p>
+                <div>
+                    <div className="accordion" id="accordionExample">
+                        <div className="accordion-item">
+                            <h2 className="accordion-header" id="headingOne">
+                                <button
+                                    className="accordion-button d-flex flex-column justify-content-start align-items-start"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne"
+                                    aria-expanded="true"
+                                    aria-controls="collapseOne"
+                                    style={{ fontWeight: 'bolder', fontSize: '20px' }}>
+                                    About The Trainer
+                                    <span className="d-flex justify-content-start align-items-center pt-3 ">
+                                        7 Lectures <BsFillCircleFill className="ms-3 me-2" />
+                                        28 Minutes
+                                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                    <div className="d-flex justify-content-between align-items-center" style={{ cursor: 'pointer' }}>
+                                        <p className="d-inline-flex align-items-center " style={{ fontSize: '24px' }}>
+                                            <BsFillPlayFill size={40} color="gray" className="me-4" />A Short Intro About Me
+                                        </p>
+                                        <p style={{ fontSize: '24px' }}>04.34</p>
+                                    </div>
+                                    <div className="border my-2" />
+                                    <div className="d-flex justify-content-between align-items-center" style={{ cursor: 'pointer' }}>
+                                        <p className="d-inline-flex align-items-center " style={{ fontSize: '24px' }}>
+                                            <BsFillPlayFill size={40} color="gray" className="me-4" />A Short Intro About Project
+                                        </p>
+                                        <p className="d-inline-flex align-items-center " style={{ fontSize: '24px' }}>
+                                            {' '}
+                                            <AiFillLock />
+                                            14.34
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="accordion-item">
+                            <h2 className="accordion-header" id="headingTwo">
+                                <button
+                                    className="accordion-button d-flex flex-column justify-content-start align-items-start"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo"
+                                    aria-expanded="true"
+                                    aria-controls="collapseTwo"
+                                    style={{ fontWeight: 'bolder', fontSize: '20px' }}>
+                                    About You
+                                    <span className="d-flex justify-content-start align-items-center pt-3 ">
+                                        2 Lectures <BsFillCircleFill className="ms-3 me-2" />
+                                        28 Minutes
+                                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                    <div className="d-flex justify-content-between align-items-center" style={{ cursor: 'pointer' }}>
+                                        <p className="d-inline-flex align-items-center " style={{ fontSize: '24px' }}>
+                                            <BsFillPlayFill size={40} color="gray" className="me-4" />A Short Intro About Me
+                                        </p>
+                                        <p style={{ fontSize: '24px' }}>04.34</p>
+                                    </div>
+                                    <div className="border my-2" />
+                                    <div className="d-flex justify-content-between align-items-center" style={{ cursor: 'pointer' }}>
+                                        <p className="d-inline-flex align-items-center " style={{ fontSize: '24px' }}>
+                                            <BsFillPlayFill size={40} color="gray" className="me-4" />A Short Intro About Project
+                                        </p>
+                                        <p className="d-inline-flex align-items-center " style={{ fontSize: '24px' }}>
+                                            {' '}
+                                            <AiFillLock />
+                                            14.34
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
