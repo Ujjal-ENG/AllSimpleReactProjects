@@ -15,7 +15,7 @@ const Slider = () => {
                 <div className="carousel-inner">
                     <div
                         className="carousel-item active "
-                        data-bs-interval="12000"
+                        data-bs-interval="3000"
                         style={{
                             height: '500px',
                             objectFit: 'cover',
@@ -32,7 +32,7 @@ const Slider = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="carousel-item " data-bs-interval="12000">
+                    <div className="carousel-item " data-bs-interval="2000">
                         <img
                             src="https://uplyrn.com/images/webpimg/VirtualMentoring.webp"
                             className="d-block  w-100"
