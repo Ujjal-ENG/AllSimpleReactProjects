@@ -1,4 +1,5 @@
 import React from 'react';
+import Categories from './Categories/Categories';
 import Company from './Company/Company';
 import Header from './Header/Header';
 import Learn from './Learn/Learn';
@@ -14,6 +15,7 @@ const Home = () => {
         <div>
             <Header />
             <Searchbar />
+            <Categories />
             <Company />
             <Testmonicals />
             <LearnOwn />
