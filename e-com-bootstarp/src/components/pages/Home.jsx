@@ -1,4 +1,5 @@
 import React from 'react';
+import Company from './Company/Company';
 import Learn from './Learn/Learn';
 import LearnOwn from './OwnTime/LearnOwn';
 import Partners from './Partners/Partners';
@@ -9,6 +10,7 @@ import Testmonials2 from './TestMonials2/Testmonials2';
 const Home = () => {
     return (
         <div>
+            <Company />
             <Testmonicals />
             <LearnOwn />
             <Learn />
