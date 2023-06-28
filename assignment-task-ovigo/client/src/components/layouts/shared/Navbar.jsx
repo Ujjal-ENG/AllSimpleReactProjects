@@ -16,7 +16,6 @@ import useAdmin from '../../../hooks/useAdmin';
 const Navbar = () => {
     const { userInfo, logOutUser } = useContext(AuthContext);
     const [isAdmin] = useAdmin();
-    console.log(isAdmin);
     const [theme, setTheme] = useState('light');
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
