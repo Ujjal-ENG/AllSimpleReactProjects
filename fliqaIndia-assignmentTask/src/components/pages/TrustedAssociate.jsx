@@ -21,7 +21,7 @@ const TrustedAssociate = () => {
         <div className="bg-gradient-to-r from-teal-400 to-teal-900 relative">
             <div className="flex md:flex-row flex-col justify-between items-center">
                 <div>
-                    <h2 className="text-5xl font-semibold tracking-wider px-10 pt-14 text-teal-700">Find Trusted Associate</h2>
+                    <h2 className="text-5xl font-semibold tracking-wider px-2 md:px-10 pt-7 md:pt-14 text-teal-700">Find Trusted Associate</h2>
                     <p className=" pb-10 px-10 text-xl tracking-wider text-black">Find the best Fliqa Associate for your Special Day</p>
                 </div>
                 <div className="px-10 flex justify-center items-center ">
@@ -30,7 +30,7 @@ const TrustedAssociate = () => {
                     <IoIosArrowForward size={34} />
                 </div>
             </div>
-            <div className="px-20 py-10">
+            <div className="px-4 md:px-20 py-10">
                 <Swiper
                     slidesPerView={1}
                     breakpoints={{
@@ -40,7 +40,7 @@ const TrustedAssociate = () => {
                         },
                         768: {
                             slidesPerView: 1,
-                            spaceBetween: 10
+                            spaceBetween: 20
                         },
                         1024: {
                             slidesPerView: 3,
@@ -66,7 +66,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -84,7 +84,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -102,7 +102,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -120,7 +120,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -138,7 +138,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -156,7 +156,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -174,7 +174,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -192,7 +192,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
@@ -210,7 +210,7 @@ const TrustedAssociate = () => {
                                 <h1 className="text-xl">Name Title</h1>
                                 <p className="text-xs">Location</p>
                             </div>
-                            <div className="w-48">
+                            <div className="wf md:w-48">
                                 <img src={logo} alt="logo" className="w-full h-20 object-cover" />
                             </div>
                         </div>
