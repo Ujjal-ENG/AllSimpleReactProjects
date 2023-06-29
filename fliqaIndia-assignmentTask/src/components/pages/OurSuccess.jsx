@@ -10,7 +10,7 @@ const OurSuccess = () => {
         <div className="mg:w-[1650px] w-full md:p-0 p-10 rounded-xl mx-auto mt-10 h-full mg:h-[460px] bg-[#ACCBC7]">
             <h1 className="text-[#4C696D] text-4xl font-semibold text-center pt-5 pb-2">Our Success</h1>
             <h1 className="text-[#4C696D] text-xl font-semibold text-center  pb-2">Journey of Our Success</h1>
-            <div className="grid md:grid-cols-5 grid-cols-1 justify-items-center gap-5 md:gap-0 px-10 pt-10">
+            <div className="grid md:grid-cols-5 grid-cols-1 justify-items-center gap-5 md:gap-0 px-10  py-10">
                 <div className="flex justify-center items-center flex-col gap-3">
                     <div className="w-48 h-48 rounded-full bg-white flex justify-center items-center">
                         <img src={logo1} alt="logo1" />
