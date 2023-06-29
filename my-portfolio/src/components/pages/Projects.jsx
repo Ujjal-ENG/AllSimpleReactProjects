@@ -27,9 +27,9 @@ const Projects = () => {
             </div>
             <h1 className="text-6xl font-bold tracking-widest text-center pt-4">Case Study</h1>
             {/* full stack projects */}
+            <FlaborsomeFood />
             <FoodieAdventurer />
             <ToyTroppers />
-            <FlaborsomeFood />
             <ConffeExpresso />
         </div>
     );
