@@ -353,7 +353,7 @@ const Navbar = () => {
                     <button className="login bg-transparent font-[Inter] text-xs text-white rounded-full px-6 py-1 mx-1 sm:inline-block hidden  border-[2px] border-white hover:bg-white hover:text-black transition-all ease-in">
                         Sign In
                     </button>
-                    <div>
+                    <div className="md:px-0 px-4">
                         <label htmlFor="themeToggle" className="swap swap-rotate">
                             <input type="checkbox" id="themeToggle" checked={theme === 'dark' ? 'light' : 'dark'} onChange={toggleTheme} className="hidden" />
 

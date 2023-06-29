@@ -17,7 +17,7 @@ const Discover = () => {
 
                 <div className="absolute inset-0 block bg-black/60 md:hidden" />
 
-                <div className="relative px-8  max-w-7xl">
+                <div className="relative px-20  max-w-7xl ">
                     <div className="text-center lg:w-2/3 xl:w-1/3 md:text-left pb-32">
                         <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl uppercase">Discover</h2>
                         <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl uppercase">Graphic Design Ideas</h2>
@@ -25,22 +25,22 @@ const Discover = () => {
                         <p className="mt-4 uppercase tracking-wider text-xl text-gray-200">From Branding to Marketing</p>
                     </div>
                     <div className="join flex justify-start mt-auto w-full">
-                        <input className="input rounded-t-full rounded-b-full pl-12 text-xl  border-black  max-w-xl  w-full join-item" placeholder="Search service" />
-                        <button type="button" className="btn -ml-14 bg-black text-white z-10 px-24 rounded-full">
+                        <input className="input rounded-t-full rounded-b-full pl-2 md:pl-12 text-xl  border-black  max-w-xl   w-full join-item" placeholder="Search service" />
+                        <button type="button" className="btn md:-ml-0 -ml-14 bg-black text-white z-10 px-5 md:px-24 rounded-full">
                             Search
                         </button>
                     </div>
                     <div className="md:block hidden">
-                        <div className="absolute top-0 left-2/3">
+                        <div className="absolute top-0 left-1/3">
                             <img src={img1} alt="img1" className="border-8 border-black" />
                         </div>
-                        <div className="absolute -top-20 -right-10">
+                        <div className="absolute -top-20 left-2/3">
                             <img src={img2} alt="img2" className="border-8 border-black" />
                         </div>
-                        <div className="absolute top-40 -right-72">
+                        <div className="absolute top-40 -right-20">
                             <img src={img3} alt="img3" className="border-8 border-black" />
                         </div>
-                        <div className="absolute -top-24 -right-1/3">
+                        <div className="absolute -top-24 -right-60">
                             <img src={img4} alt="img4" className="border-8 border-black" />
                         </div>
                     </div>

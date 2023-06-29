@@ -30,7 +30,7 @@ const TrustedAssociate = () => {
                     <IoIosArrowForward size={34} />
                 </div>
             </div>
-            <div className="px-4 md:px-20 py-10">
+            <div className="px-4 md:px-20 py-10 mySwiper">
                 <Swiper
                     slidesPerView={1}
                     breakpoints={{
@@ -51,8 +51,7 @@ const TrustedAssociate = () => {
                     pagination={{
                         clickable: true
                     }}
-                    modules={[FreeMode, Pagination]}
-                    className="mySwiper">
+                    modules={[FreeMode, Pagination]}>
                     <SwiperSlide>
                         <div className="md:w-96 w-full h-96 rounded-2xl">
                             <img
