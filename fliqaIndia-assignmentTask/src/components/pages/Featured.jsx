@@ -13,7 +13,7 @@ const Featured = () => {
             </div>
             <div className="px-10 md:px-20 flex flex-col md:grid grid-cols-1  gap-14 md:grid-cols-4 justify-items-center py-10 relative">
                 <div className="shadow-2xl rounded-b-2xl">
-                    <div className="xl:w-[350px]  w-full h-72 rounded-b-2xl">
+                    <div className="xl:w-[350px] w-full h-72 rounded-b-2xl">
                         <img
                             src="https://images.pexels.com/photos/13123599/pexels-photo-13123599.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"

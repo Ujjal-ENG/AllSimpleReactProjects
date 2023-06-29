@@ -6,7 +6,7 @@ import goa2 from '../../assets/goa2.png';
 const Blogs = () => {
     return (
         <>
-            <div className="py-10 flex justify-center items-center ">
+            <div className="py-10 md:px-4 px-8 flex justify-center items-center ">
                 <h1 className="text-3xl tracking-widest">
                     Popular: <span className="text-gray-500 ml-10">Website Design Logo Design Brochure Label Design</span>
                 </h1>

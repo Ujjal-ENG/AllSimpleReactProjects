@@ -25,8 +25,8 @@ const Discover = () => {
                         <p className="mt-4 uppercase tracking-wider text-xl text-gray-200">From Branding to Marketing</p>
                     </div>
                     <div className="join flex justify-start mt-auto w-full">
-                        <input className="input rounded-t-full rounded-b-full pl-2 md:pl-12 text-xl  border-black  max-w-xl   w-full join-item" placeholder="Search service" />
-                        <button type="button" className="btn  md:-ml-14 bg-black text-white z-10 px-5 md:px-24 rounded-full">
+                        <input className="input rounded-t-full rounded-b-full pl-2 md:pl-12 text-xl  border-black max-w-2xl join-item" placeholder="Search service" />
+                        <button type="button" className="btn  -ml-14 bg-black text-white z-10 px-5 md:px-24 rounded-full">
                             Search
                         </button>
                     </div>
