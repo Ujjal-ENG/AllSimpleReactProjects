@@ -3,8 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import Navbar from './components/layouts/Navbar/Navbar';
 import Footer from './components/layouts/shared/Footer';
-import Navbar from './components/layouts/shared/Navbar';
 
 const App = () => {
     useEffect(() => {
