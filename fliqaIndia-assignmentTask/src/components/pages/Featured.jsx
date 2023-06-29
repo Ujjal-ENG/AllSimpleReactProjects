@@ -11,9 +11,9 @@ const Featured = () => {
                 <h2 className="text-5xl font-semibold tracking-wider px-10 pt-14 text-teal-700">Our Featured Services</h2>
                 <p className=" pb-10 px-10 text-xl tracking-wider text-black">Discover the range of services provided by FliqaIndia</p>
             </div>
-            <div className="px-20 grid grid-cols-1 gap-14 md:grid-cols-4 justify-items-center py-10 relative">
+            <div className="px-10 md:px-20 flex flex-col md:grid grid-cols-1  gap-14 md:grid-cols-4 justify-items-center py-10 relative">
                 <div className="shadow-2xl rounded-b-2xl">
-                    <div className="w-96 h-72 rounded-b-2xl">
+                    <div className="xl:w-[350px]  w-full h-72 rounded-b-2xl">
                         <img
                             src="https://images.pexels.com/photos/13123599/pexels-photo-13123599.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
@@ -22,7 +22,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-80 mx-auto h-0.5 " />
+                        <div className="bg-black  xl:w-[350px]  w-full mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
@@ -32,7 +32,7 @@ const Featured = () => {
                     </div>
                 </div>
                 <div className="shadow-2xl rounded-b-2xl">
-                    <div className="w-96 h-72 rounded-b-2xl">
+                    <div className="  xl:w-[350px]  w-full h-72 rounded-b-2xl">
                         <img
                             src="https://images.pexels.com/photos/14840508/pexels-photo-14840508.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
@@ -41,7 +41,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-80 mx-auto h-0.5 " />
+                        <div className="bg-black    xl:w-[350px]  w-full mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
@@ -51,7 +51,7 @@ const Featured = () => {
                     </div>
                 </div>
                 <div className="shadow-2xl rounded-b-2xl">
-                    <div className="w-96 h-72 rounded-b-2xl">
+                    <div className="  xl:w-[350px]  w-full h-72 rounded-b-2xl">
                         <img
                             src="https://images.pexels.com/photos/725463/pexels-photo-725463.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
@@ -60,7 +60,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-80 mx-auto h-0.5 " />
+                        <div className="bg-black    xl:w-[350px]  w-full mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>
@@ -71,7 +71,7 @@ const Featured = () => {
                 </div>
 
                 <div className="shadow-2xl rounded-b-2xl">
-                    <div className="w-96 h-72 rounded-b-2xl">
+                    <div className="  xl:w-[350px]  w-full h-72 rounded-b-2xl">
                         <img
                             src="https://images.pexels.com/photos/1777843/pexels-photo-1777843.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="weeding1"
@@ -80,7 +80,7 @@ const Featured = () => {
                     </div>
                     <div className="space-y-2 pt-5 rounded-b-2xl">
                         <h1 className="text-2xl font-bold text-center">Pre Wedding Photoshoot</h1>
-                        <div className="bg-black  w-80 mx-auto h-0.5 " />
+                        <div className="bg-black    xl:w-[350px]  w-full mx-auto h-0.5 " />
                         <p className="text-xl text-center font-bold text-gray-500">
                             Starting at <span className="font-normal">25,000 (One Day)</span>
                         </p>

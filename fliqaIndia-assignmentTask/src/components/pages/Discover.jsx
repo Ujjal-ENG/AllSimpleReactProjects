@@ -10,14 +10,14 @@ const Discover = () => {
         <div className="py-10">
             <section className="relative py-10 overflow-hidden bg-black sm:py-16 lg:py-24 xl:py-32">
                 <div className="absolute inset-0">
-                    <img className="object-fill w-full h-full" src={bannerImg} alt="bannner" />
+                    <img className="object-fill w-full h-full" src={bannerImg} alt="banner" />
                 </div>
 
                 <div className="absolute inset-0 hidden bg-gradient-to-r md:block from-black to-transparent" />
 
                 <div className="absolute inset-0 block bg-black/60 md:hidden" />
 
-                <div className="relative px-20  max-w-7xl ">
+                <div className="relative px-20  w-full md:max-w-7xl ">
                     <div className="text-center lg:w-2/3 xl:w-1/3 md:text-left pb-32">
                         <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl uppercase">Discover</h2>
                         <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl uppercase">Graphic Design Ideas</h2>
@@ -26,7 +26,7 @@ const Discover = () => {
                     </div>
                     <div className="join flex justify-start mt-auto w-full">
                         <input className="input rounded-t-full rounded-b-full pl-2 md:pl-12 text-xl  border-black  max-w-xl   w-full join-item" placeholder="Search service" />
-                        <button type="button" className="btn md:-ml-0 -ml-14 bg-black text-white z-10 px-5 md:px-24 rounded-full">
+                        <button type="button" className="btn  md:-ml-14 bg-black text-white z-10 px-5 md:px-24 rounded-full">
                             Search
                         </button>
                     </div>

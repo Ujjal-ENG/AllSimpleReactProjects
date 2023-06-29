@@ -67,7 +67,7 @@ const Blogs = () => {
                 <div className="absolute w-8 h-8 rounded-full bg-white top-24 left-3/4" />
                 <div className="absolute w-4 h-4 rounded-full bg-white top-14 left-3/4" />
 
-                <div className="right-0 top-36 absolute md:block hidden">
+                <div className="right-0 md:right-20 top-36 absolute md:block hidden">
                     <div className="flex justify-between items-center gap-36">
                         <h1 className="text-2xl font-bold">Trending Now</h1>
                         <h1 className="text-2xl font-bold">View All</h1>
