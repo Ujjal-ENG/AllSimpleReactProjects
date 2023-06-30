@@ -33,7 +33,8 @@ const App = () => {
             window.removeEventListener('load', handlePageLoad);
         };
     }, [isLoading]);
-
+    // company Logo
+    // company tag line
     if (isLoading) {
         return (
             <div className="flex flex-col items-center justify-center h-screen w-screen space-y-9">
