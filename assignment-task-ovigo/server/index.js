@@ -111,36 +111,6 @@ async function run() {
             }
         };
 
-        // hotels route
-        app.get('/hotels', async (req, res) => {
-          try {
-              const query = req.query.placeName;
-
-              const result = await hotelsCollections.find({ placeName: query }).toArray();
-
-              res.status(200).json({ 
-                success: true,
-                data: result,
-                 });
-            } catch (error) {
-                console.log(error);
-            }
-        });
-
-        // hotels post route
-        app.post('/hotels', verifyJWT, verifyAdmin, async (req, res) => {
-          try {
-             const result = await hotelsCollections.insertOne({ ...req.body });
-
-              res.status(200).json({ 
-                success: true,
-                data: result,
-                 });
-            } catch (error) {
-                console.log(error);
-            }
-        });
-
         // users related api
         // check admin or not
 
