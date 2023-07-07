@@ -1,0 +1,7 @@
+.boxImg {
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    gap: 20px;
+}

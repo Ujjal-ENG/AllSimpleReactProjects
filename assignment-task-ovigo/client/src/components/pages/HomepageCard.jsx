@@ -8,8 +8,12 @@ const HomepageCard = () => {
             <section className="bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-3 py-10 px-10 gap-5">
                     <div className="relative flex items-end px-4 pb-10 pt-60 sm:pb-16 md:justify-center lg:pb-24 bg-gray-50 sm:px-6 lg:px-8">
-                        <div className="absolute inset-0 ">
-                            <img className="object-cover w-full h-full" src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=600" alt="image" />
+                        <div className="absolute inset-0 boxImg">
+                            <img
+                                className="object-cover w-full h-full hover:scale-150 overflow-hidden transition-all duration-700"
+                                src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                alt="image"
+                            />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
 
