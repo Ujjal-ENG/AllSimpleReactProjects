@@ -1,13 +1,13 @@
-FROM node
+FROM node:latest
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
 EXPOSE 5173
 
-CMD [ "yarn", "dev" ]
+CMD [ "npm", "start" ]
