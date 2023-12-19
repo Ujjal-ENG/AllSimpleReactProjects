@@ -18,7 +18,7 @@ function BlogCard({ data }) {
                     <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{date}</div>
                     <h2 className="block mt-1 text-lg leading-tight font-medium text-black">{title}</h2>
                     <p className="mt-2 text-gray-500 ">
-                        {isOpen ? description : description.slice(0, 200)}
+                        {isOpen ? description : description?.slice(0, 200)}
                         ...
                     </p>
                     <button type="button" className="btn btn-xs duration-200 transition-all ease-in-out" onClick={() => setIsOpen(!isOpen)}>
