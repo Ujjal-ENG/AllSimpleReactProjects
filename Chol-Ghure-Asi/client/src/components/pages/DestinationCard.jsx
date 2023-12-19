@@ -34,7 +34,7 @@ function DestinationCard({ data }) {
                         <div>
                             <h3 className="text-lg font-bold mb-2">Top Attractions</h3>
                             <ul className="list-disc pl-5 mb-2">
-                                {top_attractions.map((el, idx) => (
+                                {top_attractions?.map((el, idx) => (
                                     <li key={idx}>{el}</li>
                                 ))}
                             </ul>
@@ -42,7 +42,7 @@ function DestinationCard({ data }) {
                         <div>
                             <h3 className="text-lg font-bold mb-2">Activities</h3>
                             <ul className="list-disc pl-5 mb-2">
-                                {activities.map((el, idx) => (
+                                {activities?.map((el, idx) => (
                                     <li key={idx}>{el}</li>
                                 ))}
                             </ul>
@@ -51,10 +51,10 @@ function DestinationCard({ data }) {
                         <div>
                             <h3 className="text-lg font-bold mb-2">Weather</h3>
                             <p className="text-gray-700 text-base mb-2">
-                                Average Temperature: {temperature.average_high}, Low {temperature.average_low}
+                                Average Temperature: {temperature?.average_high}, Low {temperature?.average_low}
                             </p>
                             <p className="text-gray-700 text-base mb-2">
-                                Rainfall: Average {rainfall.average}, Rainy Season {rainfall.rainy_season}
+                                Rainfall: Average {rainfall?.average}, Rainy Season {rainfall?.rainy_season}
                             </p>
                             <p className="text-gray-700 text-base mb-2">Best Time to Visit: {best_time_to_visit}</p>
                         </div>
