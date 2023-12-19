@@ -17,7 +17,7 @@ function Blog() {
                 Blogs
             </h1>
 
-            <div className="grid grid-cols-2 gap-8 mt-5">{blogs && blogs.map((blog) => <BlogCard key={blog.id} data={blog} />)}</div>
+            <div className="grid grid-cols-2 gap-8 mt-5">{blogs && blogs?.map((blog) => <BlogCard key={blog?.id} data={blog} />)}</div>
         </div>
     );
 }
