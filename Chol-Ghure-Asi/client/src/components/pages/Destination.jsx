@@ -17,7 +17,7 @@ function Destination() {
             <h1 className="hover-stroke text-6xl w-full font-bold" data-text="Top Destination">
                 Top Destination
             </h1>
-            {destination && destination.map((el, idx) => <DestinationCard key={idx} data={el} />)}
+            {destination && destination?.map((el, idx) => <DestinationCard key={idx} data={el} />)}
         </div>
     );
 }
