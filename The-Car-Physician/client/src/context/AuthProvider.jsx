@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
 
-            await updateProfile(user.user, {
+            await updateProfile(user?.user, {
                 displayName: name,
                 photoURL: photo
             });
@@ -126,12 +126,12 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, async (currentUser) => {
-            if (currentUser && currentUser.email) {
-                const { data } = await axios.post('https://the-car-physician-server.vercel.app/jwt', { email: currentUser.email });
+            if (currentUser && currentUser?.email) {
+                const { data } = await axios.post('https://the-car-physician-server.vercel.app/jwt', { email: currentUser?.email });
 
-                localStorage.setItem('token', data.token);
+                localStorage?.setItem('token', data?.token);
             } else {
-                localStorage.removeItem('token');
+                localStorage?.removeItem('token');
             }
             setPrivateLoad(false);
             setUserInfo(currentUser);
