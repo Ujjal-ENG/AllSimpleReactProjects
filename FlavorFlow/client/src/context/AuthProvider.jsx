@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
         setPrivateLoad(true);
         try {
             const user = await createUserWithEmailAndPassword(auth, email, password);
-            await updateProfile(user.user, {
+            await updateProfile(user?.user, {
                 displayName: name,
                 photoURL: photo
             });
@@ -52,8 +52,8 @@ const AuthProvider = ({ children }) => {
 
             // get and set token
             if (currentUser) {
-                axios.post('http://localhost:8080/jwt', { email: currentUser.email }).then((data) => {
-                    localStorage.setItem('token', data.data.token);
+                axios.post('http://localhost:8080/jwt', { email: currentUser?.email }).then((data) => {
+                    localStorage.setItem('token', data?.data?.token);
                     setPrivateLoad(false);
                 });
             } else {
