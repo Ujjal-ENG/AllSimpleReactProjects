@@ -32,7 +32,7 @@ function AuthProviders({ children }) {
                     console.log(error);
                 },
                 () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                    getDownloadURL(uploadTask?.snapshot?.ref).then(async (downloadURL) => {
                         await updateProfile(res.user, {
                             displayName: name,
                             photoURL: downloadURL
@@ -42,13 +42,13 @@ function AuthProviders({ children }) {
             );
 
             await setDoc(doc(db, 'users', res.user.uid), {
-                uid: res.user.uid,
+                uid: res?.user?.uid,
                 name,
                 email,
                 url
             });
 
-            await setDoc(doc(db, 'userChats', res.user.uid), {});
+            await setDoc(doc(db, 'userChats', res?.user?.uid), {});
 
             setLoading(false);
         } catch (error) {
